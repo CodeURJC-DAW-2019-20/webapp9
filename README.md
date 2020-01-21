@@ -20,4 +20,8 @@ Los torneos tendrán los siguientes datos:
 Existirán datos que solo aparecerán para los usuarios registrados
 - Botón para participar
 
-Estos
+## Partidas
+Los torneos estarán conformados por varias partidas. Los usuarios podrán acceder a la información de la partida y si son participantes tendrán habilitada una subida de imagen para mostrar quien ha sido el ganador de la partida.
+
+## Equipos
+Se podrán crear equipos de juegos para participar con otras personas.
