@@ -1,106 +1,209 @@
-
 <html>
-<link href="../core/bootstrap.min.css" rel="stylesheet">
-<body>
-<div class="container">
+<head>
+  <meta charset="utf-8"></meta>
 
-    <form class="well form-horizontal" action=" " method="post"  id="contact_form">
-<fieldset>
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="IE=edge,chrome=1"
+  ></meta>
 
-<!-- Form Name -->
-<legend>
-    <center><h2><b>Create your team!</b></h2></center></legend><br>
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+  ></meta>
 
-<!-- Text input-->
+  <link
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  ></link>
 
-<div class="form-group">
-  <label class="col-md-4 control-label">Team´s name</label>  
-  <div class="col-md-4 inputGroupContainer">
-  <div class="input-group">
-  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-  <input  name="team_name" placeholder="Your team´s name here" class="form-control"  type="text">
-    </div>
-  </div>
-</div>
+  <link
+    href="https://fonts.googleapis.com/css?family=Holtwood+One+SC"
+    rel="stylesheet"
+    type="text/css"
+  ></link>
 
-<!-- Text input-->
-  <div class="form-group"> 
-  <label class="col-md-4 control-label">Game</label>
-    <div class="col-md-4 selectContainer">
-    <div class="input-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-    <select name="game" class="form-control selectpicker">
-      <option value="">Select your game</option>
-      <option>Rocket League</option>
-      <option >League of Legends</option>
-    </select>
-  </div>
-</div>
-</div>
-  
-<!-- Text input-->
+  <link
+    href="https://fonts.googleapis.com/css?family=Kaushan+Script|Herr+Von+Muellerhoff"
+    rel="stylesheet"
+    type="text/css"
+  ></link>
 
-<div class="form-group">
-    <label class="col-md-4 control-label">Second player</label>  
-    <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="player2" placeholder="Username of your first teammate" class="form-control"  type="text">
+  <link
+    href="https://fonts.googleapis.com/css?family=Abel"
+    rel="stylesheet"
+    type="text/css"
+  ></link>
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Istok+Web|Roboto+Condensed:700"
+    rel="stylesheet"
+    type="text/css"
+  ></link>
+
+  <link
+    href="diamonds-tournament-style.css"
+    rel="stylesheet"
+    type="text/css"
+  ></link>
+
+  <link
+    href="../core/bootstrap.bundle.min.js"
+    rel="stylesheet"
+  ></link>
+
+  <title>Create your tournament</title>
+</head>
+
+<body class="">
+  <div class="container">
+    <form
+      class="well form-horizontal"
+      action=""
+      method="post"
+      id="contact_form"
+    >
+      <fieldset>
+        <!-- Form Name -->
+
+        <legend>
+          <center>
+            <h2>
+              <b>Create your braket!</b>
+            </h2>
+          </center>
+        </legend>
+
+        <!-- Text input -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Tournament´s name</label>
+
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-user"></i>
+              </span>
+
+              <input
+                name="team_name"
+                placeholder="Your tournament´s name here"
+                class="form-control"
+                type="text"
+              ></input>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
-    
-<!-- Text input-->
 
-<div class="form-group">
-    <label class="col-md-4 control-label">Third player</label>  
-    <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="player3" placeholder="Username of your third teammate" class="form-control"  type="text">
+        <!-- Text input -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Game</label>
+
+          <div class="col-md-4 selectContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-list"></i>
+              </span>
+
+              <select
+                name="game"
+                class="form-control selectpicker"
+              >
+                <option value="">Select your game</option>
+
+                <option>Rocket League</option>
+
+                <option>League of Legends</option>
+
+                <option>Pokemon</option>
+              </select>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
 
-<!-- Text input-->
+        <!-- Text input -->
 
-<div class="form-group">
-    <label class="col-md-4 control-label">Fourth player</label>  
-    <div class="col-md-4 inputGroupContainer">
-        <div class="input-group">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input  name="player4" placeholder="Username of your last teammate" class="form-control"  type="text">
+        <div class="form-group">
+          <label class="col-md-4 ml-auto control-label">Number of playes</label>
+
+          <div class="col-md-5  selectContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-list"></i>
+              </span>
+
+              <select
+                name="game"
+                class="form-control selectpicker"
+              >
+                <option value="">Select number of players</option>
+
+                <option>2</option>
+
+                <option>4</option>
+
+                <option>8</option>
+
+                <option>16</option>
+
+                <option>32</option>
+              </select>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
 
+        <!-- Select Basic -->
 
-<!-- Select Basic -->
-<div class="input-group">
-    <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
-    </div>
-    <div class="custom-file">
-        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span
+              class="input-group-text"
+              id="inputGroupFileAddon01"
+            >Upload</span>
+          </div>
+
+          <div class="custom-file">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="inputGroupFile01"
+              aria-describedby="inputGroupFileAddon01"
+            ></input>
+
+            <label
+              class="custom-file-label"
+              for="inputGroupFile01"
+            >Choose your tournament layout</label>
+          </div>
+        </div>
+
+        <!-- Success message -->
+
+        <div
+          class="alert alert-success"
+          role="alert"
+          id="success_message"
+        >
+          Success
+
+          <i class="glyphicon glyphicon-thumbs-up"></i>
+          Success!.
+        </div>
+
+        <!-- Button -->
+
+        <div class="footer">
+          <button
+            type="button"
+            class="btn btn-success"
+          >Post</button>
+        </div>
+      </fieldset>
+    </form>
   </div>
-</div>
 
-<!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
-
-<!-- Button -->
-<div class="form-group">
-  <label class="col-md-4 control-label"></label>
-  <div class="col-md-4"><br>
-    <button type="submit" class="btn btn-warning" > <span class="glyphicon glyphicon-send"></span></button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-</div>
-<script src="../core/jquery-3.4.1.slim.min.js" ></script>
-<script src="../core/bootstrap.bundle.min.js"></script>
+  <script src="../core/jquery-3.4.1.slim.min.js"></script>
+  <script src="../core/bootstrap.bundle.min.js"></script>
 </body>
 </html>
