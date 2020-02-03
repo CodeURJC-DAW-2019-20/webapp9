@@ -1,53 +1,75 @@
- /* Three columns side by side */
- .column {
-     float: left;
-     width: 33.3%;
-     margin-bottom: 16px;
-     padding: 0 8px;
- }
+.column {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
 
- /* Display the columns below each other instead of side by side on small screens */
- @media screen and (max-width: 650px) {
-     .column {
-         width: 100%;
-         display: block;
-     }
- }
 
- /* Add some shadows to create a card effect */
- .card {
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
- }
+@media screen and (max-width: 650px) {
+    .column {
+        width: 100%;
+        display: block;
+    }
+}
 
- /* Some left and right padding inside the container */
- .container {
-     padding: 0 16px;
- }
 
- /* Clear floats */
- .container::after,
- .row::after {
-     content: "";
-     clear: both;
-     display: table;
- }
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
 
- .title {
-     color: grey;
- }
 
- .button {
-     border: none;
-     outline: 0;
-     display: inline-block;
-     padding: 8px;
-     color: white;
-     background-color: #000;
-     text-align: center;
-     cursor: pointer;
-     width: 100%;
- }
+.container {
+    padding: 0 16px;
+}
 
- .button:hover {
-     background-color: #555;
- }
+
+.container::after,
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.title {
+    color: grey;
+}
+
+.button {
+    cursor: pointer;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    color: white;
+    border-width: 2px;
+    border-style: inset;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    background-color: #2ECCFA;
+    text-align: center;
+    text-align-last: center;
+    font-size: 20px;
+    font-family: "Lucida Sans Unicode";
+    font-weight: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.button:hover {
+    color: black;
+    border-width: 2px;
+    border-style: inset;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    background-color: white;
+    text-align: center;
+    text-align-last: center;
+    font-size: 20px;
+    font-family: "Lucida Sans Unicode";
+    font-weight: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+}
