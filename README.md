@@ -1,3 +1,19 @@
+# eTorneos
+***
+Nuestra aplicación web será un sistema de torneos de videojuegos, donde los usuarios registrados podrán participar, ver partidas, unirse a un equipo, etc...
+
+## Miembros
+***
+Daniel Lizewski
+Jorge Carreras
+Lucía Romero
+Alejandro Gavilán
+
+## Entidades
+***
+
+
+
 # Torneos eSports
 ***
 Nuestra aplicación web será un sistema de torneos de videojuegos, donde los usuarios registrados podrán participar.
