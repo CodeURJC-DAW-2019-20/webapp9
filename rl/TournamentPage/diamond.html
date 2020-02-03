@@ -1,3 +1,4 @@
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -8,19 +9,23 @@
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Istok+Web|Roboto+Condensed:700' rel='stylesheet' type='text/css'>
     <link href="diamonds-tournament-style.css" rel='stylesheet' type="text/css">
-    
+
     <link href="../../index/index_files/bootstrap.min.css" rel="stylesheet">
 
     <title>Diamonds Tournament</title>
 </head>
 
 <body>
-    
-    <script src="../../index/index_files/jquery-3.4.1.slim.min.js" ></script>
-      <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="../../index/index_files/bootstrap.bundle.min.js"></script>
 
-    
-     <header>
+    <script src="../../index/index_files/jquery-3.4.1.slim.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')
+
+    </script>
+    <script src="../../index/index_files/bootstrap.bundle.min.js"></script>
+
+
+    <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand">eTorneos</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,13 +54,15 @@
             </div>
         </nav>
     </header>
-    </header>
-    
+
     <header class="hero">
         <div class="hero-wrap">
             <p class="intro" id="intro">Rocket League</p>
             <h1 id="headline">Diamonds Tournament</h1>
             <p class="year">2020</p>
+            <div style="text-align:center;">
+                <a><button class="button" type="button">Join tournament</button></a>
+            </div>
         </div>
     </header>
 
@@ -65,10 +72,50 @@
             <div class="split split-one">
                 <div class="round round-one current">
                     <div class="round-details">Round 1<br /><span class="date">March 16</span></div>
-                    <ul class="matchup">
+                    <ul class="matchup" type="button" data-toggle="modal" data-target="#exampleModal" data-team1="Duke" data-team2="Virginia">
                         <li class="team team-top">Duke<span class="score">76</span></li>
                         <li class="team team-bottom">Virginia<span class="score">82</span></li>
                     </ul>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel"></h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row align-items-center">
+                                      <div class="col-md-4 ml-auto">
+                                        <img src="../img/escudo1.jpg" class="img-fluid" alt="Responsive image">
+                                      </div>
+                                      <div class="col-md-4 ml-auto">
+                                          <p class="align-middle">Mach is in progress</p>
+                                      </div>
+                                      <div class="col-md-4 ml-auto">       
+                                      <img src="../img/escudo2.jpg" class="img-fluid" alt="Responsive image">
+                                      </div>
+                                    </div> 
+                                    <div class="row align-items-center">
+                                        <div class="col-md-4 ml-auto">
+                                            <p>ELO: 1259pt</p>
+                                        </div>
+                                        <div class="col-md-4 ml-auto">
+                                        </div>
+                                        <div class="col-md-4 ml-auto">       
+                                            <p>ELO: 3000pt</p>
+                                        </div>
+                                      </div> 
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                          
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     <ul class="matchup">
                         <li class="team team-top">Wake Forest<span class="score">64</span></li>
                         <li class="team team-bottom">Clemson<span class="score">56</span></li>
@@ -230,3 +277,11 @@
             </div>
         </div>
     </section>
+
+     <!-- Bootstrap core JavaScript -->
+     <script src="../vendor/jquery/jquery.min.js"></script>
+     <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <script src="tournament.js"></script>
+</body>
+
+</html>
