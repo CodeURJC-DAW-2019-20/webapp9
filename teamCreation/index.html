@@ -1,6 +1,7 @@
 
 <html>
 <link href="../core/bootstrap.min.css" rel="stylesheet">
+<link href="./teamCreation_files/style.css" rel="stylesheet">
 <body>
 <div class="container">
 
@@ -9,7 +10,8 @@
 
 <!-- Form Name -->
 <legend>
-    <center><h2><b>Create your team!</b></h2></center></legend><br>
+    <center><h2><b>Create your team!</b></h2></center>
+</legend>
 
 <!-- Text input-->
 
@@ -76,18 +78,20 @@
 
 
 <!-- Select Basic -->
-<div class="input-group">
+<div class="form-group">
+  <label class="col-md-4 control-label">Select your team´s icon</label>
+  <div class="col-md-4"><br>    
+<div class="input-group mb-3">
     <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+        <span class="input-group-text">Upload</span>
     </div>
     <div class="custom-file">
-        <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-  </div>
+        <input type="file" class="custom-file-input" id="inputGroupFile01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    </div>
 </div>
-
-<!-- Success message -->
-<div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div>
+</div>
+</div>
 
 <!-- Button -->
 <div class="form-group">
