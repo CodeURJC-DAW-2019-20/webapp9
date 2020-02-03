@@ -22,7 +22,7 @@ h6 {
 header.masthead {
     position: relative;
     background-color: #343a40;
-    background: url(../../imgs/mainlol.jpg) no-repeat center center;
+    background: url(../imgs/mainlol.jpg) no-repeat center center;
     background-size: cover;
     padding-top: 8rem;
     padding-bottom: 8rem
