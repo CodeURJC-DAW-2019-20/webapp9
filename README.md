@@ -54,3 +54,12 @@ El usuario podrá usar Facebook para acceder a su cuenta (si tenemos tiempo tamb
 
 ## Sistema de ELO (algoritmo)
 Cada jugador tendrá una puntuación numérica asociada a cada juego que juegue (elo). Cada vez que juegue una partida contra algien, su puntuación variará en función de la diferencia de elo entre los dos jugadores y el resultado (mismo sistema que el ajedrez).
+
+## Diagrama de navegación
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/navChart.png "NavChart")
+
+Permisos de acceso:
+- Negro: Anónimo.
+- Rojo: Usuario registrado (jugador).
+- Verde: Admin.
