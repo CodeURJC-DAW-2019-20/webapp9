@@ -34,14 +34,15 @@ Cada equipo tiene una pagina asociada con los jugadores que la conforman (se pue
 Cada usuario tiene los permisos descritos y los mencionados en el anterior.
 
 ### Anónimo
-- Ver las páginas de los torneos
-- Acceder a la info de las partidas
-- Ver la información de los jugadores
+- Ver las páginas de los juegos
+- Ver los torneos
 - Podrá registrarse
 
 ### Registrado
+- Ver la información de los jugadores
 - Participar en los torneos
 - Cambiar la información y la foto de su perfil
+- Unirse a un equipo
 
 ### Admin
 - Crear torneos
