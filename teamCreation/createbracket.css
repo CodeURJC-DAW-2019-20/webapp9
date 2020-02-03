@@ -1,0 +1,9 @@
+body {
+  background-image: url("../imgs/createbracketbg.jpg");  
+}
+
+legend {
+    border-style: inset;
+    background-color: #ccffee;
+    box-shadow: 3px 3px;
+}
