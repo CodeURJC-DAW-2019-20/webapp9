@@ -63,3 +63,45 @@ Permisos de acceso:
 - Negro: Anónimo.
 - Rojo: Usuario registrado (jugador).
 - Verde: Admin.
+
+## Capturas de pantalla
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/create-bracket.jpg "Crear torneo")
+
+En esta página el usuario podrá crear un nuevo torneo con su respectivo bracket, seleccionando el juego y el número de jugadores que participarán.
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/mainpage.jpg "Página principal")
+
+Página de inicio que contiene información sobre nuestra web junto a un botón que llevará al registro y los diferentes juegos sobre los que se realizarán torneos.
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/player-profile.png "Perfil del jugador")
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/player-graph.png "Gráfico del jugador")
+
+En la página del usuario podremos ver el nombre del usuario, un pequeño texto de presentación, fecha de nacimiento, juego favorito y equipo. Además, contendrá un gráfico que representara el porcentaje de partidas ganadas y partidas de ese usuario.
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/register.png "Página de registro")
+
+Página para registrar nuevos usuarios en la que se requerirá su nombre, email, nombre de usuario, y contraseña.
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/rlmain.jpg "Página de juego")
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/rltournaments.jpg "Parte de selección de torneos")
+
+Página que contiene información del juego al que se ha accedido y los torneos disponibles de dicho juego, junto a una descripción.
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/sig-in.png "Inicio de sesión")
+
+Página en la que el usuario iniciará sesión con su email y contraseña.
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/team-creation.png "Creación de equipo")
+
+En esta página el usuario podrá crear su equipo eligiendo el nombre, juego, participantes e icono.
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/team-page.png "Página de equipo")
+
+En esta página se podrá ver la información de un equipo, su nombre y los miembros que lo componen.
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/tournamentbracket.png "Página de torneo")
+
+Página en la que se puede observar en detalle un torneo en específico, con su nombre, las fechas y los participantes.
