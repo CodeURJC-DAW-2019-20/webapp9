@@ -2,7 +2,7 @@
 Nuestra aplicación web será un sistema de torneos de videojuegos, donde los usuarios registrados podrán participar, ver partidas, unirse a un equipo, etc...
 
 ## Miembros
-- Daniel Lizewski
+- Daniel Liszewski
 - Jorge Carreras
 - Lucía Romero
 - Alejandro Gavilán
