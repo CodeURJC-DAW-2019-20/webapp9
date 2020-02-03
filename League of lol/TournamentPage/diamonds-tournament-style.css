@@ -34,7 +34,10 @@ body {
 
 .hero-wrap {
     padding: 3.5em 10px;
-    background: url(../img/diamond.jpg);
+    background: url(../img/diamante.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
 }
 
 .hero p.intro {
