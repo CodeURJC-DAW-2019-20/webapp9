@@ -7,6 +7,7 @@ Nuestra aplicación web será un sistema de torneos de videojuegos, donde los us
 - Torneos
 - Partidas
 - Jugadores
+- Equipos
 
 ## Función extra
 Pensamos en implementar un lgin mediante Facebook y hacer publicaciones en el perfil del usuario.
