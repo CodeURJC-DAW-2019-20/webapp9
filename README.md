@@ -1,27 +1,55 @@
-# Torneos eSports
-***
-Nuestra aplicación web será un sistema de torneos de videojuegos, donde los usuarios registrados podrán participar.
+# eTorneos
+Nuestra aplicación web será un sistema de torneos de videojuegos, donde los usuarios registrados podrán participar, ver partidas, unirse a un equipo, etc...
 
-## Sistema de elo
-Cada usuario tendrá un elo (valor numérico) asociado a cada juego que juegue, variando en función de contra quién juegue.
+## Miembros
+- Daniel Liszewski
+- Jorge Carreras
+- Lucía Romero
+- Alejandro Gavilán
 
-## Creación de torneos
-Los admins de la web podrán crear y gestionar los torneos ya creados, eliminando jugadores en caso de que hayan hecho trampas.
-Serán los que cierren las nuevas entradas al torneo y los que pondrán las fechas de los partidos.
-Los brackets se generarán de forma automática.
+## Entidades
+- Juegos
+- Torneos
+- Partidas
+- Jugadores
+- Equipos
 
-## Torneos
-Los torneos tendrán los siguientes datos: 
-- Premios
-- Media de elo del torneo
-- Mínimo y máximo de elo con el que pueden entrar los participantes
-- Número de participantes
+### Juegos
+Cada juego tendrá su propia página, donde aparece info del juego, links de interés y la lista de los torneos activos.
 
-Existirán datos que solo aparecerán para los usuarios registrados
-- Botón para participar
+### Torneos
+Cada torneo tiene una página asociada, donde aparece la bracket del torneo con los nombres de los jugadores o equipos que participan (se podrá acceder a sus páginas desde aquí), su elo y la info de cada partida.
+Los datos del torneo como premios y numero de jugadores máximo serán editados por el admin.
 
-## Partidas
-Los torneos estarán conformados por varias partidas. Los usuarios podrán acceder a la información de la partida y si son participantes tendrán habilitada una subida de imagen para mostrar quien ha sido el ganador de la partida.
+### Partidas
+Cada partida tiene información como por ejemplo los resultados (quizás más con el tiempo)
 
-## Equipos
-Se podrán crear equipos de juegos para participar con otras personas.
+### Jugadores (usuarios registrados)
+Cada jugador tiene una página de perfil (ahí aparece un gráfico del ratio de las partidas ganadas vs perdidas) con una foto de perfil, su elo en cada juego.
+
+### Equipos
+Cada equipo tiene una pagina asociada con los jugadores que la conforman (se puede acceder a ellos) y su elo (quizá más tarde se pueda añadir una imagen de equipo).
+
+## Tipos de usuarios
+Cada usuario tiene los permisos descritos y los mencionados en el anterior.
+
+### Anónimo
+- Ver las páginas de los torneos
+- Acceder a la info de las partidas
+- Ver la información de los jugadores
+- Podrá registrarse
+
+### Registrado
+- Participar en los torneos
+- Cambiar la información y la foto de su perfil
+
+### Admin
+- Crear torneos
+- Eliminar torneos
+- Cambiar la información de los torneos
+
+## Tecnología usada
+El usuario podrá usar Facebook para acceder a su cuenta (si tenemos tiempo también añadiremos la posibilidad de hacer publicaciones automáticas cuando entras en torneos o los resultados de una partida).
+
+## Sistema de ELO (algoritmo)
+Cada jugador tendrá una puntuación numérica asociada a cada juego que juegue (elo). Cada vez que juegue una partida contra algien, su puntuación variará en función de la diferencia de elo entre los dos jugadores y el resultado (mismo sistema que el ajedrez).
