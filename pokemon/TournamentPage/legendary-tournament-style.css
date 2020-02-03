@@ -34,7 +34,8 @@ body {
 
 .hero-wrap {
     padding: 3.5em 10px;
-    background: url(../img/champion.png);
+    background: url(../imgs/legendarybackground.jpg);
+	background-repeat: no-repeat;
 }
 
 .hero p.intro {
