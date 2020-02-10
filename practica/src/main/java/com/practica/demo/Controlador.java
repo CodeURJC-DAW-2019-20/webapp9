@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class Controlador {
 	@RequestMapping("/")
 	public String index(Model model) {
-		return "index";
+		return "index.html"; //es necesario poner el .html
 	}
 }
