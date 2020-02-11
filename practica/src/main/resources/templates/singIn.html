@@ -63,10 +63,8 @@
 						aria-expanded="false"> Tournaments</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 							
-							{{#games}}
-									<form action="/" method="get">
-									  <input type = "submit" value = {{.}}/>
-									</form>
+							{{#games}}								
+									<a href="/">{{.}}</a>									 									
 							{{/games}}
 						</div>
 					</li>
