@@ -40,8 +40,6 @@
 
 </head>
 <body class="text-center">
-
-
 	<!-- NavBar -->
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -64,10 +62,14 @@
 						role="button" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"> Tournaments</a>
 						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="../lol/index.html">League of
-								Legends</a> <a class="dropdown-item" href="../rl/index.html">Rocket
-								League</a> <a class="dropdown-item" href="../pokemon/pokemon.html">Pokémon</a>
-						</div></li>
+							
+							{{#games}}
+									<form action="/" method="get">
+									  <input type = "submit" value = {{.}}/>
+									</form>
+							{{/games}}
+						</div>
+					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active"><a class="nav-link"

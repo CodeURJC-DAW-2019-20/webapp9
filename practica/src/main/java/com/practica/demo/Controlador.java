@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.practica.demo.data.Games;
+
 @EnableAutoConfiguration
 @Controller
 public class Controlador {
@@ -17,6 +19,9 @@ public class Controlador {
 	
 	@GetMapping("/load")
 	public String load(Model model) {
+		
+		Games games = new Games();
+		model.addAttribute("games",games.getArray());
 		return "singIn"; //ver como lazar la app usando el template
 	}
 }
