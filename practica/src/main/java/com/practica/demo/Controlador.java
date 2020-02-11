@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.practica.demo.data.Games;
+import com.practica.demo.data.User;
 
 @EnableAutoConfiguration
 @Controller
@@ -38,4 +39,26 @@ public class Controlador {
 		model.addAttribute("games",games.getArray());
 		return "singIn"; 
 	}
+	
+	@RequestMapping("/register")
+	public String register(Model model) {
+		Games games = new Games();
+		model.addAttribute("games",games.getArray());
+		return "register"; 
+	}
+	
+	@PostMapping("/register/new")
+	public String nuevoAnuncio(Model model, User user) {
+
+		//isValid? Email
+		//isValid?Contraseña
+		
+		user.getName();
+		
+		//Si todo fuese correcto, grabar en BBDD
+
+		return "/register";
+
+	}
+	
 }
