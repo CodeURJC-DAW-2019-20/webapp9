@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 import com.practica.demo.data.Games;
 import com.practica.demo.data.User;
 import com.practica.demo.data.rol;
@@ -22,6 +23,10 @@ public class Controlador {
 	@Autowired
 	private RepositorioGames repository;
 	
+	@Autowired
+	private RespositoryUser repositoruUser;
+	
+	rol rol1 ;
 	@RequestMapping("/")
 	public String index(Model model) {
 		return "index"; //es necesario poner el .html
@@ -49,7 +54,10 @@ public class Controlador {
 		Games games = new Games();
 		model.addAttribute("games",games.getArray());
 		
-		rol rol1 = repository.findById(1).get();
+		rol1 = repository.findById(1).get();
+		
+		User user2 = repositoruUser.findById(1).get();
+				
 		
 		return "register"; 
 	}
@@ -60,9 +68,15 @@ public class Controlador {
 		//isValid? Email
 		//isValid?Contraseña
 		
-		user.getName();
+		//user.getName();
 		
 		//Si todo fuese correcto, grabar en BBDD
+		
+		user.setRol(rol1);
+		
+		repositoruUser.save(user);
+		
+		
 
 		return "/register";
 
