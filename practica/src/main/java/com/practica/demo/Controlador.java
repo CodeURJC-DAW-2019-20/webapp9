@@ -1,5 +1,6 @@
 package com.practica.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.practica.demo.data.Games;
 import com.practica.demo.data.User;
+import com.practica.demo.data.rol;
 
 @EnableAutoConfiguration
 @Controller
@@ -17,6 +19,8 @@ public class Controlador {
 	public Controlador() {
 		//hay alguna forma de encapsular la barra para generarla de manera auto?
 	}
+	@Autowired
+	private RepositorioGames repository;
 	
 	@RequestMapping("/")
 	public String index(Model model) {
@@ -44,6 +48,9 @@ public class Controlador {
 	public String register(Model model) {
 		Games games = new Games();
 		model.addAttribute("games",games.getArray());
+		
+		rol rol1 = repository.findById(1).get();
+		
 		return "register"; 
 	}
 	
