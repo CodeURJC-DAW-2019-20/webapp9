@@ -6,4 +6,6 @@ import com.practica.demo.data.User;
 
 public interface RespositoryUser extends JpaRepository<User, Integer> {
 	
+	User findByusername(String username);
+	
 }

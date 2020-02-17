@@ -56,7 +56,7 @@ public class Controlador {
 		
 		rol1 = repository.findById(1).get();
 		
-		User user2 = repositoruUser.findById(1).get();
+		User user2 = repositoruUser.findByusername("Jorge");
 				
 		
 		return "register"; 
