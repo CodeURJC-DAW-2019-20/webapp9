@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://getbootstrap.com/docs/4.4/examples/sign-in/ -->
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author"
+	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Jekyll v3.8.6">
+<title>Signin Template</title>
+<link rel="canonical"
+	href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
+<!-- Bootstrap core CSS -->
+<link href="../core/bootstrap.min.css" rel="stylesheet">
+<link rel="apple-touch-icon"
+	href="https://getbootstrap.com/docs/4.4/assets/img/favicons/apple-touch-icon.png"
+	sizes="180x180">
+<link rel="icon"
+	href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-32x32.png"
+	sizes="32x32" type="image/png">
+<link rel="icon"
+	href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon-16x16.png"
+	sizes="16x16" type="image/png">
+<link rel="manifest"
+	href="https://getbootstrap.com/docs/4.4/assets/img/favicons/manifest.json">
+<link rel="mask-icon"
+	href="https://getbootstrap.com/docs/4.4/assets/img/favicons/safari-pinned-tab.svg"
+	color="#563d7c">
+<link rel="icon"
+	href="https://getbootstrap.com/docs/4.4/assets/img/favicons/favicon.ico">
+<meta name="msapplication-config"
+	content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+<meta name="theme-color" content="#563d7c">
+
+<!-- Custom styles for this template -->
+<link href="../css/SingIn/signin.css" rel="stylesheet">
+
+</head>
+<body class="text-center">
+	<!-- NavBar -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="../imgs/web-icon-white.png" width="30" height="30" alt="">
+			</a> <a class="navbar-brand">eTorneos</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active"><a class="nav-link"
+						href="/">Home</a></li>
+					<li class="nav-item active"><a class="nav-link"
+						href="../sign-in/sign-in.html">Sign in</a></li>
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false"> Tournaments</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							
+							{{#games}}								
+									<a href="/">{{.}}</a>									 									
+							{{/games}}
+						</div>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link"
+						href="../register/register.html">Register</a></li>
+				</ul>
+			</div>
+
+
+		</nav>
+	</header>
+
+	<form class="form-signin" action="/sinIn/load" method="get">
+		<img class="mb-4" src="../imgs/web-icon-black.png" alt="" width="72"
+			height="72">
+		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+		<label for="inputEmail" class="sr-only">Email address</label> <input
+			type="email" id="inputEmail" class="form-control"
+			placeholder="Email address" required="" autofocus=""> <label
+			for="inputPassword" class="sr-only">Password</label> <input
+			type="password" id="inputPassword" class="form-control"
+			placeholder="Password" required="">
+		<div class="checkbox mb-3">
+			<label> <input type="checkbox" value="remember-me">
+				Remember me
+			</label>
+		</div>
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+			in</button>
+		<p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+	</form>
+
+	<script src="../core/jquery-3.4.1.slim.min.js"></script>
+	<script src="../core/bootstrap.bundle.min.js"></script>
+</body>
+</html>
