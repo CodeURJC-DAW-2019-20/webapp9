@@ -48,16 +48,18 @@ public class Controlador {
 		model.addAttribute("games",games.getArray());
 		return "singIn"; 
 	}
-	/*
+	
 	//devolver el id del user¿?¿
 	@GetMapping("/singIn/load")
 	public String singIn(Model model,@RequestParam(required=true) String email, @RequestParam(required=true) String password) {
 		
 		User usern = repositoruUser.findByemailAndPassword(email, password);
 		
+		
+		
 		return "singIn";		
 	}
-	*/
+	
 	@RequestMapping("/register")
 	public String register(Model model) {
 		Games games = new Games();
