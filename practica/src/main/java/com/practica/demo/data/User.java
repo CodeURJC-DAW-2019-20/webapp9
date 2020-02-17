@@ -17,10 +17,11 @@ public class User {
 	private String username;
 	@Email
     private String email; //consulat clases emails y validadores propios de java
+	
     private String password;
 	
 	@OneToOne
-	private rol rol;
+	private Rol rol;
 	
 	//private UserData userData;
 	
@@ -46,11 +47,11 @@ public class User {
 		this.username = username;
 	}
 
-	public rol getRol() {
+	public Rol getRol() {
 		return rol;
 	}
 
-	public void setRol(rol rol) {
+	public void setRol(Rol rol) {
 		this.rol = rol;
 
 	}
