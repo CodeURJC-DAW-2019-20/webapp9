@@ -63,7 +63,7 @@ public class Controlador {
 	}
 	
 	@PostMapping("/register/new")
-	public String nuevoAnuncio(Model model, User user) {
+	public String newUser(Model model, User user) {
 
 		//isValid? Email
 		//isValid?Contraseña
