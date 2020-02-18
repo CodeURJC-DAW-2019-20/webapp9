@@ -1,5 +1,14 @@
 package com.practica.demo;
 
+
+import java.util.Set;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
@@ -13,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.practica.demo.data.Games;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
+import com.practica.demo.data.user.UserComponent;
 
 
 @EnableAutoConfiguration
@@ -28,9 +38,24 @@ public class Controlador {
 	@Autowired
 	private RespositoryUser repositoruUser;
 	
+	@Autowired
+	private UserComponent userComponent;
+	
+	@RequestMapping("/")
+	public String index(Model model) {
+		
+		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		
+		return "index"; //es necesario poner el .html
+	}
 	@RequestMapping("/tournaments")
 	public String goTournaments(Model model) {
 		return "rocketLeague";
+	}
+	
+	@RequestMapping("/bracketCreation")
+	public String goBracketCreation(Model model) {
+		return "bracketCreation";
 	}
 	
 	@RequestMapping("/leaderBoard")
@@ -68,15 +93,6 @@ public class Controlador {
 		return "diamond";
 	}
 	
-	@RequestMapping("/")
-	public String index(Model model) {
-		return "index";
-	}
-	
-	@GetMapping("/load")
-	public String load(Model model) {
-			return null;	
-	}
 	
 	/**
 	 * Controller for lunching SingIn page
@@ -85,19 +101,22 @@ public class Controlador {
 	 */
 	@RequestMapping("/singIn")
 	public String singInPage(Model model) {
-		Games games = new Games();
-		model.addAttribute("games",games.getArray());
+		//Games games = new Games();
+		//model.addAttribute("games",games.getArray());
+		
+		if(userComponent.isLoggedUser()) {	
+			return index(model);		
+		}
+		
 		return "singIn"; 
 	}
-	
-	
-	
-	
+		
 	@RequestMapping("/register")
 	public String register(Model model) {
 		Games games = new Games();
 		model.addAttribute("games",games.getArray());
 
+		model.addAttribute("emailDefault","Insert your email");    	
 		User user2 = repositoruUser.findByusername("Jorge");
 						
 		return "register"; 
@@ -105,21 +124,36 @@ public class Controlador {
 	
 	@PostMapping("/register/new")
 	public String newUser(Model model, User user) {
-
-		//isValid? Email
-		//isValid?Contraseña
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		Validator validator = factory.getValidator();
+	    Set<ConstraintViolation<User>> violations = validator.validate(user);
+	    
+	    if(violations.isEmpty()) {	    
+	    	return generateUser(user);
+	    }
+	    else {
+	    	model.addAttribute("emailDefault","Wrong email format");    	
+	    	return "/register";
+	    }
+	    	
 		
-		//Si todo fuese correcto, grabar en BBDD
-	
-		generateUser(user);
-	
-		return "/register";
 
 	}
 	
-	private void generateUser(User user) {
+	private String generateUser(User user) {
 		user.setRol(repository.findById(2).get());
-		repositoruUser.save(user);
+		try {
+			repositoruUser.save(user);
+	    	userComponent.setLoggedUser(user);
+	    	return "/";	  
+		}
+		catch(Exception e) {
+			
+			System.out.println(e);
+			
+			return "/error";
+			
+		}
 	}
 	
 }
