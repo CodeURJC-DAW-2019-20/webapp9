@@ -33,6 +33,21 @@ public class Controlador {
 		return "rocketLeague";
 	}
 	
+	@RequestMapping("/team")
+	public String goTeam(Model model) {
+		return "team";
+	}
+	
+	@RequestMapping("/info")
+	public String goInfo(Model model) {
+		return "infoPage";
+	}
+	
+	@RequestMapping("/bracket")
+	public String goBrackets(Model model) {
+		return "diamond";
+	}
+	
 	@RequestMapping("/")
 	public String index(Model model) {
 		return "index";

@@ -22,7 +22,7 @@ h6 {
 header.masthead {
     position: relative;
     background-color: #343a40;
-    background: url(../../imgs/TournamentPage/bg-rocketLeague.jpg) no-repeat center center;
+    background: url(/imgs/Tournament/bg-rocketLeague.jpg) no-repeat center center;
     background-size: cover;
     padding-top: 8rem;
     padding-bottom: 8rem
