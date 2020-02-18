@@ -79,7 +79,7 @@
 		</nav>
 	</header>
 
-	<form class="form-signin" action="/singIn/load" method="get">
+	<form class="form-signin" action="/login" method="post">
 		<img class="mb-4" src="../imgs/web-icon-black.png" alt="" width="72"
 			height="72">
 		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -97,6 +97,7 @@
 		<button class="btn btn-lg btn-primary btn-block" type="submit" value="Send">Sign
 			in</button>
 		<p class="mt-5 mb-3 text-muted">© 2017-2019</p>
+		<input type="hidden" name="_csrf" value="{{token}}"/>
 	</form>
 
 	<script src="../core/jquery-3.4.1.slim.min.js"></script>

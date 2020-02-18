@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.demo.data.Games;
-import com.practica.demo.data.User;
+import com.practica.demo.data.user.RespositoryUser;
+import com.practica.demo.data.user.User;
 
 
 @EnableAutoConfiguration
@@ -49,27 +50,16 @@ public class Controlador {
 		return "singIn"; 
 	}
 	
-	//devolver el id del user¿?¿
-	@GetMapping("/singIn/load")
-	public String singIn(Model model,@RequestParam(required=true) String email, @RequestParam(required=true) String password) {
-		
-		User usern = repositoruUser.findByemailAndPassword(email, password);
-		
-		
-		
-		return "singIn";		
-	}
+	
+	
 	
 	@RequestMapping("/register")
 	public String register(Model model) {
 		Games games = new Games();
 		model.addAttribute("games",games.getArray());
-		
-		
-		
+
 		User user2 = repositoruUser.findByusername("Jorge");
-				
-		
+						
 		return "register"; 
 	}
 	
