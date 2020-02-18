@@ -33,6 +33,11 @@ public class Controlador {
 		return "rocketLeague";
 	}
 	
+	@RequestMapping("/teamCreation")
+	public String goTeamCreation(Model model) {
+		return "teamCreation";
+	}
+	
 	@RequestMapping("/team")
 	public String goTeam(Model model) {
 		return "team";
