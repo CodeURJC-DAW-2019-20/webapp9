@@ -28,9 +28,14 @@ public class Controlador {
 	@Autowired
 	private RespositoryUser repositoruUser;
 	
+	@RequestMapping("/tournaments")
+	public String goTournaments(Model model) {
+		return "rocketLeague";
+	}
+	
 	@RequestMapping("/")
 	public String index(Model model) {
-		return "index"; //es necesario poner el .html
+		return "index";
 	}
 	
 	@GetMapping("/load")
