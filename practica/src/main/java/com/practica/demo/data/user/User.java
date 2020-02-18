@@ -1,9 +1,16 @@
 package com.practica.demo.data.user;
 
+import javax.annotation.Generated;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.omg.CORBA.DynAnyPackage.Invalid;
 
 import com.practica.demo.data.rol;
 
@@ -12,14 +19,22 @@ public class User {
 	
 	// private long idUser; //Autoincrement en BBDD not nece
 	
-
+	//private int iduser;
 	@Id
-	private int iduser;
+	@NotNull
+	@NotEmpty
     private String name;
+	
+	@NotNull
+	@NotEmpty
 	private String username;
+	
 	@Email
+	@NotEmpty
     private String email; //consulat clases emails y validadores propios de java
 	
+	@NotNull
+	@NotEmpty
     private String password;
 	
 	@OneToOne
@@ -33,13 +48,7 @@ public class User {
 	
 	//GETTERS AND SETTERS
 
-	public int getIduser() {
-		return iduser;
-	}
-
-	public void setIduser(int iduser) {
-		this.iduser = iduser;
-	}
+	
 
 	public String getUsername() {
 		return username;
