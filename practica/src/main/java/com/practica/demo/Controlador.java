@@ -38,6 +38,11 @@ public class Controlador {
 		return "teamCreation";
 	}
 	
+	@RequestMapping("/signIn")
+	public String goSigIn(Model model) {
+		return "signIn";
+	}
+	
 	@RequestMapping("/team")
 	public String goTeam(Model model) {
 		return "team";
