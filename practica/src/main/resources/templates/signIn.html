@@ -14,7 +14,7 @@
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/4.4/examples/sign-in/">
 <!-- Bootstrap core CSS -->
-<link href="../core/bootstrap.min.css" rel="stylesheet">
+<link href="/core/bootstrap.min.css" rel="stylesheet">
 <link rel="apple-touch-icon"
 	href="https://getbootstrap.com/docs/4.4/assets/img/favicons/apple-touch-icon.png"
 	sizes="180x180">
@@ -36,7 +36,7 @@
 <meta name="theme-color" content="#563d7c">
 
 <!-- Custom styles for this template -->
-<link href="../css/SingIn/signin.css" rel="stylesheet">
+<link href="/css/SingIn/signin.css" rel="stylesheet">
 
 </head>
 <body class="text-center">
@@ -44,7 +44,7 @@
 	<header>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<a class="navbar-brand" href="#"> <img
-				src="../imgs/web-icon-white.png" width="30" height="30" alt="">
+				src="/imgs/NavBar/web-icon-white.png" width="30" height="30" alt="">
 			</a> <a class="navbar-brand">eTorneos</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarCollapse" aria-controls="navbarCollapse"
@@ -80,7 +80,7 @@
 	</header>
 
 	<form class="form-signin" action="/login" method="post">
-		<img class="mb-4" src="../imgs/web-icon-black.png" alt="" width="72"
+		<img class="mb-4" src="/imgs/NavBar/web-icon-black.png" alt="" width="72"
 			height="72">
 		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 		<label for="inputEmail" class="sr-only">Email address</label> <input
@@ -96,11 +96,10 @@
 		</div>
 		<button class="btn btn-lg btn-primary btn-block" type="submit" value="Send">Sign
 			in</button>
-		<p class="mt-5 mb-3 text-muted">© 2017-2019</p>
 		<input type="hidden" name="_csrf" value="{{token}}"/>
 	</form>
 
-	<script src="../core/jquery-3.4.1.slim.min.js"></script>
-	<script src="../core/bootstrap.bundle.min.js"></script>
+	<script src="/core/jquery-3.4.1.slim.min.js"></script>
+	<script src="/core/bootstrap.bundle.min.js"></script>
 </body>
 </html>
