@@ -48,6 +48,51 @@ public class Controlador {
 		
 		return "index"; //es necesario poner el .html
 	}
+	@RequestMapping("/tournaments")
+	public String goTournaments(Model model) {
+		return "rocketLeague";
+	}
+	
+	@RequestMapping("/bracketCreation")
+	public String goBracketCreation(Model model) {
+		return "bracketCreation";
+	}
+	
+	@RequestMapping("/leaderBoard")
+	public String goLeaderBoard(Model model) {
+		return "leaderBoard";
+	}
+	
+	@RequestMapping("/profile")
+	public String goProfile(Model model) {
+		return "profile";
+	}
+	
+	@RequestMapping("/teamCreation")
+	public String goTeamCreation(Model model) {
+		return "teamCreation";
+	}
+	
+	@RequestMapping("/signIn")
+	public String goSigIn(Model model) {
+		return "signIn";
+	}
+	
+	@RequestMapping("/team")
+	public String goTeam(Model model) {
+		return "team";
+	}
+	
+	@RequestMapping("/info")
+	public String goInfo(Model model) {
+		return "infoPage";
+	}
+	
+	@RequestMapping("/bracket")
+	public String goBrackets(Model model) {
+		return "diamond";
+	}
+	
 	
 	/**
 	 * Controller for lunching SingIn page

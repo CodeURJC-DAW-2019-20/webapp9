@@ -1,0 +1,185 @@
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <link
+    href="/core/bootstrap.min.css"
+    rel="stylesheet"/>
+
+  <link
+  href="/css/BracketCreation/bracketCreation.css"
+  rel="stylesheet"/>
+
+  <title>Create a tournament</title>
+</head>
+
+<header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="/imgs/NavBar/web-icon-white.png" width="30" height="30" alt="">
+            </a>
+            <a class="navbar-brand" >eTorneos</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../index/index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../sign-in/sign-in.html">Sign in</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tournaments</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../../lol/index.html">League of Legends</a>
+                            <a class="dropdown-item" href="../../rl/index.html">Rocket League</a>
+                            <a class="dropdown-item" href="../../pokemon/pokemon.html">Pokémon</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../../register/register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+    </header>
+
+
+<body class="">
+  <div class="container">
+    <form
+      class="well form-horizontal"
+      action=""
+      method="post"
+      id="contact_form"
+    >
+      <fieldset>
+        <!-- Form Name -->
+
+        <legend>
+          <center>
+            <h2>
+              <b>Tournament creation</b>
+            </h2>
+          </center>
+        </legend>
+
+        <!-- Text input -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Tournament´s name</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+  <input name="tournament_name" placeholder="Tournament´s name here" class="form-control" type="text">
+    </div>
+  </div>
+</div>
+          
+        <!-- Text input -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Tournament´s info</label>  
+  <div class="col-md-4 inputGroupContainer">
+  <div class="input-group">
+  <textarea class="form-control" rows="3" placeholder="Breaf description of the tournament"></textarea>
+    </div>
+  </div>
+</div>
+
+
+        <!-- Game selection -->
+
+        <div class="form-group">
+          <label class="col-md-4 control-label">Game</label>
+
+          <div class="col-md-4 selectContainer">
+            <div class="input-group">
+
+              <select
+                name="game"
+                class="form-control selectpicker"
+              >
+                <option value="">Select your game</option>
+
+                <option>Rocket League</option>
+
+                <option>League of Legends</option>
+
+                <option>Pokemon</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text input -->
+
+        <div class="form-group">
+          <label class="col-md-4 ml-auto control-label">Number of players</label>
+
+          <div class="col-md-5  selectContainer">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-list"></i>
+              </span>
+
+              <select
+                name="nplayers"
+                class="form-control selectpicker"
+              >
+                <option value="">Select number of players</option>
+
+                <option>2</option>
+
+                <option>4</option>
+
+                <option>8</option>
+
+                <option>16</option>
+
+                <option>32</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Select Image -->
+
+<div class="form-group">
+  <label class="col-md-4 control-label">Select the tournament´s image to be displayed</label>
+  <div class="col-md-4">    
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Upload</span>
+    </div>
+    <div class="custom-file">
+        <input type="file" class="custom-file-input" id="inputGroupFile01">
+        <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+    </div>
+</div>
+</div>
+</div>
+<br>
+
+        <!-- Success message -->
+
+        <!-- Button -->
+          <button
+            type="button"
+            class="submit"
+          >Post</button>
+
+      </fieldset>
+    </form>
+  </div>
+
+  <script src="/core/jquery-3.4.1.slim.min.js"></script>
+  <script src="/core/bootstrap.bundle.min.js"></script>
+</body>
+</html>
