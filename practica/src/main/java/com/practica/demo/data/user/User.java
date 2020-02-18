@@ -1,9 +1,11 @@
-package com.practica.demo.data;
+package com.practica.demo.data.user;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
+
+import com.practica.demo.data.rol;
 
 @Entity
 public class User {
