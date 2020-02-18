@@ -34,7 +34,7 @@ body {
 
 .hero-wrap {
     padding: 3.5em 10px;
-    background: url(../img/diamond.jpg);
+    background: url(/imgs/Tournament/diamond.jpg);
 }
 
 .hero p.intro {
