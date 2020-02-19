@@ -108,7 +108,7 @@ public class Controlador {
 			return index(model);		
 		}
 		
-		return "singIn"; 
+		return "signIn"; 
 	}
 		
 	@RequestMapping("/register")
