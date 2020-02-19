@@ -5,6 +5,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -14,9 +17,25 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	@EnableWebMvc class WebConfig extends WebMvcConfigurerAdapter {
+
+    	    @Override
+    	    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    	        registry.addResourceHandler(
+    	                "/core/**",
+    	                "/imgs/**",
+    	                "/css/**",
+    	                "/js/**")
+    	                .addResourceLocations(
+    	                        "classpath:/static/imgs/",
+    	                        "classpath:/static/css/",
+    	                        "classpath:/static/core/",
+    	                		"classpath:/static/js/");
+    	    }
+
+    	}
     	
-    	http.csrf().disable();
-    	
+     	
     	// Public pages
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/logIn").permitAll();
@@ -37,12 +56,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         
         
         
+        
+        
     }
+    
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
             throws Exception {
         // Database authentication provider
         auth.authenticationProvider(userRepoAuthProvider);
+        
     }
 }

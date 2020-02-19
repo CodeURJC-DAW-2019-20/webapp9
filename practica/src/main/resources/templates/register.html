@@ -40,7 +40,7 @@
             <div class="col-md-8">
                     <div class="card">
                             <div class="card-body">
-                            <form class="form-horizontal" method="post" action="/register/new">
+                            <form class="form-horizontal" method="post" action="/register">
                                 <div class="form-group">
                                     <label for="name" class="cols-sm-2 control-label">Your Name</label>
                                     <div class="cols-sm-10">
@@ -63,7 +63,7 @@
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>                            
                                             {{#wrongemail}}
-                                            	<input type="text" class="form-control-wrong"  name="email" id="email" placeholder="Insert your Email" />
+                                            	<input type="text" class="form-control-wrong"  name="email" id="email" placeholder="{{email}}" />
                                             {{/wrongemail}}
                                             
                                             {{^wrongemail}}
@@ -79,10 +79,10 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
                                                 {{#wrongusername}}
-                                            		<input type="text" class="form-control-wrong" name="username" id="username" placeholder="Enter your Username" />
+                                            		<input type="text" class="form-control-wrong" name="username" id="username" placeholder="{{username}}" />
                                                 {{/wrongusername}}
                                                 {{^wrongusername}}
-                                            		<input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
+                                            		<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username" />
                                             	{{/wrongusername}}
                                                 
                                             </div>
@@ -94,10 +94,10 @@
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
                                                 {{#wrongpassword}}
-                                            		    <input type="password" class="form-control-wrong" name="password" id="password" placeholder="Enter your Password" />
+                                            		    <input type="password" class="form-control-wrong" name="password" id="password" placeholder="{{password}}" />
                                                 {{/wrongpassword}}
                                                 {{^wrongpassword}}
-                                            		    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                                            		    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password"/>
                                             	{{/wrongpassword}}
                                             
                                             </div>
@@ -108,7 +108,13 @@
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                                                {{#wrongconfirm}}
+                                            		     <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                                                {{/wrongconfirm}}
+                                                {{^wrongconfirm}}
+                                            		     <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                                            	{{/wrongconfirm}}
+                                               
                                             </div>
                                         </div>
                                     </div>
