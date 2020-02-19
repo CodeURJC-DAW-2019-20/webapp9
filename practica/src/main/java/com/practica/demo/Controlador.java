@@ -48,6 +48,12 @@ public class Controlador {
 		
 		return "index"; //es necesario poner el .html
 	}
+	
+	@RequestMapping("/index")
+	public String goIndex(Model model) {
+		return "index";
+	}
+	
 	@RequestMapping("/tournaments")
 	public String goTournaments(Model model) {
 		return "rocketLeague";
@@ -108,7 +114,7 @@ public class Controlador {
 			return index(model);		
 		}
 		
-		return "singIn"; 
+		return "signIn"; 
 	}
 		
 	@RequestMapping("/register")
