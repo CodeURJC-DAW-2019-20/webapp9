@@ -21,31 +21,35 @@
             <a class="navbar-brand" href="#">
                 <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
             </a>
-            <a class="navbar-brand" >eTorneos</a>
+            <a class="navbar-brand" >eTournaments</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index/index.html">Home</a>
+                    	<form action="">
+                    		<input type="submit" class="nav-link" value="Home">
+                    	</form>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="/singIn">Sign in</a>
+                    {{#noloaded}}
+                        <form action="singIn">
+                    		<input type="submit" class="nav-link" value="Sign In">
+                    	</form>
+                    {{/noloaded}}
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tournaments</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../lol/index.html">League of Legends</a>
-                            <a class="dropdown-item" href="../rl/index.html">Rocket League</a>
-                            <a class="dropdown-item" href="../pokemon/pokemon.html">Pokémon</a>
-                        </div>
+                    <li class="nav-item active">
+                        <form action="leaderBoard">
+                    		<input type="submit" class="nav-link" value="Leaderboard">
+                    	</form>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="/register">Register</a>
+                        <form action="register">
+                    		<input type="submit" class="nav-link" value="Register">
+                    	</form>
                     </li>
                 </ul>
             </div>
@@ -58,24 +62,34 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
     <div class="carousel-inner">
     <div class="carousel-item active">
-        <img src="/imgs/Main/lol.jpg" class="d-block w-100" alt="...">
+        <img src="/imgs/Main/main1.jpg" class="d-block w-100" alt="...">
         <div class="container">
-            <div class="carousel-caption text-left">
+            <div class="carousel-caption text-right">
                 <h1>Exciting tournaments</h1>
-                <p>Play competively alone or with your friends in a wide variety of games.</p>
-                <p><a class="btn btn-lg btn-primary" href="./register.html" role="button">Sign up today</a></p>
+                <p>Play competitively with your friends in Rocket League matches.</p>
             </div>
         </div>
     </div>
     <div class="carousel-item">
-      <img src="/imgs/Main/rl.jpg" class="d-block w-100" alt="...">
+      <img src="/imgs/Main/main2.jpg" class="d-block w-100" alt="...">
       <div class="container">
         <div class="carousel-caption text-right">
             <h1>Win prizes</h1>
-                <p>Win awesomes prizes in different tournaments created by our sponsors.</p>
+                <p>Win awesome prizes in a variety of different tournaments.</p>
             </div>
         </div>
     </div>
+
+    <div class="carousel-item">
+      <img src="/imgs/Main/main3.png" class="d-block w-100" alt="...">
+      <div class="container">
+        <div class="carousel-caption text-right">
+            <h1>Show your skills</h1>
+                <p>The best teams will be in our leaderboard.</p>
+            </div>
+        </div>
+    </div>
+
   </div>
 </div>
 
@@ -85,25 +99,31 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
       <div class="col-lg-4">
-          <img src="/imgs/Main/lol-icon.png" class="" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-          <title>League of Legends</title>
-          <h2>League of Legends</h2>
-          <p>Join Summoner´s Rift today in a competitive scenario</p>
-          <p><a class="btn btn-secondary" href="../lol/index.html" role="button">View tournaments »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-          <img src="/imgs/Main/pkm-icon.png" class="" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
-          <title>Pokemon</title>
-          <h2>Pokémon</h2>
-          <p>Get your team ready to play against different players around the globe.</p>
-          <p><a class="btn btn-secondary" href="../pokemon/pokemon.html" role="button">View tournaments »</a></p>
-      </div><!-- /.col-lg-4 -->
-      <div class="col-lg-4">
           <img src="/imgs/Main/rl-icon.jpg" class="" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
           <title>Rocket League</title>
           <h2>Rocket League</h2>
-          <p>Play solo or with your team in incredible tournaments.</p>
-          <p><a class="btn btn-secondary" href="../rl/index.html" role="button">View tournaments »</a></p>
+          <p>Play with your team in incredible tournaments.</p>
+          <form action="tournaments">
+          	 <input type="submit" class="button" value="View tournaments">
+          </form>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+          <img src="/imgs/Main/leaderboardLogo.png" class="" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+          <title>Leaderboard</title>
+          <h2>Leaderboard</h2>
+          <p>See the very best teams that have taken part in tournaments.</p>
+          <form action="leaderBoard">
+          	 <input type="submit" class="button" value="View leaderboard">
+          </form>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+          <img src="/imgs/Main/userLogo.png" class="" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
+          <title>Register</title>
+          <h2>Register</h2>
+          <p>Still not have an account? Make an account to start playing.</p>
+          <form action="register">
+          	 <input type="submit" class="button" value="Register">
+          </form>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
       
