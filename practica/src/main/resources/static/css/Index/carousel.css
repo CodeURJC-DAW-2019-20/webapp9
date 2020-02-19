@@ -19,7 +19,7 @@ body {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   bottom: 3rem;
-  z-index: 10;
+  z-index: 20;
 }
 
 /* Declare heights because of positioning of img element */
@@ -31,7 +31,7 @@ body {
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 32rem;
+  height: 52rem;
 }
 
 
@@ -74,8 +74,20 @@ body {
   /* Bump up size of carousel content */
   .carousel-caption p {
     margin-bottom: 1.25rem;
-    font-size: 1.25rem;
+    font-size: 2.25rem;
+    font-weight: bold; 
+    color: #D3D3D3;
     line-height: 1.4;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+  }
+  
+  .carousel-caption h1 {
+    margin-bottom: 1.25rem;
+    font-size: 3.25rem;
+    font-weight: bold;
+    color: #D3D3D3;
+    line-height: 1.4;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
   }
 
   .featurette-heading {
@@ -87,4 +99,43 @@ body {
   .featurette-heading {
     margin-top: 7rem;
   }
+}
+
+.button {
+    cursor: pointer;
+    -webkit-transition-duration: 1s;
+    transition-duration: 1s;
+    color: white;
+    border-width: 2px;
+    border-style: inset;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    background-color: #1E90FF;
+    text-align: center;
+    text-align-last: center;
+    font-size: 20px;
+    font-family: "Lucida Sans Unicode";
+    font-weight: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: auto;
+}
+
+.button:hover {
+    color: black;
+    border-width: 2px;
+    border-style: inset;
+    border-radius: 10px;
+    transition-duration: 0.4s;
+    background-color: #87CEFA;
+    text-align: center;
+    text-align-last: center;
+    font-size: 20px;
+    font-family: "Lucida Sans Unicode";
+    font-weight: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: auto;
 }
