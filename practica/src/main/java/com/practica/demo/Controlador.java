@@ -116,7 +116,7 @@ public class Controlador {
 		Games games = new Games();
 		model.addAttribute("games",games.getArray());
 
-		model.addAttribute("emailDefault","Insert your email");    	
+		//model.addAttribute("wrongemail","Insert your email");    	
 		User user2 = repositoruUser.findByusername("Jorge");
 						
 		return "register"; 
@@ -132,7 +132,11 @@ public class Controlador {
 	    	return generateUser(user);
 	    }
 	    else {
-	    	model.addAttribute("emailDefault","Wrong email format");    	
+	    	
+	    	for (ConstraintViolation<User> violation : violations) {	    		
+	    	    model.addAttribute("wrong"+violation.getPropertyPath(), true);    	    
+	    	    model.addAttribute(violation.getPropertyPath().toString(), violation.getMessage());
+	    	} 	
 	    	return "/register";
 	    }
 	    	

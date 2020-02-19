@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" href="/core/bootstrap.min.css" />
-<link rel="stylesheet" href="/css/register/Register.css" />
+<link rel="stylesheet" href="/css/register/register.css" />
 
 </head>
 <body>
@@ -23,16 +23,7 @@
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="../sign-in/sign-in.html">Sign in</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tournaments</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../lol/index.html">League of Legends</a>
-                            <a class="dropdown-item" href="../rl/index.html">Rocket League</a>
-                            <a class="dropdown-item" href="../pokemon/pokemon.html">Pokémon</a>
-                        </div>
-                    </li>
+                    </li>                
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
@@ -55,7 +46,14 @@
                                     <div class="cols-sm-10">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
+                                            {{#wrongname}}
+                                            	  <input type="text" class="form-control-wrong" name="name" id="name" placeholder="{{name}}" />
+                                            {{/wrongname}}
+                                            
+                                            {{^wrongname}}
+                                            	  <input type="text" class="form-control" name="name" id="name" placeholder="Insert your name" />
+                                            {{/wrongname}}                                            
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -63,8 +61,15 @@
                                     <label for="email" class="cols-sm-2 control-label">Your Email</label>
                                     <div class="cols-sm-10">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                            <input type="text" class="form-control" name="email" id="email" placeholder="{{emailDefault}}" />
+                                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>                            
+                                            {{#wrongemail}}
+                                            	<input type="text" class="form-control-wrong"  name="email" id="email" placeholder="Insert your Email" />
+                                            {{/wrongemail}}
+                                            
+                                            {{^wrongemail}}
+                                            	<input type="text" class="form-control" name="email" id="email" placeholder="Insert your Email" />
+                                            {{/wrongemail}}
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -73,7 +78,13 @@
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
+                                                {{#wrongusername}}
+                                            		<input type="text" class="form-control-wrong" name="username" id="username" placeholder="Enter your Username" />
+                                                {{/wrongusername}}
+                                                {{^wrongusername}}
+                                            		<input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
+                                            	{{/wrongusername}}
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -82,7 +93,13 @@
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                                                {{#wrongpassword}}
+                                            		    <input type="password" class="form-control-wrong" name="password" id="password" placeholder="Enter your Password" />
+                                                {{/wrongpassword}}
+                                                {{^wrongpassword}}
+                                            		    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                                            	{{/wrongpassword}}
+                                            
                                             </div>
                                         </div>
                                     </div>
