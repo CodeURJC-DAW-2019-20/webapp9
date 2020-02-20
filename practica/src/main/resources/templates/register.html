@@ -7,7 +7,10 @@
 	async defer></script>
 <meta name="google-signin-client_id"
 	content="53567099753-7u1lovcqfscvu7pgdks3q9081u9aa4ue.apps.googleusercontent.com" />
+<meta name="google-signin-scope" content="profile email">
+<script src="/js/google_login.js"></script>
 
+<!-- CSS -->
 <link rel="stylesheet" href="/core/bootstrap.min.css" />
 <link rel="stylesheet" href="/css/register/Register.css" />
 
@@ -124,7 +127,10 @@
 									here
 								</p>
 							</div>
+
+							<!-- Google login -->
 							<div class="g-signin2" data-onsuccess="onSignIn"></div>
+							<a href="#" onclick="signOut();">Sign out (google)</a>
 						</form>
 					</div>
 
