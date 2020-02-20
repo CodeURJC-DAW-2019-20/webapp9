@@ -38,16 +38,16 @@ public class Controlador {
 	@Autowired
 	private RepositorioGames repository;
 	
-//	@Autowired
-	//private RespositoryUser repositoruUser;
+	@Autowired
+	private RespositoryUser repositoruUser;
 	
-	//@Autowired
-	//private UserComponent userComponent;
+	@Autowired
+	private UserComponent userComponent;
 	
 	@RequestMapping("/")
 	public String index(Model model) {
 		
-		//model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		
 		return "index"; //es necesario poner el .html
 	}
@@ -112,10 +112,10 @@ public class Controlador {
 	public String singInPage(Model model) {
 		//Games games = new Games();
 		//model.addAttribute("games",games.getArray());
-		/*
+		
 		if(userComponent.isLoggedUser()) {	
 			return index(model);		
-		}*/
+		}
 		
 		return "signIn"; 
 	}
@@ -135,10 +135,6 @@ public class Controlador {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 	    Set<ConstraintViolation<User>> violations = validator.validate(user);
-	    
-	    
-	    	
-	    
 	    
 	    if(violations.isEmpty()) {	
 	    	if(user.getPassword().contentEquals(confirmpass)) {
@@ -163,8 +159,8 @@ public class Controlador {
 	private String generateUser(User user) {
 		user.setRol(repository.findById(2).get());
 		try {
-			//repositoruUser.save(user);
-	    //	userComponent.setLoggedUser(user);
+			repositoruUser.save(user);
+			userComponent.setLoggedUser(user);
 	    	return "redirect:/";	  
 		}
 		catch(Exception e) {
