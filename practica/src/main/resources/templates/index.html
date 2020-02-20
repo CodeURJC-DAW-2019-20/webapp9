@@ -48,7 +48,9 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
                         <form action="register">
+                          {{#noloaded}}
                     		<input type="submit" class="nav-link" value="Register">
+                    	  {{/noloaded}}
                     	</form>
                     </li>
                 </ul>
