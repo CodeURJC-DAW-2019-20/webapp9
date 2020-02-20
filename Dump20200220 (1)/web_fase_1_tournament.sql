@@ -26,6 +26,7 @@ CREATE TABLE `tournament` (
   `id_tournament` int NOT NULL,
   `num_teams` int NOT NULL,
   `name` varchar(45) NOT NULL,
+  `description` varchar(900) NOT NULL,
   PRIMARY KEY (`id_tournament`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +37,7 @@ CREATE TABLE `tournament` (
 
 LOCK TABLES `tournament` WRITE;
 /*!40000 ALTER TABLE `tournament` DISABLE KEYS */;
-INSERT INTO `tournament` VALUES (1,8,'Diamond'),(2,16,'Champions'),(3,32,'Rocky');
+INSERT INTO `tournament` VALUES (1,8,'Diamond','Maybe it is a second division tournament, but that dont means it is less exciting. A lot of competivness is also guaranteed and future top players can here show their habilities and skills. Diamond 1 tier or higher is required to enter this tournament.'),(2,16,'Champions','One of the most competitve Rocket League tournaments, here you wil see the best players in the world fighting for the best prizes ever seen in an e-sports game. If you want guaranteed emotion or you want to be one of those players, sig-in quickly in this tournament. Champion 1 tier or higher is required to enter this tournament.'),(3,32,'Rocky','Here all Rocket League players under diamond 1 tier are welcome, in this tournament only fun is essential. You will gain a lot of experience and skill to raise your level and in the future join in top tournaments.');
 /*!40000 ALTER TABLE `tournament` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-20 19:59:51
+-- Dump completed on 2020-02-20 20:50:59
