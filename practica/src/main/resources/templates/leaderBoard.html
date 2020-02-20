@@ -1,6 +1,10 @@
+
+
 <head>
 <link href="/core/bootstrap.min.css" rel="stylesheet">
-
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!--<script src="/js/Leaderboard/load.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
 </head>
 
 <body class="hm-gradient">
@@ -78,7 +82,8 @@
 					</thead>
 					<!--Table head-->
 					<!--Table body-->
-					<tbody>
+					
+						<tbody id="table">
 						{{#teams}}
 						<tr>
 							<th scope="row">{{-index}}</th>
@@ -89,6 +94,8 @@
 						{{/teams}}
 
 					</tbody>
+					
+					
 					<!--Table body-->
 				</table>
 				<!--Table-->
@@ -101,12 +108,8 @@
 				</div>
 			</div>
 		</div>
-		
 	</main>
 	<script src="/core/jquery-3.4.1.slim.min.js"></script>
 	<script src="/core/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
 
 </body>

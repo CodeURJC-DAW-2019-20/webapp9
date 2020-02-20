@@ -8,12 +8,12 @@ import com.practica.demo.data.team.Team;
 
 @SpringBootApplication
 public class PracticaApplication {
-	
+
 	@Bean
-	public Team team(){
+	public Team team() {
 		return new Team();
 	}
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(PracticaApplication.class, args);
 	}

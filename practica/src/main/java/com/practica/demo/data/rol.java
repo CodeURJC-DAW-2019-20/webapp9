@@ -5,22 +5,22 @@ import javax.persistence.Id;
 
 @Entity
 public class rol {
-	
+
 	@Id
 	private int idRol;
 	private String roldes;
-	
+
 	public rol() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public rol(int idRol, String rolDes) {
 		super();
 		this.idRol = idRol;
 		this.roldes = rolDes;
 	}
 
-	//getters and setters.
+	// getters and setters.
 	public int getIdRol() {
 		return idRol;
 	}
@@ -36,7 +36,5 @@ public class rol {
 	public void setRolDes(String rolDes) {
 		roldes = rolDes;
 	}
-	
-	
 
 }
