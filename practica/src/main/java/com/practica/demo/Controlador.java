@@ -1,6 +1,8 @@
 package com.practica.demo;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 import javax.validation.ConstraintValidator;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.practica.demo.data.Games;
+import com.practica.demo.data.Tournament;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
@@ -42,6 +45,9 @@ public class Controlador {
 	private RespositoryUser repositoruUser;
 	
 	@Autowired
+	private TournamentRepository repositoryTournament;
+	
+	@Autowired
 	private UserComponent userComponent;
 	
 	@RequestMapping("/")
@@ -59,6 +65,16 @@ public class Controlador {
 	
 	@RequestMapping("/tournaments")
 	public String goTournaments(Model model) {
+		//metodo para encontrar solo el nombre??
+		List <Tournament> listatorneo = repositoryTournament.findAll();
+		
+		ArrayList<String> listaMostrar = new ArrayList<String>();
+		
+		//for
+		listaMostrar.add(listatorneo.get(1).getName());
+		//
+		
+		model.addAttribute("torneos",listatorneo);
 		return "rocketLeague";
 	}
 	
@@ -130,6 +146,7 @@ public class Controlador {
 		return "register"; 
 	}
 	
+	
 	@PostMapping("/register")
 	public String newUser(Model model, User user,@RequestParam("confirm") String confirmpass) {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -154,6 +171,12 @@ public class Controlador {
 	    	
 		
 
+	}
+	
+	@RequestMapping("/tournaments/{tournamentname}")
+	public String tournaments(Model model, @PathVariable String name) {
+		
+	return "diamond"; 
 	}
 	
 	private String generateUser(User user) {
