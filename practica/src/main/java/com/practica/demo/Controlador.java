@@ -113,6 +113,9 @@ public class Controlador {
 	public String singInPage(Model model) {
 		//Games games = new Games();
 		//model.addAttribute("games",games.getArray());
+		if(userComponent.isLoggedUser()) {	
+			return index(model);		
+		}
 		
 		return "signIn"; 
 	}

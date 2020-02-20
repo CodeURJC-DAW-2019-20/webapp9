@@ -58,7 +58,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().defaultSuccessUrl("/");
         http.formLogin().failureUrl("/loginerror");
         
-		http.authorizeRequests().antMatchers("/tournaments").hasRole("ADMIN");
+		http.authorizeRequests().antMatchers("/tournaments").hasRole("UserLoad");
         
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");

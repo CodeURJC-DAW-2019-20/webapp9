@@ -36,7 +36,11 @@
                     {{#noloaded}}
                         <form action="login">
                     		<input type="submit" class="nav-link" value="Sign In">
-                    		<
+                    	</form>
+                    {{/noloaded}}
+                    {{^noloaded}}
+                        <form action="profile">
+                    		<input type="submit" class="nav-link" value="Profile">
                     	</form>
                     {{/noloaded}}
                     </li>
