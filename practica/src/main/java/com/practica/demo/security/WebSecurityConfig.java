@@ -1,5 +1,6 @@
 package com.practica.demo.security;
 
+import org.apache.catalina.startup.ClassLoaderFactory.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -8,6 +9,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.practica.demo.RepositorioGames;
+import com.practica.demo.data.user.RespositoryUser;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -54,9 +58,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().defaultSuccessUrl("/");
         http.formLogin().failureUrl("/loginerror");
         
+		http.authorizeRequests().antMatchers("/tournaments").hasRole("ADMIN");
         
-        
-        
+        http.logout().logoutUrl("/logout");
+        http.logout().logoutSuccessUrl("/");
         
     }
     

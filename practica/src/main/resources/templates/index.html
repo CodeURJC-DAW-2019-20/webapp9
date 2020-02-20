@@ -34,8 +34,9 @@
                     </li>
                     <li class="nav-item active">
                     {{#noloaded}}
-                        <form action="singIn">
+                        <form action="login">
                     		<input type="submit" class="nav-link" value="Sign In">
+                    		<
                     	</form>
                     {{/noloaded}}
                     </li>
@@ -47,11 +48,20 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <form action="register">
+                       
                           {{#noloaded}}
-                    		<input type="submit" class="nav-link" value="Register">
+                           <form action="register">
+                    			<input type="submit" class="nav-link" value="Register">
+                    			<input type="hidden" name="_csrf" value="{{token}}"/>
+                    		</form>
                     	  {{/noloaded}}
-                    	</form>
+                    	  {{^noloaded}}
+                    				<form action="/logout" method="post">
+										<input type="submit" class="nav-link" value="Log Out">
+										<input type="hidden" name="_csrf" value="{{token}}"/>
+									</form>			
+                    	  {{/noloaded}}
+                    	
                     </li>
                 </ul>
             </div>
@@ -105,9 +115,7 @@
           <title>Rocket League</title>
           <h2>Rocket League</h2>
           <p>Play with your team in incredible tournaments.</p>
-          <form action="tournaments">
-          	 <input type="submit" class="button" value="View tournaments">
-          </form>
+          	 <a type="submit" class="button" href="/tournaments">View tournaments</a>
       </div><!-- /.col-lg-4 -->
       <div class="col-lg-4">
           <img src="/imgs/Main/leaderboardLogo.png" class="" width="140" height="140" preserveAspectRatio="xMidYMid slice" focusable="false" role="img">

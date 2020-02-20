@@ -3,6 +3,7 @@ package com.practica.demo;
 
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -108,14 +109,10 @@ public class Controlador {
 	 * @param model
 	 * @return singIn.html
 	 */
-	@RequestMapping("/singIn")
+	@RequestMapping("/login")
 	public String singInPage(Model model) {
 		//Games games = new Games();
 		//model.addAttribute("games",games.getArray());
-		
-		if(userComponent.isLoggedUser()) {	
-			return index(model);		
-		}
 		
 		return "signIn"; 
 	}
@@ -125,7 +122,9 @@ public class Controlador {
 		
 		model.addAttribute("wrongconfirm",true);
 		//model.addAttribute("wrongemail","Insert your email");    	
-		
+		if(userComponent.isLoggedUser()) {	
+			return index(model);		
+		}
 						
 		return "register"; 
 	}
