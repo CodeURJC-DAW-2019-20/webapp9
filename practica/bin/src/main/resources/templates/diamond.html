@@ -8,45 +8,48 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script|Herr+Von+Muellerhoff' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Istok+Web|Roboto+Condensed:700' rel='stylesheet' type='text/css'>
-    <link href="diamonds-tournament-style.css" rel='stylesheet' type="text/css">
+    <link href="/css/Tournament/diamonds-tournament-style.css" rel='stylesheet' type="text/css">
 
-    <link href="../../core/bootstrap.min.css" rel=stylesheet>
+    <link href="/core/bootstrap.min.css" rel=stylesheet>
 
     <title>Diamonds Tournament</title>
 </head>
 
 <body>
 
+<!-- NavBar -->
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">
-                <img src="../../imgs/web-icon-white.png" width="30" height="30" alt="">
+                <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
             </a>
-            <a class="navbar-brand" >eTorneos</a>
+            <a class="navbar-brand" >eTournaments</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../index/index.html">Home</a>
+                    	<form action="index">
+                    		<input type="submit" class="nav-link" value="Home">
+                    	</form>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../sign-in/sign-in.html">Sign in</a>
+                        <form action="singIn">
+                    		<input type="submit" class="nav-link" value="Sign In">
+                    	</form>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tournaments</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../../lol/index.html">League of Legends</a>
-                            <a class="dropdown-item" href="../../rl/index.html">Rocket League</a>
-                            <a class="dropdown-item" href="../../pokemon/pokemon.html">Pokémon</a>
-                        </div>
+                    <li class="nav-item active">
+                        <form action="leaderBoard">
+                    		<input type="submit" class="nav-link" value="Leaderboard">
+                    	</form>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../../register/register.html">Register</a>
+                        <form action="register">
+                    		<input type="submit" class="nav-link" value="Register">
+                    	</form>
                     </li>
                 </ul>
             </div>
@@ -58,7 +61,7 @@
     <header class="hero">
         <div class="hero-wrap">
             <p class="intro" id="intro">Rocket League</p>
-            <h1 id="headline">Diamonds Tournament</h1>
+            <h1 id="headline">{{tournamentname}}</h1>
             <p class="year">2020</p>
             <div style="text-align:center;">
                 <a><button class="button" type="button">Join tournament</button></a>
@@ -279,8 +282,8 @@
     </section>
 
      <!-- Bootstrap core JavaScript -->
-     <script src="../../core/jquery-3.4.1.slim.min.js"></script>
-    <script src="../../core/bootstrap.bundle.min.js"></script>    
+     <script src="/core/jquery-3.4.1.slim.min.js"></script>
+    <script src="/core/bootstrap.bundle.min.js"></script>    
      
     
 </body>

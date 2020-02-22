@@ -3,6 +3,7 @@ package com.practica.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ import com.practica.demo.data.user.User;
 import com.practica.demo.data.team.*;
 import com.practica.demo.data.user.UserComponent;
 
-import antlr.collections.List;
+
 
 @Controller
 @AutoConfigureOrder
@@ -55,24 +56,7 @@ public class Controlador {
 	private ArrayList<Team> teams = new ArrayList<>();
 
 	public Controlador() {
-		teams.add(new Team(1, "X1", 500));
-		teams.add(new Team(2, "X2", 300));
-		teams.add(new Team(3, "X3", 200));
-		teams.add(new Team(4, "X4", 600));
-		teams.add(new Team(5, "X5", 100));
-		teams.add(new Team(6, "X6", 700));
 
-		Collections.sort(teams, new Comparator<Team>() {
-			public int compare(Team t1, Team t2) {
-				if (t1.getElo() < t2.getElo()) {
-					return +1;
-				}
-				if (t1.getElo() > t2.getElo()) {
-					return -1;
-				}
-				return 0;
-			}
-		});
 
 	}
 
@@ -80,13 +64,9 @@ public class Controlador {
 	public String index(Model model) {
 
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("user",userComponent.getLoggedUser());
 
 		return "index"; // es necesario poner el .html
-	}
-
-	@RequestMapping("/index")
-	public String goIndex(Model model) {
-		return "index";
 	}
 
 	@RequestMapping("/tournaments")
@@ -116,8 +96,13 @@ public class Controlador {
 		return "leaderBoard";
 	}
 
-	@RequestMapping("/profile")
-	public String goProfile(Model model) {
+	@GetMapping("/profile")
+	public String goProfile(Model model, @RequestParam(required = false) int id) {
+		
+		Optional<User> usuario = repositoruUser.findById(id);
+		
+		
+		
 		return "profile";
 	}
 

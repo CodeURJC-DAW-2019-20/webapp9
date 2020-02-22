@@ -4664,7 +4664,13 @@ input[type=submit].btn-block {
 
 .nav-link {
     display: block;
-    padding: .5rem 1rem
+    background-color: rgb(255,255,255,0);
+    padding: .5rem 1rem;
+    cursor: pointer;
+    border-width: 0px;
+    border-style: inset;
+    border-radius: 10px;
+    color: white;
 }
 
 .nav-link:focus,

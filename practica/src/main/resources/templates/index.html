@@ -39,8 +39,10 @@
                     	</form>
                     {{/noloaded}}
                     {{^noloaded}}
-                        <form action="profile">
-                    		<input type="submit" class="nav-link" value="Profile">
+                        <form action="profile" method="get">	
+                    		<input type="submit" class="nav-link"  value="{{user.username}}">
+                    		<input type="hidden" name="_csrf" value="{{token}}"/>
+                    		<input type="hidden" name="id" value="{{user.iduser}}"/>                  		
                     	</form>
                     {{/noloaded}}
                     </li>
