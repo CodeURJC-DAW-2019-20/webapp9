@@ -2,6 +2,8 @@ package com.practica.demo;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -31,7 +33,6 @@ import com.practica.demo.data.user.User;
 import com.practica.demo.data.team.*;
 import com.practica.demo.data.user.UserComponent;
 
-import antlr.collections.List;
 
 @Controller
 @AutoConfigureOrder
@@ -91,16 +92,10 @@ public class Controlador {
 
 	@RequestMapping("/tournaments")
 	public String goTournaments(Model model) {
-		//metodo para encontrar solo el nombre??
+
 		List <Tournament> listatorneo = repositoryTournament.findAll();
-		
-		ArrayList<String> listaMostrar = new ArrayList<String>();
-		
-		//for
-		listaMostrar.add(listatorneo.get(1).getName());
-		//
-		
-		model.addAttribute("torneos",listatorneo);
+			model.addAttribute("name",listatorneo);
+			model.addAttribute("description",listatorneo);
 		return "rocketLeague";
 	}
 
@@ -139,11 +134,6 @@ public class Controlador {
 	@RequestMapping("/info")
 	public String goInfo(Model model) {
 		return "infoPage";
-	}
-
-	@RequestMapping("/bracket")
-	public String goBrackets(Model model) {
-		return "diamond";
 	}
 
 	/**
