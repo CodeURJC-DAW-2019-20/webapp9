@@ -46,6 +46,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/loginerror").permitAll();
         http.authorizeRequests().antMatchers("/register").permitAll();
         http.authorizeRequests().antMatchers("/register/new").permitAll();
+        http.authorizeRequests().antMatchers("/tournaments").permitAll();
 
         // Private pages (all other pages)
        // http.authorizeRequests().antMatchers("/newbook").hasAnyRole("USER"); //a la espera de una pagina decente
@@ -58,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().defaultSuccessUrl("/");
         http.formLogin().failureUrl("/loginerror");
         
-		http.authorizeRequests().antMatchers("/tournaments").hasRole("UserLoad");
+		// http.authorizeRequests().antMatchers("/tournaments").hasRole("UserLoad");
         
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");
