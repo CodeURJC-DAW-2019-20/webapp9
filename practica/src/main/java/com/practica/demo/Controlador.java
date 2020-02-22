@@ -1,16 +1,11 @@
 package com.practica.demo;
 
-<<<<<<< HEAD
 
 import java.util.ArrayList;
 import java.util.List;
-=======
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
->>>>>>> 84d9b2ca80845364a4edcd319805ca026105b52e
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -157,13 +152,12 @@ public class Controlador {
 	 * @param model
 	 * @return singIn.html
 	 */
-	@RequestMapping("/singIn")
+	@RequestMapping("/login")
 	public String singInPage(Model model) {
-		// Games games = new Games();
-		// model.addAttribute("games",games.getArray());
-
-		if (userComponent.isLoggedUser()) {
-			return index(model);
+		//Games games = new Games();
+		//model.addAttribute("games",games.getArray());
+		if(userComponent.isLoggedUser()) {	
+			return index(model);		
 		}
 
 		return "signIn";
@@ -171,30 +165,21 @@ public class Controlador {
 
 	@RequestMapping("/register")
 	public String register(Model model) {
-<<<<<<< HEAD
 		
 		model.addAttribute("wrongconfirm",true);
 		//model.addAttribute("wrongemail","Insert your email");    	
-		
+		if(userComponent.isLoggedUser()) {	
+			return index(model);		
+		}
 						
 		return "register"; 
 	}
 	
 	
-=======
-
-		model.addAttribute("wrongconfirm", true);
-		// model.addAttribute("wrongemail","Insert your email");
-
-		return "register";
-	}
-
->>>>>>> 84d9b2ca80845364a4edcd319805ca026105b52e
 	@PostMapping("/register")
 	public String newUser(Model model, User user, @RequestParam("confirm") String confirmpass) {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
-<<<<<<< HEAD
 	    Set<ConstraintViolation<User>> violations = validator.validate(user);
 	    
 	    if(violations.isEmpty()) {	
@@ -223,27 +208,6 @@ public class Controlador {
 	return "diamond"; 
 	}
 	
-=======
-		Set<ConstraintViolation<User>> violations = validator.validate(user);
-
-		if (violations.isEmpty()) {
-			if (user.getPassword().contentEquals(confirmpass)) {
-				return generateUser(user);
-			}
-			model.addAttribute("wrongconfirm", true);
-			return "redirect:/register";
-		} else {
-
-			for (ConstraintViolation<User> violation : violations) {
-				model.addAttribute("wrong" + violation.getPropertyPath(), true);
-				model.addAttribute(violation.getPropertyPath().toString(), violation.getMessage());
-			}
-			return "redirect:/register";
-		}
-
-	}
-
->>>>>>> 84d9b2ca80845364a4edcd319805ca026105b52e
 	private String generateUser(User user) {
 		user.setRol(repository.findById(2).get());
 		try {

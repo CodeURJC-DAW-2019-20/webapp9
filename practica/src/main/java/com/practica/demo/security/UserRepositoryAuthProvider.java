@@ -54,9 +54,9 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider {
 			userComponent.setLoggedUser(user);
 
 			List<GrantedAuthority> roles = new ArrayList<>();
-
-			roles.add(new SimpleGrantedAuthority(user.getRol().getRolDes()));
-
+												//hace falta ROLE_ porque sino no lo machea
+			roles.add(new SimpleGrantedAuthority("ROLE_"+user.getRol().getRolDes()));
+			
 			return new UsernamePasswordAuthenticationToken(email, password, roles);
 		}
 	}
