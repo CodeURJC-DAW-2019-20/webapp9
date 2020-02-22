@@ -192,9 +192,9 @@ public class Controlador {
 
 	}
 	
-	@RequestMapping("/tournaments/{tournamentname}")
+	@RequestMapping("/tournaments/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
-		
+		model.addAttribute("name", name);
 	return "diamond"; 
 	}
 	
