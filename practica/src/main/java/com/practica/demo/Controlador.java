@@ -2,6 +2,8 @@ package com.practica.demo;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -30,8 +32,6 @@ import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.team.*;
 import com.practica.demo.data.user.UserComponent;
-
-import antlr.collections.List;
 
 @Controller
 @AutoConfigureOrder
@@ -200,6 +200,11 @@ public class Controlador {
 	    	
 		
 
+	}
+	
+	@RequestMapping("/errorPage")
+	public String errorPage(Model model) {			
+		return "error"; 
 	}
 	
 	@RequestMapping("/tournaments/{tournamentname}")
