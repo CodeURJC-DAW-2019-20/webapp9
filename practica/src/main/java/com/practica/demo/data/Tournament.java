@@ -23,7 +23,7 @@ public class Tournament {
 	public void setNumTeams(int numTeams) {
 		this.numTeams = numTeams;
 	}
-	public String getName() {
+	public String getName(){
 		return name;
 	}
 	public void setName(String name) {
