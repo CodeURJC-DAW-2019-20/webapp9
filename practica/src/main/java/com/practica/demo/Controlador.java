@@ -27,7 +27,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.practica.demo.data.Games;
+import com.practica.demo.data.Team;
 import com.practica.demo.data.Tournament;
+import com.practica.demo.data.teamsOnGame;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.team.*;
@@ -48,10 +50,13 @@ public class Controlador {
 	private TournamentRepository repositoryTournament;
 	
 	@Autowired
-	private UserComponent userComponent;
-
+	private TeamRepository repositoryTeam;
+	
 	@Autowired
-	private Team team;
+	private TeamsOnGameRepository repositoryTeamsOnGame;
+	
+	@Autowired
+	private UserComponent userComponent;
 
 	private ArrayList<Team> teams = new ArrayList<>();
 
@@ -193,8 +198,11 @@ public class Controlador {
 	}
 	
 	@RequestMapping("/tournaments/{name}")
-	public String tournaments(Model model, @PathVariable String name) {
+	public String tournaments(Model model, @PathVariable String name, @RequestParam String dateGame) {
 		model.addAttribute("name", name);
+		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findBydate(dateGame);
+		model.addAttribute("teamname", listateamdate);
+		model.addAttribute("teamelo", listateamdate);
 	return "diamond"; 
 	}
 	
