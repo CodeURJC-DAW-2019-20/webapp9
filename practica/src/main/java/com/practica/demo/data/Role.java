@@ -4,17 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class rol {
+public class Role {
 
 	@Id
 	private int idRol;
 	private String roldes;
 
-	public rol() {
+	public Role() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public rol(int idRol, String rolDes) {
+	public Role(int idRol, String rolDes) {
 		super();
 		this.idRol = idRol;
 		this.roldes = rolDes;

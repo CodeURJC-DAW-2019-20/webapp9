@@ -14,7 +14,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.practica.demo.data.user.RespositoryUser;
+import com.practica.demo.data.user.UserRepository;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 
@@ -29,7 +29,7 @@ import com.practica.demo.data.user.UserComponent;
 public class UserRepositoryAuthProvider implements AuthenticationProvider {
 
 	@Autowired
-	private RespositoryUser userRepository;
+	private UserRepository userRepository;
 
 	@Autowired
 	private UserComponent userComponent;

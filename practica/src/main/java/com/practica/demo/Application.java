@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import com.practica.demo.data.team.Team;
 
 @SpringBootApplication
-public class PracticaApplication {
+public class Application {
 
 	@Bean
 	public Team team() {
@@ -15,7 +15,7 @@ public class PracticaApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(PracticaApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

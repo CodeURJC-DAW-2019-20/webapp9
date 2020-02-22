@@ -1,14 +1,5 @@
 package com.practica.demo.data.team;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
-
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
-import com.sun.istack.NotNull;
-
 public class Team {
 
 	private int id;

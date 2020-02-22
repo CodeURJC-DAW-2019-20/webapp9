@@ -1,13 +1,11 @@
 package com.practica.demo;
 
 
-<<<<<<< HEAD
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-=======
->>>>>>> sistema-elo
 import java.util.Set;
 
 import javax.validation.ConstraintValidator;
@@ -20,33 +18,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import com.practica.demo.data.Games;
-import com.practica.demo.data.user.RespositoryUser;
+import com.practica.demo.data.user.UserRepository;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 
-<<<<<<< HEAD
-=======
+
 
 @EnableAutoConfiguration
->>>>>>> sistema-elo
 @Controller
-public class Controlador {
+public class WebController {
 	
-	public Controlador() {
-		//hay alguna forma de encapsular la barra para generarla de manera auto?
+	public WebController() {
 	}
 	@Autowired
-	private RepositorioGames repository;
+	private GameRepository gameRepository;
 	
 	@Autowired
-	private RespositoryUser repositoruUser;
+	private UserRepository userRepository;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -130,10 +122,7 @@ public class Controlador {
 	public String register(Model model) {
 		Games games = new Games();
 		model.addAttribute("games",games.getArray());
-
-		//model.addAttribute("wrongemail","Insert your email");    	
-		User user2 = repositoruUser.findByusername("Jorge");
-						
+		//model.addAttribute("wrongemail","Insert your email");					
 		return "register"; 
 	}
 	
@@ -159,7 +148,6 @@ public class Controlador {
 
 	}
 	
-<<<<<<< HEAD
 	@RequestMapping("/errorPage")
 	public String errorPage(Model model) {			
 		return "error"; 
@@ -170,13 +158,10 @@ public class Controlador {
 		
 	return "diamond"; 
 	}
-	
-=======
->>>>>>> sistema-elo
 	private String generateUser(User user) {
-		user.setRol(repository.findById(2).get());
+		user.setRol(gameRepository.findById(2).get());
 		try {
-			repositoruUser.save(user);
+			userRepository.save(user);
 	    	userComponent.setLoggedUser(user);
 	    	return "/";	  
 		}
@@ -184,16 +169,10 @@ public class Controlador {
 			
 			System.out.println(e);
 			
-			return "/error";
+			return "/errorPage";
 			
 
 		}
 	}
-<<<<<<< HEAD
-	
 
-	
-=======
-
->>>>>>> master
 }

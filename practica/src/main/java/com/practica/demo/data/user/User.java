@@ -1,18 +1,14 @@
 package com.practica.demo.data.user;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.omg.CORBA.DynAnyPackage.Invalid;
 
-import com.practica.demo.data.rol;
+import com.practica.demo.data.Role;
 
 @Entity
 public class User {
@@ -31,14 +27,14 @@ public class User {
 
 	@Email
 	@NotEmpty
-	private String email; // consulat clases emails y validadores propios de java
+	private String email;
 
 	@NotNull
 	@NotEmpty
 	private String password;
 
 	@OneToOne
-	private com.practica.demo.data.rol rol;
+	private com.practica.demo.data.Role rol;
 
 	// private UserData userData;
 
@@ -56,11 +52,11 @@ public class User {
 		this.username = username;
 	}
 
-	public rol getRol() {
+	public Role getRol() {
 		return rol;
 	}
 
-	public void setRol(rol rol) {
+	public void setRol(Role rol) {
 		this.rol = rol;
 
 	}

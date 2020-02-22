@@ -10,8 +10,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.practica.demo.RepositorioGames;
-import com.practica.demo.data.user.RespositoryUser;
+import com.practica.demo.GameRepository;
+import com.practica.demo.data.user.UserRepository;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {

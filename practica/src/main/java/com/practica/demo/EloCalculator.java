@@ -2,7 +2,7 @@ package com.practica.demo;
 
 import java.lang.Math;
 
-public class eloCalculator {
+public class EloCalculator {
 
 private void updateElo(int teamID1,int teamID2,int result) {
 	int k1,k2;
