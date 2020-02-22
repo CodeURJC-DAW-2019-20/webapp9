@@ -16,39 +16,37 @@ import com.practica.demo.data.rol;
 
 @Entity
 public class User {
-	
+
 	// private long idUser; //Autoincrement en BBDD not nece
-	
-	//private int iduser;
+
+	// private int iduser;
 	@Id
 	@NotNull
 	@NotEmpty
-    private String name;
-	
+	private String name;
+
 	@NotNull
 	@NotEmpty
 	private String username;
-	
+
 	@Email
 	@NotEmpty
-    private String email; //consulat clases emails y validadores propios de java
-	
+	private String email; // consulat clases emails y validadores propios de java
+
 	@NotNull
 	@NotEmpty
-    private String password;
-	
+	private String password;
+
 	@OneToOne
 	private com.practica.demo.data.rol rol;
-	
-	//private UserData userData;
-	
-	public User() {
-		
-	}
-	
-	//GETTERS AND SETTERS
 
-	
+	// private UserData userData;
+
+	public User() {
+
+	}
+
+	// GETTERS AND SETTERS
 
 	public String getUsername() {
 		return username;
@@ -90,16 +88,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	
-	
-
-	
-	
-	
-
-
-	
-	
 
 }

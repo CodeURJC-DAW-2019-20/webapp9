@@ -109,7 +109,6 @@ public class Controlador {
 	public String singInPage(Model model) {
 		//Games games = new Games();
 		//model.addAttribute("games",games.getArray());
-		
 		if(userComponent.isLoggedUser()) {	
 			return index(model);		
 		}
@@ -163,9 +162,14 @@ public class Controlador {
 			
 			return "/error";
 			
+
 		}
 	}
+<<<<<<< HEAD
 	
 
 	
+=======
+
+>>>>>>> master
 }
