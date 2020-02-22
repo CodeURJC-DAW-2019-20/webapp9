@@ -3,6 +3,8 @@ package com.practica.demo;
 
 import java.awt.print.Pageable;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Set;
 
@@ -186,6 +188,11 @@ public class Controlador {
 	    	
 		
 
+	}
+	
+	@RequestMapping("/errorPage")
+	public String errorPage(Model model) {			
+		return "error"; 
 	}
 	
 	@RequestMapping("/tournaments/{tournamentname}")
