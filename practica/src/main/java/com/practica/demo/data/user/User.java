@@ -1,6 +1,7 @@
 package com.practica.demo.data.user;
 
 import javax.annotation.Generated;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

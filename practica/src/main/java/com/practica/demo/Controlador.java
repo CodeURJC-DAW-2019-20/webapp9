@@ -1,6 +1,7 @@
 package com.practica.demo;
 
 
+import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -15,6 +16,9 @@ import javax.validation.ValidatorFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureOrder;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,13 +29,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.practica.demo.data.Games;
+import com.practica.demo.data.Team;
 import com.practica.demo.data.Tournament;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
-import com.practica.demo.data.team.*;
 import com.practica.demo.data.user.UserComponent;
-
-import antlr.collections.List;
 
 @Controller
 @AutoConfigureOrder
@@ -47,32 +49,14 @@ public class Controlador {
 	private TournamentRepository repositoryTournament;
 	
 	@Autowired
-	private UserComponent userComponent;
-
+	private RepositoryTeam repositoryTeam;
+	
 	@Autowired
-	private Team team;
-
-	private ArrayList<Team> teams = new ArrayList<>();
-
+	private UserComponent userComponent;
+	
+	PageRequest firstPageWithTwoElements = PageRequest.of(0, 2, Sort.by("elo").descending());
+	
 	public Controlador() {
-		teams.add(new Team(1, "X1", 500));
-		teams.add(new Team(2, "X2", 300));
-		teams.add(new Team(3, "X3", 200));
-		teams.add(new Team(4, "X4", 600));
-		teams.add(new Team(5, "X5", 100));
-		teams.add(new Team(6, "X6", 700));
-
-		Collections.sort(teams, new Comparator<Team>() {
-			public int compare(Team t1, Team t2) {
-				if (t1.getElo() < t2.getElo()) {
-					return +1;
-				}
-				if (t1.getElo() > t2.getElo()) {
-					return -1;
-				}
-				return 0;
-			}
-		});
 
 	}
 
@@ -111,7 +95,9 @@ public class Controlador {
 
 	@RequestMapping("/leaderBoard")
 	public String goLeaderBoard(Model model) {
-		model.addAttribute("teams", teams);
+		Page<Team> listTeams = (Page<Team>) repositoryTeam.findAll(firstPageWithTwoElements);
+		
+		model.addAttribute("teams", listTeams);
 
 		return "leaderBoard";
 	}
@@ -222,5 +208,5 @@ public class Controlador {
 
 		}
 	}
-
+	
 }

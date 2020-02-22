@@ -1,17 +1,13 @@
-package com.practica.demo.data.team;
+package com.practica.demo.data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
-import com.sun.istack.NotNull;
-
+@Entity
 public class Team {
-
-	private int id;
+	
+	@Id
+	private int id_team;
 
 	private String name;
 	private int elo;
@@ -21,17 +17,17 @@ public class Team {
 	}
 
 	public Team(int id, String name, int elo) {
-		this.id = id;
+		this.id_team = id;
 		this.name = name;
 		this.elo = elo;
 	}
 
 	public int getId() {
-		return id;
+		return id_team;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id_team = id;
 	}
 
 	public String getName() {
