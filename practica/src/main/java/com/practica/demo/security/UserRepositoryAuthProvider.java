@@ -18,7 +18,6 @@ import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 
-
 /**
  * This class is used to check http credentials against database data. Also it
  * is responsible to set database user info into userComponent, a session scoped
@@ -37,8 +36,7 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider {
 
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		
-		
+
 		String email = authentication.getName();
 		String password = (String) authentication.getCredentials();
 
@@ -49,15 +47,15 @@ public class UserRepositoryAuthProvider implements AuthenticationProvider {
 		}
 
 //		if (!new BCryptPasswordEncoder().matches(password, user.getPassword())) {
-		if(!password.equals(user.getPassword())) {
+		if (!password.equals(user.getPassword())) {
 			throw new BadCredentialsException("Wrong password");
 		} else {
 
 			userComponent.setLoggedUser(user);
 
 			List<GrantedAuthority> roles = new ArrayList<>();
-			
-			roles.add(new SimpleGrantedAuthority(user.getRol().getRolDes()));
+												//hace falta ROLE_ porque sino no lo machea
+			roles.add(new SimpleGrantedAuthority("ROLE_"+user.getRol().getRolDes()));
 			
 			return new UsernamePasswordAuthenticationToken(email, password, roles);
 		}
