@@ -1,8 +1,6 @@
 package com.practica.demo;
 
 import java.lang.Math;
-import java.util.Optional;
-
 import com.practica.demo.data.Team;
 
 public class EloCalculator {
@@ -16,7 +14,7 @@ public class EloCalculator {
 	public void updateElo(int teamID1, int teamID2, int result) {
 		int k1, k2;
 		// Get elo of each team from database
-		Team team1 =  teamRepository.getOne(teamID1);
+		Team team1 = teamRepository.getOne(teamID1);
 		Team team2 = teamRepository.getOne(teamID2);
 		
 		int team1Elo = team1.getElo();
@@ -31,7 +29,7 @@ public class EloCalculator {
 		e2 = eCalc(team2Elo, team1Elo);
 
 		team1Elo = newElo(team1Elo, e1, k1, result);
-		team2Elo = newElo(team2Elo, e1, k1, 1 - result);
+		team2Elo = newElo(team2Elo, e2, k2, 1 - result);
 		
 		team1.setElo(team1Elo);
 		team2.setElo(team2Elo);
