@@ -15,6 +15,10 @@ public class teamsOnGame {
 	private boolean winner;
 	private String date;
 	
+	public teamsOnGame() {
+
+	}
+	
 	public teamsOnGame(int teamIdTeam, int gameIdGame, int result, boolean winner, String date) {
 		super();
 		this.teamIdTeam = teamIdTeam;

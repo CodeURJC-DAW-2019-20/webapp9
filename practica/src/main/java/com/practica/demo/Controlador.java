@@ -198,11 +198,15 @@ public class Controlador {
 	}
 	
 	@GetMapping("/tournaments/{name}")
-	public String tournaments(Model model, @PathVariable String name, @RequestParam String dateGame) {
+	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("name", name);
-		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findBydate(dateGame);
-		model.addAttribute("teamname", listateamdate);
-		model.addAttribute("teamelo", listateamdate);
+		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findBydate("March 16");
+		List <Team> listateams = null;
+		for(int i=0; i<listateamdate.size(); i++) {
+			listateams= repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
+		}
+		model.addAttribute("teamname", listateams);
+		model.addAttribute("teamelo", listateams);
 	return "diamond"; 
 	}
 	
