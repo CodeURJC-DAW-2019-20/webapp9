@@ -16,35 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `user`
+-- Table structure for table `game`
 --
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `game`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user` (
-  `idUser` int NOT NULL AUTO_INCREMENT,
-  `UserName` varchar(45) NOT NULL,
-  `rol_id_rol` int NOT NULL,
-  `email` varchar(90) NOT NULL DEFAULT 'default@default',
-  `password` varchar(15) NOT NULL DEFAULT '" "',
-  `name` varchar(45) NOT NULL DEFAULT 'dafaultname',
-  PRIMARY KEY (`idUser`),
-  UNIQUE KEY `UserName_UNIQUE` (`UserName`),
-  UNIQUE KEY `email_UNIQUE` (`email`),
-  KEY `fk_User_Rol_idx` (`rol_id_rol`),
-  CONSTRAINT `fk_User_Rol` FOREIGN KEY (`rol_id_rol`) REFERENCES `rol` (`id_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `game` (
+  `id_game` int NOT NULL,
+  `tournament_id_tournament` int NOT NULL,
+  PRIMARY KEY (`id_game`),
+  KEY `fk_partida_torneo1_idx` (`tournament_id_tournament`),
+  CONSTRAINT `fk_partida_torneo1` FOREIGN KEY (`tournament_id_tournament`) REFERENCES `tournament` (`id_tournament`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `game`
 --
 
-LOCK TABLES `user` WRITE;
-/*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'lucia,',1,'lucia@hotmail.com','123','lucia'),(2,'usuario2',2,'us2@hotmail.com','545','jorge'),(3,'usuario3',2,'us3@hotmail.com','5775','daniel'),(4,'usuario4',2,'hola@hotmail.com','213','Mario');
-/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+LOCK TABLES `game` WRITE;
+/*!40000 ALTER TABLE `game` DISABLE KEYS */;
+INSERT INTO `game` VALUES (1,1),(2,2);
+/*!40000 ALTER TABLE `game` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -56,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-23 20:43:23
+-- Dump completed on 2020-02-23 22:17:53

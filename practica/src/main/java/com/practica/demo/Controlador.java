@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +33,6 @@ import com.practica.demo.data.Tournament;
 import com.practica.demo.data.teamsOnGame;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
-import com.practica.demo.data.team.*;
 import com.practica.demo.data.user.UserComponent;
 
 
@@ -200,14 +200,18 @@ public class Controlador {
 	@GetMapping("/tournaments/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("name", name);
-		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findBydate("March 16");
-		List <Team> listateams = null;
-		for(int i=0; i<listateamdate.size(); i++) {
-			listateams= repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
-		}
-		model.addAttribute("teamname", listateams);
-		model.addAttribute("teamelo", listateams);
+		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
+		List <Team> listateams = new ArrayList<Team>();
+		
+		for(int i =0; i<listateamdate.size();i++) {
+			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
+			listateams.add(team);
+			
+		}		
+		model.addAttribute("team",listateams);
+		
 	return "diamond"; 
+	
 	}
 	
 	private String generateUser(User user) {

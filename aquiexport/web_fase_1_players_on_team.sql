@@ -16,29 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `player`
+-- Table structure for table `players_on_team`
 --
 
-DROP TABLE IF EXISTS `player`;
+DROP TABLE IF EXISTS `players_on_team`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `player` (
-  `id_player` int NOT NULL,
-  `user_idUser` int NOT NULL,
-  PRIMARY KEY (`id_player`),
-  KEY `fk_jugador_user1_idx` (`user_idUser`),
-  CONSTRAINT `fk_jugador_user1` FOREIGN KEY (`user_idUser`) REFERENCES `user` (`idUser`)
+CREATE TABLE `players_on_team` (
+  `team_id_team` int NOT NULL,
+  `player_id_player` int NOT NULL,
+  PRIMARY KEY (`team_id_team`,`player_id_player`),
+  KEY `fk_team_has_player_player1_idx` (`player_id_player`),
+  KEY `fk_team_has_player_team1_idx` (`team_id_team`),
+  CONSTRAINT `fk_team_has_player_player1` FOREIGN KEY (`player_id_player`) REFERENCES `player` (`id_player`),
+  CONSTRAINT `fk_team_has_player_team1` FOREIGN KEY (`team_id_team`) REFERENCES `team` (`id_team`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `player`
+-- Dumping data for table `players_on_team`
 --
 
-LOCK TABLES `player` WRITE;
-/*!40000 ALTER TABLE `player` DISABLE KEYS */;
-INSERT INTO `player` VALUES (1,1),(2,2),(3,3),(4,4);
-/*!40000 ALTER TABLE `player` ENABLE KEYS */;
+LOCK TABLES `players_on_team` WRITE;
+/*!40000 ALTER TABLE `players_on_team` DISABLE KEYS */;
+INSERT INTO `players_on_team` VALUES (1,1),(1,2),(2,3),(3,4);
+/*!40000 ALTER TABLE `players_on_team` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-23 20:43:23
+-- Dump completed on 2020-02-23 22:17:53

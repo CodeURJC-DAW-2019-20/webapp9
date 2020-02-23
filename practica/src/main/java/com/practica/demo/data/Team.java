@@ -5,8 +5,12 @@ import javax.persistence.Id;
 
 @Entity	
 public class Team {
+		
 		@Id
 		private int idTeam;
+		
+		private String name;
+		private int elo;
 		
 		public Team() {
 
@@ -18,9 +22,7 @@ public class Team {
 			this.name = name;
 			this.elo = elo;
 		}
-		private String name;
-		private int elo;
-		
+	
 		public int getIdTeam() {
 			return idTeam;
 		}

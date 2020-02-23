@@ -3,11 +3,14 @@ package com.practica.demo.data;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.OneToOne;
 
 @Entity @IdClass(TeamsOnGameIds.class)
 public class teamsOnGame {
+	
 	@Id
 	private int teamIdTeam;
+	
 	@Id
 	private int gameIdGame;
 	
