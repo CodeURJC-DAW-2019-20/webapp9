@@ -34,6 +34,15 @@ public class EloCalculator {
 		team1.setElo(team1Elo);
 		team2.setElo(team2Elo);
 		
+		if(result==0) {
+			team1.addLoss();
+			team2.addWin();
+		}else {
+			team1.addWin();
+			team2.addLoss();
+		}
+		
+		
 		teamRepository.save(team1);
 		teamRepository.save(team2);
 		// Update elos in database

@@ -58,11 +58,11 @@ public class Team {
 		this.elo = elo;
 	}
 	
-	public void addWin(int wins) {
+	public void addWin() {
 		this.wins++;
 	}
 	
-	public void addLoss(int wins) {
+	public void addLoss() {
 		this.losses++;
 	}
 
