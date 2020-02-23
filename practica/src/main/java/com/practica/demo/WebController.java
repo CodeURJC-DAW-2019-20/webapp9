@@ -19,6 +19,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -54,6 +55,7 @@ public class WebController {
 	@Autowired
 	private UserComponent userComponent;
 
+
 	PageRequest firstPageWithTwoElements = PageRequest.of(0, 2, Sort.by("elo").descending());
 
 	@RequestMapping("/")
@@ -82,16 +84,10 @@ public class WebController {
 	@RequestMapping("/leaderBoard")
 	public String goLeaderBoard(Model model) {
 
+		PageRequest firstPageWithTwoElements = PageRequest.of(0, 2, Sort.by("elo").descending());
 		Page<Team> listTeams = (Page<Team>) repositoryTeam.findAll(firstPageWithTwoElements);
 
-		//Team teamAdd = new Team();
-		//teamAdd = repositoryTeam.findTeamByid_team(2);
-
 		model.addAttribute("teams", listTeams);
-
-		//TeamRestController controlator = new TeamRestController();
-
-		//controlator.addTeam(teamAdd);
 
 		return "leaderBoard";
 	}

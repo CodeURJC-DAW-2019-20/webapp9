@@ -18,15 +18,20 @@ function loadTeams(callback) {
     });
 }
 
-//$(document).ready(function(){
-	
-	$("#btn").on('click', function() {
+$(document).ready(function(){
+	var cont = 2;
+$("#btn").on('click', function() {
 		
 		loadTeams(function (teams) {
-	        for (var i = 2; i < teams.length; i++) {
-	            showTeam(i,teams[i]);	
+	        for (var i = cont; i < teams.length; i++) {
+	        	cont = i + 1;
+	        	console.log(cont);
+	            showTeam(cont,teams[i]);	
 	        }
 	    });
 	});
-//});
+	
+});
+	
+
 	
