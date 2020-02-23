@@ -67,6 +67,7 @@
     </div>
 
     <!-- Header section start -->
+    {{#myprofile}}
     <header class="header-section">
         <div class="container-fluid">
             <div class="row">
@@ -77,6 +78,7 @@
             </div>
         </div>
     </header>
+     {{/myprofile}}
     <!-- Header section end -->
 
     <!-- Hero section start -->
@@ -87,7 +89,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="hero-text">
-                                <h2>Micr0ps</h2>
+                                <h2>{{user.username}}</h2>
                                 <p>I'm a League og Legend player who plays casual games and his favourite champion is Thresh </p>
                             </div>
                             <div class="hero-info">

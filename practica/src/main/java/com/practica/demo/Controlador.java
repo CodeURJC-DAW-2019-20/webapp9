@@ -101,6 +101,10 @@ public class Controlador {
 		
 		Optional<User> usuario = repositoruUser.findById(id);
 		
+		if(userComponent.getLoggedUser().getIduser()==usuario.get().getIduser()) {			
+			model.addAttribute("myprofile", true);						
+		}
+		model.addAttribute("user",usuario.get());
 		
 		
 		return "profile";

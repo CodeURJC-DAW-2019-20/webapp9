@@ -19,9 +19,12 @@ public class User {
 
 	// private long idUser; //Autoincrement en BBDD not nece
 	@Id
-	
 	private int iduser;
 	
+	public int getIduser() {
+		return iduser;
+	}
+
 	@NotNull
 	@NotEmpty
 	private String name;
