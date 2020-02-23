@@ -159,7 +159,10 @@ public class WebController {
 		Team team = repositoryTeam.findByplayer(player.getIdPlayer());
 		
 		model.addAttribute("player",player);
+		
+		if (team != null) {
 		model.addAttribute("team", team);
+		}
 		
 		
 
@@ -225,7 +228,7 @@ public class WebController {
 	    		return generateUser(model,user);
 	    	}
 	    	model.addAttribute("wrongconfirm",true);
-	    	return "redirect:/register";
+	    	return "/register";
 	    }
 	    else {
 	    	
@@ -233,7 +236,7 @@ public class WebController {
 	    	    model.addAttribute("wrong"+violation.getPropertyPath(), true);    	    
 	    	    model.addAttribute(violation.getPropertyPath().toString(), violation.getMessage());
 	    	} 	
-	    	return "redirect:/register";
+	    	return "/register";
 	    }	
 
 	}
@@ -241,7 +244,14 @@ public class WebController {
 	private String generateUser(Model model,User user) {
 		user.setRol(gameRepository.findById(2).get());
 		try {
+			Player player = new Player();
+			
 			userRepository.save(user);
+			
+			player.setUser(user);
+			
+			playerRepository.save(player);
+			
 			User useraux = userRepository.findByemail(user.getEmail());
 	    	userComponent.setLoggedUser(useraux);
 	    	return index2(model);
