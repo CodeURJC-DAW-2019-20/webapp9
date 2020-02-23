@@ -22,9 +22,12 @@ import org.springframework.data.domain.Sort;
 import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.practica.demo.data.Games;
 import com.practica.demo.data.user.UserRepository;
 import com.practica.demo.data.user.User;
@@ -89,8 +92,8 @@ public class WebController {
 
 	@GetMapping("/profile")
 	public String goProfile(Model model, @RequestParam(required = false) int id) {
-
-		Optional<User> usuario = repositoruUser.findById(id);
+		
+		Optional<User> usuario = userRepository.findById(Integer.toString(id));
 
 		if(userComponent.getLoggedUser().getIduser()==usuario.get().getIduser()) {
 			model.addAttribute("myprofile", true);
