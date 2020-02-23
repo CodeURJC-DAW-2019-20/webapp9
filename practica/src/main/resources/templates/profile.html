@@ -41,9 +41,12 @@
 						<form action="login">
 							<input type="submit" class="nav-link" value="Sign In">
 						</form> {{/noloaded}} {{^noloaded}}
-						<form action="profile">
-							<input type="submit" class="nav-link" value="Profile">
-						</form> {{/noloaded}}
+						    <form action="profile" method="get">	
+                    		<input type="submit" class="nav-link"  value="{{user.username}}">
+                    		<input type="hidden" name="_csrf" value="{{token}}"/>
+                    		<input type="hidden" name="id" value="{{user.iduser}}"/>                  		
+                    	</form>
+                    	 {{/noloaded}}
 					</li>
 					<li class="nav-item active">
 						<form action="leaderBoard">
@@ -99,7 +102,7 @@
                         <div class="col-lg-6">
                             <div class="hero-text">
                                 <h2>{{user.username}}</h2>
-                                <p>I'm a League og Legend player who plays casual games and his favourite champion is Thresh </p>
+                                <p> {{player.description}}</p>
                             </div>
                             <div class="hero-info">
                                 <h2>General Info</h2>
