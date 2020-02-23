@@ -62,33 +62,52 @@
 
 	<div class="container">
 
-		<form class="well form-horizontal" action=" " method="post"
-			id="contact_form">
+		<form class="well form-horizontal" action="newTeam" method="post">
 			<fieldset>
-
+				
+				<br>
+				<br>
+				<br>
+				<br>
+				
 				<!-- Form Name -->
-				<legend>
-					<center>
-						<h2>
-							<b>Create your team!</b>
-						</h2>
-					</center>
-				</legend>
 
+						<h2>
+							<b>Create team</b>
+						</h2>
+
+						<br>
+				
+				
+				
 				<!-- Text input-->
 
 				<div class="form-group">
-					<label class="col-md-4 control-label">Team´s name</label>
+					<label class="col-md-4 control-label">Team name</label>
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> <input name="team_name"
-								placeholder="Your team´s name here" class="form-control"
+								placeholder="Your team name here" class="form-control"
 								type="text">
 						</div>
 					</div>
 				</div>
+				
+				<!-- Text input-->
 
+				<div class="form-group">
+					<label class="col-md-4 control-label">First player</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input name="player1"
+								placeholder="Username of first player"
+								class="form-control" type="text">
+						</div>
+					</div>
+				</div>
+				
 				<!-- Text input-->
 
 				<div class="form-group">
@@ -97,7 +116,7 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> <input name="player2"
-								placeholder="Username of your first teammate"
+								placeholder="Username of secon player"
 								class="form-control" type="text">
 						</div>
 					</div>
@@ -111,7 +130,7 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> <input name="player3"
-								placeholder="Username of your third teammate"
+								placeholder="Username of third player"
 								class="form-control" type="text">
 						</div>
 					</div>
@@ -122,7 +141,7 @@
 
 				<!-- Select Basic -->
 				<div class="form-group">
-					<label class="col-md-4 control-label">Select your team´s
+					<label class="col-md-4 control-label">Select the team
 						icon</label>
 					<div class="col-md-4">
 						<div class="input-group mb-3">
@@ -140,7 +159,8 @@
 				<br>
 				<!-- Button -->
 				<div class="col-md-4 inputGroupContainer">
-					<button class="btn btn-primary" type="submit">Submit</button>
+					<input class="btn btn-primary" type="submit" value="Submit">
+					<input type="hidden" name="_csrf" value="{{token}}">
 				</div>
 
 			</fieldset>

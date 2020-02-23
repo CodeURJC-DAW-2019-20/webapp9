@@ -115,6 +115,18 @@ public class WebController {
 	public String goTeamCreation(Model model) {
 		return "teamCreation";
 	}
+	
+	@PostMapping("/newTeam")
+	public String goNewTeam(Model model, @RequestParam String team_name, @RequestParam String player1, @RequestParam String player2, @RequestParam String player3) {
+		
+		model.addAttribute("team", team_name);
+		model.addAttribute("p1", player1);
+		model.addAttribute("p2", player2);
+		model.addAttribute("p3", player3);
+		
+		
+		return "teamCreated";
+	}
 
 	@RequestMapping("/signIn")
 	public String goSigIn(Model model) {
