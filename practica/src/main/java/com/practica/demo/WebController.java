@@ -29,7 +29,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.demo.data.Games;
-import com.practica.demo.data.user.UserRepository;
+
+import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 
@@ -51,7 +52,7 @@ public class WebController {
 	private GameRepository gameRepository;
 
 	@Autowired
-	private UserRepository userRepository;
+	private RespositoryUser userRepository;
 
 	@Autowired
 	private TeamRepository repositoryTeam;
@@ -100,7 +101,7 @@ public class WebController {
 	@GetMapping("/profile")
 	public String goProfile(Model model, @RequestParam(required = false) int id) {
 		
-		Optional<User> usuario = userRepository.findById(Integer.toString(id));
+		Optional<User> usuario = userRepository.findById(id);
 
 		if(userComponent.getLoggedUser().getIduser()==usuario.get().getIduser()) {
 			model.addAttribute("myprofile", true);
@@ -195,7 +196,7 @@ public class WebController {
 	    
 	    if(violations.isEmpty()) {	
 	    	if(user.getPassword().contentEquals(confirmpass)) {
-	    		return generateUser(user);
+	    		return generateUser(model,user);
 	    	}
 	    	model.addAttribute("wrongconfirm",true);
 	    	return "redirect:/register";
@@ -211,12 +212,13 @@ public class WebController {
 
 	}
 
-	private String generateUser(User user) {
+	private String generateUser(Model model,User user) {
 		user.setRol(gameRepository.findById(2).get());
 		try {
 			userRepository.save(user);
-	    	userComponent.setLoggedUser(user);
-	    	return "/";
+			User useraux = userRepository.findByemail(user.getEmail());
+	    	userComponent.setLoggedUser(useraux);
+	    	return index2(model);
 		}
 		catch(Exception e) {
 

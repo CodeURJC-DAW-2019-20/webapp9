@@ -28,7 +28,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 
 import com.practica.demo.GameRepository;
-import com.practica.demo.data.user.UserRepository;
+
 
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
@@ -59,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	                		"classpath:/static/js/");
     	    }
     	}
-
+/**
 
     	@EnableWebMvc class SimpleCORSFilter implements Filter {
 
@@ -82,7 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     	}
 
-
+**/
 
         http.authorizeRequests().antMatchers("/resources/**").permitAll();
 
@@ -102,12 +102,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().loginPage("/login");
         http.formLogin().usernameParameter("email");
         http.formLogin().passwordParameter("password");
-        http.formLogin().defaultSuccessUrl("/");
+        http.formLogin().defaultSuccessUrl("/index");
         http.formLogin().failureUrl("/loginerror");
-    
-		http.authorizeRequests().antMatchers("/tournaments").hasRole("UserLoad");
-		http.authorizeRequests().antMatchers("/profile").hasRole("User");
-
+        
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");
 
