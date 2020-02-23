@@ -24,6 +24,12 @@
 			</dependency> <dependency> <groupId>org.springframework.security</groupId> 
 			<artifactId>spring-security-test</artifactId> <scope>test</scope> </dependency> -->
 		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+		
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
@@ -69,15 +75,46 @@
 			<artifactId>bootstrap</artifactId>
 			<version>3.3.7</version>
 		</dependency>
-
+		
+		<dependency>
+            <groupId>org.eclipse.birt.runtime</groupId>
+            <artifactId>org.eclipse.birt.runtime</artifactId>
+            <version>4.4.2</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.eclipse.birt.runtime</groupId>
+                    <artifactId>org.eclipse.orbit.mongodb</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+		
+		<dependency>
+            <groupId>net.sourceforge</groupId>
+            <artifactId>php-java-bridge</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+		
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>jquery</artifactId>
 			<version>3.2.1</version>
 		</dependency>
 
+		<dependency>
+            <groupId>net.sourceforge</groupId>
+            <artifactId>php-servlet</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+		
 	</dependencies>
-
+	
+	<repositories>
+        <repository>
+            <id>erp</id>
+            <url>http://52.206.67.186/artifactory/ext-release-local</url>
+        </repository>
+    </repositories>
+	
 	<build>
 		<plugins>
 			<plugin>
