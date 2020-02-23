@@ -156,7 +156,10 @@ public class WebController {
 		
 		Player player = playerRepository.findByuser(usuario.get());
 		
+		Team team = repositoryTeam.findByplayer(player.getIdPlayer());
+		
 		model.addAttribute("player",player);
+		model.addAttribute("team", team);
 		
 		
 

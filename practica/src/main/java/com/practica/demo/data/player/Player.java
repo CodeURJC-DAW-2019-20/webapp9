@@ -17,6 +17,7 @@ public class Player {
 	
 	private String description;
 	
+	
 	public Player() {
 		// TODO Auto-generated constructor stub
 	}
