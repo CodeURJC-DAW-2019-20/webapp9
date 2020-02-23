@@ -38,7 +38,6 @@ import com.practica.demo.TeamRestController;
 
 @EnableAutoConfiguration
 @Controller
-@AutoConfigureOrder
 public class WebController {
 
 	public WebController() {

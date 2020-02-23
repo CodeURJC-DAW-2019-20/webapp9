@@ -18,7 +18,7 @@ import com.practica.demo.data.Team;
 public class TeamRestController {
 	
 	@Autowired
-	private RepositoryTeam repositoryTeam;
+	private TeamRepository repositoryTeam;
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Team> findTeams() {

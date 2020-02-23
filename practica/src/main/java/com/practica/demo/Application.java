@@ -10,9 +10,9 @@ import php.java.bridge.http.JavaBridgeRunner;
 
 public class Application {
 
-	@Bean
-	public Team team() {
-		return new Team();
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
 	}
 
 }
