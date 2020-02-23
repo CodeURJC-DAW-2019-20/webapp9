@@ -1,43 +1,45 @@
 <html lang="en">
 <head>
-<link rel="stylesheet" href="../core/bootstrap.min.css" />
-<link rel="stylesheet" href="../css/register/register.css" />
-<script src="../core/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="../core/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/core/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/register/register.css" />
+
 </head>
 <body>
     
 <!-- NavBar -->
+    <!-- NavBar -->
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">
-                <img src="../imgs/web-icon-white.png" width="30" height="30" alt="">
+                <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
             </a>
-            <a class="navbar-brand" >eTorneos</a>
+            <a class="navbar-brand" >eTournaments</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../index/index.html">Home</a>
+                    	<form action="index">
+                    		<input type="submit" class="nav-link" value="Home">
+                    	</form>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="../sign-in/sign-in.html">Sign in</a>
+                        <form action="singIn">
+                    		<input type="submit" class="nav-link" value="Sign In">
+                    	</form>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tournaments</a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="../lol/index.html">League of Legends</a>
-                            <a class="dropdown-item" href="../rl/index.html">Rocket League</a>
-                            <a class="dropdown-item" href="../pokemon/pokemon.html">Pokémon</a>
-                        </div>
+                    <li class="nav-item active">
+                        <form action="leaderBoard">
+                    		<input type="submit" class="nav-link" value="Leaderboard">
+                    	</form>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="../register/register.html">Register</a>
+                        <form action="register">
+                    		<input type="submit" class="nav-link" value="Register">
+                    	</form>
                     </li>
                 </ul>
             </div>
@@ -50,13 +52,20 @@
             <div class="col-md-8">
                     <div class="card">
                             <div class="card-body">
-                            <form class="form-horizontal" method="post" action="/register/new">
+                            <form class="form-horizontal" method="post" action="/register">
                                 <div class="form-group">
                                     <label for="name" class="cols-sm-2 control-label">Your Name</label>
                                     <div class="cols-sm-10">
                                         <div class="input-group">
                                             <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                            <input type="text" class="form-control" name="name" id="name" placeholder="Enter your Name" />
+                                            {{#wrongname}}
+                                            	  <input type="text" class="form-control-wrong" name="name" id="name" placeholder="{{name}}" />
+                                            {{/wrongname}}
+                                            
+                                            {{^wrongname}}
+                                            	  <input type="text" class="form-control" name="name" id="name" placeholder="Insert your name" />
+                                            {{/wrongname}}                                            
+                                          
                                         </div>
                                     </div>
                                 </div>
@@ -64,8 +73,15 @@
                                     <label for="email" class="cols-sm-2 control-label">Your Email</label>
                                     <div class="cols-sm-10">
                                         <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                                            <input type="text" class="form-control" name="email" id="email" placeholder="Enter your Email" />
+                                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>                            
+                                            {{#wrongemail}}
+                                            	<input type="text" class="form-control-wrong"  name="email" id="email" placeholder="{{email}}" />
+                                            {{/wrongemail}}
+                                            
+                                            {{^wrongemail}}
+                                            	<input type="text" class="form-control" name="email" id="email" placeholder="Insert your Email" />
+                                            {{/wrongemail}}
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +90,13 @@
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                                <input type="text" class="form-control" name="username" id="username" placeholder="Enter your Username" />
+                                                {{#wrongusername}}
+                                            		<input type="text" class="form-control-wrong" name="username" id="username" placeholder="{{username}}" />
+                                                {{/wrongusername}}
+                                                {{^wrongusername}}
+                                            		<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username" />
+                                            	{{/wrongusername}}
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -83,7 +105,13 @@
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password" />
+                                                {{#wrongpassword}}
+                                            		    <input type="password" class="form-control-wrong" name="password" id="password" placeholder="{{password}}" />
+                                                {{/wrongpassword}}
+                                                {{^wrongpassword}}
+                                            		    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password"/>
+                                            	{{/wrongpassword}}
+                                            
                                             </div>
                                         </div>
                                     </div>
@@ -92,12 +120,19 @@
                                         <div class="cols-sm-10">
                                             <div class="input-group">
                                                 <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                                                {{#wrongconfirm}}
+                                            		     <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                                                {{/wrongconfirm}}
+                                                {{^wrongconfirm}}
+                                            		     <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
+                                            	{{/wrongconfirm}}
+                                               
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group ">
-                                        <button type="submit" value="Send" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                                        <button type="submit" value="Enviar" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+                                        <input type="hidden" name="_csrf"  value="{{token}}"/>
                                     </div>
                                     <div class="login-register">
                                         <p>Already registered? <a href="../sign-in/sign-in.html">Login</a> here</p>
@@ -110,7 +145,8 @@
                 </div>
 </div>
     <!-- Bootstrap core JavaScript -->
-    <script src="../core/jquery-3.4.1.slim.min.js"></script>
-    <script src="../core/bootstrap.bundle.min.js"></script>
+    <script src="/core/jquery-3.4.1.slim.min.js"></script>
+    <script src="/core/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>

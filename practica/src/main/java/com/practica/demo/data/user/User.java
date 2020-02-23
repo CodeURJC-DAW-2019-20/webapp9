@@ -17,9 +17,13 @@ import com.practica.demo.data.Rol;
 public class User {
 
 	// private long idUser; //Autoincrement en BBDD not nece
-
-	// private int iduser;
 	@Id
+	private int iduser;
+	
+	public int getIduser() {
+		return iduser;
+	}
+
 	@NotNull
 	@NotEmpty
 	private String name;

@@ -37,6 +37,7 @@ import com.practica.demo.data.user.UserComponent;
 
 import com.practica.demo.TeamRestController;
 
+
 @EnableAutoConfiguration
 @Controller
 public class WebController {
@@ -55,16 +56,13 @@ public class WebController {
 	@Autowired
 	private UserComponent userComponent;
 
+
 	@RequestMapping("/")
 	public String index(Model model) {
 
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("user",userComponent.getLoggedUser());
 
-		return "index";
-	}
-
-	@RequestMapping("/index")
-	public String goIndex(Model model) {
 		return "index";
 	}
 
@@ -89,8 +87,17 @@ public class WebController {
 		return "leaderBoard";
 	}
 
-	@RequestMapping("/profile")
-	public String goProfile(Model model) {
+	@GetMapping("/profile")
+	public String goProfile(Model model, @RequestParam(required = false) int id) {
+
+		Optional<User> usuario = repositoruUser.findById(id);
+
+		if(userComponent.getLoggedUser().getIduser()==usuario.get().getIduser()) {
+			model.addAttribute("myprofile", true);
+		}
+		model.addAttribute("user",usuario.get());
+
+
 		return "profile";
 	}
 
