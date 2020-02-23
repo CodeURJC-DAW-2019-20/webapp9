@@ -15,7 +15,7 @@
 
 <body>
 
-   <!-- NavBar -->
+    <!-- NavBar -->
     <header>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <a class="navbar-brand" href="#">
@@ -33,9 +33,16 @@
                     	</form>
                     </li>
                     <li class="nav-item active">
-                        <form action="singIn">
+                    {{#noloaded}}
+                        <form action="signIn">
                     		<input type="submit" class="nav-link" value="Sign In">
                     	</form>
+                    {{/noloaded}}
+                    {{^noloaded}}
+                        <form action="profile">
+                    		<input type="submit" class="nav-link" value="Profile">
+                    	</form>
+                    {{/noloaded}}
                     </li>
                     <li class="nav-item active">
                         <form action="leaderBoard">
@@ -45,9 +52,20 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <form action="register">
-                    		<input type="submit" class="nav-link" value="Register">
-                    	</form>
+                       
+                          {{#noloaded}}
+                           <form action="register">
+                    			<input type="submit" class="nav-link" value="Register">
+                    			<input type="hidden" name="_csrf" value="{{token}}"/>
+                    		</form>
+                    	  {{/noloaded}}
+                    	  {{^noloaded}}
+                    				<form action="/logout" method="post">
+										<input type="submit" class="nav-link" value="Log Out">
+										<input type="hidden" name="_csrf" value="{{token}}"/>
+									</form>			
+                    	  {{/noloaded}}
+                    	
                     </li>
                 </ul>
             </div>
