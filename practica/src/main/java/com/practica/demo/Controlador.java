@@ -197,7 +197,7 @@ public class Controlador {
 
 	}
 	
-	@RequestMapping("/tournaments/{name}")
+	@GetMapping("/tournaments/{name}")
 	public String tournaments(Model model, @PathVariable String name, @RequestParam String dateGame) {
 		model.addAttribute("name", name);
 		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findBydate(dateGame);
