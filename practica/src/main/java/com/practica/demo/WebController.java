@@ -49,14 +49,11 @@ public class WebController {
 	@Autowired
 	private UserRepository userRepository;
 
-
+	@Autowired
 	private TeamRepository repositoryTeam;
 
 	@Autowired
 	private UserComponent userComponent;
-
-
-	PageRequest firstPageWithTwoElements = PageRequest.of(0, 2, Sort.by("elo").descending());
 
 	@RequestMapping("/")
 	public String index(Model model) {

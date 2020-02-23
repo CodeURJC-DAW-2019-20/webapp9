@@ -82,8 +82,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     	}
     
-    	http.csrf()
-        .ignoringAntMatchers("/leaderBoardLoaded");
+    
 
         http.authorizeRequests().antMatchers("/resources/**").permitAll();
 
