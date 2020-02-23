@@ -158,6 +158,14 @@ public class WebController {
 		
 	return "diamond"; 
 	}
+	
+	
+	@RequestMapping("/editProfile")
+	public String tournaments(Model model) {
+		
+	return "userConfig"; 
+	}
+	
 	private String generateUser(User user) {
 		user.setRol(gameRepository.findById(2).get());
 		try {
