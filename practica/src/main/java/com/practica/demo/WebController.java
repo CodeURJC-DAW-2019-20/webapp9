@@ -68,7 +68,14 @@ public class WebController {
 
 		return "index";
 	}
+	@RequestMapping("/index")
+	public String index2(Model model) {
 
+		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("user",userComponent.getLoggedUser());
+
+		return "index";
+	}
 	@RequestMapping("/tournaments")
 	public String goTournaments(Model model) {
 		return "rocketLeague";
