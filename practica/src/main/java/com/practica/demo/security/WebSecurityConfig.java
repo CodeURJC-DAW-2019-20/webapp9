@@ -1,5 +1,15 @@
 package com.practica.demo.security;
 
+import java.io.IOException;
+
+import javax.servlet.Filter;
+import javax.servlet.FilterChain;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.catalina.startup.ClassLoaderFactory.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +18,7 @@ import org.springframework.context.annotation.Description;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -44,51 +55,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	                        "classpath:/static/core/",
     	                		"classpath:/static/js/");
     	    }
-    	    /*
-    	    @Bean
-    	    public ClassLoaderTemplateResolver templateResolver() {
+    	}
+    	
+    	
+    	@EnableWebMvc class SimpleCORSFilter implements Filter {
 
-                ClassLoaderTemplateResolver templateResolver = new ClassLoaderTemplateResolver();
+    		public void doFilter(ServletRequest req, ServletResponse res,
+    				FilterChain chain) throws IOException, ServletException {
+    			HttpServletResponse response = (HttpServletResponse) res;
+    			response.setHeader("Access-Control-Allow-Origin", "*");
+    			response.setHeader("Access-Control-Allow-Methods",
+    					"POST, GET, OPTIONS, DELETE, PUT");
+    			response.setHeader("Access-Control-Max-Age", "3600");
+    			response.setHeader("Access-Control-Allow-Headers", "x-requested-with, content-type");
+    			chain.doFilter(req, res);
+    		}
 
-                templateResolver.setPrefix("templates/");
-                templateResolver.setCacheable(false);
-                templateResolver.setSuffix(".php");
-                templateResolver.setTemplateMode("PHP");
-                templateResolver.setCharacterEncoding("UTF-8");
-                
-                return templateResolver;
-            }
-    	    
-    	    @Bean
-    	    @Description("Thymeleaf template engine with Spring integration")
-    	    public SpringTemplateEngine templateEngine() {
+    		public void init(FilterConfig filterConfig) {
+    		}
 
-    	    	SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-    	        templateEngine.setTemplateResolver(templateResolver());
+    		public void destroy() {
+    		}
 
-    	        return templateEngine;
-    	    }
-
-    	    @Bean
-    	    @Description("Thymeleaf view resolver")
-    	    public ViewResolver viewResolver() {
-
-    	    	ViewResolver viewResolver = new ThymeleafViewResolver();
-
-    	        ((ThymeleafViewResolver) viewResolver).setTemplateEngine(templateEngine());
-    	        ((ThymeleafViewResolver) viewResolver).setCharacterEncoding("UTF-8");
-
-    	        return viewResolver;
-    	    }
-    	    
-    	    @Override
-    	    public void addViewControllers(ViewControllerRegistry registry) {
-    	        registry.addViewController("/").setViewName("leaderBoard");
-    	    }
-    	    */
     	}
     	
         
+    	
+        http.authorizeRequests().antMatchers("/resources/**").permitAll();
     	
     	// Public pages
         http.authorizeRequests().antMatchers("/").permitAll();

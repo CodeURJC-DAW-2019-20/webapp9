@@ -1,15 +1,19 @@
 package com.practica.demo.data;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Team {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_team;
 
+	@Column
 	private String name;
+	
+	@Column
 	private int elo;
 
 	public Team() {

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -36,6 +37,8 @@ import com.practica.demo.data.Tournament;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
+
+import com.practica.demo.TeamRestController;
 
 @Controller
 @AutoConfigureOrder
@@ -99,8 +102,15 @@ public class Controlador {
 	public String goLeaderBoard(Model model) {
 		Page<Team> listTeams = (Page<Team>) repositoryTeam.findAll(firstPageWithTwoElements);
 		
+		//Team teamAdd = new Team();
+		//teamAdd = repositoryTeam.findTeamByid_team(2);
+		
 		model.addAttribute("teams", listTeams);
-
+		
+		//TeamRestController controlator = new TeamRestController();
+		
+		//controlator.addTeam(teamAdd);
+		
 		return "leaderBoard";
 	}
 
