@@ -17,6 +17,13 @@ public class Team {
 	@Column
 	private int elo;
 
+	
+	@Column
+	private int wins;
+	
+	@Column
+	private int loses;
+	
 	public Team() {
 
 	}
