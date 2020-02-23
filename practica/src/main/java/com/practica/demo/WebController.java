@@ -58,7 +58,12 @@ public class WebController {
 
 	@Autowired
 	private UserComponent userComponent;
-
+	
+	@Autowired
+	private PlayerRepository repositoryPlayer;
+	
+	@Autowired
+	private Player_On_TeamRepository repositoryPlayer_On_Team;
 
 	@RequestMapping("/")
 	public String index(Model model) {
