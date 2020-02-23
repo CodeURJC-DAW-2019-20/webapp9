@@ -153,6 +153,32 @@ public class WebController {
 		return "signIn";
 	}
 
+
+	@RequestMapping("/errorPage")
+	public String errorPage(Model model) {
+		return "error";
+	}
+
+	@RequestMapping("/tournaments/{tournamentname}")
+	public String tournaments(Model model, @PathVariable String name) {
+
+	return "diamond";
+	}
+
+
+	@RequestMapping("/editProfile")
+	public String tournaments(Model model) {
+
+	return "userConfig";
+	}
+	
+	
+/*
+ * ***************************************************
+ * USER REGISTRE CONTROLLER
+ * ***************************************************
+ */
+	
 	@RequestMapping("/register")
 	public String register(Model model) {
 		Games games = new Games();
@@ -185,24 +211,6 @@ public class WebController {
 
 	}
 
-	@RequestMapping("/errorPage")
-	public String errorPage(Model model) {
-		return "error";
-	}
-
-	@RequestMapping("/tournaments/{tournamentname}")
-	public String tournaments(Model model, @PathVariable String name) {
-
-	return "diamond";
-	}
-
-
-	@RequestMapping("/editProfile")
-	public String tournaments(Model model) {
-
-	return "userConfig";
-	}
-
 	private String generateUser(User user) {
 		user.setRol(gameRepository.findById(2).get());
 		try {
@@ -215,7 +223,6 @@ public class WebController {
 			System.out.println(e);
 
 			return "error";
-
 
 		}
 	}
