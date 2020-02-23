@@ -18,6 +18,7 @@ import org.springframework.context.annotation.Description;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -80,6 +81,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	}
     	
         
+    	http.csrf()
+        .ignoringAntMatchers("/leaderBoardLoaded");
+    	
     	
         http.authorizeRequests().antMatchers("/resources/**").permitAll();
     	
