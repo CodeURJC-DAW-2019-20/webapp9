@@ -36,6 +36,8 @@ import com.practica.demo.data.user.UserComponent;
 
 import com.practica.demo.data.Team;
 import com.practica.demo.data.Tournament;
+import com.practica.demo.data.player.Player;
+import com.practica.demo.data.player.PlayerRepository;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 
@@ -53,6 +55,9 @@ public class WebController {
 
 	@Autowired
 	private RespositoryUser userRepository;
+	
+	@Autowired
+	private PlayerRepository playerRepository;
 
 	@Autowired
 	private TeamRepository repositoryTeam;
@@ -98,29 +103,14 @@ public class WebController {
 		return "leaderBoard";
 	}
 
-	@GetMapping("/profile")
-	public String goProfile(Model model, @RequestParam(required = false) int id) {
-		
-		Optional<User> usuario = userRepository.findById(id);
 
-		if(userComponent.getLoggedUser().getIduser()==usuario.get().getIduser()) {
-			model.addAttribute("myprofile", true);
-		}
-		model.addAttribute("user",usuario.get());
-
-
-		return "profile";
-	}
 
 	@RequestMapping("/teamCreation")
 	public String goTeamCreation(Model model) {
 		return "teamCreation";
 	}
 
-	@RequestMapping("/signIn")
-	public String goSigIn(Model model) {
-		return "signIn";
-	}
+
 
 	@RequestMapping("/team")
 	public String goTeam(Model model) {
@@ -138,23 +128,6 @@ public class WebController {
 	}
 
 
-	/**
-	 * Controller for lunching SingIn page
-	 * @param model
-	 * @return singIn.html
-	 */
-	@RequestMapping("/singIn")
-	public String singInPage(Model model) {
-		//Games games = new Games();
-		//model.addAttribute("games",games.getArray());
-		if(userComponent.isLoggedUser()) {
-			return index(model);
-		}
-
-		return "signIn";
-	}
-
-
 	@RequestMapping("/errorPage")
 	public String errorPage(Model model) {
 		return "error";
@@ -166,11 +139,61 @@ public class WebController {
 	return "diamond";
 	}
 
+	
+/*
+ * 	USER PROFILE CONTROLLER
+ * 
+ */
+	@GetMapping("/profile")
+	public String goProfile(Model model, @RequestParam(required = false) int id) {
+		
+		Optional<User> usuario = userRepository.findById(id);
 
+		if(userComponent.getLoggedUser().getIduser()==usuario.get().getIduser()) {
+			model.addAttribute("myprofile", true);
+		}
+		model.addAttribute("user",usuario.get());
+		
+		Player player = playerRepository.findByuser(usuario.get());
+		
+		model.addAttribute("player",player);
+		
+		
+
+		return "profile";
+	}	
+	
 	@RequestMapping("/editProfile")
 	public String tournaments(Model model) {
+		return "userConfig";
+	}
+	
+	
+	
+/*
+ * ****************************************************
+ * USER LOGIN CONTROLLER
+ *
+ */
+	/**
+	 * Controller for lunching SingIn page
+	 * @param model
+	 * @return singIn.html
+	 */
+	@RequestMapping("/login")
+	public String singInPage(Model model) {
+		//Games games = new Games();
+		//model.addAttribute("games",games.getArray());
+		if(userComponent.isLoggedUser()) {
+			return index(model);
+		}
 
-	return "userConfig";
+		return "signIn";
+	}
+	
+	@RequestMapping("/signIn")
+	public String goSigIn(Model model) {
+		return "signIn";
 	}
 	
 	
