@@ -30,6 +30,14 @@ public class Players_On_Team implements Serializable{
 	
 	
 	
+	public Players_On_Team(int team_id_team, int player_id_player, Team team, Player player) {
+		super();
+		this.team_id_team = team_id_team;
+		this.player_id_player = player_id_player;
+		this.team = team;
+		this.player = player;
+	}
+
 	public int getTeam_id_team() {
 		return team_id_team;
 	}

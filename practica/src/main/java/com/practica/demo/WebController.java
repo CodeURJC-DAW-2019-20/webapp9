@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.demo.data.Games;
+import com.practica.demo.data.Rol;
 import com.practica.demo.data.user.UserRepository;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
@@ -95,8 +96,10 @@ public class WebController {
 	public String goLeaderBoard(Model model) {
 
 		PageRequest firstPageWithTwoElements = PageRequest.of(0, 2, Sort.by("elo").descending());
-		Page<Team> listTeams = (Page<Team>) repositoryTeam.findAll(firstPageWithTwoElements);
-
+		//Page<Team> listTeams = (Page<Team>) repositoryTeam.findAll(firstPageWithTwoElements);
+		PageRequest firstPageWithTenElements = PageRequest.of(0, 10, Sort.by("elo").descending());
+		Page<Team> listTeams = (Page<Team>) repositoryTeam.findAll(firstPageWithTenElements);
+		
 		model.addAttribute("teams", listTeams);
 
 		return "leaderBoard";
@@ -129,6 +132,9 @@ public class WebController {
 		model.addAttribute("p2", player2);
 		model.addAttribute("p3", player3);
 		
+		Team teamSave = new Team (team_name, 0);
+		
+		repositoryTeam.save(teamSave);
 		
 		return "teamCreated";
 	}
@@ -169,15 +175,28 @@ public class WebController {
 
 		return "signIn";
 	}
-
+	
 	@RequestMapping("/register")
-	public String register(Model model) {
+	public String goRegister(Model model) {
+		return "register";
+	}
+	
+	@PostMapping("/newRegister")
+	public String register(Model model, @RequestParam String name, @RequestParam String email,  @RequestParam String username,  @RequestParam String password,  @RequestParam String confirm) {
+		/*
 		Games games = new Games();
 		model.addAttribute("games",games.getArray());
+		*/
+		Rol rol = new Rol(2, "");
+		
+		User userSave = new User(name, username, email, password, rol);
+		
+		userRepository.save(userSave);
+		
 		//model.addAttribute("wrongemail","Insert your email");
 		return "register";
 	}
-
+	/*
 	@PostMapping("/register/new")
 	public String newUser(Model model, User user) {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -196,10 +215,10 @@ public class WebController {
 	    	return "/register";
 	    }
 
-
+		
 
 	}
-
+*/
 	@RequestMapping("/errorPage")
 	public String errorPage(Model model) {
 		return "error";

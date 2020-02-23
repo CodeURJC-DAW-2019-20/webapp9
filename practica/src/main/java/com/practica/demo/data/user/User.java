@@ -48,6 +48,20 @@ public class User {
 	public User() {
 
 	}
+	
+	
+	
+	public User(@NotNull @NotEmpty String name, @NotNull @NotEmpty String username, @Email @NotEmpty String email,
+			@NotNull @NotEmpty String password, Rol rol) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.rol = rol;
+	}
+
+
 
 	// GETTERS AND SETTERS
 

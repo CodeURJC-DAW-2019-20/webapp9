@@ -18,21 +18,29 @@ public class Player implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_player;
 	
-	private int user_iduser;
+	//private int user_iduser;
 	
-	/*
+	
 	@OneToOne(cascade=CascadeType.ALL)
 	private User user;
-	*/
+	
+	
+	public Player(int id_player, int user_iduser) {
+		super();
+		this.id_player = id_player;
+		//this.user_iduser = user_iduser;
+	}
 	
 	public int getId_player() {
 		return id_player;
 	}
 
+	
+
 	public void setId_player(int id_player) {
 		this.id_player = id_player;
 	}
-
+/*
 	public int getUser_idUser() {
 		return user_iduser;
 	}
@@ -40,7 +48,7 @@ public class Player implements Serializable{
 	public void setUser_idUser(int user_idUser) {
 		this.user_iduser = user_idUser;
 	}
-	/*
+	*/
 	public User getUser() {
 		return user;
 	}
@@ -48,5 +56,5 @@ public class Player implements Serializable{
 	public void setUser(User user) {
 		this.user = user;
 	}
-	*/
+	
 }
