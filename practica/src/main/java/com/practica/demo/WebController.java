@@ -161,25 +161,27 @@ public class WebController {
 		return "register";
 	}
 
-	@PostMapping("/register/new")
-	public String newUser(Model model, User user) {
+	@PostMapping("/register")
+	public String newUser(Model model, User user, @RequestParam("confirm") String confirmpass) {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 	    Set<ConstraintViolation<User>> violations = validator.validate(user);
-
-	    if(violations.isEmpty()) {
-	    	return generateUser(user);
+	    
+	    if(violations.isEmpty()) {	
+	    	if(user.getPassword().contentEquals(confirmpass)) {
+	    		return generateUser(user);
+	    	}
+	    	model.addAttribute("wrongconfirm",true);
+	    	return "redirect:/register";
 	    }
 	    else {
-
-	    	for (ConstraintViolation<User> violation : violations) {
-	    	    model.addAttribute("wrong"+violation.getPropertyPath(), true);
+	    	
+	    	for (ConstraintViolation<User> violation : violations) {	    		
+	    	    model.addAttribute("wrong"+violation.getPropertyPath(), true);    	    
 	    	    model.addAttribute(violation.getPropertyPath().toString(), violation.getMessage());
-	    	}
-	    	return "/register";
-	    }
-
-
+	    	} 	
+	    	return "redirect:/register";
+	    }	
 
 	}
 
