@@ -2,136 +2,135 @@
 <html lang="en">
 
 <head>
-    <!-- meta character set -->
-    <meta charset="UTF-8">
-    <!-- Site Title -->
-    <title>Team Page</title>
+<!-- meta character set -->
+<meta charset="UTF-8">
+<!-- Site Title -->
+<title>Team Page</title>
 
-    <link href="/css/Team/main.css" rel="stylesheet">
-    <link href="/core/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/Team/team-style.css" rel="stylesheet">
+<link href="/css/Team/main.css" rel="stylesheet">
+<link href="/core/bootstrap.min.css" rel="stylesheet">
+<link href="/css/Team/team-style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-    <!-- NavBar -->
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">
-                <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
-            </a>
-            <a class="navbar-brand" >eTournaments</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                    	<form action="index">
-                    		<input type="submit" class="nav-link" value="Home">
-                    	</form>
-                    </li>
-                    <li class="nav-item active">
-                    {{#noloaded}}
-                        <form action="signIn">
-                    		<input type="submit" class="nav-link" value="Sign In">
-                    	</form>
-                    {{/noloaded}}
-                    {{^noloaded}}
-                        <form action="profile">
-                    		<input type="submit" class="nav-link" value="Profile">
-                    	</form>
-                    {{/noloaded}}
-                    </li>
-                    <li class="nav-item active">
-                        <form action="leaderBoard">
-                    		<input type="submit" class="nav-link" value="Leaderboard">
-                    	</form>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                       
-                          {{#noloaded}}
-                           <form action="register">
-                    			<input type="submit" class="nav-link" value="Register">
-                    			<input type="hidden" name="_csrf" value="{{token}}"/>
-                    		</form>
-                    	  {{/noloaded}}
-                    	  {{^noloaded}}
-                    				<form action="/logout" method="post">
-										<input type="submit" class="nav-link" value="Log Out">
-										<input type="hidden" name="_csrf" value="{{token}}"/>
-									</form>			
-                    	  {{/noloaded}}
-                    	
-                    </li>
-                </ul>
-            </div>
-            
+	<!-- NavBar -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+			</a> <a class="navbar-brand">eTournaments</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<form action="index">
+							<input type="submit" class="nav-link" value="Home">
+						</form>
+					</li>
+					<li class="nav-item active">{{#noloaded}}
+						<form action="signIn">
+							<input type="submit" class="nav-link" value="Sign In">
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="profile">
+							<input type="submit" class="nav-link" value="Profile">
+						</form> {{/noloaded}}
+					</li>
+					<li class="nav-item active">
+						<form action="leaderBoard">
+							<input type="submit" class="nav-link" value="Leaderboard">
+						</form>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">{{#noloaded}}
+						<form action="register">
+							<input type="submit" class="nav-link" value="Register"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="/logout" method="post">
+							<input type="submit" class="nav-link" value="Log Out"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}}
 
-        </nav>
-    </header>
-
-    <div class="banner-area">
-        <div class="container">
-            <div class="row justify-content-center height align-items-center">
-                <div class="logo">
-                    <a href="index.html"><img src="/imgs/Team/logo.png" alt=""></a>
-                </div>
-                <div class="col-lg-8">
-                    <div class="banner-content text-center">
-                        <h1>Team BBS</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Start Feature Area -->
-    <section class="featured-area">
-        <div class="container">
-            <div class="row">
-                <div class="column">
-                    <div class="card">
-                        <img src="/imgs/Team/player1.jpg" alt="Jane" style="width:100%">
-                        <div class="container">
-                            <h2>Jane Doe</h2>
-                            <p class="title">Captain</p>
-                            <div style="text-align:center;"></div>
-                            <p><button class="button">Go to profile</button></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="card">
-                        <img src="/imgs/Team/player2.jpg" alt="Mike" style="width:100%">
-                        <div class="container">
-                            <h2>Mike Ross</h2>
-                            <p class="title">Middle</p>
-                            <p><button class="button">Go to profile</button></p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="column">
-                    <div class="card">
-                        <img src="/imgs/Team/player3.png" alt="John" style="width:100%">
-                        <div class="container">
-                            <h2>John Doe</h2>
-                            <p class="title">Defender</p>
-                            <p><button class="button">Go to profile</button></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script src="/core/jquery-3.4.1.slim.min.js"></script>
-    <script src="/core/bootstrap.bundle.min.js"></script>
+					</li>
+				</ul>
+			</div>
 
 
-</body></html>
+		</nav>
+	</header>
+
+	<div class="banner-area">
+		<div class="container">
+			<div class="row justify-content-center height align-items-center">
+				<div class="logo">
+					<a href="index.html"><img src="/imgs/Team/logo.png" alt=""></a>
+				</div>
+				<div class="col-lg-8">
+					<div class="banner-content text-center">
+						<h1>Team BBS</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Start Feature Area -->
+	<section class="featured-area">
+		<div class="container">
+			<div class="row">
+				<div class="column">
+					<div class="card">
+						<img src="/imgs/Team/player1.jpg" alt="Jane" style="width: 100%">
+						<div class="container">
+							<h2>Jane Doe</h2>
+							<p class="title">Captain</p>
+							<div style="text-align: center;"></div>
+							<p>
+								<button class="button">Go to profile</button>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="column">
+					<div class="card">
+						<img src="/imgs/Team/player2.jpg" alt="Mike" style="width: 100%">
+						<div class="container">
+							<h2>Mike Ross</h2>
+							<p class="title">Middle</p>
+							<p>
+								<button class="button">Go to profile</button>
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="column">
+					<div class="card">
+						<img src="/imgs/Team/player3.png" alt="John" style="width: 100%">
+						<div class="container">
+							<h2>John Doe</h2>
+							<p class="title">Defender</p>
+							<p>
+								<button class="button">Go to profile</button>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="/core/jquery-3.4.1.slim.min.js"></script>
+	<script src="/core/bootstrap.bundle.min.js"></script>
+
+
+</body>
+</html>

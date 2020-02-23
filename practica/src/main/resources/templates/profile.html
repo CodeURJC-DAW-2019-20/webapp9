@@ -2,145 +2,139 @@
 <html lang="en">
 
 <head>
-    <title>Profile</title>
-    <meta charset="UTF-8">
+<title>Profile</title>
+<meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Favicon -->
 
-    <!-- Google Fonts -->
+<!-- Google Fonts -->
 
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="/core/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/Profile/style.css" />
- 
+<!-- Stylesheets -->
+<link rel="stylesheet" href="/core/bootstrap.min.css" />
+<link rel="stylesheet" href="css/Profile/style.css" />
+
 </head>
 <!-- NavBar -->
 </head>
 <body>
-    <!-- NavBar -->
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">
-                <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
-            </a>
-            <a class="navbar-brand" >eTournaments</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                    	<form action="index">
-                    		<input type="submit" class="nav-link" value="Home">
-                    	</form>
-                    </li>
-                    <li class="nav-item active">
-                    {{#noloaded}}
-                        <form action="login">
-                    		<input type="submit" class="nav-link" value="Sign In">
-                    	</form>
-                    {{/noloaded}}
-                    {{^noloaded}}
-                        <form action="profile">
-                    		<input type="submit" class="nav-link" value="Profile">
-                    	</form>
-                    {{/noloaded}}
-                    </li>
-                    <li class="nav-item active">
-                        <form action="leaderBoard">
-                    		<input type="submit" class="nav-link" value="Leaderboard">
-                    	</form>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                       
-                          {{#noloaded}}
-                           <form action="register">
-                    			<input type="submit" class="nav-link" value="Register">
-                    			<input type="hidden" name="_csrf" value="{{token}}"/>
-                    		</form>
-                    	  {{/noloaded}}
-                    	  {{^noloaded}}
-                    				<form action="/logout" method="post">
-										<input type="submit" class="nav-link" value="Log Out">
-										<input type="hidden" name="_csrf" value="{{token}}"/>
-									</form>			
-                    	  {{/noloaded}}
-                    	
-                    </li>
-                </ul>
-            </div>
-            
+	<!-- NavBar -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+			</a> <a class="navbar-brand">eTournaments</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<form action="index">
+							<input type="submit" class="nav-link" value="Home">
+						</form>
+					</li>
+					<li class="nav-item active">{{#noloaded}}
+						<form action="login">
+							<input type="submit" class="nav-link" value="Sign In">
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="profile">
+							<input type="submit" class="nav-link" value="Profile">
+						</form> {{/noloaded}}
+					</li>
+					<li class="nav-item active">
+						<form action="leaderBoard">
+							<input type="submit" class="nav-link" value="Leaderboard">
+						</form>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">{{#noloaded}}
+						<form action="register">
+							<input type="submit" class="nav-link" value="Register"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="/logout" method="post">
+							<input type="submit" class="nav-link" value="Log Out"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}}
 
-        </nav>
-    </header>
+					</li>
+				</ul>
+			</div>
+
+
+		</nav>
+	</header>
 <body>
-    <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
 
-    <!-- Header section start -->
-    <header class="header-section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8 text-md-right header-buttons">
-                    <a href="#" class="site-btn">Create Team</a>
-                    <a href="#" class="site-btn">Edit profile</a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header section end -->
+	<!-- Header section start -->
+	<header class="header-section">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 text-md-right header-buttons">
+					<a href="#" class="site-btn">Create Team</a> <a href="#"
+						class="site-btn">Edit profile</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- Header section end -->
 
-    <!-- Hero section start -->
-    <section class="hero-section spad">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xl-10 offset-xl-1">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="hero-text">
-                                <h2>Micr0ps</h2>
-                                <p>I'm a League og Legend player who plays casual games and his favourite champion is Thresh </p>
-                            </div>
-                            <div class="hero-info">
-                                <h2>General Info</h2>
-                                <ul>
-                                    <li><span>Date of Birth</span>Aug 25, 1988</li>
-                                    <li><span>Favourite Game</span>League of Legends</li>
-                                    <li><span>Team</span>Ingenieros Ingeniosos</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <figure class="hero-image">
-                                <img src="/imgs/Profile/thresprofile.jpg" alt="5">
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="container my-4">
-                            <hr class="my-4">
-                            <div>
-                                <canvas id="pieChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<!-- Hero section start -->
+	<section class="hero-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="hero-text">
+								<h2>Micr0ps</h2>
+								<p>I'm a League og Legend player who plays casual games and
+									his favourite champion is Thresh</p>
+							</div>
+							<div class="hero-info">
+								<h2>General Info</h2>
+								<ul>
+									<li><span>Date of Birth</span>Aug 25, 1988</li>
+									<li><span>Favourite Game</span>League of Legends</li>
+									<li><span>Team</span>Ingenieros Ingeniosos</li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-6">
+							<figure class="hero-image">
+								<img src="/imgs/Profile/thresprofile.jpg" alt="5">
+							</figure>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container my-4">
+							<hr class="my-4">
+							<div>
+								<canvas id="pieChart"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <!--====== Javascripts & Jquery ======-->
-    <script src="/js/Profile/jquery-2.1.4.min.js"></script>
-    <script src="/js/Profile/bootstrap.min.js"></script>
-    <script src="/js/Profile/owl.carousel.min.js"></script>
-    <script src="/js/Profile/magnific-popup.min.js"></script>
-    <script src="/js/Profile/circle-progress.min.js"></script>
-    <script src="/js/Profile/main.js"></script>
-    <script src="/js/Profile/mdb.js"></script>
-</body></html>
+	<!--====== Javascripts & Jquery ======-->
+	<script src="/js/Profile/jquery-2.1.4.min.js"></script>
+	<script src="/js/Profile/bootstrap.min.js"></script>
+	<script src="/js/Profile/owl.carousel.min.js"></script>
+	<script src="/js/Profile/magnific-popup.min.js"></script>
+	<script src="/js/Profile/circle-progress.min.js"></script>
+	<script src="/js/Profile/main.js"></script>
+	<script src="/js/Profile/mdb.js"></script>
+</body>
+</html>

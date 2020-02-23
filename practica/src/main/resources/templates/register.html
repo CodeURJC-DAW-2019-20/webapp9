@@ -1,169 +1,170 @@
 <html lang="en">
 <head>
 <link rel="stylesheet" href="/core/bootstrap.min.css" />
-<!--  <link rel="stylesheet" href="/css/register/register.css" />-->
+<link rel="stylesheet" href="/css/register/register.css" />
 
 </head>
 <body>
-    
-    <!-- NavBar -->
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">
-                <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
-            </a>
-            <a class="navbar-brand" >eTournaments</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                    	<form action="index">
-                    		<input type="submit" class="nav-link" value="Home">
-                    	</form>
-                    </li>
-                    <li class="nav-item active">
-                    {{#noloaded}}
-                        <form action="login">
-                    		<input type="submit" class="nav-link" value="Sign In">
-                    	</form>
-                    {{/noloaded}}
-                    {{^noloaded}}
-                        <form action="profile">
-                    		<input type="submit" class="nav-link" value="Profile">
-                    	</form>
-                    {{/noloaded}}
-                    </li>
-                    <li class="nav-item active">
-                        <form action="leaderBoard">
-                    		<input type="submit" class="nav-link" value="Leaderboard">
-                    	</form>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                       
-                          {{#noloaded}}
-                           <form action="register">
-                    			<input type="submit" class="nav-link" value="Register">
-                    			<input type="hidden" name="_csrf" value="{{token}}"/>
-                    		</form>
-                    	  {{/noloaded}}
-                    	  {{^noloaded}}
-                    				<form action="/logout" method="post">
-										<input type="submit" class="nav-link" value="Log Out">
-										<input type="hidden" name="_csrf" value="{{token}}"/>
-									</form>			
-                    	  {{/noloaded}}
-                    	
-                    </li>
-                </ul>
-            </div>
-            
 
-        </nav>
-    </header>    
-<div class="container">
-    <div class="row justify-content-center">
-            <div class="col-md-8">
-                    <div class="card">
-                            <div class="card-body">
-                            <form class="form-horizontal" method="post" action="/register">
-                                <div class="form-group">
-                                    <label for="name" class="cols-sm-2 control-label">Your Name</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                                            {{#wrongname}}
-                                            	  <input type="text" class="form-control-wrong" name="name" id="name" placeholder="{{name}}" />
-                                            {{/wrongname}}
-                                            
-                                            {{^wrongname}}
-                                            	  <input type="text" class="form-control" name="name" id="name" placeholder="Insert your name" />
-                                            {{/wrongname}}                                            
-                                          
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>                            
-                                            {{#wrongemail}}
-                                            	<input type="text" class="form-control-wrong"  name="email" id="email" placeholder="{{email}}" />
-                                            {{/wrongemail}}
-                                            
-                                            {{^wrongemail}}
-                                            	<input type="text" class="form-control" name="email" id="email" placeholder="Insert your Email" />
-                                            {{/wrongemail}}
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                                    <div class="form-group">
-                                        <label for="username" class="cols-sm-2 control-label">Username</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-                                                {{#wrongusername}}
-                                            		<input type="text" class="form-control-wrong" name="username" id="username" placeholder="{{username}}" />
-                                                {{/wrongusername}}
-                                                {{^wrongusername}}
-                                            		<input type="text" class="form-control" name="username" id="username"  placeholder="Enter your Username" />
-                                            	{{/wrongusername}}
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password" class="cols-sm-2 control-label">Password</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                {{#wrongpassword}}
-                                            		    <input type="password" class="form-control-wrong" name="password" id="password" placeholder="{{password}}" />
-                                                {{/wrongpassword}}
-                                                {{^wrongpassword}}
-                                            		    <input type="password" class="form-control" name="password" id="password" placeholder="Enter your Password"/>
-                                            	{{/wrongpassword}}
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-                                        <div class="cols-sm-10">
-                                            <div class="input-group">
-                                                <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                                                {{#wrongconfirm}}
-                                            		     <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
-                                                {{/wrongconfirm}}
-                                                {{^wrongconfirm}}
-                                            		     <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm your Password" />
-                                            	{{/wrongconfirm}}
-                                               
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group ">
-                                        <button type="submit" value="Enviar" class="btn btn-primary btn-lg btn-block login-button">Register</button>
-                                        <input type="hidden" name="_csrf"  value="{{token}}"/>
-                                    </div>
-                                    <div class="login-register">
-                                        <p>Already registered? <a href="../sign-in/sign-in.html">Login</a> here</p>
-                                    </div>
-                                </form>
-                            </div>
+	<!-- NavBar -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+			</a> <a class="navbar-brand">eTournaments</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<form action="index">
+							<input type="submit" class="nav-link" value="Home">
+						</form>
+					</li>
+					<li class="nav-item active">{{#noloaded}}
+						<form action="login">
+							<input type="submit" class="nav-link" value="Sign In">
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="profile">
+							<input type="submit" class="nav-link" value="Profile">
+						</form> {{/noloaded}}
+					</li>
+					<li class="nav-item active">
+						<form action="leaderBoard">
+							<input type="submit" class="nav-link" value="Leaderboard">
+						</form>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">{{#noloaded}}
+						<form action="register">
+							<input type="submit" class="nav-link" value="Register"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="/logout" method="post">
+							<input type="submit" class="nav-link" value="Log Out"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}}
 
-                        </div>
-                    </div>
-                </div>
-</div>
-    <!-- Bootstrap core JavaScript -->
-    <script src="/core/jquery-3.4.1.slim.min.js"></script>
-    <script src="/core/bootstrap.bundle.min.js"></script>
-    
+					</li>
+				</ul>
+			</div>
+
+
+		</nav>
+	</header>
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-body">
+						<form class="form-horizontal" method="post" action="/register">
+							<div class="form-group">
+								<label for="name" class="cols-sm-2 control-label">Your
+									Name</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i
+											class="fa fa-user fa" aria-hidden="true"></i></span> {{#wrongname}}
+										<input type="text" class="form-control-wrong" name="name"
+											id="name" placeholder="{{name}}" /> {{/wrongname}}
+
+										{{^wrongname}} <input type="text" class="form-control"
+											name="name" id="name" placeholder="Insert your name" />
+										{{/wrongname}}
+
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="email" class="cols-sm-2 control-label">Your
+									Email</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i
+											class="fa fa-envelope fa" aria-hidden="true"></i></span>
+										{{#wrongemail}} <input type="text" class="form-control-wrong"
+											name="email" id="email" placeholder="{{email}}" />
+										{{/wrongemail}} {{^wrongemail}} <input type="text"
+											class="form-control" name="email" id="email"
+											placeholder="Insert your Email" /> {{/wrongemail}}
+
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="username" class="cols-sm-2 control-label">Username</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i
+											class="fa fa-users fa" aria-hidden="true"></i></span>
+										{{#wrongusername}} <input type="text"
+											class="form-control-wrong" name="username" id="username"
+											placeholder="{{username}}" /> {{/wrongusername}}
+										{{^wrongusername}} <input type="text" class="form-control"
+											name="username" id="username"
+											placeholder="Enter your Username" /> {{/wrongusername}}
+
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="password" class="cols-sm-2 control-label">Password</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i
+											class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+										{{#wrongpassword}} <input type="password"
+											class="form-control-wrong" name="password" id="password"
+											placeholder="{{password}}" /> {{/wrongpassword}}
+										{{^wrongpassword}} <input type="password" class="form-control"
+											name="password" id="password"
+											placeholder="Enter your Password" /> {{/wrongpassword}}
+
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="confirm" class="cols-sm-2 control-label">Confirm
+									Password</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i
+											class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+										{{#wrongconfirm}} <input type="password" class="form-control"
+											name="confirm" id="confirm"
+											placeholder="Confirm your Password" /> {{/wrongconfirm}}
+										{{^wrongconfirm}} <input type="password" class="form-control"
+											name="confirm" id="confirm"
+											placeholder="Confirm your Password" /> {{/wrongconfirm}}
+
+									</div>
+								</div>
+							</div>
+							<div class="form-group ">
+								<button type="submit" value="Enviar"
+									class="btn btn-primary btn-lg btn-block login-button">Register</button>
+								<input type="hidden" name="_csrf" value="{{token}}" />
+							</div>
+							<div class="login-register">
+								<p>
+									Already registered? <a href="../sign-in/sign-in.html">Login</a>
+									here
+								</p>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap core JavaScript -->
+	<script src="/core/jquery-3.4.1.slim.min.js"></script>
+	<script src="/core/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

@@ -40,68 +40,60 @@
 
 </head>
 <body class="text-center">
-    <!-- NavBar -->
-    <header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand" href="#">
-                <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
-            </a>
-            <a class="navbar-brand" >eTournaments</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                    	<form action="index">
-                    		<input type="submit" class="nav-link" value="Home">
-                    	</form>
-                    </li>
-                    <li class="nav-item active">
-                    {{#noloaded}}
-                        <form action="signIn">
-                    		<input type="submit" class="nav-link" value="Sign In">
-                    	</form>
-                    {{/noloaded}}
-                    {{^noloaded}}
-                        <form action="profile">
-                    		<input type="submit" class="nav-link" value="Profile">
-                    	</form>
-                    {{/noloaded}}
-                    </li>
-                    <li class="nav-item active">
-                        <form action="leaderBoard">
-                    		<input type="submit" class="nav-link" value="Leaderboard">
-                    	</form>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                       
-                          {{#noloaded}}
-                           <form action="register">
-                    			<input type="submit" class="nav-link" value="Register">
-                    			<input type="hidden" name="_csrf" value="{{token}}"/>
-                    		</form>
-                    	  {{/noloaded}}
-                    	  {{^noloaded}}
-                    				<form action="/logout" method="post">
-										<input type="submit" class="nav-link" value="Log Out">
-										<input type="hidden" name="_csrf" value="{{token}}"/>
-									</form>			
-                    	  {{/noloaded}}
-                    	
-                    </li>
-                </ul>
-            </div>
-            
+	<!-- NavBar -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+			</a> <a class="navbar-brand">eTournaments</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<form action="index">
+							<input type="submit" class="nav-link" value="Home">
+						</form>
+					</li>
+					<li class="nav-item active">{{#noloaded}}
+						<form action="signIn">
+							<input type="submit" class="nav-link" value="Sign In">
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="profile">
+							<input type="submit" class="nav-link" value="Profile">
+						</form> {{/noloaded}}
+					</li>
+					<li class="nav-item active">
+						<form action="leaderBoard">
+							<input type="submit" class="nav-link" value="Leaderboard">
+						</form>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">{{#noloaded}}
+						<form action="register">
+							<input type="submit" class="nav-link" value="Register"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="/logout" method="post">
+							<input type="submit" class="nav-link" value="Log Out"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}}
 
-        </nav>
-    </header>
+					</li>
+				</ul>
+			</div>
+
+
+		</nav>
+	</header>
 
 	<form class="form-signin" action="/login" method="post">
-		<img class="mb-4" src="/imgs/NavBar/web-icon-black.png" alt="" width="72"
-			height="72">
+		<img class="mb-4" src="/imgs/NavBar/web-icon-black.png" alt=""
+			width="72" height="72">
 		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 		<label for="inputEmail" class="sr-only">Email address</label> <input
 			type="email" id="inputEmail" class="form-control"
@@ -114,9 +106,9 @@
 				Remember me
 			</label>
 		</div>
-		<button class="btn btn-lg btn-primary btn-block" type="submit" value="Send">Sign
-			in</button>
-		<input type="hidden" name="_csrf"  value="{{token}}"/>
+		<button class="btn btn-lg btn-primary btn-block" type="submit"
+			value="Send">Sign in</button>
+		<input type="hidden" name="_csrf" value="{{token}}" />
 	</form>
 
 	<script src="/core/jquery-3.4.1.slim.min.js"></script>
