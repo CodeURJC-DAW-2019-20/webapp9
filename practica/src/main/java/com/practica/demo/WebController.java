@@ -48,7 +48,7 @@ public class WebController {
 		
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		
-		return "index"; //es necesario poner el .html
+		return "index"; 
 	}
 	
 	@RequestMapping("/index")
@@ -169,7 +169,7 @@ public class WebController {
 			
 			System.out.println(e);
 			
-			return "/errorPage";
+			return "error";
 			
 
 		}

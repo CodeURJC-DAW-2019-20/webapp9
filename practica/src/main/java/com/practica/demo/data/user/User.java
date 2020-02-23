@@ -8,7 +8,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 
-import com.practica.demo.data.Role;
+import com.practica.demo.data.Rol;
 
 @Entity
 public class User {
@@ -34,7 +34,7 @@ public class User {
 	private String password;
 
 	@OneToOne
-	private com.practica.demo.data.Role rol;
+	private com.practica.demo.data.Rol rol;
 
 	// private UserData userData;
 
@@ -52,11 +52,11 @@ public class User {
 		this.username = username;
 	}
 
-	public Role getRol() {
+	public Rol getRol() {
 		return rol;
 	}
 
-	public void setRol(Role rol) {
+	public void setRol(Rol rol) {
 		this.rol = rol;
 
 	}
