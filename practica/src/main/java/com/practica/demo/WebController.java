@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.demo.data.Games;
+import com.practica.demo.data.Player;
 import com.practica.demo.data.Rol;
 import com.practica.demo.data.user.UserRepository;
 import com.practica.demo.data.user.User;
@@ -191,7 +192,11 @@ public class WebController {
 		
 		User userSave = new User(name, username, email, password, rol);
 		
+		Player playerSave = new Player(username, userSave);
+		
 		userRepository.save(userSave);
+		
+		//repositoryPlayer.save(playerSave);
 		
 		//model.addAttribute("wrongemail","Insert your email");
 		return "register";
