@@ -17,6 +17,13 @@ public class Team {
 	@Column
 	private int elo;
 
+	
+	@Column
+	private int wins;
+	
+	@Column
+	private int losses;
+	
 	public Team() {
 
 	}
@@ -49,6 +56,14 @@ public class Team {
 
 	public void setElo(int elo) {
 		this.elo = elo;
+	}
+	
+	public void addWin(int wins) {
+		this.wins++;
+	}
+	
+	public void addLoss(int wins) {
+		this.losses++;
 	}
 
 }

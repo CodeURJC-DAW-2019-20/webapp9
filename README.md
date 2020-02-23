@@ -8,7 +8,6 @@ Nuestra aplicación web será un sistema de torneos de videojuegos, donde los us
 - Alejandro Gavilán
 
 ## Entidades
-- Juegos
 - Torneos
 - Partidas
 - Jugadores
@@ -34,12 +33,12 @@ Cada equipo tiene una pagina asociada con los jugadores que la conforman (se pue
 Cada usuario tiene los permisos descritos y los mencionados en el anterior.
 
 ### Anónimo
-- Ver las páginas de los juegos
-- Ver los torneos
+- Acceder al índice
 - Podrá registrarse
 
 ### Registrado
 - Ver la información de los jugadores
+- Ver la información de los torneos
 - Participar en los torneos
 - Cambiar la información y la foto de su perfil
 - Unirse a un equipo
@@ -50,7 +49,7 @@ Cada usuario tiene los permisos descritos y los mencionados en el anterior.
 - Cambiar la información de los torneos
 
 ## Tecnología usada
-El usuario podrá usar Facebook para acceder a su cuenta (si tenemos tiempo también añadiremos la posibilidad de hacer publicaciones automáticas cuando entras en torneos o los resultados de una partida).
+El usuario podrá usar Google para acceder a su cuenta (si tenemos tiempo también añadiremos la posibilidad de hacer publicaciones automáticas cuando entras en torneos o los resultados de una partida).
 
 ## Sistema de ELO (algoritmo)
 Cada jugador tendrá una puntuación numérica asociada a cada juego que juegue (elo). Cada vez que juegue una partida contra algien, su puntuación variará en función de la diferencia de elo entre los dos jugadores y el resultado (mismo sistema que el ajedrez).
@@ -105,3 +104,21 @@ En esta página se podrá ver la información de un equipo, su nombre y los miem
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/tournamentbracket.png "Página de torneo")
 
 Página en la que se puede observar en detalle un torneo en específico, con su nombre, las fechas y los participantes.
+
+## Participación
+### Daniel
+- AJAX
+- 
+- 
+### Alejandro
+- Sistema de elo
+- Resolución de conflictos entre ramas
+- Implementación de la API de Google
+### Jorge
+- Login
+- Registro
+- Perfil
+### Lucía
+-
+-
+-
