@@ -263,7 +263,7 @@ public class WebController {
 			
 			player.setUser(user);
 			
-	//		playerRepository.save(player);
+	        playerRepository.save(player);
 			
 			User useraux = userRepository.findByemail(user.getEmail());
 	    	userComponent.setLoggedUser(useraux);

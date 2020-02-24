@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>eTorneos - Error</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/core/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/register/register.css" />
+<meta name="theme-color" content="#563d7c">
+
+</head>
+<body>
+	<!-- NavBar -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+			</a> <a class="navbar-brand">eTournaments</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<form action="">
+							<input type="submit" class="nav-link" value="Home">
+						</form>
+					</li>
+					<li class="nav-item active">{{#noloaded}}
+						<form action="login">
+							<input type="submit" class="nav-link" value="Sign In">
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="profile">
+							<input type="submit" class="nav-link" value="Profile">
+						</form> {{/noloaded}}
+					</li>
+					<li class="nav-item active">
+						<form action="leaderBoard">
+							<input type="submit" class="nav-link" value="Leaderboard">
+						</form>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">{{#noloaded}}
+						<form action="register">
+							<input type="submit" class="nav-link" value="Register"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="/logout" method="post">
+							<input type="submit" class="nav-link" value="Log Out"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}}
+
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-md-12">
+				<div>
+					<h1>Oops!</h1>
+					<div class="error-details">Sorry, an error has occured!</div>
+					<div class="error-actions">
+						<a href="/index">Take Me Home </a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
