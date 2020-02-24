@@ -43,8 +43,8 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">{{#noloaded}}
 						<form action="register">
-							<input type="submit" class="nav-link" value="Register"> <input
-								type="hidden" name="_csrf" value="{{token}}" />
+							<input type="submit" class="nav-link" value="Register"> 
+							<input type="hidden" name="_csrf" value="{{token}}" />
 						</form> {{/noloaded}} {{^noloaded}}
 						<form action="/logout" method="post">
 							<input type="submit" class="nav-link" value="Log Out"> <input
@@ -105,7 +105,7 @@
 
 
 						<input type="button" id="btn" class="btn btn-primary btn-lg" value="Load More">
-
+						<input type="hidden" name="_csrf" value="{{token}}">
 
 					<!--/Pagination -->
 				</div>
