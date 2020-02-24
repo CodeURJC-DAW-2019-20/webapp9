@@ -85,89 +85,33 @@
 			<div class="split split-one">
 				<div class="round round-one current">
 					<div class="round-details">
-						Round 1<br />
-						<span class="date">March 16</span>
+						<br>Round 1<br />							
+							<span class="date">March 16</span>
 					</div>
+					
+					
+				{{#brackets}}
 					<ul class="matchup" type="button" data-toggle="modal"
 						data-target="#exampleModal" data-team1="Duke"
 						data-team2="Virginia">
-						<li class="team team-top">Duke<span class="score">76</span></li>
-						<li class="team team-bottom">Virginia<span class="score">82</span></li>
+						<form method="get" action="/tournaments/play">	
+						{{#teams}}	
+																
+							<div class="team team-top">
+							<input type="submit" value="{{name}}"/>
+							<input type="hidden" name="equipo" value="{{idTeam}}"/>
+							<span class="score">{{elo}}</span>
+							</div>		
+																		
+						{{/teams}}						
+						<input type="hidden" name="fecha"  value="March 16"/>
+						</form>
+						
 					</ul>
-					<div class="modal fade" id="exampleModal" tabindex="-1"
-						role="dialog" aria-labelledby="exampleModalLabel"
-						aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel"></h5>
-									<button type="button" class="close" data-dismiss="modal"
-										aria-label="Close">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body">
-									<div class="container-fluid">
-										<div class="row align-items-center">
-											<div class="col-md-4 ml-auto">
-												<img src="../img/escudo1.jpg" class="img-fluid"
-													alt="Responsive image">
-											</div>
-											<div class="col-md-4 ml-auto">
-												<p class="align-middle">Mach is in progress</p>
-											</div>
-											<div class="col-md-4 ml-auto">
-												<img src="../img/escudo2.jpg" class="img-fluid"
-													alt="Responsive image">
-											</div>
-										</div>
-										<div class="row align-items-center">
-											<div class="col-md-4 ml-auto">
-												<p>ELO: 1259pt</p>
-											</div>
-											<div class="col-md-4 ml-auto"></div>
-											<div class="col-md-4 ml-auto">
-												<p>ELO: 3000pt</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary"
-										data-dismiss="modal">Close</button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<ul class="matchup">
-						<li class="team team-top">Wake Forest<span class="score">64</span></li>
-						<li class="team team-bottom">Clemson<span class="score">56</span></li>
-					</ul>
-					<ul class="matchup">
-						<li class="team team-top">North Carolina<span class="score">68</span></li>
-						<li class="team team-bottom">Florida State<span class="score">54</span></li>
-					</ul>
-					<ul class="matchup">
-						<li class="team team-top">NC State<span class="score">74</span></li>
-						<li class="team team-bottom">Maryland<span class="score">92</span></li>
-					</ul>
-					<ul class="matchup">
-						<li class="team team-top">Georgia Tech<span class="score">78</span></li>
-						<li class="team team-bottom">Georgia<span class="score">80</span></li>
-					</ul>
-					<ul class="matchup">
-						<li class="team team-top">Auburn<span class="score">64</span></li>
-						<li class="team team-bottom">Florida<span class="score">63</span></li>
-					</ul>
-					<ul class="matchup">
-						<li class="team team-top">Kentucky<span class="score">70</span></li>
-						<li class="team team-bottom">Alabama<span class="score">59</span></li>
-					</ul>
-					<ul class="matchup">
-						<li class="team team-top">Vanderbilt<span class="score">64</span></li>
-						<li class="team team-bottom">Gonzaga<span class="score">68</span></li>
-					</ul>
-				</div>
+				{{/brackets}}
+			</div>
+			
+				
 				<!-- END ROUND ONE -->
 
 				<div class="round round-two">

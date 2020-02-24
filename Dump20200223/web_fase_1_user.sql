@@ -16,27 +16,35 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `rol`
+-- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `rol`;
+DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `rol` (
-  `id_rol` int NOT NULL AUTO_INCREMENT,
-  `rolDes` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `user` (
+  `idUser` int NOT NULL AUTO_INCREMENT,
+  `UserName` varchar(45) NOT NULL,
+  `rol_id_rol` int NOT NULL,
+  `email` varchar(90) NOT NULL DEFAULT 'default@default',
+  `password` varchar(15) NOT NULL DEFAULT '" "',
+  `name` varchar(45) NOT NULL DEFAULT 'dafaultname',
+  PRIMARY KEY (`idUser`),
+  UNIQUE KEY `UserName_UNIQUE` (`UserName`),
+  UNIQUE KEY `email_UNIQUE` (`email`),
+  KEY `fk_User_Rol_idx` (`rol_id_rol`),
+  CONSTRAINT `fk_User_Rol` FOREIGN KEY (`rol_id_rol`) REFERENCES `rol` (`id_rol`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `rol`
+-- Dumping data for table `user`
 --
 
-LOCK TABLES `rol` WRITE;
-/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
-INSERT INTO `rol` VALUES (1,'Admin'),(2,'Player');
-/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'lucia,',1,'lucia@hotmail.com','123','lucia'),(2,'usuario2',2,'us2@hotmail.com','545','jorge'),(3,'usuario3',2,'us3@hotmail.com','5775','daniel'),(4,'usuario4',2,'hola@hotmail.com','213','Mario'),(5,'jorge',2,'jorge@hotmail.com','123','jorge');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,8 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD:FinalDataSQL/web_fase_1_rol.sql
--- Dump completed on 2020-02-24 19:26:49
-=======
--- Dump completed on 2020-02-23 22:41:52
->>>>>>> pruebastorneo:Dump20200223/web_fase_1_rol.sql
+-- Dump completed on 2020-02-23 22:41:53
