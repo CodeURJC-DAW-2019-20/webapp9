@@ -56,6 +56,9 @@ public class WebController {
 
 	@Autowired
 	private RespositoryUser userRepository;
+	
+	
+
 
 	@Autowired
 	private PlayerRepository playerRepository;
