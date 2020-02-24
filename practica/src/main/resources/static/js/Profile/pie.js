@@ -1,4 +1,17 @@
-    var ctxP = document.getElementById("myPie1").getContext('2d');
+    
+    function loadGamesData()$.ajax({
+        url: 'https://localhost:8443/loadGamesData'
+    
+    
+    
+    $(document).ready(function(){
+    	
+    	
+    	
+    })
+
+
+	var ctxP = document.getElementById("myPie1").getContext('2d');
     var myPieChart = new Chart(ctxP, {
       type: 'pie',
       data: {
