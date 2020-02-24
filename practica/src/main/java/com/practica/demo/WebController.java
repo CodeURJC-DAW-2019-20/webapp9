@@ -195,7 +195,6 @@ public class WebController {
 		Team team = repositoryTeam.findByplayer(player.getIdPlayer());
 
 		model.addAttribute("player",player);
-
 		if (team != null) {
 			model.addAttribute("team", team);
 		}
