@@ -18,7 +18,7 @@ $(window).on('load', function() {
 	$("#preloder").delay(400).fadeOut("slow");
 
 });
-debugger
+/*debugger
 //pie
 var ctxP = document.getElementById("pieChart").getContext('2d');
 var myPieChart = new Chart(ctxP, {	
@@ -36,7 +36,7 @@ var myPieChart = new Chart(ctxP, {
   }
 });
 
-
+*/
 (function($) {
 
 	/*------------------
