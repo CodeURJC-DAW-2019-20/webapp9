@@ -107,18 +107,29 @@ Página en la que se puede observar en detalle un torneo en específico, con su 
 
 ## Participación
 ### Daniel
-- AJAX
-- 
-- 
+- Página de leaderboard (AJAX)
+- Organización de ficheros
+- Creación de un equipo
+- Trabajo en las funcionalidades del admin
 ### Alejandro
 - Sistema de elo
 - Resolución de conflictos entre ramas
 - Implementación de la API de Google
+- PieChart con MDB ()
 ### Jorge
 - Login
 - Registro
 - Perfil
 ### Lucía
+- Brackets
+- Administración de partidas
 -
--
--
+
+### Commits
+| Alejandro                                                                                                  | Daniel                                                                                                     | Jorge       | Lucía       |
+|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-------------|-------------|
+| [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/07c38597615903dc5279c1117235e979b39f91fd) | [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/dfd29fbbbf1ed0aebce075cc5dc33699633dd7dc) | [Commit1]() | [Commit1]() |
+| [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/a8370e596d8421e03c3db213c4cbf2a0f54e0864) | [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/cfb3032fe3e93d7bf0f77752c531f47322cd2028) | [Commit2]() | [Commit2]() |
+| [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/207b45d58ba3ae19154a39cbf57f2745955eaf95) | [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/36853db13c0557898687f75ffebb91fa07052c45) | [Commit3]() | [Commit3]() |
+| [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/1f2846131e54d8ca47e5848d0ec039180014c777) | [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/b6dc3abe1eb8c4d1eba1496e6dffe39a1878a6e3) | [Commit4]() | [Commit4]() |
+| [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/d2fd9401a5e6b6cdbaf9decfc608bc660e697835) | [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/30ab72f782cb90d1d2a2225dcb18de3443568d09) | [Commit5]() | [Commit5]() |
