@@ -192,12 +192,12 @@ public class WebController {
 		//model.addAttribute("idUser",user.)
 		Player player = playerRepository.findByuser(usuario.get());
 
-		Team team = repositoryTeam.findByplayer(player.getIdPlayer());
+		
 
 		model.addAttribute("player",player);
 
-		if (team != null) {
-			model.addAttribute("team", team);
+		if (player.getTeam() != null) {
+			model.addAttribute("team", player.getTeam().getName());
 		}
 		else {
 			model.addAttribute("team.name", " ");

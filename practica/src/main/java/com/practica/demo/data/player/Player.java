@@ -21,17 +21,8 @@ public class Player {
 	
 	private String description;
 	
-	@OneToOne
-	private Team team;
-	
 	public Player() {
 		
-	}
-
-	public Player(User user, String description) {
-		super();
-		this.user = user;
-		this.description = description;
 	}
 	
 	public Player(int id,User user, String description) {
