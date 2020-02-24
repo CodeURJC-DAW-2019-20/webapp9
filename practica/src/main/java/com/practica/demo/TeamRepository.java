@@ -7,7 +7,7 @@ import com.practica.demo.data.Team;
 
 public interface TeamRepository extends JpaRepository<Team, Integer> {
 	@Query(
-            value = "select * from team where id_team = (select team_id_team from players_on_team where player_id_player = ?1)",
+            value = "select * from team where id_team = (select team_id_team from player where id_player = ?1)",
             nativeQuery = true)
     Team findByplayer(int player);
 }
