@@ -18,9 +18,7 @@ public class Player {
 	
 
 	private String description;
-	
-	@OneToOne
-	private Team team;
+
 	
 	public Player() {
 		
