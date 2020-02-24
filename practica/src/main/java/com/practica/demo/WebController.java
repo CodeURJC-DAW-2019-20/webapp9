@@ -30,7 +30,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.demo.data.Games;
-import com.practica.demo.data.Players_On_Team;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
@@ -62,9 +61,6 @@ public class WebController {
 
 	@Autowired
 	private TeamRepository repositoryTeam;
-	
-	@Autowired
-	private Players_On_TeamRepository player_on_teamRepository;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -138,13 +134,13 @@ public class WebController {
 				
 				repositoryTeam.save(team);
 				
-				Players_On_Team playerOnTeam1 = new Players_On_Team(team, p1);
-				Players_On_Team playerOnTeam2 = new Players_On_Team(team, p2);
-				Players_On_Team playerOnTeam3 = new Players_On_Team(team, p3);
+				p1.setTeam(team);
+				p2.setTeam(team);
+				p3.setTeam(team);
 				
-				player_on_teamRepository.save(playerOnTeam1);
-				player_on_teamRepository.save(playerOnTeam2);
-				player_on_teamRepository.save(playerOnTeam3);
+				playerRepository.save(p1);
+				playerRepository.save(p2);
+				playerRepository.save(p3);
 				
 				return "teamCreated";
 			}
