@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
--- Host: localhost    Database: web_fase_1
+-- Host: 127.0.0.1    Database: web_fase_1
 -- ------------------------------------------------------
 -- Server version	8.0.19
 
@@ -35,7 +35,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_User_Rol_idx` (`rol_id_rol`),
   CONSTRAINT `fk_User_Rol` FOREIGN KEY (`rol_id_rol`) REFERENCES `rol` (`id_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'Admin',1,'admin@gmail.com','123','Admin',NULL),(2,'Willy',2,'willy@gmail.com','123','Willy',NULL),(3,'Veggeta',2,'veggeta@gmail.com','123','Veggeta',NULL),(4,'Rubius',2,'rubius@gmail.com','123','Rubius',NULL),(5,'Tetro',2,'tetro@gmail.com','123','Tetro',NULL),(6,'Rocketo',2,'rocketo@gmail.com','123','Rocketo',NULL),(7,'Leugo',2,'leugo@gmail.com','123','Leugo',NULL),(8,'Cachim',2,'cachim@gmail.com','123','Cachim',NULL),(9,'Cachom',2,'cachom@gmail.com','123','Cachom',NULL),(10,'Eskere',2,'eskere@gmail.com','123','Eskere',NULL);
+INSERT INTO `user` VALUES (1,'Admin',1,'admin@gmail.com','123','Admin',NULL),(2,'Willy',2,'willy@gmail.com','123','Willy',NULL),(3,'Veggeta',2,'veggeta@gmail.com','123','Veggeta',NULL),(4,'Rubius',2,'rubius@gmail.com','123','Rubius',NULL),(5,'Tetro',2,'tetro@gmail.com','123','Tetro',NULL),(6,'Rocketo',2,'rocketo@gmail.com','123','Rocketo',NULL),(7,'Leugo',2,'leugo@gmail.com','123','Leugo',NULL),(8,'Cachim',2,'cachim@gmail.com','123','Cachim',NULL),(9,'Cachom',2,'cachom@gmail.com','123','Cachom',NULL),(10,'Eskere',2,'eskere@gmail.com','123','Eskere',NULL),(12,'Danielo',2,'danielo@gmail.com','123','Danielo',NULL),(13,'Danichu',2,'danichu@gmail.com','123','Danichu',NULL),(14,'alo',2,'alo@gmail.com','123','Alo',NULL),(15,'ddd',2,'ddd@gmail.com','123','ddd',NULL),(16,'aaa',2,'aaa@gmail.com','123','aaa',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-24 19:26:49
+-- Dump completed on 2020-02-24 23:42:00

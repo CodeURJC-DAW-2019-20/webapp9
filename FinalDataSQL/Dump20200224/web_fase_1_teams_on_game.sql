@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
--- Host: localhost    Database: web_fase_1
+-- Host: 127.0.0.1    Database: web_fase_1
 -- ------------------------------------------------------
 -- Server version	8.0.19
 
@@ -27,6 +27,7 @@ CREATE TABLE `teams_on_game` (
   `game_id_game` int NOT NULL,
   `result` int NOT NULL,
   `winner` tinyint(1) DEFAULT NULL,
+  `date` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`team_id_team`,`game_id_game`),
   KEY `fk_team_has_game_game1_idx` (`game_id_game`),
   KEY `fk_team_has_game_team1_idx` (`team_id_team`),
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-24 19:26:49
+-- Dump completed on 2020-02-24 23:42:01

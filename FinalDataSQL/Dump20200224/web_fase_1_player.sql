@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
--- Host: localhost    Database: web_fase_1
+-- Host: 127.0.0.1    Database: web_fase_1
 -- ------------------------------------------------------
 -- Server version	8.0.19
 
@@ -26,13 +26,13 @@ CREATE TABLE `player` (
   `id_player` int NOT NULL AUTO_INCREMENT,
   `user_idUser` int NOT NULL,
   `description` varchar(100) DEFAULT NULL,
-  `team_id_team` int NOT NULL,
+  `team_id_team` int DEFAULT NULL,
   PRIMARY KEY (`id_player`),
   KEY `fk_player_user1_idx` (`user_idUser`),
   KEY `fk_player_team1_idx` (`team_id_team`),
   CONSTRAINT `fk_player_team1` FOREIGN KEY (`team_id_team`) REFERENCES `team` (`id_team`),
   CONSTRAINT `fk_player_user1` FOREIGN KEY (`user_idUser`) REFERENCES `user` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `player` (
 
 LOCK TABLES `player` WRITE;
 /*!40000 ALTER TABLE `player` DISABLE KEYS */;
-INSERT INTO `player` VALUES (1,2,'Im a casual player',1),(2,3,'I like Rocket LEague so much',1),(3,4,'Im a competitive player',1),(4,5,'I like football',2),(5,6,'I like cars',2),(6,7,'I like to fly',2),(7,8,'My passion is play games',3),(8,9,'Im so bored',3),(9,10,'Im so happy',3);
+INSERT INTO `player` VALUES (1,2,'Im a casual player',1),(2,3,'I like Rocket LEague so much',1),(3,4,'Im a competitive player',1),(4,5,'I like football',2),(5,6,'I like cars',2),(6,7,'I like to fly',2),(7,8,'My passion is play games',3),(8,9,'Im so bored',3),(9,10,'Im so happy',3),(11,16,' ',NULL);
 /*!40000 ALTER TABLE `player` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-24 19:26:49
+-- Dump completed on 2020-02-24 23:42:00
