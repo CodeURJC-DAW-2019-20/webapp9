@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.practica.demo.data.Team;
+import com.practica.demo.data.player.Player;
+import com.practica.demo.data.player.PlayerRepository;
 
 
 @RestController
@@ -23,11 +25,14 @@ public class DataRestController {
 	
 	@Autowired
 	private TeamRepository repositoryTeam;
+	private PlayerRepository repositoryPlayer;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Optional<Team> findTeams(@RequestParam (required=false) int id) {
-		/*System.out.println(id);*/
-		return  repositoryTeam.findById(id);
+	public Team findTeams(@RequestParam (required=false) int id) {
+		///Optional<Player> aux = repositoryPlayer.findById(id);
+		//System.out.println(id);
+		//Team auxTeam = repositoryTeam.findByplayer(id);
+		return  repositoryTeam.findByplayer(id);
 	}
 
 }

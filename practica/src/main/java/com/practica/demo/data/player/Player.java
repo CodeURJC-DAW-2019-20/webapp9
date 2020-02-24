@@ -16,11 +16,11 @@ public class Player {
 	@OneToOne
 	private User user;
 	
-	@OneToOne
-	private Team team;
-	
+
 	private String description;
 	
+	@OneToOne
+	private Team team;
 	public Player() {
 		
 	}
