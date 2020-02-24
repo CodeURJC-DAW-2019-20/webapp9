@@ -54,6 +54,14 @@
 							<input type="hidden" name="_csrf" value="{{token}}">
 						</form>
 					</li>
+					{{#admin}}
+					<li class="nav-item active">
+						<form action="teamCreation">
+							<input type="submit" class="nav-link" value="Create new team">
+							<input type="hidden" name="_csrf" value="{{token}}">
+						</form>
+					</li>
+					{{/admin}}
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">{{#noloaded}}

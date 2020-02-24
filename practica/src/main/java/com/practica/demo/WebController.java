@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.demo.data.Games;
-
+import com.practica.demo.data.Rol;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
@@ -77,7 +77,20 @@ public class WebController {
 
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user",userComponent.getLoggedUser());
+		
+		if(userComponent.isLoggedUser()) {
+			User user = userComponent.getLoggedUser();
+			
+			Rol rol = user.getRol();
+			
+			if(rol.getIdRol() == 1) {
+				model.addAttribute("admin", true);
+			}else {
+				model.addAttribute("admin", false);
+			}
 
+		}
+		
 		return "index";
 	}
 	@RequestMapping("/index")
@@ -85,6 +98,21 @@ public class WebController {
 
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user",userComponent.getLoggedUser());
+		
+		if(userComponent.isLoggedUser()) {
+			User user = userComponent.getLoggedUser();
+			
+			Rol rol = user.getRol();
+			
+			if(rol.getIdRol() == 1) {
+				model.addAttribute("admin", true);
+			}else {
+				model.addAttribute("admin", false);
+			}
+
+		}
+		
+
 
 		return "index";
 	}
