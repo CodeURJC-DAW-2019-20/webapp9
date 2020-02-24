@@ -89,11 +89,12 @@
 			for="inputPassword" class="sr-only">Password</label> <input
 			type="password" id="inputPassword" class="form-control"
 			placeholder="Password" name="password">
-		<div class="checkbox mb-3">
-			<label> <input type="checkbox" value="remember-me">
-				Remember me
-			</label>
-		</div>
+		{{#notloaded}}
+			<div class="alert alert-danger" role="alert">
+  				Email or password was incorrect
+			</div>		
+		{{/notloaded}}
+		
 		<button class="btn btn-lg btn-primary btn-block" type="submit"
 			value="Send">Sign in</button>
 		<input type="hidden" name="_csrf" value="{{token}}" />

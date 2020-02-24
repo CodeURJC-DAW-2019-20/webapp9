@@ -194,12 +194,14 @@ public class WebController {
 	 */
 	
 	@RequestMapping("/login")
-	public String singInPage(Model model) {
+	public String singInPage(Model model, @RequestParam (required = false) boolean error) {
 		//Games games = new Games();
 		//model.addAttribute("games",games.getArray());
 		if(userComponent.isLoggedUser()) {
 			return index(model);
 		}
+		
+		model.addAttribute("notloaded",error);
 
 		return "signIn";
 	}

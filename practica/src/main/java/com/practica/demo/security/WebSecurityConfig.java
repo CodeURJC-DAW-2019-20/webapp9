@@ -107,7 +107,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
        // http.authorizeRequests().antMatchers("/newbook").hasAnyRole("USER"); //a la espera de una pagina decente
 
         
-     //   http.authorizeRequests().anyRequest().authenticated();
+        http.authorizeRequests().anyRequest().authenticated();
          
 
         //http.authorizeRequests().antMatchers("/profile").hasAnyRole("User");
@@ -118,7 +118,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.formLogin().usernameParameter("email");
         http.formLogin().passwordParameter("password");
         http.formLogin().defaultSuccessUrl("/index");
-        http.formLogin().failureUrl("/loginerror");
+        http.formLogin().failureUrl("/login?error=true");
         
         http.logout().logoutUrl("/logout");
         http.logout().logoutSuccessUrl("/");
