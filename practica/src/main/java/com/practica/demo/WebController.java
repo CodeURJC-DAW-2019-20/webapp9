@@ -154,7 +154,8 @@ public class WebController {
 		if(userComponent.getLoggedUser().getIduser()==usuario.get().getIduser()) {
 			model.addAttribute("myprofile", true);
 		}
-		model.addAttribute("user",usuario.get());
+		model.addAttribute("user",userComponent.getLoggedUser());
+		model.addAttribute("username",usuario.get().getUsername());
 		
 		Player player = playerRepository.findByuser(usuario.get());
 		
