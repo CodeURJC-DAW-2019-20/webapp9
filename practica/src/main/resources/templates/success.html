@@ -1,0 +1,71 @@
+
+<html lang="en">
+<head>
+<link rel="stylesheet" href="../core/bootstrap.min.css" />
+<link rel="stylesheet" href="./register.css" />
+<script src="../core/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="../core/jquery-3.4.1.slim.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+<!-- NavBar -->
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">
+                <img src="../imgs/web-icon-white.png" width="30" height="30" alt="">
+            </a>
+            <a class="navbar-brand" >eTorneos</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../index/index.html">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../sign-in/sign-in.html">Sign in</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tournaments</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="../lol/index.html">League of Legends</a>
+                            <a class="dropdown-item" href="../rl/index.html">Rocket League</a>
+                            <a class="dropdown-item" href="../pokemon/pokemon.html">Pokémon</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="../register/register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+            
+
+        </nav>
+    </header>    
+<div class="container">
+    <div class="row justify-content-center">
+            <div class="col-md-8">
+                    <div class="card">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="name" class="cols-sm-2 control-label">You have successfully signed in.</label>
+                                </div>
+                                <div class="form-group ">
+                                    <a class="btn btn-primary btn-lg btn-block login-button" href="/">Return to home</a>
+									<input type="hidden" name="_csrf" value="{{token}}"/>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+</div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="../core/jquery-3.4.1.slim.min.js"></script>
+    <script src="../core/bootstrap.bundle.min.js"></script>
+</body>
+</html>
