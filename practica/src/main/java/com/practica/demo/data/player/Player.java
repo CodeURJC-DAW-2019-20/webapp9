@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.practica.demo.data.Team;
 import com.practica.demo.data.user.User;
 
 @Entity
@@ -14,6 +15,9 @@ public class Player {
 	
 	@OneToOne
 	private User user;
+	
+	@OneToOne
+	private Team team;
 	
 	private String description;
 	
