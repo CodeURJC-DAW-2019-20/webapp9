@@ -23,8 +23,7 @@ public class Team {
 
 	}
 
-	public Team(int id, String name, int elo) {
-		this.id_team = id;
+	public Team(String name, int elo) {
 		this.name = name;
 		this.elo = elo;
 	}
@@ -52,13 +51,30 @@ public class Team {
 	public void setElo(int elo) {
 		this.elo = elo;
 	}
-	
+
 	public void addWin() {
-		this.wins++;
+		this.setWins(this.getWins() + 1);
 	}
 	
 	public void addLoss() {
-		this.losses++;
+		this.setLosses(this.getLosses() + 1);
 	}
 
+	public int getWins() {
+		return wins;
+	}
+
+	public void setWins(int wins) {
+		this.wins = wins;
+	}
+
+	public int getLosses() {
+		return losses;
+	}
+
+	public void setLosses(int losses) {
+		this.losses = losses;
+	}
+
+	
 }

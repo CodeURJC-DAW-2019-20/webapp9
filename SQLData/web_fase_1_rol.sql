@@ -16,33 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `teams_on_game`
+-- Table structure for table `rol`
 --
 
-DROP TABLE IF EXISTS `teams_on_game`;
+DROP TABLE IF EXISTS `rol`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `teams_on_game` (
-  `team_id_team` int NOT NULL,
-  `game_id_game` int NOT NULL,
-  `result` int NOT NULL,
-  `winner` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`team_id_team`,`game_id_game`),
-  KEY `fk_team_has_game_game1_idx` (`game_id_game`),
-  KEY `fk_team_has_game_team1_idx` (`team_id_team`),
-  CONSTRAINT `fk_team_has_game_game1` FOREIGN KEY (`game_id_game`) REFERENCES `game` (`id_game`),
-  CONSTRAINT `fk_team_has_game_team1` FOREIGN KEY (`team_id_team`) REFERENCES `team` (`id_team`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `rol` (
+  `id_rol` int NOT NULL AUTO_INCREMENT,
+  `rolDes` varchar(45) NOT NULL,
+  PRIMARY KEY (`id_rol`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `teams_on_game`
+-- Dumping data for table `rol`
 --
 
-LOCK TABLES `teams_on_game` WRITE;
-/*!40000 ALTER TABLE `teams_on_game` DISABLE KEYS */;
-INSERT INTO `teams_on_game` VALUES (1,1,8,1),(2,1,3,0),(2,2,5,0),(3,2,6,1);
-/*!40000 ALTER TABLE `teams_on_game` ENABLE KEYS */;
+LOCK TABLES `rol` WRITE;
+/*!40000 ALTER TABLE `rol` DISABLE KEYS */;
+INSERT INTO `rol` VALUES (1,'Admin'),(2,'Player');
+/*!40000 ALTER TABLE `rol` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-20 20:50:59
+-- Dump completed on 2020-02-24 18:07:39

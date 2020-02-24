@@ -29,12 +29,13 @@ CREATE TABLE `user` (
   `email` varchar(90) NOT NULL DEFAULT 'default@default',
   `password` varchar(15) NOT NULL DEFAULT '" "',
   `name` varchar(45) NOT NULL DEFAULT 'dafaultname',
+  `img` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idUser`),
   UNIQUE KEY `UserName_UNIQUE` (`UserName`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_User_Rol_idx` (`rol_id_rol`),
   CONSTRAINT `fk_User_Rol` FOREIGN KEY (`rol_id_rol`) REFERENCES `rol` (`id_rol`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +44,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'lucia,',1,'lucia@hotmail.com','123','lucia'),(2,'usuario2',2,'us2@hotmail.com','545','jorge'),(3,'usuario3',2,'us3@hotmail.com','5775','daniel'),(4,'usuario4',2,'hola@hotmail.com','213','Mario');
+INSERT INTO `user` VALUES (1,'User1',2,'user1@gmial.com','123','User1',NULL),(2,'User2',2,'user2@gmail.com','123','User2',NULL),(3,'User3',2,'user3@gmail.com','123','User3',NULL),(4,'User4',2,'user4@gmail.com','123','User4',NULL),(5,'User5',2,'user5@gmail.com','123','User5',NULL),(6,'User6',2,'user6@gmail.com','123','User6',NULL),(7,'User7',2,'user7@gmail.com','123','User7',NULL),(8,'User8',2,'user8@gmail.com','123','User8',NULL),(9,'User9',2,'user9@gmail.com','123','User9',NULL),(10,'UserAdmin',1,'useradmin@gmial.com','123','UserAdmin',NULL),(11,'danieloGamer',2,'danielo@gmail.com','123','Danielo',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-20 20:50:59
+-- Dump completed on 2020-02-24 18:07:39
