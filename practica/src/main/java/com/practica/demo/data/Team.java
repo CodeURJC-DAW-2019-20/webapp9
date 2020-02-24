@@ -51,22 +51,6 @@ public class Team {
 	public void setElo(int elo) {
 		this.elo = elo;
 	}
-	
-	public int getWins() {
-		return wins;
-	}
-
-	public void setWins(int wins) {
-		this.wins = wins;
-	}
-
-	public int getLosses() {
-		return losses;
-	}
-
-	public void setLosses(int losses) {
-		this.losses = losses;
-	}
 
 	public void addWin() {
 		this.setWins(this.getWins() + 1);

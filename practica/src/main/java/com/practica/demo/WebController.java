@@ -134,7 +134,7 @@ public class WebController {
 				Player p2 = playerRepository.findByuser(user2);
 				Player p3 = playerRepository.findByuser(user3);
 				
-				Team team = new Team(team_name, 0);
+				Team team = new Team(team_name, 1000);
 				
 				repositoryTeam.save(team);
 				
