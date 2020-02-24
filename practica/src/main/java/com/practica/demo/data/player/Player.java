@@ -21,19 +21,27 @@ public class Player {
 	
 	private String description;
 	
+	@OneToOne
+	private Team team;
+	
 	public Player() {
-		// TODO Auto-generated constructor stub
+		
+	}
+
+	public Player(User user, String description) {
+		super();
+		this.user = user;
+		this.description = description;
 	}
 	
-
-	public Player(int idPlayer, User user, String description) {
+	public Player(int id,User user, String description) {
 		super();
-		this.idPlayer = idPlayer;
+		this.idPlayer = id;
 		this.user = user;
 		this.description = description;
 	}
 
-
+	
 	public int getIdPlayer() {
 		return idPlayer;
 	}
@@ -49,10 +57,24 @@ public class Player {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Team getTeam() {
+		return team;
+	}
+
+	public void setTeam(Team team) {
+		this.team = team;
+	}
 	
-	
-	
-	
+
 	
 
 }

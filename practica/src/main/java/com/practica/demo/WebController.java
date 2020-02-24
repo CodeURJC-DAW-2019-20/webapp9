@@ -56,14 +56,13 @@ public class WebController {
 
 	@Autowired
 	private RespositoryUser userRepository;
-	
+
 	@Autowired
 	private PlayerRepository playerRepository;
 
 	@Autowired
 	private TeamRepository repositoryTeam;
 
-	
 	@Autowired
 	private UserComponent userComponent;
 	@Autowired
@@ -75,7 +74,7 @@ public class WebController {
 
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user",userComponent.getLoggedUser());
-		
+
 		return "index";
 	}
 	@RequestMapping("/index")
@@ -113,36 +112,41 @@ public class WebController {
 	public String goTeamCreation(Model model) {
 		return "teamCreation";
 	}
-	
+
 	@RequestMapping("/newTeam")
 	public String goNewTeam(Model model, @RequestParam String team_name, @RequestParam String player1, @RequestParam String player2, @RequestParam String player3) {
 			model.addAttribute("team", team_name);
 			model.addAttribute("p1", player1);
 			model.addAttribute("p2", player2);
 			model.addAttribute("p3", player3);
-			
+
 			User user1 = userRepository.findByusername(player1);
 			User user2 = userRepository.findByusername(player2);
 			User user3 = userRepository.findByusername(player3);
-			
+
 			if(user1 == null || user2 == null || user3 == null) {
 				return "teamError";
 			}else {
 				Player p1 = playerRepository.findByuser(user1);
 				Player p2 = playerRepository.findByuser(user2);
 				Player p3 = playerRepository.findByuser(user3);
-				
+
 				Team team = new Team(team_name, 1000);
-				
+
 				repositoryTeam.save(team);
-				
-		
-		
-				
+
+				p1.setTeam(team);
+				p2.setTeam(team);
+				p3.setTeam(team);
+
+				playerRepository.save(p1);
+				playerRepository.save(p2);
+				playerRepository.save(p3);
+
 				return "teamCreated";
 			}
 	}
-	
+
 	@RequestMapping("/team")
 	public String goTeam(Model model) {
 		return "team";
@@ -170,14 +174,14 @@ public class WebController {
 	return "diamond";
 	}
 
-	
+
 /*
  * 	USER PROFILE CONTROLLER
- * 
+ *
  */
 	@GetMapping("/profile")
 	public String goProfile(Model model, @RequestParam(required = false) int id) {
-		
+
 		Optional<User> usuario = userRepository.findById(id);
 
 		if(userComponent.getLoggedUser().getIduser()==usuario.get().getIduser()) {
@@ -187,11 +191,11 @@ public class WebController {
 		model.addAttribute("username",usuario.get().getUsername());
 		//model.addAttribute("idUser",user.)
 		Player player = playerRepository.findByuser(usuario.get());
-		
+
 		Team team = repositoryTeam.findByplayer(player.getIdPlayer());
-		
+
 		model.addAttribute("player",player);
-		
+
 		if (team != null) {
 			model.addAttribute("team", team);
 		}
@@ -199,21 +203,21 @@ public class WebController {
 			model.addAttribute("team.name", " ");
 		}
 		return "profile";
-	}	
-	
+	}
+
 	@RequestMapping("/editProfile")
 	public String tournaments(Model model) {
-				
+
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user",userComponent.getLoggedUser());
-		
-		
-	
+
+
+
 		return "userConfig";
 	}
-	
-	
-	
+
+
+
 /*
  * ****************************************************
  * USER LOGIN CONTROLLER
@@ -224,7 +228,7 @@ public class WebController {
 	 * @param model
 	 * @return singIn.html
 	 */
-	
+
 	@RequestMapping("/login")
 	public String singInPage(Model model, @RequestParam (required = false) boolean error) {
 		//Games games = new Games();
@@ -232,19 +236,19 @@ public class WebController {
 		if(userComponent.isLoggedUser()) {
 			return index(model);
 		}
-		
+
 		model.addAttribute("notloaded",error);
 
 		return "signIn";
 	}
-		
-	
+
+
 /*
  * ***************************************************
  * USER REGISTRE CONTROLLER
  * ***************************************************
  */
-	
+
 	@RequestMapping("/register")
 	public String register(Model model) {
 		Games games = new Games();
@@ -258,10 +262,10 @@ public class WebController {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 	    Set<ConstraintViolation<User>> violations = validator.validate(user);
-	    
-	       
-	    if(violations.isEmpty()) {	
-	    	
+
+
+	    if(violations.isEmpty()) {
+
 	    	if(userRepository.findByemailOrusername(user.getEmail(), user.getUsername())!=null) {
 	    		model.addAttribute("wrongemail",true);
 	    		model.addAttribute("email","Already exits");
@@ -269,7 +273,7 @@ public class WebController {
 	    		model.addAttribute("username","Already exits");
 		    	return "/register";
 	    	}
-	    	
+
 	    	if(user.getPassword().contentEquals(confirmpass)) {
 	    		return generateUser(model,user);
 	    	}
@@ -277,16 +281,16 @@ public class WebController {
 	    	return "/register";
 	    }
 	    else {
-	    	
-	    	for (ConstraintViolation<User> violation : violations) {	    		
-	    	    model.addAttribute("wrong"+violation.getPropertyPath(), true);    	    
+
+	    	for (ConstraintViolation<User> violation : violations) {
+	    	    model.addAttribute("wrong"+violation.getPropertyPath(), true);
 	    	    model.addAttribute(violation.getPropertyPath().toString(), violation.getMessage());
-	    	} 	
+	    	}
 	    	return "/register";
-	    }	
+	    }
 
 	}
-	
+
 	@RequestMapping("/success")
 	private String success(Model model) {
 		return "/success";
@@ -295,14 +299,14 @@ public class WebController {
 	private String generateUser(Model model,User user) {
 		user.setRol(gameRepository.findById(2).get());
 		try {
-						
+
 			userRepository.save(user);
 			User useraux = userRepository.findByemail(user.getEmail());
-			
+
 			Player player = new Player(0, useraux, " ");
-					
+
 	        playerRepository.save(player);
-						
+
 	    	return "redirect:/success";
 		}
 		catch(Exception e) {
