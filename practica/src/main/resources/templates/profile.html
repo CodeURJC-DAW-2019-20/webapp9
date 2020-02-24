@@ -9,6 +9,7 @@
 <!-- Scripts -->
 <script>
  var id = '{{player.idPlayer}}';
+ var csrf = '{{token}}';
 </script>
 <script src="/js/Profile/jquery-2.1.4.min.js"></script>
 <script src="/js/Profile/bootstrap.min.js"></script>
@@ -117,7 +118,7 @@
 								<ul>
 									<li><span>Date of Birth</span>Aug 25, 1988</li>
 									<li><span>Favourite Game</span>League of Legends</li>
-									<li><span>Team</span>{{team.name}}</li>
+									<li><span>Team</span>{{team}}</li>
 								</ul>
 							</div>
 						</div>
