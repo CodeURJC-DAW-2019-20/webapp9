@@ -69,11 +69,28 @@ public class Team {
 	}
 
 	public void addWin() {
-		this.wins++;
+		this.setWins(this.getWins() + 1);
 	}
 	
 	public void addLoss() {
-		this.losses++;
+		this.setLosses(this.getLosses() + 1);
 	}
 
+	public int getWins() {
+		return wins;
+	}
+
+	public void setWins(int wins) {
+		this.wins = wins;
+	}
+
+	public int getLosses() {
+		return losses;
+	}
+
+	public void setLosses(int losses) {
+		this.losses = losses;
+	}
+
+	
 }
