@@ -48,8 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD:FinalDataSQL/web_fase_1_rol.sql
 -- Dump completed on 2020-02-24 19:26:49
-=======
--- Dump completed on 2020-02-23 22:41:52
->>>>>>> pruebastorneo:Dump20200223/web_fase_1_rol.sql
