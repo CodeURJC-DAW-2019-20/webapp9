@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `team`
+-- Table structure for table `players_on_team`
 --
 
-DROP TABLE IF EXISTS `team`;
+DROP TABLE IF EXISTS `players_on_team`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `team` (
-  `id_team` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `elo` int NOT NULL,
-  `wins` int NOT NULL DEFAULT '0',
-  `losses` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id_team`),
-  UNIQUE KEY `id_equipo_UNIQUE` (`id_team`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `players_on_team` (
+  `players_on_team_id` int NOT NULL AUTO_INCREMENT,
+  `team_id_team` int NOT NULL,
+  `player_id_player` int NOT NULL,
+  PRIMARY KEY (`players_on_team_id`),
+  KEY `fk_team_has_player_player1_idx` (`player_id_player`),
+  KEY `fk_team_has_player_team1_idx` (`team_id_team`),
+  CONSTRAINT `fk_team_has_player_player1` FOREIGN KEY (`player_id_player`) REFERENCES `player` (`id_player`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `team`
+-- Dumping data for table `players_on_team`
 --
 
-LOCK TABLES `team` WRITE;
-/*!40000 ALTER TABLE `team` DISABLE KEYS */;
-INSERT INTO `team` VALUES (1,'Team1',100,0,0),(2,'Team2',200,2,0),(3,'Team3',300,3,1);
-/*!40000 ALTER TABLE `team` ENABLE KEYS */;
+LOCK TABLES `players_on_team` WRITE;
+/*!40000 ALTER TABLE `players_on_team` DISABLE KEYS */;
+INSERT INTO `players_on_team` VALUES (1,1,1),(2,1,2),(3,1,3),(4,2,4),(5,2,5),(6,2,6),(7,3,7),(8,3,8),(9,3,9);
+/*!40000 ALTER TABLE `players_on_team` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-24 11:44:20
+-- Dump completed on 2020-02-24 18:07:40

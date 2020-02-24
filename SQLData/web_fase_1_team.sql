@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `players_on_team`
+-- Table structure for table `team`
 --
 
-DROP TABLE IF EXISTS `players_on_team`;
+DROP TABLE IF EXISTS `team`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `players_on_team` (
-  `team_id_team` int NOT NULL,
-  `player_id_player` int NOT NULL,
-  PRIMARY KEY (`team_id_team`,`player_id_player`),
-  KEY `fk_team_has_player_player1_idx` (`player_id_player`),
-  KEY `fk_team_has_player_team1_idx` (`team_id_team`),
-  CONSTRAINT `fk_team_has_player_player1` FOREIGN KEY (`player_id_player`) REFERENCES `player` (`id_player`),
-  CONSTRAINT `fk_team_has_player_team1` FOREIGN KEY (`team_id_team`) REFERENCES `team` (`id_team`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `team` (
+  `id_team` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `elo` int NOT NULL,
+  `wins` int NOT NULL DEFAULT '0',
+  `losses` int NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id_team`),
+  UNIQUE KEY `id_equipo_UNIQUE` (`id_team`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `players_on_team`
+-- Dumping data for table `team`
 --
 
-LOCK TABLES `players_on_team` WRITE;
-/*!40000 ALTER TABLE `players_on_team` DISABLE KEYS */;
-INSERT INTO `players_on_team` VALUES (1,1),(1,2),(1,3),(2,4),(2,5),(2,6),(3,7),(3,8),(3,9);
-/*!40000 ALTER TABLE `players_on_team` ENABLE KEYS */;
+LOCK TABLES `team` WRITE;
+/*!40000 ALTER TABLE `team` DISABLE KEYS */;
+INSERT INTO `team` VALUES (1,'Team1',100,0,0),(2,'Team2',200,2,0),(3,'Team3',300,3,1),(4,'ElTeam',0,0,0),(5,'ElTeam',0,0,0),(6,'ElTeam',0,0,0),(7,'ElTeam',0,0,0),(8,'ElTeam',0,0,0),(9,'ElTeam',0,0,0),(10,'ElTeam',0,0,0),(11,'ElTeam',0,0,0);
+/*!40000 ALTER TABLE `team` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-24 11:44:21
+-- Dump completed on 2020-02-24 18:07:39
