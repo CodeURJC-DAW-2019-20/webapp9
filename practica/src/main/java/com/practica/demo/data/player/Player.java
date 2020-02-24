@@ -20,6 +20,15 @@ public class Player {
 	public Player() {
 		// TODO Auto-generated constructor stub
 	}
+	
+
+	public Player(int idPlayer, User user, String description) {
+		super();
+		this.idPlayer = idPlayer;
+		this.user = user;
+		this.description = description;
+	}
+
 
 	public int getIdPlayer() {
 		return idPlayer;

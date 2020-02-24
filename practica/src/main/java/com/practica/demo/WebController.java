@@ -19,6 +19,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,7 +34,7 @@ import com.practica.demo.data.Games;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
-
+import com.practica.demo.security.UserRepositoryAuthProvider;
 import com.practica.demo.data.Team;
 import com.practica.demo.data.Tournament;
 import com.practica.demo.data.player.Player;
@@ -64,6 +65,8 @@ public class WebController {
 
 	@Autowired
 	private UserComponent userComponent;
+	@Autowired
+    public UserRepositoryAuthProvider userRepoAuthProvider;
 
 
 	@RequestMapping("/")
@@ -71,7 +74,7 @@ public class WebController {
 
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user",userComponent.getLoggedUser());
-
+		
 		return "index";
 	}
 	@RequestMapping("/index")
@@ -208,21 +211,18 @@ public class WebController {
 	 */
 	
 	@RequestMapping("/login")
-	public String singInPage(Model model) {
+	public String singInPage(Model model, @RequestParam (required = false) boolean error) {
 		//Games games = new Games();
 		//model.addAttribute("games",games.getArray());
 		if(userComponent.isLoggedUser()) {
 			return index(model);
 		}
+		
+		model.addAttribute("notloaded",error);
 
 		return "signIn";
 	}
-	
-	@RequestMapping("/signIn")
-	public String goSigIn(Model model) {
-		return "signIn";
-	}
-	
+		
 	
 /*
  * ***************************************************
@@ -270,21 +270,24 @@ public class WebController {
 	    }	
 
 	}
+	
+	@RequestMapping("/success")
+	private String success(Model model) {
+		return "/success";
+	}
 
 	private String generateUser(Model model,User user) {
 		user.setRol(gameRepository.findById(2).get());
 		try {
-			Player player = new Player();
-			
+						
 			userRepository.save(user);
-			
-			player.setUser(user);
-			
-	        playerRepository.save(player);
-			
 			User useraux = userRepository.findByemail(user.getEmail());
-	    	userComponent.setLoggedUser(useraux);
-	    	return index2(model);
+			
+			Player player = new Player(0, useraux, " ");
+					
+	        playerRepository.save(player);
+						
+	    	return "redirect:/success";
 		}
 		catch(Exception e) {
 
