@@ -23,8 +23,8 @@ $(document).ready(function(){
 $("#btn").on('click', function() {
 		
 		loadTeams(function (teams) {
-	        for (var i = 0; i < teams.length; i++) {
-	        	//cont = i + 1;
+	        for (var i = cont; i < teams.length; i++) {
+	        	cont = i + 1;
 	        	console.log(cont);
 	            showTeam(cont,teams[i]);	
 	        }
