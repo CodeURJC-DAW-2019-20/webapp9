@@ -161,16 +161,20 @@ public class WebController {
 		model.addAttribute("player",player);
 		
 		if (team != null) {
-		model.addAttribute("team", team);
+			model.addAttribute("team", team);
 		}
-		
-		
-
+		else {
+			model.addAttribute("team.name", " ");
+		}
 		return "profile";
 	}	
 	
 	@RequestMapping("/editProfile")
 	public String tournaments(Model model) {
+				
+		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("user",userComponent.getLoggedUser());
+	
 		return "userConfig";
 	}
 	
@@ -222,8 +226,17 @@ public class WebController {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 	    Set<ConstraintViolation<User>> violations = validator.validate(user);
-	    
+	       
 	    if(violations.isEmpty()) {	
+	    	
+	    	if(userRepository.findByemailOrusername(user.getEmail(), user.getUsername())!=null) {
+	    		model.addAttribute("wrongemail",true);
+	    		model.addAttribute("email","Already exits");
+	    		model.addAttribute("wrongusername",true);
+	    		model.addAttribute("username","Already exits");
+		    	return "/register";
+	    	}
+	    	
 	    	if(user.getPassword().contentEquals(confirmpass)) {
 	    		return generateUser(model,user);
 	    	}
@@ -250,7 +263,7 @@ public class WebController {
 			
 			player.setUser(user);
 			
-			playerRepository.save(player);
+	//		playerRepository.save(player);
 			
 			User useraux = userRepository.findByemail(user.getEmail());
 	    	userComponent.setLoggedUser(useraux);
