@@ -23,13 +23,12 @@ DROP TABLE IF EXISTS `player`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `player` (
-  `id_player` int NOT NULL AUTO_INCREMENT,
+  `id_player` int NOT NULL,
   `user_idUser` int NOT NULL,
-  `description` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_player`),
-  KEY `fk_player_user1_idx` (`user_idUser`),
-  CONSTRAINT `fk_player_user1` FOREIGN KEY (`user_idUser`) REFERENCES `user` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `fk_jugador_user1_idx` (`user_idUser`),
+  CONSTRAINT `fk_jugador_user1` FOREIGN KEY (`user_idUser`) REFERENCES `user` (`idUser`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +37,7 @@ CREATE TABLE `player` (
 
 LOCK TABLES `player` WRITE;
 /*!40000 ALTER TABLE `player` DISABLE KEYS */;
-INSERT INTO `player` VALUES (1,1,'aaa'),(2,2,'bbb'),(3,3,'ccc'),(4,4,'ddd'),(5,5,'eee'),(6,6,'fff'),(7,7,'ggg'),(8,8,'hhh'),(9,9,'iii'),(10,11,' ');
+INSERT INTO `player` VALUES (1,1),(2,2),(3,3),(4,4);
 /*!40000 ALTER TABLE `player` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,8 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD:SQLData/web_fase_1_player.sql
--- Dump completed on 2020-02-24 18:07:39
-=======
--- Dump completed on 2020-02-23 22:41:53
->>>>>>> pruebastorneo:Dump20200223/web_fase_1_player.sql
+-- Dump completed on 2020-02-23 22:17:52

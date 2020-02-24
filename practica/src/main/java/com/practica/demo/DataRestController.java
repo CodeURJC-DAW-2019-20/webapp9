@@ -32,7 +32,8 @@ public class DataRestController {
 		///Optional<Player> aux = repositoryPlayer.findById(id);
 		//System.out.println(id);
 		//Team auxTeam = repositoryTeam.findByplayer(id);
-		return  repositoryTeam.findByplayer(id);
+		Team team =  repositoryTeam.findByplayer(id);
+		return team;
 	}
 
 }
