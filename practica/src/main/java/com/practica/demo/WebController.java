@@ -194,6 +194,8 @@ public class WebController {
 				
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user",userComponent.getLoggedUser());
+		
+		
 	
 		return "userConfig";
 	}
@@ -244,6 +246,7 @@ public class WebController {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		Validator validator = factory.getValidator();
 	    Set<ConstraintViolation<User>> violations = validator.validate(user);
+	    
 	       
 	    if(violations.isEmpty()) {	
 	    	
