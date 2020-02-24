@@ -203,7 +203,7 @@ public class WebController {
 			model.addAttribute("team", player.getTeam().getName());
 		}
 		else {
-			model.addAttribute("team.name", " ");
+			model.addAttribute("team", " ");
 		}
 		return "profile";
 	}
