@@ -23,8 +23,7 @@ public class Team {
 
 	}
 
-	public Team(int id, String name, int elo) {
-		this.id_team = id;
+	public Team(String name, int elo) {
 		this.name = name;
 		this.elo = elo;
 	}
