@@ -192,7 +192,7 @@ public class WebController {
 		}
 		model.addAttribute("user",userComponent.getLoggedUser());
 		model.addAttribute("username",usuario.get().getUsername());
-		
+		//model.addAttribute("idUser",user.)
 		Player player = playerRepository.findByuser(usuario.get());
 		
 		Team team = repositoryTeam.findByplayer(player.getIdPlayer());

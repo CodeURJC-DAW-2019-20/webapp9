@@ -25,8 +25,9 @@ public class DataRestController {
 	private TeamRepository repositoryTeam;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public Optional<Team> findTeams(/*@RequestParam int id*/) {
-		return  repositoryTeam.findById(3);
+	public Optional<Team> findTeams(@RequestParam (required=false) int id) {
+		/*System.out.println(id);*/
+		return  repositoryTeam.findById(id);
 	}
 
 }

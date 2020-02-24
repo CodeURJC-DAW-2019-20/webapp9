@@ -19,12 +19,9 @@ import com.practica.demo.data.player.Player;
 public class Players_On_Team implements Serializable{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int players_on_team_id;
-	
 	@OneToOne(cascade=CascadeType.ALL)
 	private Team team;
-	
+	@Id
 	@OneToOne(cascade=CascadeType.ALL)
 	private Player player;
 	
@@ -38,13 +35,6 @@ public class Players_On_Team implements Serializable{
 		this.player = player;
 	}
 
-	public int getPlayers_on_team_id() {
-		return players_on_team_id;
-	}
-
-	public void setPlayers_on_team_id(int players_on_team_id) {
-		this.players_on_team_id = players_on_team_id;
-	}
 
 	public Team getTeam() {
 		return team;

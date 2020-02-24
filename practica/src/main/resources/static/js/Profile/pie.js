@@ -4,7 +4,7 @@ var ctxP = document.getElementById("pieChart").getContext('2d');
 
 
 $.ajax({
-    url: 'https://localhost:8443/getTeamData'
+    url: 'https://localhost:8443/getTeamData?id='+ id
 }).done(function (team) {
 	var varLosses = team.losses;
 	var varWins = team.wins;
