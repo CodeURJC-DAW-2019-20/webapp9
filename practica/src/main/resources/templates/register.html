@@ -7,8 +7,8 @@
 <body>
 
 	<!-- NavBar -->
-	<header>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+	<header margin=5px	>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" >
             <a class="navbar-brand" href="#">
                 <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
             </a>
@@ -57,7 +57,7 @@
 									<div class="input-group">
 										<span class="input-group-addon"><i
 											class="fa fa-user fa" aria-hidden="true"></i></span> {{#wrongname}}
-										<input type="text" class="form-control-wrong" name="name"
+										<input type="text" class="alert alert-danger" role="alert" name="name"
 											id="name" placeholder="{{name}}" /> {{/wrongname}}
 
 										{{^wrongname}} <input type="text" class="form-control"
@@ -74,7 +74,7 @@
 									<div class="input-group">
 										<span class="input-group-addon"><i
 											class="fa fa-envelope fa" aria-hidden="true"></i></span>
-										{{#wrongemail}} <input type="text" class="form-control-wrong"
+										{{#wrongemail}} <input type="text" class="alert alert-danger" role="alert"
 											name="email" id="email" placeholder="{{email}}" />
 										{{/wrongemail}} {{^wrongemail}} <input type="text"
 											class="form-control" name="email" id="email"
@@ -90,7 +90,7 @@
 										<span class="input-group-addon"><i
 											class="fa fa-users fa" aria-hidden="true"></i></span>
 										{{#wrongusername}} <input type="text"
-											class="form-control-wrong" name="username" id="username"
+											class="alert alert-danger" role="alert" name="username" id="username"
 											placeholder="{{username}}" /> {{/wrongusername}}
 										{{^wrongusername}} <input type="text" class="form-control"
 											name="username" id="username"
@@ -106,7 +106,7 @@
 										<span class="input-group-addon"><i
 											class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
 										{{#wrongpassword}} <input type="password"
-											class="form-control-wrong" name="password" id="password"
+											class="alert alert-danger" role="alert" name="password" id="password"
 											placeholder="{{password}}" /> {{/wrongpassword}}
 										{{^wrongpassword}} <input type="password" class="form-control"
 											name="password" id="password"
