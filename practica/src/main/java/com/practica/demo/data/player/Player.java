@@ -20,9 +20,7 @@ public class Player {
 	private Team team;
 	
 	private String description;
-	
-	@OneToOne
-	private Team team;
+
 	
 	public Player() {
 		
