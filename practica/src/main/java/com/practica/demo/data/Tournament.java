@@ -10,6 +10,7 @@ public class Tournament {
 	private int numTeams;
 	private String name;
 	private String description;
+	private String img;
 	
 	public int getIdTournament() {
 		return idTournament;

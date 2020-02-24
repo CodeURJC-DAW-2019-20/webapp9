@@ -39,6 +39,8 @@ public class User {
 	@NotNull
 	@NotEmpty
 	private String password;
+	
+	private String img;
 
 	@OneToOne
 	private com.practica.demo.data.Rol rol;
