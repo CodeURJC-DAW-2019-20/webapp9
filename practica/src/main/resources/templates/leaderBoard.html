@@ -1,8 +1,15 @@
 <html>
 <head>
 <link href="/core/bootstrap.min.css" rel="stylesheet">
+<link href="/css/Leaderboard/style.css" rel="stylesheet">
+<script>
+ var csrf = '{{token}}';
+</script>
+
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="/js/Leaderboard/load.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
 
 </head>
 
@@ -102,10 +109,11 @@
 				<!--Bottom Table UI-->
 				<div class="d-flex justify-content-center">
 					<!--Pagination -->
-
-
-						<input type="button" id="btn" class="btn btn-primary btn-lg" value="Load More">
+						
+						
+						<input type="button" id="btn" class="button" value="Load More">
 						<input type="hidden" name="_csrf" value="{{token}}">
+						
 
 					<!--/Pagination -->
 				</div>
@@ -113,7 +121,7 @@
 		</div>
 	</main>
 	<script src="/core/bootstrap.min.js"></script>
-	<script src="/js/Leaderboard/load.js"></script>
+
 </body>
 
 </html>

@@ -43,6 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+    	/*
     	@EnableWebMvc class WebConfig extends WebMvcConfigurerAdapter {
 
     	    @Override
@@ -59,6 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	                		"classpath:/static/js/");
     	    }
     	}
+    	*/
 /**
 
     	@EnableWebMvc class SimpleCORSFilter implements Filter {
@@ -84,12 +86,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 **/
 
-        http.authorizeRequests().antMatchers("/resources/**").permitAll();
-        http.authorizeRequests().antMatchers("/css/**").permitAll();
+
         http.authorizeRequests().antMatchers("/core/**").permitAll();
-        http.authorizeRequests().antMatchers("/js/**").permitAll();
         http.authorizeRequests().antMatchers("/imgs/**").permitAll();
-        
+        http.authorizeRequests().antMatchers("/css/**").permitAll();
+        http.authorizeRequests().antMatchers("/js/**").permitAll();
+
+    	// Public pages
+
         http.authorizeRequests().antMatchers("/").permitAll();
         http.authorizeRequests().antMatchers("/index").permitAll();
         http.authorizeRequests().antMatchers("/login").permitAll();
@@ -100,10 +104,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests().antMatchers("/tournaments").permitAll();
 
         // Private pages (all other pages)
+       // http.authorizeRequests().antMatchers("/newbook").hasAnyRole("USER"); //a la espera de una pagina decente
 
-       //   http.authorizeRequests().anyRequest().authenticated();
+        
+     //   http.authorizeRequests().anyRequest().authenticated();
          
-        //http.authorizeRequests().antMatchers("/profile").hasAnyRole("Player");
+
+        //http.authorizeRequests().antMatchers("/profile").hasAnyRole("User");
         //http.authorizeRequests().antMatchers("/profile").hasAnyRole("Admin");
 
         // Login form

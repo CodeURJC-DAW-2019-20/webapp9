@@ -112,7 +112,6 @@ public class WebController {
 	public String goTeamCreation(Model model) {
 		return "teamCreation";
 	}
-
 	
 
 	@RequestMapping("/team")
@@ -193,6 +192,7 @@ public class WebController {
 	 * @param model
 	 * @return singIn.html
 	 */
+	
 	@RequestMapping("/login")
 	public String singInPage(Model model) {
 		//Games games = new Games();

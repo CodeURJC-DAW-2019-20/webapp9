@@ -11,7 +11,7 @@ function showTeam(pos,team) {
 
 function loadTeams(callback) {
     $.ajax({
-        url: 'https://localhost:8443/leaderBoardLoaded'
+        url: 'https://localhost:8443/leaderBoardLoaded?_csrf='+csrf
     }).done(function (teams) {
     	console.log("olo");
     	callback(teams);
