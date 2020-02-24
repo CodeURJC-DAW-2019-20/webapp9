@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practica.demo.data.Bracket;
 import com.practica.demo.data.Games;
 import com.practica.demo.data.Team;
 import com.practica.demo.data.Tournament;
@@ -200,18 +201,39 @@ public class Controlador {
 	@GetMapping("/tournaments/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("name", name);
+		
 		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
+		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
+		
 		List <Team> listateams = new ArrayList<Team>();
 		
 		for(int i =0; i<listateamdate.size();i++) {
 			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
 			listateams.add(team);
-			
+			if(i%2!=0) {
+				listamatch.add(new Bracket(i, listateams));
+				listateams = new ArrayList<Team>(); 		
+			}
 		}		
-		model.addAttribute("team",listateams);
+		model.addAttribute("brackets",listamatch);
+		
 		
 	return "diamond"; 
 	
+	}
+	
+	@GetMapping("/tournaments/play")
+	public String play(Model model, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String fecha ) {
+		int d1 =equipo[0];
+		int d2 =equipo[1];
+		Team team = repositoryTeam.findByidTeam(d1);
+		model.addAttribute("name1",team.getName());
+		model.addAttribute("elo1",team.getElo());
+		Team team2 = repositoryTeam.findByidTeam(d2);
+		model.addAttribute("name2",team2.getName());
+		model.addAttribute("elo2",team2.getElo());
+		
+	return "play"; 
 	}
 	
 	private String generateUser(User user) {
