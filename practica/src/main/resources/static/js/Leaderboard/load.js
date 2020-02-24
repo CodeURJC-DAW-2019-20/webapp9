@@ -1,6 +1,5 @@
 function showTeam(pos,team) {
 	$("#table").append(
-  	         
 		'<tr>' +
 		'<th scope="row">' + pos + '</th>' +
 		'<td>' + team.name + '</td>' +
@@ -13,15 +12,16 @@ function loadTeams(callback) {
     $.ajax({
         url: 'https://localhost:8443/leaderBoardLoaded?_csrf='+csrf
     }).done(function (teams) {
-    	console.log("olo");
+    	$('#loader').empty();
     	callback(teams);
     });
 }
 
+
 $(document).ready(function(){
 	var cont = 2;
 $("#btn").on('click', function() {
-		
+	$('#loader').html("<img src='/imgs/spinner.gif'/>");
 		loadTeams(function (teams) {
 	        for (var i = cont; i < teams.length; i++) {
 	        	cont = i + 1;

@@ -106,8 +106,10 @@ public class WebController {
 			
 			if(rol.getIdRol() == 1) {
 				model.addAttribute("admin", true);
+				model.addAttribute("adminNO", false);
 			}else {
 				model.addAttribute("admin", false);
+				model.addAttribute("adminNO", true);
 			}
 
 		}

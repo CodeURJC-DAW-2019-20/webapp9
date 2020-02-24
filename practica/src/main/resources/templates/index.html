@@ -35,33 +35,29 @@
 							<input type="submit" class="nav-link" value="Home">
 						</form>
 					</li>
-					
+
 					<li class="nav-item active">{{#noloaded}}
 						<form action="/login">
 							<input type="submit" class="nav-link" value="Sign In">
-						</form> {{/noloaded}}             
-						 {{^noloaded}}
-                        <form action="profile" method="get">	
-                    		<input type="submit" class="nav-link"  value="{{user.username}}">
-                    		<input type="hidden" name="_csrf" value="{{token}}"/>
-                    		<input type="hidden" name="id" value="{{user.iduser}}"/>                  		
-                    	</form>
-                    {{/noloaded}}
+						</form> {{/noloaded}} {{#adminNO}} {{^noloaded}}
+						<form action="profile" method="get">
+							<input type="submit" class="nav-link" value="{{user.username}}">
+							<input type="hidden" name="_csrf" value="{{token}}" /> <input
+								type="hidden" name="id" value="{{user.iduser}}" />
+						</form> {{/noloaded}} {{/adminNO}}
 					</li>
 					<li class="nav-item active">
 						<form action="leaderBoard">
 							<input type="submit" class="nav-link" value="Leaderboard">
 							<input type="hidden" name="_csrf" value="{{token}}">
 						</form>
-					</li>
-					{{#admin}}
+					</li> {{#admin}}
 					<li class="nav-item active">
 						<form action="teamCreation">
 							<input type="submit" class="nav-link" value="Create new team">
 							<input type="hidden" name="_csrf" value="{{token}}">
 						</form>
-					</li>
-					{{/admin}}
+					</li> {{/admin}}
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">{{#noloaded}}
