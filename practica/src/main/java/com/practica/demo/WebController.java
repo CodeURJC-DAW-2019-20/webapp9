@@ -113,7 +113,24 @@ public class WebController {
 		return "teamCreation";
 	}
 	
-
+	@RequestMapping("/newTeam")
+	public String goNewTeam(Model model, @RequestParam String team_name, @RequestParam String player1, @RequestParam String player2, @RequestParam String player3) {
+			model.addAttribute("team", team_name);
+			model.addAttribute("p1", player1);
+			model.addAttribute("p2", player2);
+			model.addAttribute("p3", player3);
+			
+			User user1 = userRepository.findByusername(player1);
+			User user2 = userRepository.findByusername(player2);
+			User user3 = userRepository.findByusername(player3);
+			
+			if(user1 == null || user2 == null || user3 == null) {
+				return "teamError";
+			}
+			
+		return "teamCreated";
+	}
+	
 	@RequestMapping("/team")
 	public String goTeam(Model model) {
 		return "team";
