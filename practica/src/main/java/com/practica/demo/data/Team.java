@@ -11,17 +11,12 @@ public class Team {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id_team;
 
-	@Column
 	private String name;
 
-	@Column
 	private int elo;
 
-	
-	@Column
 	private int wins;
 	
-	@Column
 	private int losses;
 	
 	public Team() {

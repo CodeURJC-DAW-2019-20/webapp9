@@ -110,7 +110,7 @@ public class WebController {
 		return "teamCreation";
 	}
 
-
+	
 
 	@RequestMapping("/team")
 	public String goTeam(Model model) {

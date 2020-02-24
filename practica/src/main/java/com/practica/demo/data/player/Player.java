@@ -15,8 +15,6 @@ public class Player {
 	@OneToOne
 	private User user;
 	
-	private String description;
-	
 	
 	public Player() {
 		// TODO Auto-generated constructor stub
