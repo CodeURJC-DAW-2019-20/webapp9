@@ -213,7 +213,7 @@ public class WebController {
 			playerRepository.save(p2);
 			playerRepository.save(p3);
 
-			return "teamCreated";
+			return "/";
 		}
 	}
 
