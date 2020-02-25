@@ -49,11 +49,12 @@
 			</div>
 				<div>
 			{{#admin}}
-			<p>Hola admin</p>
+			<p>Actualizar partida</p>
 			<form action='WebController'>
-				<input type="number" name="Puntuacion1">
-				<input type="number" name="Puntuacion2">
-				<input type="submit" value="Enviar">
+				<input type="number" name="Puntuacion1" placeholder="Team1 result">
+				<input type="number" name="Puntuacion2" placeholder="Team2 result">
+				<input type="text" name="Winner" placeholder="Winner">
+				<input type="submit" value="Send">
 			</form>
 			{{/admin}}
 	</div>
