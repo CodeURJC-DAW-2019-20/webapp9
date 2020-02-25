@@ -65,9 +65,6 @@ Permisos de acceso:
 
 ## Capturas de pantalla
 
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/create-bracket.jpg "Crear torneo")
-
-En esta página el usuario podrá crear un nuevo torneo con su respectivo bracket, seleccionando el juego y el número de jugadores que participarán.
 
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/mainpage.jpg "Página principal")
 
@@ -126,13 +123,13 @@ Página en la que se puede observar en detalle un torneo en específico, con su 
 -
 
 ### Commits
-| Alejandro                                                                                                  | Daniel                                                                                                     | Jorge       | Lucía       |
-|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|-------------|-------------|
-| [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/07c38597615903dc5279c1117235e979b39f91fd) | [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/dfd29fbbbf1ed0aebce075cc5dc33699633dd7dc) | [Commit1]() | [Commit1]() |
-| [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/a8370e596d8421e03c3db213c4cbf2a0f54e0864) | [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/cfb3032fe3e93d7bf0f77752c531f47322cd2028) | [Commit2]() | [Commit2]() |
-| [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/207b45d58ba3ae19154a39cbf57f2745955eaf95) | [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/36853db13c0557898687f75ffebb91fa07052c45) | [Commit3]() | [Commit3]() |
-| [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/1f2846131e54d8ca47e5848d0ec039180014c777) | [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/b6dc3abe1eb8c4d1eba1496e6dffe39a1878a6e3) | [Commit4]() | [Commit4]() |
-| [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/d2fd9401a5e6b6cdbaf9decfc608bc660e697835) | [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/30ab72f782cb90d1d2a2225dcb18de3443568d09) | [Commit5]() | [Commit5]() |
+| Alejandro                                                                                                  | Daniel                                                                                                     | Jorge                                                                                                      | Lucía                                                                                                      |
+|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/07c38597615903dc5279c1117235e979b39f91fd) | [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/dfd29fbbbf1ed0aebce075cc5dc33699633dd7dc) | [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/edfde9cdc4e5c2da6dcf80e04d02163330e261c4) | [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/e942a1f887f194484bb5966702cce29033ba87ef) |
+| [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/a8370e596d8421e03c3db213c4cbf2a0f54e0864) | [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/cfb3032fe3e93d7bf0f77752c531f47322cd2028) | [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/627436c70d6535de38e0cc0060b113f7aa176c7e) | [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/7f5775c9470d353c8646c0be7527b4ff3a317d58) |
+| [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/207b45d58ba3ae19154a39cbf57f2745955eaf95) | [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/36853db13c0557898687f75ffebb91fa07052c45) | [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/fde70062c1a4cb5185281076e7726b31bd91d61a) | [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/8b2109ec4f4f82df46979f96bae06fe91b813954) |
+| [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/1f2846131e54d8ca47e5848d0ec039180014c777) | [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/b6dc3abe1eb8c4d1eba1496e6dffe39a1878a6e3) | [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/2b745219a4e190edab2a827d438399dce610bfea) | [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/68b1d6b044808676daab24a5605b8a14e9af2460) |
+| [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/d2fd9401a5e6b6cdbaf9decfc608bc660e697835) | [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/30ab72f782cb90d1d2a2225dcb18de3443568d09) | [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/237dbdb9a4ee63fb24fcfccff9160f370a69482e) | [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/466878e2527490ef163a9e4b62793c237bc90ab4) |
 
 ### Archivos
 | Alejandro               | Daniel                  | Jorge                           | Lucía                   |
