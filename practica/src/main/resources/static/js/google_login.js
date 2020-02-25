@@ -24,8 +24,8 @@ function onSignIn(googleUser) {
     	/*name : profile.getGivenName(),
     	userName : profile.getGivenName(),
     	email : profile.getEmail()*/
-    	name : "alejandro",
-        user : "avaden",
+    	name : profile.getGivenName(),
+        user : profile.get,
         email : "huevos@gmail.com"
     }
     sendObject(googleSession);
