@@ -133,3 +133,13 @@ Página en la que se puede observar en detalle un torneo en específico, con su 
 | [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/207b45d58ba3ae19154a39cbf57f2745955eaf95) | [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/36853db13c0557898687f75ffebb91fa07052c45) | [Commit3]() | [Commit3]() |
 | [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/1f2846131e54d8ca47e5848d0ec039180014c777) | [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/b6dc3abe1eb8c4d1eba1496e6dffe39a1878a6e3) | [Commit4]() | [Commit4]() |
 | [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/d2fd9401a5e6b6cdbaf9decfc608bc660e697835) | [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/30ab72f782cb90d1d2a2225dcb18de3443568d09) | [Commit5]() | [Commit5]() |
+
+### Archivos
+| Alejandro               | Daniel                  | Jorge                           | Lucía                   |
+|-------------------------|-------------------------|---------------------------------|-------------------------|
+| EloCalculator.java      | Team.java               | UserRepositoryAuthProvider.java | Base de datos           |
+| README                  | TeamRepository.java     | login.html                      | WebController           |
+| pie.js                  | TeamRestController.java | register.html                   | play.html               |
+| DataRestController.java | load.js                 | WebSecurityConfig.java          | rocketleague.html       |
+| login.js                | leaderboard.html        | profile.html                    | diamond.html            |
+
