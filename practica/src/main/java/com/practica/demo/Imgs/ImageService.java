@@ -20,7 +20,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class ImageService implements WebMvcConfigurer {
 
-	 private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "\\src\\main\\resources\\static\\imgs");
+	 private static final Path FILES_FOLDER = Paths.get(System.getProperty("user.dir"), "images");
 	 private Path createFilePath(long id, Path folder) {
 	 return folder.resolve("image-" + id + ".jpg");
 	 }
