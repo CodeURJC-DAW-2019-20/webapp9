@@ -65,9 +65,6 @@ Permisos de acceso:
 
 ## Capturas de pantalla
 
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/create-bracket.jpg "Crear torneo")
-
-En esta página el usuario podrá crear un nuevo torneo con su respectivo bracket, seleccionando el juego y el número de jugadores que participarán.
 
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/mainpage.jpg "Página principal")
 
