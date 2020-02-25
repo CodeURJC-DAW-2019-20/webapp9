@@ -464,7 +464,7 @@ public class WebController {
 
 			playerRepository.save(player);
 
-			return "redirect:/success";
+			return "/success";
 		} catch (Exception e) {
 
 			System.out.println(e);
