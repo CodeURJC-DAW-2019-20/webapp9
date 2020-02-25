@@ -114,13 +114,10 @@
 								<p>{{player.description}}</p>
 							</div>
 							<div class="hero-info">
-								<h2>General Info</h2>
+								<h2>Team: {{team}}</h2>
 								<ul>
-									<li><span>Date of Birth</span>Aug 25, 1988</li>
-									<li><span>Favourite Game</span>League of Legends</li>
-									<li><span>Team</span>{{team}}</li> 
 									{{#myprofile}}
-									<button href="/editProfile" class="button">Edit profile</button>
+										<a type="button" href="/editProfile" class="button">Edit profile</a>
 									{{/myprofile}}
 								</ul>
 							</div>

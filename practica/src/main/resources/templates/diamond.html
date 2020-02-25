@@ -95,14 +95,12 @@
 						data-target="#exampleModal" data-team1="Duke"
 						data-team2="Virginia">
 						<form method="get" action="/tournaments/play">	
-						{{#teams}}	
-																
+						{{#teams}}																	
 							<div class="team team-top">
-							<input type="submit" value="{{name}}"/>
-							<input type="hidden" name="equipo" value="{{idTeam}}"/>
-							<span class="score">{{elo}}</span>
-							</div>		
-																		
+								<input type="submit" value="{{name}}"/>
+								<input type="hidden" name="equipo" value="{{idTeam}}"/>
+								<span class="score">{{elo}}</span>
+							</div>																			
 						{{/teams}}						
 						<input type="hidden" name="fecha"  value="March 16"/>
 						</form>

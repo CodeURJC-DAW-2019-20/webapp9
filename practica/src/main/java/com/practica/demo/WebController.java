@@ -261,15 +261,6 @@ public class WebController {
 		model.addAttribute("name2",team2.getName());
 		model.addAttribute("elo2",team2.getElo());
 		
-	return "play"; 
-
-
-
-	}
-	
-	
-	@RequestMapping("/tournaments/play")
-		public String play (Model model, HttpServletRequest request, @RequestParam int Puntuacion1) {
 		if(userComponent.isLoggedUser()) {
 			User user = userComponent.getLoggedUser();
 			
@@ -282,9 +273,13 @@ public class WebController {
 			}
 
 		}
-			return "play";
-		}
+		
+	return "play"; 
 
+
+
+	}
+	
 
 	/*
 	 * USER PROFILE CONTROLLER
