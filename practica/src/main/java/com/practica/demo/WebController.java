@@ -135,6 +135,23 @@ public class WebController {
 
 	@RequestMapping("/tournaments")
 	public String goTournaments(Model model) {
+		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("user", userComponent.getLoggedUser());
+
+		if (userComponent.isLoggedUser()) {
+			User user = userComponent.getLoggedUser();
+
+			Rol rol = user.getRol();
+
+			if (rol.getIdRol() == 1) {
+				model.addAttribute("admin", true);
+				model.addAttribute("adminNO", false);
+			} else {
+				model.addAttribute("admin", false);
+				model.addAttribute("adminNO", true);
+			}
+
+		}
 
 		List <Tournament> listatorneo = repositoryTournament.findAll();
 			model.addAttribute("name",listatorneo);
@@ -228,6 +245,23 @@ public class WebController {
 
 	@GetMapping("/tournaments/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
+		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("user", userComponent.getLoggedUser());
+
+		if (userComponent.isLoggedUser()) {
+			User user = userComponent.getLoggedUser();
+
+			Rol rol = user.getRol();
+
+			if (rol.getIdRol() == 1) {
+				model.addAttribute("admin", true);
+				model.addAttribute("adminNO", false);
+			} else {
+				model.addAttribute("admin", false);
+				model.addAttribute("adminNO", true);
+			}
+
+		}
 
 		model.addAttribute("name", name);
 		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
@@ -320,9 +354,27 @@ public class WebController {
 	}
 
 	@PostMapping("/userconfig")
-	public String nuevoAnuncio(Model model, @RequestParam MultipartFile imagenFile)
+	public String nuevoAnuncio(Model model,User user, @RequestParam MultipartFile imagenFile, @RequestParam(required = false) String description)
 			throws IOException {
 		
+		User useraux = userComponent.getLoggedUser();
+		
+		Player player = playerRepository.findByuser(useraux);
+		
+		if(user.getName()!=null && !user.getName().equals("")) {
+			useraux.setName(user.getName());
+		}
+		if(user.getUsername()!=null && !user.getUsername().equals("")) {
+			useraux.setUsername(user.getUsername());
+		}
+		if(user.getPassword()!=null && !user.getPassword().equals("")) {
+			useraux.setPassword(user.getPassword());
+		}
+		
+	//	userRepository.updateUser(useraux.getUsername(), useraux.getPassword(), useraux.getName(), useraux.getIduser());
+		
+   //	playerRepository.updateUser(description,player.getIdPlayer());
+				
 		imgService.saveImage("user", userComponent.getLoggedUser().getIduser(), imagenFile);
 		return "index";
 	}
