@@ -9,7 +9,7 @@ public class Team {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_team;
+	private int idTeam;
 
 	private String name;
 
@@ -29,11 +29,11 @@ public class Team {
 	}
 
 	public int getId() {
-		return id_team;
+		return idTeam;
 	}
 
 	public void setId(int id) {
-		this.id_team = id;
+		this.idTeam = id;
 	}
 
 	public String getName() {

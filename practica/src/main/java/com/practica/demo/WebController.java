@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
@@ -19,6 +20,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
@@ -29,6 +31,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.practica.demo.data.Bracket;
 import com.practica.demo.data.Games;
 import com.practica.demo.data.Rol;
 import com.practica.demo.data.user.RespositoryUser;
@@ -37,6 +40,7 @@ import com.practica.demo.data.user.UserComponent;
 import com.practica.demo.security.UserRepositoryAuthProvider;
 import com.practica.demo.data.Team;
 import com.practica.demo.data.Tournament;
+import com.practica.demo.data.teamsOnGame;
 import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
 import com.practica.demo.data.user.User;
@@ -57,8 +61,8 @@ public class WebController {
 	@Autowired
 	private RespositoryUser userRepository;
 	
-	
-
+	@Autowired
+	private TeamsOnGameRepository repositoryTeamsOnGame;
 
 	@Autowired
 	private PlayerRepository playerRepository;
@@ -66,6 +70,9 @@ public class WebController {
 	@Autowired
 	private TeamRepository repositoryTeam;
 
+	@Autowired
+	private TournamentRepository repositoryTournament;
+	
 	@Autowired
 	private UserComponent userComponent;
 	@Autowired
@@ -118,8 +125,13 @@ public class WebController {
 
 		return "index";
 	}
+	
 	@RequestMapping("/tournaments")
 	public String goTournaments(Model model) {
+
+		List <Tournament> listatorneo = repositoryTournament.findAll();
+			model.addAttribute("name",listatorneo);
+			model.addAttribute("description",listatorneo);
 		return "rocketLeague";
 	}
 
@@ -201,11 +213,61 @@ public class WebController {
 		return "error";
 	}
 
-	@RequestMapping("/tournaments/{tournamentname}")
+	@GetMapping("/tournaments/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
-
-	return "diamond";
+		model.addAttribute("name", name);
+		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
+		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
+		
+		List <Team> listateams = new ArrayList<Team>();
+		
+		for(int i =0; i<listateamdate.size();i++) {
+			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
+			listateams.add(team);
+			if(i%2!=0) {
+				listamatch.add(new Bracket(i, listateams));
+				listateams = new ArrayList<Team>(); 		
+			}
+		}		
+		model.addAttribute("brackets",listamatch);
+		
+		
+	return "diamond"; 
+	
 	}
+	
+	@GetMapping("/tournaments/play")
+	public String play(Model model, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String fecha ) {
+		int d1 =equipo[0];
+		int d2 =equipo[1];
+		Team team = repositoryTeam.findByidTeam(d1);
+		model.addAttribute("name1",team.getName());
+		model.addAttribute("elo1",team.getElo());
+		Team team2 = repositoryTeam.findByidTeam(d2);
+		model.addAttribute("name2",team2.getName());
+		model.addAttribute("elo2",team2.getElo());
+		
+	return "play"; 
+	}
+	
+	
+	@RequestMapping("/tournaments/play")
+		public String play (Model model, HttpServletRequest request, @RequestParam int Puntuacion1) {
+		if(userComponent.isLoggedUser()) {
+			User user = userComponent.getLoggedUser();
+			
+			Rol rol = user.getRol();
+			
+			if(rol.getIdRol() == 1) {
+				model.addAttribute("admin", true);
+			}else {
+				model.addAttribute("admin", false);
+			}
+
+		}
+			return "play";
+		}
+
 
 
 /*
