@@ -319,28 +319,46 @@ public class WebController {
 	@RequestMapping("/gameUpdate")
 	public String goGameUpdate(Model model, @RequestParam String team1Name, @RequestParam String team2Name, @RequestParam int puntuation1, @RequestParam int puntuation2, @RequestParam String winner) {
 		
+		EloCalculator calculateElo = new EloCalculator(repositoryTeam);
+		
 		Team team1 = repositoryTeam.findByname(team1Name);
 		Team team2 = repositoryTeam.findByname(team2Name);
 		
+		int team1Id = team1.getId();
+		int team2Id = team2.getId();
+		
+		calculateElo.updateElo(team1Id, team2Id, 1);
+		
 		if(team1Name.equals(winner)) {
-			team1.setWins(team1.getWins() + 1);
-			team2.setLosses(team2.getLosses() + 1);
+			 /*
+			int wins = team1.getWins() + 1;
+			int losses = team2.getLosses() + 1;
+			
+			team1.setWins(wins);
+			team2.setLosses(losses);
 			
 			repositoryTeam.save(team1);
 			repositoryTeam.save(team2);
+			 */
+
+			calculateElo.updateElo(team1Id, team2Id, 1);
 			
 		}else if(team2Name.equals(winner)) {
+			/*
 			team2.setWins(team2.getWins() + 1);
 			team1.setLosses(team1.getLosses() + 1);
-			
+
 			repositoryTeam.save(team1);
 			repositoryTeam.save(team2);
+			
+			*/
+			calculateElo.updateElo(team1Id, team2Id, 0);
 			
 		}else {
 			System.out.println("The winner dont match any team");
 		}
 		
-		return "/";
+		return "/index";
 	}
 
 	/*
