@@ -86,7 +86,11 @@ public class WebController {
 	private TournamentRepository repositoryTournament;
 	
 	@Autowired
+	private GameRepository repositoryGame;
+	
+	@Autowired
 	private UserComponent userComponent;
+	
 	@Autowired
 	public UserRepositoryAuthProvider userRepoAuthProvider;
 
@@ -247,7 +251,7 @@ public class WebController {
 	}
 	*/
 	@GetMapping("/tournaments/{name}")
-	public String tournaments(Model model, @PathVariable String name, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String round) {
+	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());
 
@@ -271,13 +275,18 @@ public class WebController {
 		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
 		ArrayList<Round> listaround = new ArrayList<Round>();
 		List <Team> listateams = new ArrayList<Team>();
-		listateamdate=repositoryTeamsOnGame.findByteamIdTeam();
+		listateamdate=repositoryTeamsOnGame.findAll();
+		Game game = repositoryGame.findByidGame(listateamdate.get(0).getGameIdGame());
+		int numTeams = game.getTournament().getNumTeams();
 		for(int i=0; i<listateamdate.size();i++) {
 			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
 			listateams.add(team);
 			if(i%2!=0) {
 				listamatch.add(new Bracket(i, listateams));
 				listateams = new ArrayList<Team>();
+			}
+			if(i%numTeams==0) {
+				listaround.add(new Round(listateamdate.get(i).getRound(), listamatch));
 			}
 		}
 		model.addAttribute("brackets",listamatch);

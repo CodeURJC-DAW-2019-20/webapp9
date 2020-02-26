@@ -16,33 +16,34 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `player`
+-- Table structure for table `teams_on_game`
 --
 
-DROP TABLE IF EXISTS `player`;
+DROP TABLE IF EXISTS `teams_on_game`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `player` (
-  `id_player` int NOT NULL AUTO_INCREMENT,
-  `user_idUser` int NOT NULL,
-  `description` varchar(100) DEFAULT NULL,
-  `team_id_team` int DEFAULT NULL,
-  PRIMARY KEY (`id_player`),
-  KEY `fk_player_user1_idx` (`user_idUser`),
-  KEY `fk_player_team1_idx` (`team_id_team`),
-  CONSTRAINT `fk_player_team1` FOREIGN KEY (`team_id_team`) REFERENCES `team` (`id_team`),
-  CONSTRAINT `fk_player_user1` FOREIGN KEY (`user_idUser`) REFERENCES `user` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `teams_on_game` (
+  `team_id_team` int NOT NULL,
+  `game_id_game` int NOT NULL,
+  `result` int NOT NULL,
+  `winner` tinyint(1) DEFAULT NULL,
+  `round` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`team_id_team`,`game_id_game`),
+  KEY `fk_team_has_game_game1_idx` (`game_id_game`),
+  KEY `fk_team_has_game_team1_idx` (`team_id_team`),
+  CONSTRAINT `fk_team_has_game_game1` FOREIGN KEY (`game_id_game`) REFERENCES `game` (`id_game`),
+  CONSTRAINT `fk_team_has_game_team1` FOREIGN KEY (`team_id_team`) REFERENCES `team` (`id_team`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `player`
+-- Dumping data for table `teams_on_game`
 --
 
-LOCK TABLES `player` WRITE;
-/*!40000 ALTER TABLE `player` DISABLE KEYS */;
-INSERT INTO `player` VALUES (1,2,'Im a casual player',1),(2,3,'I like Rocket LEague so much',1),(3,4,'Im a competitive player',1),(4,5,'I like football',2),(5,6,'I like cars',2),(6,7,'I like to fly',2),(7,8,'My passion is play games',3),(8,9,'Im so bored',3),(9,10,'Im so happy',3),(11,16,' ',NULL);
-/*!40000 ALTER TABLE `player` ENABLE KEYS */;
+LOCK TABLES `teams_on_game` WRITE;
+/*!40000 ALTER TABLE `teams_on_game` DISABLE KEYS */;
+INSERT INTO `teams_on_game` VALUES (1,1,6,1,'Round 1'),(2,1,4,0,'Round 1'),(3,2,4,1,'Round 2'),(4,2,3,0,'Round 2');
+/*!40000 ALTER TABLE `teams_on_game` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-26 21:11:03
+-- Dump completed on 2020-02-26 22:31:14

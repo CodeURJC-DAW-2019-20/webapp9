@@ -9,5 +9,5 @@ import com.practica.demo.data.Teams_On_Game;
 
 public interface Teams_On_GameRepository extends JpaRepository<Teams_On_Game, Integer>{
 	
-	List<Teams_On_Game> findByteamIdTeam();
+	List<Teams_On_Game> findAll();
 }
