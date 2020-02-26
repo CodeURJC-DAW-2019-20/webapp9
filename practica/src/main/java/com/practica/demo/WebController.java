@@ -246,7 +246,7 @@ public class WebController {
 	}
 	*/
 	@GetMapping("/tournaments/{name}")
-	public String tournaments(Model model, @PathVariable String name) {
+	public String tournaments(Model model, @PathVariable String name, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String fecha) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());
 
@@ -283,13 +283,6 @@ public class WebController {
 		}		
 		model.addAttribute("brackets",listamatch);
 		
-		
-	return "diamond"; 
-	
-	}
-	
-	@GetMapping("/gameData")
-	public String play(Model model, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String fecha ) {
 		int d1 =equipo[0];
 		int d2 =equipo[1];
 		Team team = repositoryTeam.findByidTeam(d1);
@@ -299,19 +292,16 @@ public class WebController {
 		model.addAttribute("name2",team2.getName());
 		model.addAttribute("elo2",team2.getElo());
 		
-		if(userComponent.isLoggedUser()) {
-			User user = userComponent.getLoggedUser();
 			
-			Rol rol = user.getRol();
-			
-			if(rol.getIdRol() == 1) {
-				model.addAttribute("admin", true);
-			}else {
-				model.addAttribute("admin", false);
-			}
-
-		}
 		
+		
+	return "diamond"; 
+	
+	}
+	
+	@GetMapping("/gameData")
+	public String play(Model model) {
+
 	return "play"; 
 	}
 	

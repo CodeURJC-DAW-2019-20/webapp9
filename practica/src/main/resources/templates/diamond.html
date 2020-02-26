@@ -102,21 +102,34 @@
 					
 					
 				{{#brackets}}
-					<ul class="matchup" type="button" data-toggle="modal"
-						data-target="#exampleModal" data-team1="Duke"
-						data-team2="Virginia">
-						<form method="get" action="/gameData">	
-						{{#teams}}																	
-							<div class="team team-top">
-								<input type="submit" value="{{name}}"/>
-								<input type="hidden" name="equipo" value="{{idTeam}}"/>
-								<span class="score">{{elo}}</span>
-							</div>																			
-						{{/teams}}						
-						<input type="hidden" name="fecha"  value="March 16"/>
-						</form>
-						
-					</ul>
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row align-items-center">
+									<div class="col-md-4 ml-auto">
+										<p>NAME: {{name1}}</p>
+									</div>
+									<div class="col-md-4 ml-auto">
+										<p class="align-middle">Mach is in progress</p>
+									</div>
+									<div class="col-md-4 ml-auto">
+										<p>NAME: {{name2}}</p>
+									</div>
+								</div>
+								<div class="row align-items-center">
+									<div class="col-md-4 ml-auto">
+										<p>ELO: {{elo1}}pt</p>
+									</div>
+								<div class="col-md-4 ml-auto"></div>
+								<div class="col-md-4 ml-auto">
+									<p>ELO: {{elo2}}pt</p>
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
 				{{/brackets}}
 			</div>
 			
