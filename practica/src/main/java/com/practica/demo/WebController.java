@@ -36,6 +36,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.practica.demo.data.Bracket;
 import com.practica.demo.data.Game;
 import com.practica.demo.data.Rol;
+import com.practica.demo.data.Round;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
@@ -246,7 +247,7 @@ public class WebController {
 	}
 	*/
 	@GetMapping("/tournaments/{name}")
-	public String tournaments(Model model, @PathVariable String name, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String fecha) {
+	public String tournaments(Model model, @PathVariable String name, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String round) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());
 
@@ -266,35 +267,32 @@ public class WebController {
 		}
 
 		model.addAttribute("name", name);
-		List<Teams_On_Game> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
+		List<Teams_On_Game> listateamdate = new ArrayList<Teams_On_Game>();
 		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
-		
+		ArrayList<Round> listaround = new ArrayList<Round>();
 		List <Team> listateams = new ArrayList<Team>();
-		
-		//Esto no funciona ahora, miradlo.
-		
-		for(int i =0; i<listateamdate.size();i++) {
+		listateamdate=repositoryTeamsOnGame.findByteamIdTeam();
+		for(int i=0; i<listateamdate.size();i++) {
 			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
 			listateams.add(team);
 			if(i%2!=0) {
 				listamatch.add(new Bracket(i, listateams));
-				listateams = new ArrayList<Team>(); 		
+				listateams = new ArrayList<Team>();
 			}
-		}		
+		}
 		model.addAttribute("brackets",listamatch);
 		
-		int d1 =equipo[0];
-		int d2 =equipo[1];
-		Team team = repositoryTeam.findByidTeam(d1);
-		model.addAttribute("name1",team.getName());
-		model.addAttribute("elo1",team.getElo());
-		Team team2 = repositoryTeam.findByidTeam(d2);
-		model.addAttribute("name2",team2.getName());
-		model.addAttribute("elo2",team2.getElo());
-		
-			
-		
-		
+		for(int i=0; i<listamatch.size();i++){
+			Team d1 = listamatch.get(i).getTeams().get(0);
+			Team d2 = listamatch.get(i).getTeams().get(1);
+			model.addAttribute("name1",d1.getName());
+			model.addAttribute("elo1",d1.getElo());
+			model.addAttribute("name2",d2.getName());
+			model.addAttribute("elo2",d2.getElo());
+		}
+
+		model.addAttribute("round", listaround);
+
 	return "diamond"; 
 	
 	}

@@ -95,11 +95,11 @@
 		<div class="container">
 			<div class="split split-one">
 				<div class="round round-one current">
+				{{#round}}	
 					<div class="round-details">
-						<br>Round 1<br />							
+						<br>{{nameRound}}<br />							
 							<span class="date">March 16</span>
 					</div>
-					
 					
 				{{#brackets}}
 				<div class="modal-dialog modal-dialog-centered" role="document">
@@ -131,6 +131,7 @@
 					</div>
 				</div>
 				{{/brackets}}
+				{{/round}}
 			</div>
 			
 				
