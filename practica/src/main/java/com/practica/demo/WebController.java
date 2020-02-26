@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.practica.demo.data.Bracket;
-import com.practica.demo.data.Games;
+import com.practica.demo.data.Game;
 import com.practica.demo.data.Rol;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
@@ -42,7 +42,7 @@ import com.practica.demo.data.user.UserComponent;
 import com.practica.demo.security.UserRepositoryAuthProvider;
 import com.practica.demo.data.Team;
 import com.practica.demo.data.Tournament;
-import com.practica.demo.data.teamsOnGame;
+import com.practica.demo.data.Teams_On_Game;
 import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
 import com.practica.demo.data.user.User;
@@ -66,12 +66,14 @@ public class WebController {
 
 	
 	@Autowired
-	private TeamsOnGameRepository repositoryTeamsOnGame;
+	private Teams_On_GameRepository repositoryTeamsOnGame;
 
 
 	@Autowired
 	private ImageService imgService;
-
+	
+	@Autowired
+	private RolRepository rolRepository;
 
 	@Autowired
 	private PlayerRepository playerRepository;
@@ -237,12 +239,12 @@ public class WebController {
 		model.addAttribute("user", userComponent.getLoggedUser());
 		return "diamond";
 	}
-
+	/*
 	@RequestMapping("/errorPage")
 	public String errorPage(Model model) {
 		return "error";
 	}
-
+	*/
 	@GetMapping("/tournaments/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
@@ -264,10 +266,12 @@ public class WebController {
 		}
 
 		model.addAttribute("name", name);
-		List<teamsOnGame> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
+		List<Teams_On_Game> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
 		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
 		
 		List <Team> listateams = new ArrayList<Team>();
+		
+		//Esto no funciona ahora, miradlo.
 		
 		for(int i =0; i<listateamdate.size();i++) {
 			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
@@ -284,7 +288,7 @@ public class WebController {
 	
 	}
 	
-	@GetMapping("/tournaments/play")
+	@GetMapping("/gameData")
 	public String play(Model model, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String fecha ) {
 		int d1 =equipo[0];
 		int d2 =equipo[1];
@@ -309,11 +313,35 @@ public class WebController {
 		}
 		
 	return "play"; 
-
-
-
 	}
 	
+	
+	@RequestMapping("/gameUpdate")
+	public String goGameUpdate(Model model, @RequestParam String team1Name, @RequestParam String team2Name, @RequestParam int puntuation1, @RequestParam int puntuation2, @RequestParam String winner) {
+		
+		Team team1 = repositoryTeam.findByname(team1Name);
+		Team team2 = repositoryTeam.findByname(team2Name);
+		
+		if(team1Name.equals(winner)) {
+			team1.setWins(team1.getWins() + 1);
+			team2.setLosses(team2.getLosses() + 1);
+			
+			repositoryTeam.save(team1);
+			repositoryTeam.save(team2);
+			
+		}else if(team2Name.equals(winner)) {
+			team2.setWins(team2.getWins() + 1);
+			team1.setLosses(team1.getLosses() + 1);
+			
+			repositoryTeam.save(team1);
+			repositoryTeam.save(team2);
+			
+		}else {
+			System.out.println("The winner dont match any team");
+		}
+		
+		return "/";
+	}
 
 	/*
 	 * USER PROFILE CONTROLLER
@@ -410,9 +438,6 @@ public class WebController {
 
 	@RequestMapping("/register")
 	public String register(Model model) {
-		Games games = new Games();
-		model.addAttribute("games", games.getArray());
-		// model.addAttribute("wrongemail","Insert your email");
 		return "register";
 	}
 
@@ -454,7 +479,7 @@ public class WebController {
 	}
 
 	private String generateUser(Model model, User user) {
-		user.setRol(gameRepository.findById(2).get());
+		user.setRol(rolRepository.findById(2).get());
 		try {
 
 			userRepository.save(user);

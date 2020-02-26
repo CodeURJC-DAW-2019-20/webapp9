@@ -17,7 +17,7 @@
 	rel='stylesheet' type='text/css'>
 	<link href="/css/Tournament/diamonds-tournament-style.css"
 	rel='stylesheet' type="text/css">
-	<link href="/core/bootstrap.min.css" rel=stylesheet>
+	<link href="/core/bootstrap.min.css" rel="stylesheet">
 <title>Play page</title>
 </head>
 <body>					
@@ -49,12 +49,15 @@
 			</div>
 				<div>
 			{{#admin}}
-			<p>Actualizar partida</p>
-			<form action='WebController'>
-				<input type="number" name="Puntuacion1" placeholder="Team1 result">
-				<input type="number" name="Puntuacion2" placeholder="Team2 result">
-				<input type="text" name="Winner" placeholder="Winner">
-				<input type="submit" value="Send">
+			<p>Update game</p>
+			<form action='/gameUpdate'>
+				<input type="hidden" name="team1Name" value="{{name1}}">
+				<input type="hidden" name="team2Name" value="{{name2}}">
+				<input type="number" name="puntuation1" placeholder="Team 1 result">
+				<input type="number" name="puntuation2" placeholder="Team 2 result">
+				<input type="text" name="winner" placeholder="Name of the winner team">
+				<input type="submit" value="Submit">
+				<input type="hidden" name="_csrf" value="{{token}}">
 			</form>
 			{{/admin}}
 	</div>

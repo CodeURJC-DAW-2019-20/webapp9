@@ -12,5 +12,7 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
             nativeQuery = true)
     Team findByplayer(int player);
 	
+	Team findByname(String name);
+	
 	Team findByidTeam(int id);
 }

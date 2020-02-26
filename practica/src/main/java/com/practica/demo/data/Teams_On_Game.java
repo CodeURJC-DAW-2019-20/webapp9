@@ -1,63 +1,83 @@
 package com.practica.demo.data;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.OneToOne;
 
-@Entity @IdClass(TeamsOnGameIds.class)
-public class teamsOnGame {
+@Entity
+@IdClass(TeamsOnGameIds.class)
+public class Teams_On_Game implements Serializable{
 	
 	@Id
-	private int teamIdTeam;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int team_Id_Team;
 	
 	@Id
-	private int gameIdGame;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int game_Id_Game;
 	
 	private int result;
 	private boolean winner;
 	private String date;
 	
-	public teamsOnGame() {
+	public Teams_On_Game() {
 
 	}
-	
-	public teamsOnGame(int teamIdTeam, int gameIdGame, int result, boolean winner, String date) {
+
+	public Teams_On_Game(int teamIdTeam, int gameIdGame, int result, boolean winner, String date) {
 		super();
-		this.teamIdTeam = teamIdTeam;
-		this.gameIdGame = gameIdGame;
+		this.team_Id_Team = teamIdTeam;
+		this.game_Id_Game = gameIdGame;
 		this.result = result;
 		this.winner = winner;
 		this.date = date;
 	}
+
 	public int getTeamIdTeam() {
-		return teamIdTeam;
+		return team_Id_Team;
 	}
+
 	public void setTeamIdTeam(int teamIdTeam) {
-		this.teamIdTeam = teamIdTeam;
+		this.team_Id_Team = teamIdTeam;
 	}
+
 	public int getGameIdGame() {
-		return gameIdGame;
+		return game_Id_Game;
 	}
+
 	public void setGameIdGame(int gameIdGame) {
-		this.gameIdGame = gameIdGame;
+		this.game_Id_Game = gameIdGame;
 	}
+
 	public int getResult() {
 		return result;
 	}
+
 	public void setResult(int result) {
 		this.result = result;
 	}
+
 	public boolean isWinner() {
 		return winner;
 	}
+
 	public void setWinner(boolean winner) {
 		this.winner = winner;
 	}
+
 	public String getDate() {
 		return date;
 	}
+
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	
+	
 }
