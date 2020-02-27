@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: web_fase_1
+-- Host: 127.0.0.1    Database: sys
 -- ------------------------------------------------------
 -- Server version	8.0.19
 
@@ -16,33 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `player`
+-- Table structure for table `sys_config`
 --
 
-DROP TABLE IF EXISTS `player`;
+DROP TABLE IF EXISTS `sys_config`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `player` (
-  `id_player` int NOT NULL AUTO_INCREMENT,
-  `user_idUser` int NOT NULL,
-  `description` varchar(100) DEFAULT NULL,
-  `team_id_team` int DEFAULT NULL,
-  PRIMARY KEY (`id_player`),
-  KEY `fk_player_user1_idx` (`user_idUser`),
-  KEY `fk_player_team1_idx` (`team_id_team`),
-  CONSTRAINT `fk_player_team1` FOREIGN KEY (`team_id_team`) REFERENCES `team` (`id_team`),
-  CONSTRAINT `fk_player_user1` FOREIGN KEY (`user_idUser`) REFERENCES `user` (`idUser`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `sys_config` (
+  `variable` varchar(128) NOT NULL,
+  `value` varchar(128) DEFAULT NULL,
+  `set_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `set_by` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`variable`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `player`
+-- Dumping data for table `sys_config`
 --
 
-LOCK TABLES `player` WRITE;
-/*!40000 ALTER TABLE `player` DISABLE KEYS */;
-INSERT INTO `player` VALUES (1,2,'Im a casual player',1),(2,3,'I like Rocket LEague so much',1),(3,4,'Im a competitive player',1),(4,5,'I like football',2),(5,6,'I like cars',2),(6,7,'I like to fly',2),(7,8,'My passion is play games',3),(8,9,'Im so bored',3),(9,10,'Im so happy',3),(11,16,' ',NULL),(12,17,' ',NULL),(13,18,' ',NULL);
-/*!40000 ALTER TABLE `player` ENABLE KEYS */;
+LOCK TABLES `sys_config` WRITE;
+/*!40000 ALTER TABLE `sys_config` DISABLE KEYS */;
+INSERT INTO `sys_config` VALUES ('diagnostics.allow_i_s_tables','OFF','2020-02-18 14:41:20',NULL),('diagnostics.include_raw','OFF','2020-02-18 14:41:20',NULL),('ps_thread_trx_info.max_length','65535','2020-02-18 14:41:20',NULL),('statement_performance_analyzer.limit','100','2020-02-18 14:41:20',NULL),('statement_performance_analyzer.view',NULL,'2020-02-18 14:41:20',NULL),('statement_truncate_len','64','2020-02-18 14:41:20',NULL);
+/*!40000 ALTER TABLE `sys_config` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -54,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-27 18:24:59
+-- Dump completed on 2020-02-27 18:24:57

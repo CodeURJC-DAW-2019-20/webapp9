@@ -68,7 +68,6 @@ public class WebController {
 	@Autowired
 	private Teams_On_GameRepository repositoryTeamsOnGame;
 
-
 	@Autowired
 	private ImageService imgService;
 	
@@ -324,10 +323,14 @@ public class WebController {
 		Team team1 = repositoryTeam.findByname(team1Name);
 		Team team2 = repositoryTeam.findByname(team2Name);
 		
+		Teams_On_Game teamOnGame1 = repositoryTeamsOnGame.findByteam_Id_Team(team1.getId());
+		Teams_On_Game teamOnGame2 = repositoryTeamsOnGame.findByteam_Id_Team(team2.getId());
+		
+		teamOnGame1.setResult(puntuation1);
+		teamOnGame2.setResult(puntuation2);
+		
 		int team1Id = team1.getId();
 		int team2Id = team2.getId();
-		
-		calculateElo.updateElo(team1Id, team2Id, 1);
 		
 		if(team1Name.equals(winner)) {
 			 /*
@@ -340,7 +343,10 @@ public class WebController {
 			repositoryTeam.save(team1);
 			repositoryTeam.save(team2);
 			 */
-
+			
+			teamOnGame1.setWinner(true);
+			teamOnGame2.setWinner(false);
+			
 			calculateElo.updateElo(team1Id, team2Id, 1);
 			
 		}else if(team2Name.equals(winner)) {
@@ -352,11 +358,18 @@ public class WebController {
 			repositoryTeam.save(team2);
 			
 			*/
+			
+			teamOnGame1.setWinner(false);
+			teamOnGame2.setWinner(true);
+			
 			calculateElo.updateElo(team1Id, team2Id, 0);
 			
 		}else {
 			System.out.println("The winner dont match any team");
 		}
+		
+		repositoryTeamsOnGame.save(teamOnGame1);
+		repositoryTeamsOnGame.save(teamOnGame2);
 		
 		return "/index";
 	}

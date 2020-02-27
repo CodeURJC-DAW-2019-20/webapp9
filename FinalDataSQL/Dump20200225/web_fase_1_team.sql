@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.19, for Win64 (x86_64)
 --
--- Host: localhost    Database: web_fase_1
+-- Host: 127.0.0.1    Database: web_fase_1
 -- ------------------------------------------------------
 -- Server version	8.0.19
 
@@ -39,7 +39,7 @@ CREATE TABLE `team` (
 
 LOCK TABLES `team` WRITE;
 /*!40000 ALTER TABLE `team` DISABLE KEYS */;
-INSERT INTO `team` VALUES (1,'The flyers',1000,3,2),(2,'The scripters',500,5,2),(3,'Salty People',1100,1,4);
+INSERT INTO `team` VALUES (1,'The flyers',680,13,4),(2,'The scripters',304,7,12),(3,'Salty People',1100,1,4);
 /*!40000 ALTER TABLE `team` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-02-25  1:37:56
+-- Dump completed on 2020-02-27 18:25:00
