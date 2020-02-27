@@ -36,7 +36,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.practica.demo.data.Bracket;
 import com.practica.demo.data.Game;
 import com.practica.demo.data.Rol;
-import com.practica.demo.data.Round;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
@@ -69,7 +68,6 @@ public class WebController {
 	@Autowired
 	private Teams_On_GameRepository repositoryTeamsOnGame;
 
-
 	@Autowired
 	private ImageService imgService;
 	
@@ -86,11 +84,7 @@ public class WebController {
 	private TournamentRepository repositoryTournament;
 	
 	@Autowired
-	private GameRepository repositoryGame;
-	
-	@Autowired
 	private UserComponent userComponent;
-	
 	@Autowired
 	public UserRepositoryAuthProvider userRepoAuthProvider;
 
@@ -271,44 +265,51 @@ public class WebController {
 		}
 
 		model.addAttribute("name", name);
-		List<Teams_On_Game> listateamdate = new ArrayList<Teams_On_Game>();
+		/*List<Teams_On_Game> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
 		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
-		ArrayList<Round> listaround = new ArrayList<Round>();
+		
 		List <Team> listateams = new ArrayList<Team>();
-		listateamdate=repositoryTeamsOnGame.findAll();
-		Game game = repositoryGame.findByidGame(listateamdate.get(0).getGameIdGame());
-		int numTeams = game.getTournament().getNumTeams();
-		for(int i=0; i<listateamdate.size();i++) {
+		
+		
+		for(int i =0; i<listateamdate.size();i++) {
 			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
 			listateams.add(team);
 			if(i%2!=0) {
 				listamatch.add(new Bracket(i, listateams));
-				listateams = new ArrayList<Team>();
+				listateams = new ArrayList<Team>(); 		
 			}
-			if(i%numTeams==0) {
-				listaround.add(new Round(listateamdate.get(i).getRound(), listamatch));
-			}
-		}
-		model.addAttribute("brackets",listamatch);
+		}		
+		model.addAttribute("brackets",listamatch);*/
 		
-		for(int i=0; i<listamatch.size();i++){
-			Team d1 = listamatch.get(i).getTeams().get(0);
-			Team d2 = listamatch.get(i).getTeams().get(1);
-			model.addAttribute("name1",d1.getName());
-			model.addAttribute("elo1",d1.getElo());
-			model.addAttribute("name2",d2.getName());
-			model.addAttribute("elo2",d2.getElo());
-		}
-
-		model.addAttribute("round", listaround);
-
+		
 	return "diamond"; 
 	
 	}
 	
 	@GetMapping("/gameData")
-	public String play(Model model) {
+	public String play(Model model, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String fecha ) {
+		int d1 =equipo[0];
+		int d2 =equipo[1];
+		Team team = repositoryTeam.findByidTeam(d1);
+		model.addAttribute("name1",team.getName());
+		model.addAttribute("elo1",team.getElo());
+		Team team2 = repositoryTeam.findByidTeam(d2);
+		model.addAttribute("name2",team2.getName());
+		model.addAttribute("elo2",team2.getElo());
+		
+		if(userComponent.isLoggedUser()) {
+			User user = userComponent.getLoggedUser();
+			
+			Rol rol = user.getRol();
+			
+			if(rol.getIdRol() == 1) {
+				model.addAttribute("admin", true);
+			}else {
+				model.addAttribute("admin", false);
+			}
 
+		}
+		
 	return "play"; 
 	}
 	
@@ -321,10 +322,14 @@ public class WebController {
 		Team team1 = repositoryTeam.findByname(team1Name);
 		Team team2 = repositoryTeam.findByname(team2Name);
 		
+		Teams_On_Game teamOnGame1 = repositoryTeamsOnGame.findByteam_Id_Team(team1.getId());
+		Teams_On_Game teamOnGame2 = repositoryTeamsOnGame.findByteam_Id_Team(team2.getId());
+		
+		teamOnGame1.setResult(puntuation1);
+		teamOnGame2.setResult(puntuation2);
+		
 		int team1Id = team1.getId();
 		int team2Id = team2.getId();
-		
-		calculateElo.updateElo(team1Id, team2Id, 1);
 		
 		if(team1Name.equals(winner)) {
 			 /*
@@ -337,7 +342,10 @@ public class WebController {
 			repositoryTeam.save(team1);
 			repositoryTeam.save(team2);
 			 */
-
+			
+			teamOnGame1.setWinner(true);
+			teamOnGame2.setWinner(false);
+			
 			calculateElo.updateElo(team1Id, team2Id, 1);
 			
 		}else if(team2Name.equals(winner)) {
@@ -349,11 +357,18 @@ public class WebController {
 			repositoryTeam.save(team2);
 			
 			*/
+			
+			teamOnGame1.setWinner(false);
+			teamOnGame2.setWinner(true);
+			
 			calculateElo.updateElo(team1Id, team2Id, 0);
 			
 		}else {
 			System.out.println("The winner dont match any team");
 		}
+		
+		repositoryTeamsOnGame.save(teamOnGame1);
+		repositoryTeamsOnGame.save(teamOnGame2);
 		
 		return "/index";
 	}

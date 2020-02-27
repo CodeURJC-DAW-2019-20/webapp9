@@ -15,7 +15,7 @@ public class Teams_On_Game implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int team_Id_Team;
+	private int teamidteam;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,27 +23,27 @@ public class Teams_On_Game implements Serializable{
 	
 	private int result;
 	private boolean winner;
-	private String round;
+	private String date;
 	
 	public Teams_On_Game() {
 
 	}
 
-	public Teams_On_Game(int teamIdTeam, int gameIdGame, int result, boolean winner, String round) {
+	public Teams_On_Game(int teamIdTeam, int gameIdGame, int result, boolean winner, String date) {
 		super();
-		this.team_Id_Team = teamIdTeam;
+		this.teamidteam = teamIdTeam;
 		this.game_Id_Game = gameIdGame;
 		this.result = result;
 		this.winner = winner;
-		this.round = round;
+		this.date = date;
 	}
 
 	public int getTeamIdTeam() {
-		return team_Id_Team;
+		return teamidteam;
 	}
 
 	public void setTeamIdTeam(int teamIdTeam) {
-		this.team_Id_Team = teamIdTeam;
+		this.teamidteam = teamIdTeam;
 	}
 
 	public int getGameIdGame() {
@@ -70,12 +70,12 @@ public class Teams_On_Game implements Serializable{
 		this.winner = winner;
 	}
 
-	public String getRound() {
-		return round;
+	public String getDate() {
+		return date;
 	}
 
-	public void setRound(String round) {
-		this.round = round;
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 	
