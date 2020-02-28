@@ -111,6 +111,7 @@
 					<thead>
 						<tr>
 							<th>#</th>
+							<th>Round</th>
 							<th>Name team 1</th>
 							<th>Elo team 1</th>
 							<th>Name team 2</th>
@@ -122,17 +123,18 @@
 					<!--Table head-->
 					<!--Table body-->
 					<tbody id="table">
-						{{#brackets}}
+						{{#plays}}
 						<tr>
 							<th scope="row">{{-index}}</th>
+							<td>{{round}}</td>
 							<td>{{name1}}</td>
 							<td>{{elo1}}</td>
 							<td>{{name2}}</td>
 							<td>{{elo2}}</td>
-							<td>{{Date}}</td>
+							<td>{{date}}</td>
 							<td>{{nameWinner}}</td>
 						</tr>
-						{{/brackets}}
+						{{/plays}}
 
 					</tbody>
 					<!--Table body-->
@@ -146,8 +148,6 @@
 
 				<div class="d-flex justify-content-center">
 					<!--Pagination -->
-
-					<input type="button" id="btn" class="button" value="Load More">
 					<input type="hidden" name="_csrf" value="{{token}}">
 
 
