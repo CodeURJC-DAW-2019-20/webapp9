@@ -12,18 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import com.practica.demo.data.tournament.Tournament;
 import com.practica.demo.data.tournament.TournamentRepository;
 
-
 @RestController
-@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST })
 @RequestMapping("/tournaments/loadCoordenates")
 public class GoogleMapRestController {
-	
+
 	@Autowired
 	private TournamentRepository repositoryTournament;
-	
+
 	@RequestMapping(method = RequestMethod.GET)
 	public Optional<Tournament> findLocation() {
-		return  repositoryTournament.findById(1);
+		return repositoryTournament.findById(1);
 	}
 
 }

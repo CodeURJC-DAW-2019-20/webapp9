@@ -1,6 +1,5 @@
 package com.practica.demo.data.teams;
 
-
 import javax.persistence.Entity;
 import javax.persistence.*;
 
@@ -16,9 +15,9 @@ public class Team {
 	private int elo;
 
 	private int wins;
-	
+
 	private int losses;
-	
+
 	public Team() {
 
 	}
@@ -55,7 +54,7 @@ public class Team {
 	public void addWin() {
 		this.setWins(this.getWins() + 1);
 	}
-	
+
 	public void addLoss() {
 		this.setLosses(this.getLosses() + 1);
 	}
@@ -76,5 +75,4 @@ public class Team {
 		this.losses = losses;
 	}
 
-	
 }

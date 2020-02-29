@@ -1,9 +1,7 @@
 package com.practica.demo;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
@@ -13,11 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
 import com.practica.demo.data.Bracket;
 import com.practica.demo.data.Play;
 import com.practica.demo.data.Rol;
@@ -33,7 +28,6 @@ import com.practica.demo.data.teamsOnGame.Teams_On_Game;
 import com.practica.demo.data.teamsOnGame.Teams_On_GameRepository;
 import com.practica.demo.data.tournament.Tournament;
 import com.practica.demo.data.tournament.TournamentRepository;
-import com.practica.demo.Imgs.ImageService;
 
 @EnableAutoConfiguration
 @Controller
@@ -45,11 +39,9 @@ public class WebController {
 	@Autowired
 	private RespositoryUser userRepository;
 
-	
 	@Autowired
 	private Teams_On_GameRepository repositoryTeamsOnGame;
 
-	
 	@Autowired
 	private PlayerRepository playerRepository;
 
@@ -58,10 +50,10 @@ public class WebController {
 
 	@Autowired
 	private TournamentRepository repositoryTournament;
-	
+
 	@Autowired
 	private UserComponent userComponent;
-	
+
 	@Autowired
 	public UserRepositoryAuthProvider userRepoAuthProvider;
 
@@ -131,9 +123,9 @@ public class WebController {
 
 		}
 
-		List <Tournament> listatorneo = repositoryTournament.findAll();
-			model.addAttribute("name",listatorneo);
-			model.addAttribute("description",listatorneo);
+		List<Tournament> listatorneo = repositoryTournament.findAll();
+		model.addAttribute("name", listatorneo);
+		model.addAttribute("description", listatorneo);
 		return "rocketLeague";
 	}
 
@@ -215,12 +207,11 @@ public class WebController {
 		model.addAttribute("user", userComponent.getLoggedUser());
 		return "diamond";
 	}
+
 	/*
-	@RequestMapping("/errorPage")
-	public String errorPage(Model model) {
-		return "error";
-	}
-	*/
+	 * @RequestMapping("/errorPage") public String errorPage(Model model) { return
+	 * "error"; }
+	 */
 	@GetMapping("/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
@@ -243,125 +234,106 @@ public class WebController {
 
 		model.addAttribute("name", name);
 		List<Teams_On_Game> listateamdate = repositoryTeamsOnGame.findAll();
-		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();	
-		List <Team> listateams = new ArrayList<Team>();
+		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
+		List<Team> listateams = new ArrayList<Team>();
 		ArrayList<Play> listaplays = new ArrayList<Play>();
-		for(int i =0; i<listateamdate.size();i++) {
+		for (int i = 0; i < listateamdate.size(); i++) {
 			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
 			listateams.add(team);
-			if(i%2!=0) {
+			if (i % 2 != 0) {
 				listamatch.add(new Bracket(i, listateams));
-				listateams = new ArrayList<Team>(); 		
+				listateams = new ArrayList<Team>();
 			}
-		}		
-		model.addAttribute("brackets",listamatch);
-		for(int i=0; i<listamatch.size(); i++){
+		}
+		model.addAttribute("brackets", listamatch);
+		for (int i = 0; i < listamatch.size(); i++) {
 			listaplays.add(new Play());
-			listaplays.get(i).setRound(listateamdate.get(i*2).getRound());
+			listaplays.get(i).setRound(listateamdate.get(i * 2).getRound());
 			listaplays.get(i).setName1(listamatch.get(i).getTeams().get(0).getName());
 			listaplays.get(i).setElo1(listamatch.get(i).getTeams().get(0).getElo());
 			listaplays.get(i).setName2(listamatch.get(i).getTeams().get(1).getName());
 			listaplays.get(i).setElo2(listamatch.get(i).getTeams().get(1).getElo());
-			listaplays.get(i).setDate(listateamdate.get(i*2).getDate());
-			if(listateamdate.get(i*2).isWinner()) {
+			listaplays.get(i).setDate(listateamdate.get(i * 2).getDate());
+			if (listateamdate.get(i * 2).isWinner()) {
 				listaplays.get(i).setNameWinner(listamatch.get(i).getTeams().get(0).getName());
-			}
-			else {
+			} else {
 				listaplays.get(i).setNameWinner(listamatch.get(i).getTeams().get(1).getName());
 			}
-				
+
 		}
-			
-			model.addAttribute("plays",listaplays);
-		
-	return "diamond"; 
-	
+
+		model.addAttribute("plays", listaplays);
+
+		return "diamond";
+
 	}
-	
+
 	@GetMapping("/gameData")
-	public String goPlay(Model model, @RequestParam String name1, @RequestParam String elo1, @RequestParam String name2, @RequestParam String elo2) {
+	public String goPlay(Model model, @RequestParam String name1, @RequestParam String elo1, @RequestParam String name2,
+			@RequestParam String elo2) {
 
-		model.addAttribute("name1",name1);
-		model.addAttribute("elo1",elo1);
+		model.addAttribute("name1", name1);
+		model.addAttribute("elo1", elo1);
 
-		model.addAttribute("name2",name2);
-		model.addAttribute("elo2",elo2);
-		
-		if(userComponent.isLoggedUser()) {
+		model.addAttribute("name2", name2);
+		model.addAttribute("elo2", elo2);
+
+		if (userComponent.isLoggedUser()) {
 			User user = userComponent.getLoggedUser();
-			
+
 			Rol rol = user.getRol();
-			
-			if(rol.getIdRol() == 1) {
+
+			if (rol.getIdRol() == 1) {
 				model.addAttribute("admin", true);
-			}else {
+			} else {
 				model.addAttribute("admin", false);
 			}
 
 		}
-		
-	return "play"; 
+
+		return "play";
 	}
-	
-	
+
 	@RequestMapping("/gameUpdate")
-	public String goGameUpdate(Model model, @RequestParam String team1Name, @RequestParam String team2Name, @RequestParam int puntuation1, @RequestParam int puntuation2, @RequestParam String winner) {
-		
+	public String goGameUpdate(Model model, @RequestParam String team1Name, @RequestParam String team2Name,
+			@RequestParam int puntuation1, @RequestParam int puntuation2, @RequestParam String winner) {
+
 		EloCalculator calculateElo = new EloCalculator(repositoryTeam);
-		
+
 		Team team1 = repositoryTeam.findByname(team1Name);
 		Team team2 = repositoryTeam.findByname(team2Name);
-		
+
 		Teams_On_Game teamOnGame1 = repositoryTeamsOnGame.findByteam_Id_Team(team1.getId());
 		Teams_On_Game teamOnGame2 = repositoryTeamsOnGame.findByteam_Id_Team(team2.getId());
-		
+
 		teamOnGame1.setResult(puntuation1);
 		teamOnGame2.setResult(puntuation2);
-		
+
 		int team1Id = team1.getId();
 		int team2Id = team2.getId();
-		
-		if(team1Name.equals(winner)) {
-			 /*
-			int wins = team1.getWins() + 1;
-			int losses = team2.getLosses() + 1;
-			
-			team1.setWins(wins);
-			team2.setLosses(losses);
-			
-			repositoryTeam.save(team1);
-			repositoryTeam.save(team2);
-			 */
-			
+
+		if (team1Name.equals(winner)) {
+
 			teamOnGame1.setWinner(true);
 			teamOnGame2.setWinner(false);
-			
-			calculateElo.updateElo(team1Id, team2Id, 1);
-			
-		}else if(team2Name.equals(winner)) {
-			/*
-			team2.setWins(team2.getWins() + 1);
-			team1.setLosses(team1.getLosses() + 1);
 
-			repositoryTeam.save(team1);
-			repositoryTeam.save(team2);
-			
-			*/
-			
+			calculateElo.updateElo(team1Id, team2Id, 1);
+
+		} else if (team2Name.equals(winner)) {
+
 			teamOnGame1.setWinner(false);
 			teamOnGame2.setWinner(true);
-			
+
 			calculateElo.updateElo(team1Id, team2Id, 0);
-			
-		}else {
+
+		} else {
 			System.out.println("The winner dont match any team");
 		}
-		
+
 		repositoryTeamsOnGame.save(teamOnGame1);
 		repositoryTeamsOnGame.save(teamOnGame2);
-		
+
 		return "/index";
 	}
-	
 
 }

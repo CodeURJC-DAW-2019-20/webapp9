@@ -6,7 +6,7 @@ import org.springframework.web.context.annotation.SessionScope;
 @Component
 @SessionScope
 public class TeamComponent {
-	
+
 	private Team team;
 
 	public Team getTeam() {
@@ -16,5 +16,5 @@ public class TeamComponent {
 	public void setTeam(Team team) {
 		this.team = team;
 	}
-	
+
 }

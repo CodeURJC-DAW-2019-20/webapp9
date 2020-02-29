@@ -19,23 +19,21 @@ import com.practica.demo.WebController;
 import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
 
-
 @Controller
 public class UserConroller {
-	
+
 	@Autowired
 	private RespositoryUser userRepository;
-	
+
 	@Autowired
 	private UserComponent userComponent;
-	
+
 	@Autowired
 	private RolRepository rolRepository;
 
 	@Autowired
 	private PlayerRepository playerRepository;
 
-	
 	@RequestMapping("/login")
 	public String singInPage(Model model, @RequestParam(required = false) boolean error) {
 		// Games games = new Games();
@@ -49,7 +47,7 @@ public class UserConroller {
 
 		return "signIn";
 	}
-	
+
 	@RequestMapping("/register")
 	public String register(Model model) {
 		return "register";

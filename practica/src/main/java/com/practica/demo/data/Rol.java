@@ -1,11 +1,7 @@
 package com.practica.demo.data;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
-import com.practica.demo.data.user.User;
 
 @Entity
 public class Rol {

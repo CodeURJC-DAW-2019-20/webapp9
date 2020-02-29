@@ -10,7 +10,7 @@ import javax.persistence.IdClass;
 
 @Entity
 @IdClass(TeamsOnGameIds.class)
-public class Teams_On_Game implements Serializable{
+public class Teams_On_Game implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -72,7 +72,6 @@ public class Teams_On_Game implements Serializable{
 		this.winner = winner;
 	}
 
-
 	public String getRound() {
 		return round;
 	}
@@ -88,7 +87,5 @@ public class Teams_On_Game implements Serializable{
 	public void setDate(String date) {
 		this.date = date;
 	}
-
-
 
 }

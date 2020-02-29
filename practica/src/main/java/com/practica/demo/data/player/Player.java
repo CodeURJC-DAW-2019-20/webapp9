@@ -9,30 +9,29 @@ import com.practica.demo.data.user.User;
 
 @Entity
 public class Player {
-	
+
 	@Id
 	private int idPlayer;
-	
+
 	@OneToOne
 	private User user;
-	
 
 	private String description;
-	
+
 	@OneToOne
 	private Team team;
+
 	public Player() {
-		
+
 	}
-	
-	public Player(int id,User user, String description) {
+
+	public Player(int id, User user, String description) {
 		super();
 		this.idPlayer = id;
 		this.user = user;
 		this.description = description;
 	}
 
-	
 	public int getIdPlayer() {
 		return idPlayer;
 	}
@@ -64,8 +63,5 @@ public class Player {
 	public void setTeam(Team team) {
 		this.team = team;
 	}
-	
-
-	
 
 }

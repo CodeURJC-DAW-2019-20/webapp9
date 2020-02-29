@@ -19,16 +19,16 @@ import com.practica.demo.data.user.UserComponent;
 
 @Controller
 public class PlayerController {
-	
+
 	@Autowired
 	private RespositoryUser userRepository;
-	
+
 	@Autowired
 	private UserComponent userComponent;
-	
+
 	@Autowired
 	private PlayerRepository playerRepository;
-	
+
 	@Autowired
 	private ImageService imgService;
 
@@ -42,9 +42,8 @@ public class PlayerController {
 		}
 		model.addAttribute("user", userComponent.getLoggedUser());
 		model.addAttribute("username", usuario.get().getUsername());
-		
-		
-		model.addAttribute("idimagen",usuario.get().getIduser());
+
+		model.addAttribute("idimagen", usuario.get().getIduser());
 		Player player = playerRepository.findByuser(usuario.get());
 
 		model.addAttribute("player", player);
@@ -67,31 +66,30 @@ public class PlayerController {
 	}
 
 	@PostMapping("/userconfig")
-	public String nuevoAnuncio(Model model,User user, @RequestParam MultipartFile imagenFile, @RequestParam(required = false) String description)
-			throws IOException {
-		
+	public String nuevoAnuncio(Model model, User user, @RequestParam MultipartFile imagenFile,
+			@RequestParam(required = false) String description) throws IOException {
+
 		User useraux = userComponent.getLoggedUser();
-		
+
 		playerRepository.findByuser(useraux);
-		
-		if(user.getName()!=null && !user.getName().equals("")) {
+
+		if (user.getName() != null && !user.getName().equals("")) {
 			useraux.setName(user.getName());
 		}
-		if(user.getUsername()!=null && !user.getUsername().equals("")) {
+		if (user.getUsername() != null && !user.getUsername().equals("")) {
 			useraux.setUsername(user.getUsername());
 		}
-		if(user.getPassword()!=null && !user.getPassword().equals("")) {
+		if (user.getPassword() != null && !user.getPassword().equals("")) {
 			useraux.setPassword(user.getPassword());
 		}
-		
-	//	userRepository.updateUser(useraux.getUsername(), useraux.getPassword(), useraux.getName(), useraux.getIduser());
-		
-   //	playerRepository.updateUser(description,player.getIdPlayer());
-				
+
+		// userRepository.updateUser(useraux.getUsername(), useraux.getPassword(),
+		// useraux.getName(), useraux.getIduser());
+
+		// playerRepository.updateUser(description,player.getIdPlayer());
+
 		imgService.saveImage("user", userComponent.getLoggedUser().getIduser(), imagenFile);
 		return "index";
 	}
-	
-	
-	
+
 }

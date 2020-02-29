@@ -1,13 +1,11 @@
 package com.practica.demo.data.user;
 
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
 
 import com.practica.demo.data.Rol;
 
@@ -17,7 +15,7 @@ public class User {
 	// private long idUser; //Autoincrement en BBDD not nece
 	@Id
 	private int iduser;
-	
+
 	public int getIduser() {
 		return iduser;
 	}
@@ -37,7 +35,7 @@ public class User {
 	@NotNull
 	@NotEmpty
 	private String password;
-	
+
 	private String img;
 
 	@OneToOne

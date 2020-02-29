@@ -5,9 +5,9 @@ import java.util.List;
 import com.practica.demo.data.teams.Team;
 
 public class Bracket {
-	
+
 	private int idBracket;
-	
+
 	private List<Team> teams;
 
 	public Bracket(int idBracket, List<Team> teams) {
@@ -31,10 +31,5 @@ public class Bracket {
 	public void setTeams(List<Team> teams) {
 		this.teams = teams;
 	}
-	
-	
-	
-	
-	
 
 }
