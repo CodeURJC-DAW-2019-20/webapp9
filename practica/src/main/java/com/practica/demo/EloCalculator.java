@@ -66,7 +66,7 @@ public class EloCalculator {
 		double value;
 		double aux;
 		aux = ((enemyElo - ownElo) / 400);
-		aux = Math.pow(10, aux);
+		aux = 1 + Math.pow(10, aux);
 		value = 1 / aux;
 		return value;
 	}
