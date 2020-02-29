@@ -1,4 +1,4 @@
-package com.practica.demo.data;
+package com.practica.demo.data.tournament;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 

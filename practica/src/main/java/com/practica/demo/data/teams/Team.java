@@ -1,4 +1,4 @@
-package com.practica.demo.data;
+package com.practica.demo.data.teams;
 
 
 import javax.persistence.Entity;

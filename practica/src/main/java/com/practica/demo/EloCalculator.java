@@ -1,7 +1,9 @@
 package com.practica.demo;
 
 import java.lang.Math;
-import com.practica.demo.data.Team;
+
+import com.practica.demo.data.teams.Team;
+import com.practica.demo.data.teams.TeamRepository;
 
 public class EloCalculator {
 
