@@ -2,6 +2,8 @@ package com.practica.demo.data;
 
 import java.util.List;
 
+import com.practica.demo.data.teams.Team;
+
 public class Bracket {
 	
 	private int idBracket;

@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
-import com.practica.demo.data.Team;
+import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.user.User;
 
 @Entity

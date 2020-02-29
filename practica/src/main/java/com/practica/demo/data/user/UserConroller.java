@@ -27,7 +27,6 @@ public class UserConroller {
 	@Autowired
 	private RespositoryUser userRepository;
 	
-	
 	@Autowired
 	private UserComponent userComponent;
 	

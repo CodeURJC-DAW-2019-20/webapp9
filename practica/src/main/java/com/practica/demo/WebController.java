@@ -40,15 +40,17 @@ import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 import com.practica.demo.security.UserRepositoryAuthProvider;
-import com.practica.demo.data.Team;
-import com.practica.demo.data.Tournament;
-import com.practica.demo.data.Teams_On_Game;
 import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
+import com.practica.demo.data.teams.Team;
+import com.practica.demo.data.teams.TeamRepository;
+import com.practica.demo.data.teams.TeamRestController;
+import com.practica.demo.data.teamsOnGame.Teams_On_Game;
+import com.practica.demo.data.teamsOnGame.Teams_On_GameRepository;
+import com.practica.demo.data.tournament.Tournament;
+import com.practica.demo.data.tournament.TournamentRepository;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
-
-import com.practica.demo.TeamRestController;
 import com.practica.demo.Imgs.ImageService;
 
 @EnableAutoConfiguration

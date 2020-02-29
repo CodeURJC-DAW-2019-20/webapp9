@@ -1,8 +1,6 @@
-package com.practica.demo;
+package com.practica.demo.data.tournament;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.practica.demo.data.Tournament;
 
 public interface TournamentRepository extends JpaRepository<Tournament, Integer>{
 	

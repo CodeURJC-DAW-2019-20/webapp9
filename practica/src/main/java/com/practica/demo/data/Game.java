@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.practica.demo.data.tournament.Tournament;
+
 @Entity
 public class Game {
 	
