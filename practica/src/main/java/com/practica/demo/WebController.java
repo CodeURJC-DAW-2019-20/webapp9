@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.practica.demo.data.Bracket;
@@ -267,6 +268,16 @@ public class WebController {
 		return "diamond";
 
 	}
+	
+	/*@PostMapping("/jointournament")
+	public String join(Model model, @RequestParam String name){
+		List <Teams_On_Game> arrayteamsongame = repositoryTeamsOnGame.findAll();
+		if(arrayteamsongame.size()%2!=0) {
+			
+		}
+		repositoryTeamsOnGame.save();
+		return "diamond";
+	}*/
 
 	@GetMapping("/gameData")
 	public String goPlay(Model model, @RequestParam String name1, @RequestParam String elo1, @RequestParam String name2,
