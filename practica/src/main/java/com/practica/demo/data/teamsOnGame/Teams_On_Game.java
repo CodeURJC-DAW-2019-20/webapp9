@@ -7,11 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
-import javax.persistence.OneToOne;
 
 @Entity
 @IdClass(TeamsOnGameIds.class)
 public class Teams_On_Game implements Serializable{
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
