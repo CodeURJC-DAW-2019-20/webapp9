@@ -36,10 +36,11 @@
 <title>Diamonds Tournament</title>
 </head>
 
-<body onload="loadMap()">
+<body>
 
 	<!-- NavBar -->
 	<header>
+	
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<a class="navbar-brand" href="#"> <img
 				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
@@ -90,6 +91,7 @@
 
 		</nav>
 	</header>
+	
 
 	<header class="hero">
 		<div class="hero-wrap">
@@ -102,12 +104,79 @@
 		</div>
 	</header>
 	
+	<body>
+	
 	<div class="d-flex justify-content-center">
 		<div id="map_container"></div>
 	</div>
 	
+	<main>
+		<div class="card mb-4">
+			<div class="card-body">
+				<!-- Grid row -->
+				<div class="row">
+					<!-- Grid column -->
+					<div class="col-md-12">
+						<h2 class="pt-5 pb-4 text-center font-bold font-up"></h2>
 
-	<section id="bracket">
+					</div>
+					<!-- Grid column -->
+				</div>
+				<!-- Grid row -->
+				<!--Table-->
+				<table class="table table-striped">
+					<!--Table head-->
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Round</th>
+							<th>Name team 1</th>
+							<th>Elo team 1</th>
+							<th>Name team 2</th>
+							<th>Elo team 2</th>
+							<th>Date</th>
+							<th>Winner</th>
+						</tr>
+					</thead>
+					<!--Table head-->
+					<!--Table body-->
+					<tbody id="table">
+						{{#plays}}
+						<tr>
+							<th scope="row">{{-index}}</th>
+							<td>{{round}}</td>
+							<td>{{name1}}</td>
+							<td>{{elo1}}</td>
+							<td>{{name2}}</td>
+							<td>{{elo2}}</td>
+							<td>{{date}}</td>
+							<td>{{nameWinner}}</td>
+						</tr>
+						{{/plays}}
+
+					</tbody>
+					<!--Table body-->
+				</table>
+				<!--Table-->
+				<!--Bottom Table UI-->
+
+				<div id='loader' class="d-flex justify-content-center">
+					
+				</div>
+
+				<div class="d-flex justify-content-center">
+					<!--Pagination -->
+					<input type="hidden" name="_csrf" value="{{token}}">
+
+
+					<!--/Pagination -->
+				</div>
+			</div>
+		</div>
+	</main>
+
+
+	<!--  <section id="bracket">
 		<div class="container">
 			<div class="split split-one">
 				<div class="round round-one current">
@@ -134,12 +203,12 @@
 						
 					</ul>
 				{{/brackets}}
-			</div>
+			</div>-->
 			
 				
 				<!-- END ROUND ONE -->
 
-				<div class="round round-two">
+			<!--	<div class="round round-two">
 					<div class="round-details">
 						Round 2<br />
 						<span class="date">March 18</span>
@@ -160,10 +229,10 @@
 						<li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
 						<li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
 					</ul>
-				</div>
+				</div>-->
 				<!-- END ROUND TWO -->
 
-				<div class="round round-three">
+				<!-- <div class="round round-three">
 					<div class="round-details">
 						Round 3<br />
 						<span class="date">March 22</span>
@@ -176,10 +245,9 @@
 						<li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
 						<li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
 					</ul>
-				</div>
+				</div>-->
 				<!-- END ROUND THREE -->
-			</div>
-
+		<!--	</div>
 			<div class="champion">
 				<div class="semis-l">
 					<div class="round-details">
@@ -213,11 +281,7 @@
 					</ul>
 				</div>
 			</div>
-
-
 			<div class="split split-two">
-
-
 				<div class="round round-three">
 					<div class="round-details">
 						Round 3<br />
@@ -231,10 +295,10 @@
 						<li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
 						<li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
 					</ul>
-				</div>
+				</div> -->
 				<!-- END ROUND THREE -->
 
-				<div class="round round-two">
+				<!--<div class="round round-two">
 					<div class="round-details">
 						Round 2<br />
 						<span class="date">March 18</span>
@@ -255,9 +319,9 @@
 						<li class="team team-top">&nbsp;<span class="score">&nbsp;</span></li>
 						<li class="team team-bottom">&nbsp;<span class="score">&nbsp;</span></li>
 					</ul>
-				</div>
+				</div>-->
 				<!-- END ROUND TWO -->
-				<div class="round round-one current">
+			<!--	<div class="round round-one current">
 					<div class="round-details">
 						Round 1<br />
 						<span class="date">March 16</span>
@@ -294,11 +358,11 @@
 						<li class="team team-top">Virginia Tech<span class="score">74</span></li>
 						<li class="team team-bottom">Dartmouth<span class="score">111</span></li>
 					</ul>
-				</div>
+				</div> -->
 				<!-- END ROUND ONE -->
-			</div>
+			<!--</div>
 		</div>
-	</section>
+	</section> -->
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="/core/bootstrap.bundle.min.js"></script>

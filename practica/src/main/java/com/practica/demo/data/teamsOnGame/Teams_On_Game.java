@@ -23,18 +23,20 @@ public class Teams_On_Game implements Serializable{
 	
 	private int result;
 	private boolean winner;
+	private String round;
 	private String date;
 	
 	public Teams_On_Game() {
 
 	}
 
-	public Teams_On_Game(int teamIdTeam, int gameIdGame, int result, boolean winner, String date) {
+	public Teams_On_Game(int team_Id_Team, int gameIdGame, int result, boolean winner, String round, String date) {
 		super();
-		this.team_Id_Team = teamIdTeam;
+		this.team_Id_Team = team_Id_Team;
 		this.game_Id_Game = gameIdGame;
 		this.result = result;
 		this.winner = winner;
+		this.round = round;
 		this.date = date;
 	}
 
@@ -69,7 +71,15 @@ public class Teams_On_Game implements Serializable{
 	public void setWinner(boolean winner) {
 		this.winner = winner;
 	}
+	
+	public String getRound() {
+		return round;
+	}
 
+	public void setRound(String round) {
+		this.round = round;
+	}
+	
 	public String getDate() {
 		return date;
 	}
