@@ -6,6 +6,13 @@ body {
     margin: 0;
 }
 
+
+div#map_container{
+	width:600px;
+	height:500px;
+}
+
+
 .hero {
     position: relative;
     text-align: center;

@@ -21,10 +21,22 @@
 
 <link href="/core/bootstrap.min.css" rel=stylesheet>
 
+<script>
+	var csrf = '{{token}}';
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script type="text/javascript" 
+	src="https://maps.googleapis.com/maps/api/js?sensor=false">
+</script>
+
+<script src="/js/TournamentPage/googleMap.js"></script>
+
 <title>Diamonds Tournament</title>
 </head>
 
-<body>
+<body onload="loadMap()">
 
 	<!-- NavBar -->
 	<header>
@@ -89,7 +101,10 @@
 			</div>
 		</div>
 	</header>
-
+	
+	<div id="map_container">
+	
+	</div>
 
 	<section id="bracket">
 		<div class="container">
@@ -285,7 +300,6 @@
 	</section>
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="/core/jquery-3.4.1.slim.min.js"></script>
 	<script src="/core/bootstrap.bundle.min.js"></script>
 
 
