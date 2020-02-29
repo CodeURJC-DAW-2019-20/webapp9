@@ -5,7 +5,7 @@ import java.util.Set;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import com.practica.demo.data.Teams_On_Game;
+
 
 
 
