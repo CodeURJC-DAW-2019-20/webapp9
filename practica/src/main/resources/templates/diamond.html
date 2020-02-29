@@ -27,7 +27,7 @@
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-<script type="text/javascript" 
+<script type="text/javascript"
 	src="https://maps.googleapis.com/maps/api/js?sensor=false">
 </script>
 
@@ -40,7 +40,7 @@
 
 	<!-- NavBar -->
 	<header>
-	
+
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<a class="navbar-brand" href="#"> <img
 				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
@@ -91,7 +91,7 @@
 
 		</nav>
 	</header>
-	
+
 
 	<header class="hero">
 		<div class="hero-wrap">
@@ -103,13 +103,14 @@
 			</div>
 		</div>
 	</header>
-	
+
+
 	<body>
-	
+
 	<div class="d-flex justify-content-center">
 		<div id="map_container"></div>
 	</div>
-	
+
 	<main>
 		<div class="card mb-4">
 			<div class="card-body">
@@ -117,6 +118,7 @@
 				<div class="row">
 					<!-- Grid column -->
 					<div class="col-md-12">
+
 						<h2 class="pt-5 pb-4 text-center font-bold font-up"></h2>
 
 					</div>
@@ -161,7 +163,7 @@
 				<!--Bottom Table UI-->
 
 				<div id='loader' class="d-flex justify-content-center">
-					
+
 				</div>
 
 				<div class="d-flex justify-content-center">
@@ -175,37 +177,95 @@
 		</div>
 	</main>
 
+						<h2 class="pt-5 pb-4 text-center font-bold font-up">Leaderboard</h2>
+
+
+					</div>
+					<!-- Grid column -->
+				</div>
+				<!-- Grid row -->
+				<!--Table-->
+				<table class="table table-striped">
+					<!--Table head-->
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Round</th>
+							<th>Name team 1</th>
+							<th>Elo team 1</th>
+							<th>Name team 2</th>
+							<th>Elo team 2</th>
+							<th>Date</th>
+							<th>Winner</th>
+						</tr>
+					</thead>
+					<!--Table head-->
+					<!--Table body-->
+					<tbody id="table">
+						{{#plays}}
+						<tr>
+							<th scope="row">{{-index}}</th>
+							<td>{{round}}</td>
+							<td>{{name1}}</td>
+							<td>{{elo1}}</td>
+							<td>{{name2}}</td>
+							<td>{{elo2}}</td>
+							<td>{{date}}</td>
+							<td>{{nameWinner}}</td>
+						</tr>
+						{{/plays}}
+
+					</tbody>
+					<!--Table body-->
+				</table>
+				<!--Table-->
+				<!--Bottom Table UI-->
+
+				<div id='loader' class="d-flex justify-content-center">
+
+				</div>
+
+				<div class="d-flex justify-content-center">
+					<!--Pagination -->
+					<input type="hidden" name="_csrf" value="{{token}}">
+
+
+					<!--/Pagination -->
+				</div>
+			</div>
+		</div>
+	</main>
 
 	<!--  <section id="bracket">
 		<div class="container">
 			<div class="split split-one">
 				<div class="round round-one current">
 					<div class="round-details">
-						<br>Round 1<br />							
+						<br>Round 1<br />
 							<span class="date">March 16</span>
 					</div>
-					
-					
+
+
 				{{#brackets}}
 					<ul class="matchup" type="button" data-toggle="modal"
 						data-target="#exampleModal" data-team1="Duke"
 						data-team2="Virginia">
-						<form method="get" action="/gameData">	
-						{{#teams}}																	
+						<form method="get" action="/gameData">
+						{{#teams}}
 							<div class="team team-top">
 								<input type="submit" value="{{name}}"/>
 								<input type="hidden" name="equipo" value="{{idTeam}}"/>
 								<span class="score">{{elo}}</span>
-							</div>																			
-						{{/teams}}						
+							</div>
+						{{/teams}}
 						<input type="hidden" name="fecha"  value="March 16"/>
 						</form>
-						
+
 					</ul>
 				{{/brackets}}
 			</div>-->
-			
-				
+
+
 				<!-- END ROUND ONE -->
 
 			<!--	<div class="round round-two">
@@ -248,6 +308,7 @@
 				</div>-->
 				<!-- END ROUND THREE -->
 		<!--	</div>
+
 			<div class="champion">
 				<div class="semis-l">
 					<div class="round-details">

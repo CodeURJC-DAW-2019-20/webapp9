@@ -35,6 +35,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.practica.demo.data.Bracket;
 import com.practica.demo.data.Game;
+import com.practica.demo.data.Play;
 import com.practica.demo.data.Rol;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
@@ -268,13 +269,10 @@ public class WebController {
 		}
 
 		model.addAttribute("name", name);
-		List<Teams_On_Game> listateamdate = repositoryTeamsOnGame.findAllBydate("March 16");
-		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
-		
+		List<Teams_On_Game> listateamdate = repositoryTeamsOnGame.findAll();
+		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();	
 		List <Team> listateams = new ArrayList<Team>();
-		
-		//Esto no funciona ahora, miradlo.
-		
+		ArrayList<Play> listaplays = new ArrayList<Play>();
 		for(int i =0; i<listateamdate.size();i++) {
 			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
 			listateams.add(team);
@@ -284,7 +282,24 @@ public class WebController {
 			}
 		}		
 		model.addAttribute("brackets",listamatch);
-		
+		for(int i=0; i<listamatch.size(); i++){
+			listaplays.add(new Play());
+			listaplays.get(i).setRound(listateamdate.get(i*2).getRound());
+			listaplays.get(i).setName1(listamatch.get(i).getTeams().get(0).getName());
+			listaplays.get(i).setElo1(listamatch.get(i).getTeams().get(0).getElo());
+			listaplays.get(i).setName2(listamatch.get(i).getTeams().get(1).getName());
+			listaplays.get(i).setElo2(listamatch.get(i).getTeams().get(1).getElo());
+			listaplays.get(i).setDate(listateamdate.get(i*2).getDate());
+			if(listateamdate.get(i*2).isWinner()) {
+				listaplays.get(i).setNameWinner(listamatch.get(i).getTeams().get(0).getName());
+			}
+			else {
+				listaplays.get(i).setNameWinner(listamatch.get(i).getTeams().get(1).getName());
+			}
+				
+		}
+			
+			model.addAttribute("plays",listaplays);
 		
 	return "diamond"; 
 	

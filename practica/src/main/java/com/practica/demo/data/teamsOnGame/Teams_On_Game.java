@@ -12,20 +12,20 @@ import javax.persistence.OneToOne;
 @Entity
 @IdClass(TeamsOnGameIds.class)
 public class Teams_On_Game implements Serializable{
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int team_Id_Team;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int game_Id_Game;
-	
+
 	private int result;
 	private boolean winner;
 	private String round;
 	private String date;
-	
+
 	public Teams_On_Game() {
 
 	}
@@ -44,8 +44,8 @@ public class Teams_On_Game implements Serializable{
 		return team_Id_Team;
 	}
 
-	public void setTeamIdTeam(int teamIdTeam) {
-		this.team_Id_Team = teamIdTeam;
+	public void setTeamIdTeam(int team_Id_Team) {
+		this.team_Id_Team = team_Id_Team;
 	}
 
 	public int getGameIdGame() {
@@ -71,7 +71,8 @@ public class Teams_On_Game implements Serializable{
 	public void setWinner(boolean winner) {
 		this.winner = winner;
 	}
-	
+
+
 	public String getRound() {
 		return round;
 	}
@@ -79,7 +80,7 @@ public class Teams_On_Game implements Serializable{
 	public void setRound(String round) {
 		this.round = round;
 	}
-	
+
 	public String getDate() {
 		return date;
 	}
@@ -87,7 +88,7 @@ public class Teams_On_Game implements Serializable{
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
-	
-	
+
+
+
 }
