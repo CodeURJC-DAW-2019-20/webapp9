@@ -14,7 +14,7 @@ import com.practica.demo.data.Tournament;
 
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})
-@RequestMapping("/loadCoordenates")
+@RequestMapping("/tournaments/loadCoordenates")
 public class GoogleMapRestController {
 	
 	@Autowired

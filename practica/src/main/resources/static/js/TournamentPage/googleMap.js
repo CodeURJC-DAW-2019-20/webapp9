@@ -1,7 +1,8 @@
 function loadCoordenates(callback) {
     $.ajax({
-        url: 'https://localhost:8443/loadCoordenates?_csrf='+csrf
+        url: 'https://localhost:8443/tournaments/loadCoordenates'
     }).done(function (coordenates) {
+    	console.log("olo " + coordenates.latitude);
     	callback(coordenates);
     });
 }

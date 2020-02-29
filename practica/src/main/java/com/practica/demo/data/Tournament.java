@@ -11,6 +11,8 @@ public class Tournament {
 	private String name;
 	private String description;
 	private String img;
+	private float latitude;
+	private float longitude;
 	
 	public int getIdTournament() {
 		return idTournament;
@@ -36,4 +38,25 @@ public class Tournament {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	public float getLatitude() {
+		return latitude;
+	}
+	public void setLatitude(long latitude) {
+		this.latitude = latitude;
+	}
+	public float getLongitude() {
+		return longitude;
+	}
+	public void setLongitude(long longitude) {
+		this.longitude = longitude;
+	}
+	
+	
+	
 }
