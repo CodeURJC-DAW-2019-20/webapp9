@@ -1,29 +1,14 @@
 package com.practica.demo;
 
-import java.awt.print.Pageable;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.web.server.csrf.CsrfToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.practica.demo.data.Bracket;
-import com.practica.demo.data.Game;
 import com.practica.demo.data.Play;
 import com.practica.demo.data.Rol;
 import com.practica.demo.data.user.RespositoryUser;
@@ -45,13 +29,10 @@ import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
 import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teams.TeamRepository;
-import com.practica.demo.data.teams.TeamRestController;
 import com.practica.demo.data.teamsOnGame.Teams_On_Game;
 import com.practica.demo.data.teamsOnGame.Teams_On_GameRepository;
 import com.practica.demo.data.tournament.Tournament;
 import com.practica.demo.data.tournament.TournamentRepository;
-import com.practica.demo.data.user.User;
-import com.practica.demo.data.user.UserComponent;
 import com.practica.demo.Imgs.ImageService;
 
 @EnableAutoConfiguration
@@ -62,21 +43,13 @@ public class WebController {
 	}
 
 	@Autowired
-	private GameRepository gameRepository;
-
-	@Autowired
 	private RespositoryUser userRepository;
 
 	
 	@Autowired
 	private Teams_On_GameRepository repositoryTeamsOnGame;
 
-	@Autowired
-	private ImageService imgService;
 	
-	@Autowired
-	private RolRepository rolRepository;
-
 	@Autowired
 	private PlayerRepository playerRepository;
 
@@ -391,84 +364,6 @@ public class WebController {
 		
 		return "/index";
 	}
-
-	/*
-	 * USER PROFILE CONTROLLER
-	 *
-	 */
-	@GetMapping("/profile")
-	public String goProfile(Model model, @RequestParam(required = false) int id) {
-
-		Optional<User> usuario = userRepository.findById(id);
-
-		if (userComponent.getLoggedUser().getIduser() == usuario.get().getIduser()) {
-			model.addAttribute("myprofile", true);
-		}
-		model.addAttribute("user", userComponent.getLoggedUser());
-		model.addAttribute("username", usuario.get().getUsername());
-		
-		
-		model.addAttribute("idimagen",usuario.get().getIduser());
-		Player player = playerRepository.findByuser(usuario.get());
-
-		model.addAttribute("player", player);
-
-		if (player.getTeam() != null) {
-			model.addAttribute("team", player.getTeam().getName());
-		} else {
-			model.addAttribute("team", " ");
-		}
-		return "profile";
-	}
-
-	@RequestMapping("/editProfile")
-	public String tournaments(Model model) {
-
-		model.addAttribute("noloaded", !userComponent.isLoggedUser());
-		model.addAttribute("user", userComponent.getLoggedUser());
-
-		return "userConfig";
-	}
-
-	@PostMapping("/userconfig")
-	public String nuevoAnuncio(Model model,User user, @RequestParam MultipartFile imagenFile, @RequestParam(required = false) String description)
-			throws IOException {
-		
-		User useraux = userComponent.getLoggedUser();
-		
-		Player player = playerRepository.findByuser(useraux);
-		
-		if(user.getName()!=null && !user.getName().equals("")) {
-			useraux.setName(user.getName());
-		}
-		if(user.getUsername()!=null && !user.getUsername().equals("")) {
-			useraux.setUsername(user.getUsername());
-		}
-		if(user.getPassword()!=null && !user.getPassword().equals("")) {
-			useraux.setPassword(user.getPassword());
-		}
-		
-	//	userRepository.updateUser(useraux.getUsername(), useraux.getPassword(), useraux.getName(), useraux.getIduser());
-		
-   //	playerRepository.updateUser(description,player.getIdPlayer());
-				
-		imgService.saveImage("user", userComponent.getLoggedUser().getIduser(), imagenFile);
-		return "index";
-	}
-
-	/*
-	 * **************************************************** USER LOGIN CONTROLLER
-	 *
-	 */
-
-
-
-
-	/*
-	 * *************************************************** USER REGISTRE CONTROLLER
-	 * ***************************************************
-	 */
-
 	
 
 }
