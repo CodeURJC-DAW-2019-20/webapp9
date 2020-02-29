@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.practica.demo.RolRepository;
 import com.practica.demo.Imgs.ImageService;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
