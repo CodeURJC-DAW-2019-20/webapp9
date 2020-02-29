@@ -153,6 +153,17 @@
 							<td>{{elo2}}</td>
 							<td>{{date}}</td>
 							<td>{{nameWinner}}</td>
+							<td>
+							<form action='/gameData'>
+							<input type="hidden" name="name1" value="{{name1}}">
+							<input type="hidden" name="elo1" value="{{elo1}}">
+							<input type="hidden" name="name2" value="{{name2}}">
+							<input type="hidden" name="elo2" value="{{elo2}}">
+							
+							<input type="submit" value="UpdateMatch">
+							<input type="hidden" name="_csrf" value="{{token}}">
+							</form>
+							</td>
 						</tr>
 						{{/plays}}
 

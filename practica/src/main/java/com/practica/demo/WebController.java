@@ -95,7 +95,7 @@ public class WebController {
 	@RequestMapping("/")
 	public String index(Model model) {
 
-		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("noloaded", !(userComponent.isLoggedUser()));
 		model.addAttribute("user", userComponent.getLoggedUser());
 
 		if (userComponent.isLoggedUser()) {
@@ -117,7 +117,7 @@ public class WebController {
 	@RequestMapping("/index")
 	public String index2(Model model) {
 
-		model.addAttribute("noloaded", !userComponent.isLoggedUser());
+		model.addAttribute("noloaded", !(userComponent.isLoggedUser()));
 		model.addAttribute("user", userComponent.getLoggedUser());
 
 		if (userComponent.isLoggedUser()) {
@@ -248,7 +248,7 @@ public class WebController {
 		return "error";
 	}
 	*/
-	@GetMapping("/tournaments/{name}")
+	@GetMapping("/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());
@@ -306,15 +306,13 @@ public class WebController {
 	}
 	
 	@GetMapping("/gameData")
-	public String play(Model model, @RequestParam(required = false) int[] equipo, @RequestParam(required = false) String fecha ) {
-		int d1 =equipo[0];
-		int d2 =equipo[1];
-		Team team = repositoryTeam.findByidTeam(d1);
-		model.addAttribute("name1",team.getName());
-		model.addAttribute("elo1",team.getElo());
-		Team team2 = repositoryTeam.findByidTeam(d2);
-		model.addAttribute("name2",team2.getName());
-		model.addAttribute("elo2",team2.getElo());
+	public String goPlay(Model model, @RequestParam String name1, @RequestParam String elo1, @RequestParam String name2, @RequestParam String elo2) {
+
+		model.addAttribute("name1",name1);
+		model.addAttribute("elo1",elo1);
+
+		model.addAttribute("name2",name2);
+		model.addAttribute("elo2",elo2);
 		
 		if(userComponent.isLoggedUser()) {
 			User user = userComponent.getLoggedUser();
