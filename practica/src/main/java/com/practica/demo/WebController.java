@@ -2,6 +2,8 @@ package com.practica.demo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
@@ -14,7 +16,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.google.api.services.people.v1.model.Date;
 import com.practica.demo.data.Bracket;
+import com.practica.demo.data.Game;
 import com.practica.demo.data.Play;
 import com.practica.demo.data.Rol;
 import com.practica.demo.data.user.RespositoryUser;
@@ -57,6 +62,9 @@ public class WebController {
 
 	@Autowired
 	public UserRepositoryAuthProvider userRepoAuthProvider;
+	
+	@Autowired
+	public GameRepository gameRepository;
 
 	@RequestMapping("/")
 	public String index(Model model) {
@@ -232,14 +240,18 @@ public class WebController {
 			}
 
 		}
-
+		
+		//find tornament
+		Tournament auxTour = repositoryTournament.findByname(name);
+		Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
+		
 		model.addAttribute("name", name);
-		List<Teams_On_Game> listateamdate = repositoryTeamsOnGame.findAll();
+		List<Teams_On_Game> listaTeamDate = repositoryTeamsOnGame.findGameIdGame(auxGame.get().getId_game());
 		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
 		List<Team> listateams = new ArrayList<Team>();
 		ArrayList<Play> listaplays = new ArrayList<Play>();
-		for (int i = 0; i < listateamdate.size(); i++) {
-			Team team = repositoryTeam.findByidTeam(listateamdate.get(i).getTeamIdTeam());
+		for (int i = 0; i < listaTeamDate.size(); i++) {
+			Team team = repositoryTeam.findByidTeam(listaTeamDate.get(i).getTeamIdTeam());
 			listateams.add(team);
 			if (i % 2 != 0) {
 				listamatch.add(new Bracket(i, listateams));
@@ -247,24 +259,25 @@ public class WebController {
 			}
 		}
 		//si la lista es impar se añade el suelto.
-		if(listateamdate.size() % 2 != 0) {
-			Team team = new Team(); //empty team
-			listateams.add(team);			
-			listamatch.add(new Bracket(listateamdate.size()-1, listateams));
-			listateams = new ArrayList<Team>();
+		if(listaTeamDate.size()% 2 != 0) {
+			
+			Teams_On_Game teamEmpty= new Teams_On_Game(0, listaTeamDate.get(0).getGameIdGame(), 0, false, "","");
+			listaTeamDate.add(teamEmpty);
+			Team team = repositoryTeam.findByidTeam(0);
+			listateams.add(team);
+			listamatch.add(new Bracket(listaTeamDate.size()-1, listateams));
+			
 		}
 		model.addAttribute("brackets", listamatch);
-		//i=i+2 take by pairs
-		for (int i = 0; i <= listamatch.size(); i=i+2) {
+		for (int i = 0; i < listamatch.size(); i++) {
 			listaplays.add(new Play());
-			listaplays.get(i).setRound(listateamdate.get(i + 1).getRound());
+			listaplays.get(i).setRound(listaTeamDate.get(i * 2).getRound());
 			listaplays.get(i).setName1(listamatch.get(i).getTeams().get(0).getName());
 			listaplays.get(i).setElo1(listamatch.get(i).getTeams().get(0).getElo());
 			listaplays.get(i).setName2(listamatch.get(i).getTeams().get(1).getName());
 			listaplays.get(i).setElo2(listamatch.get(i).getTeams().get(1).getElo());
-			listaplays.get(i).setDate(listateamdate.get(i + 1).getDate());
-			
-			if (listateamdate.get(i + 1).isWinner()) {
+			listaplays.get(i).setDate(listaTeamDate.get(i * 2).getDate());
+			if (listaTeamDate.get(i * 2).isWinner()) {
 				listaplays.get(i).setNameWinner(listamatch.get(i).getTeams().get(0).getName());
 			} else {
 				listaplays.get(i).setNameWinner(listamatch.get(i).getTeams().get(1).getName());
@@ -278,15 +291,29 @@ public class WebController {
 
 	}
 	
-	/*@PostMapping("/jointournament")
+	@PostMapping("/jointournament")
 	public String join(Model model, @RequestParam String name){
-		List <Teams_On_Game> arrayteamsongame = repositoryTeamsOnGame.findAll();
-		if(arrayteamsongame.size()%2!=0) {
+	    
+		
+		User userJoin = userComponent.getLoggedUser();
+		Player playerJoin = playerRepository.findByuser(userJoin);
+		
+		if(!playerJoin.getTeam().equals(" ")) {
+			
+			//AQUI TIENES QUE SACAR EL ID DE GAME USANDO NAME, prueba con path variable o pasando un imput
+			Tournament auxTour = repositoryTournament.findByname(name);
+			Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
+			
+			Date fecha = new Date();
+			
+			Team teamPlayer = repositoryTeam.findByname(playerJoin.getTeam().getName());
+			Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), gameIdGame, 0, 0, 1,fecha.toString());
 			
 		}
+		
 		repositoryTeamsOnGame.save();
-		return "diamond";
-	}*/
+		return "index";
+	}
 
 	@GetMapping("/gameData")
 	public String goPlay(Model model, @RequestParam String name1, @RequestParam String elo1, @RequestParam String name2,

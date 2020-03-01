@@ -17,4 +17,22 @@ public class Game {
 
 	public Game() {
 	}
+
+	public int getId_game() {
+		return id_game;
+	}
+
+	public void setId_game(int id_game) {
+		this.id_game = id_game;
+	}
+
+	public Tournament getTournament() {
+		return tournament;
+	}
+
+	public void setTournament(Tournament tournament) {
+		this.tournament = tournament;
+	}
+	
+	
 }
