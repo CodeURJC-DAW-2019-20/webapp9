@@ -122,7 +122,9 @@ Página en la que se puede observar en detalle un torneo en específico, con su 
 ### Lucía
 - Brackets
 - Administración de partidas
--
+- Base de datos
+- Página de torneos
+- Añadir equipo a torneo
 
 ### Commits
 | Alejandro                                                                                                  | Daniel                                                                                                     | Jorge                                                                                                      | Lucía                                                                                                      |
