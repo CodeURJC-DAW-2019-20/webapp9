@@ -1,6 +1,7 @@
 package com.practica.demo;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -291,23 +292,22 @@ public class WebController {
 
 	}
 
-	@PostMapping("/jointournament")
-	public String join(Model model, @RequestParam String name) {
+	@GetMapping("/jointournament")
+	public String join(Model model, @RequestParam(required = false) String torunament) {
 
 		User userJoin = userComponent.getLoggedUser();
 		Player playerJoin = playerRepository.findByuser(userJoin);
 
-		if (!playerJoin.getTeam().equals("")) {
-			// AQUI TIENES QUE SACAR EL ID DE GAME USANDO NAME, prueba con path variable o
-			// pasando un imput
-			Tournament auxTour = repositoryTournament.findByname(name);
+		if (!playerJoin.getTeam().getName().equals("")) {
+			
+			Tournament auxTour = repositoryTournament.findByname(torunament);
 			Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
 
-			Date fecha = new Date();
+			java.util.Date fecha = new java.util.Date();
 
 			Team teamPlayer = repositoryTeam.findByname(playerJoin.getTeam().getName());
 			Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.get().getId_game(), 0, false, "1",
-					fecha.toString());
+					String.valueOf(fecha));
 			repositoryTeamsOnGame.save(teamOnGame);
 		}
 

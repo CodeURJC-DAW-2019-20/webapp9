@@ -99,7 +99,18 @@
 			<h1 id="headline">{{name}}</h1>
 			<p class="year">2020</p>
 			<div style="text-align: center;">
-				<a href="/jointournament"><button class="button" type="button">Join tournament</button></a>
+			<form action="/jointournament" method="get">
+							<input type="submit" class="button" value="Join Tournament"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+								<input
+								type="hidden" name="torunament" value="{{name}}" />
+						</form> 
+				
+				
+						
+								
+								
+				</a>
 			</div>
 		</div>
 	</header>
