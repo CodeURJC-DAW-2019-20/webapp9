@@ -1,11 +1,11 @@
 # eTorneos
-Nuestra aplicación web será un sistema de torneos de videojuegos, donde los usuarios registrados podrán participar, ver partidas, unirse a un equipo, etc...
+Nuestra aplicación web será un sistema de torneos de Rocket League (videojuego), donde los usuarios registrados podrán participar, ver partidas, unirse a un equipo, etc...
 
 ## Miembros
 - Daniel Liszewski - d.liszewski.2017@alumnos.urjc.es
 - Jorge Carreras - j.carreras.2017@alumnos.urjc.es
 - Lucía Romero - l.romerov.2017@alumnos.urjc.es
-- Alejandro Gavilán
+- Alejandro Gavilán - a.gavilanv.2017@alumnos.urjc.es
 
 ## Entidades
 - Torneos
@@ -13,15 +13,12 @@ Nuestra aplicación web será un sistema de torneos de videojuegos, donde los us
 - Jugadores
 - Equipos
 
-### Juegos
-Cada juego tendrá su propia página, donde aparece info del juego, links de interés y la lista de los torneos activos.
-
 ### Torneos
-Cada torneo tiene una página asociada, donde aparece la bracket del torneo con los nombres de los jugadores o equipos que participan (se podrá acceder a sus páginas desde aquí), su elo y la info de cada partida.
+Cada torneo tiene una página asociada, donde aparece la bracket del torneo con los nombres de los equipos que participan (se podrá acceder a sus páginas desde aquí), su elo y la info de cada partida.
 Los datos del torneo como premios y numero de jugadores máximo serán editados por el admin.
 
 ### Partidas
-Cada partida tiene información como por ejemplo los resultados (quizás más con el tiempo)
+Cada partida tiene información como por ejemplo los resultados. Estos resultados son actualizados por el admin.
 
 ### Jugadores (usuarios registrados)
 Cada jugador tiene una página de perfil (ahí aparece un gráfico del ratio de las partidas ganadas vs perdidas) con una foto de perfil, su elo en cada juego.
@@ -35,46 +32,49 @@ Cada usuario tiene los permisos descritos y los mencionados en el anterior.
 ### Anónimo
 - Acceder al índice
 - Podrá registrarse
+- Podrá ver la página de torneos
 
 ### Registrado
 - Ver la información de los jugadores
 - Ver la información de los torneos
 - Participar en los torneos
 - Cambiar la información y la foto de su perfil
-- Unirse a un equipo
 
 ### Admin
 - Crear torneos
 - Eliminar torneos
 - Cambiar la información de los torneos
+- Crear equipos
 
 ## Tecnología usada
-El usuario podrá usar Google para acceder a su cuenta (si tenemos tiempo también añadiremos la posibilidad de hacer publicaciones automáticas cuando entras en torneos o los resultados de una partida).
+Hemos añadido que los torneos tengan una localización física la cual se puede ver utilizando Google Maps
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/googleMaps.jpg "Google Maps API")
 
 ## Sistema de ELO (algoritmo)
 Cada jugador tendrá una puntuación numérica asociada a cada juego que juegue (elo). Cada vez que juegue una partida contra algien, su puntuación variará en función de la diferencia de elo entre los dos jugadores y el resultado (mismo sistema que el ajedrez).
 
 ## Diagrama de navegación
 
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/navChart.png "NavChart")
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/navChart.png "NavChart")
 
 Permisos de acceso:
 - Negro: Anónimo.
-- Rojo: Usuario registrado (jugador).
+- Rojo: Usuario registrado.
 - Verde: Admin.
 
 ## Capturas de pantalla
 
 
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/mainpage.jpg "Página principal")
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/mainPage.jpg "Página principal")
 
-Página de inicio que contiene información sobre nuestra web junto a un botón que llevará al registro y los diferentes juegos sobre los que se realizarán torneos.
+Página de torneos que contiene los diferentes torneos en los que los usuarios podrán participar.
 
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/player-profile.png "Perfil del jugador")
 
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/player-graph.png "Gráfico del jugador")
 
-En la página del usuario podremos ver el nombre del usuario, un pequeño texto de presentación, fecha de nacimiento, juego favorito y equipo. Además, contendrá un gráfico que representara el porcentaje de partidas ganadas y partidas de ese usuario.
+En la página del usuario podremos ver el nombre del usuario, un pequeño texto de presentación, fecha de nacimiento y equipo. Además, contendrá un gráfico que representara el porcentaje de partidas ganadas y partidas de ese usuario.
 
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/register.png "Página de registro")
 
@@ -92,19 +92,19 @@ Página en la que el usuario iniciará sesión con su email y contraseña.
 
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/team-creation.png "Creación de equipo")
 
-En esta página el usuario podrá crear su equipo eligiendo el nombre, juego, participantes e icono.
+En esta página el amin podrá crear un equipo eligiendo el nombre y participantes.
 
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/team-page.png "Página de equipo")
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/bracket.jpg "Página de torneo")
 
-En esta página se podrá ver la información de un equipo, su nombre y los miembros que lo componen.
+Página en la que se puede observar en detalle un torneo en específico, con su nombre, las fechas, los participantes y su ubicación.
 
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/tournamentbracket.png "Página de torneo")
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/leaderboard.png "Leaderboard")
 
-Página en la que se puede observar en detalle un torneo en específico, con su nombre, las fechas y los participantes.
+Página en la que aparecen los equipos registrados ordenados por su puntuación de elo.
 
 ## Participación
 ### Daniel
-- Página de leaderboard (AJAX)
+- Página de leaderboard AJAX
 - Organización de ficheros
 - Creación de un equipo
 - Trabajo en las funcionalidades del admin
@@ -112,7 +112,7 @@ Página en la que se puede observar en detalle un torneo en específico, con su 
 - Sistema de elo
 - Resolución de conflictos entre ramas
 - Implementación de la API de Google
-- PieChart con MDB ()
+- PieChart con MDB
 ### Jorge
 - Login
 - Registro
@@ -142,5 +142,5 @@ Página en la que se puede observar en detalle un torneo en específico, con su 
 | README                  | TeamRepository.java     | login.html                      | WebController           |
 | pie.js                  | TeamRestController.java | register.html                   | play.html               |
 | DataRestController.java | load.js                 | WebSecurityConfig.java          | rocketleague.html       |
-| login.js                | leaderboard.html        | profile.html                    | diamond.html            |
+| googleMap.js            | leaderboard.html        | profile.html                    | diamond.html            |
 
