@@ -5,7 +5,7 @@ Nuestra aplicación web será un sistema de torneos de videojuegos, donde los us
 - Daniel Liszewski - d.liszewski.2017@alumnos.urjc.es
 - Jorge Carreras - j.carreras.2017@alumnos.urjc.es
 - Lucía Romero - l.romerov.2017@alumnos.urjc.es
-- Alejandro Gavilán
+- Alejandro Gavilán - a.gavilanv.2017@alumnos.urjc.es
 
 ## Entidades
 - Torneos
