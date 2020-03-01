@@ -332,16 +332,20 @@ public class WebController {
 		Player playerJoin = playerRepository.findByuser(userJoin);
 
 		if (!playerJoin.getTeam().getName().equals("")) {
+			
 
 			Tournament auxTour = repositoryTournament.findByname(torunament);
 			Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
+			List<Game> numGames = gameRepository.findBytournamentIdTournament(auxTour.getIdTournament());
+			
+			if(auxTour.getNumTeams()>numGames.size()) {
+				java.util.Date fecha = new java.util.Date();
 
-			java.util.Date fecha = new java.util.Date();
-
-			Team teamPlayer = repositoryTeam.findByname(playerJoin.getTeam().getName());
-			Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.get().getId_game(), 0, false, "1",
+				Team teamPlayer = repositoryTeam.findByname(playerJoin.getTeam().getName());
+				Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.get().getId_game(), 0, false, "1",
 					String.valueOf(fecha));
-			repositoryTeamsOnGame.save(teamOnGame);
+				repositoryTeamsOnGame.save(teamOnGame);
+			}
 		}
 
 		return "index";
