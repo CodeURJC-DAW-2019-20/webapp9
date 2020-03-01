@@ -246,16 +246,25 @@ public class WebController {
 				listateams = new ArrayList<Team>();
 			}
 		}
+		//si la lista es impar se añade el suelto.
+		if(listateamdate.size() % 2 != 0) {
+			Team team = new Team(); //empty team
+			listateams.add(team);			
+			listamatch.add(new Bracket(listateamdate.size()-1, listateams));
+			listateams = new ArrayList<Team>();
+		}
 		model.addAttribute("brackets", listamatch);
-		for (int i = 0; i < listamatch.size(); i++) {
+		//i=i+2 take by pairs
+		for (int i = 0; i <= listamatch.size(); i=i+2) {
 			listaplays.add(new Play());
-			listaplays.get(i).setRound(listateamdate.get(i * 2).getRound());
+			listaplays.get(i).setRound(listateamdate.get(i + 1).getRound());
 			listaplays.get(i).setName1(listamatch.get(i).getTeams().get(0).getName());
 			listaplays.get(i).setElo1(listamatch.get(i).getTeams().get(0).getElo());
 			listaplays.get(i).setName2(listamatch.get(i).getTeams().get(1).getName());
 			listaplays.get(i).setElo2(listamatch.get(i).getTeams().get(1).getElo());
-			listaplays.get(i).setDate(listateamdate.get(i * 2).getDate());
-			if (listateamdate.get(i * 2).isWinner()) {
+			listaplays.get(i).setDate(listateamdate.get(i + 1).getDate());
+			
+			if (listateamdate.get(i + 1).isWinner()) {
 				listaplays.get(i).setNameWinner(listamatch.get(i).getTeams().get(0).getName());
 			} else {
 				listaplays.get(i).setNameWinner(listamatch.get(i).getTeams().get(1).getName());
