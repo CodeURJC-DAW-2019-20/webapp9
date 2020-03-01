@@ -1,6 +1,6 @@
 function loadCoordenates(callback) {
     $.ajax({
-        url: 'https://localhost:8443/tournaments/loadCoordenates'
+        url: 'https://localhost:8443/loadCoordenates?name='+name
     }).done(function (coordenates) {
     	console.log("olo " + coordenates.latitude);
     	callback(coordenates);

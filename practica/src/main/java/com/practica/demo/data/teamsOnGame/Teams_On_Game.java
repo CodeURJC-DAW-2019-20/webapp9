@@ -9,16 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 @Entity
-@IdClass(TeamsOnGameIds.class)
+@IdClass(Teams_On_Game.class)
 public class Teams_On_Game implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int team_Id_Team;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int game_Id_Game;
 
 	private int result;
@@ -29,6 +27,15 @@ public class Teams_On_Game implements Serializable {
 	public Teams_On_Game() {
 
 	}
+	
+	
+	
+	public Teams_On_Game(int team_Id_Team, int game_Id_Game) {
+		this.team_Id_Team = team_Id_Team;
+		this.game_Id_Game = game_Id_Game;
+	}
+
+
 
 	public Teams_On_Game(int team_Id_Team, int gameIdGame, int result, boolean winner, String round, String date) {
 		super();

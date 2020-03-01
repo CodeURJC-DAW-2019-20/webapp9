@@ -159,6 +159,16 @@ public class WebController {
 		
 		gameRepository.save(game);
 		
+		/*
+		Team team = repositoryTeam.findByidTeam(0);
+		
+		Game teamGame = gameRepository.findByTournament(gameTournament);
+		
+		Teams_On_Game gameOnTeam = new Teams_On_Game(0, 17);
+		
+		repositoryTeamsOnGame.save(gameOnTeam);
+		*/
+		
 		return "/index";
 	}
 

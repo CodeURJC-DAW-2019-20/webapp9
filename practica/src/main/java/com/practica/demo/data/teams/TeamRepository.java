@@ -9,6 +9,6 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
 	Team findByplayer(int player);
 
 	Team findByname(String name);
-
+	
 	Team findByidTeam(int id);
 }
