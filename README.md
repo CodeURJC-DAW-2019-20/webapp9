@@ -117,6 +117,8 @@ Página en la que se puede observar en detalle un torneo en específico, con su 
 - Login
 - Registro
 - Perfil
+- Editar Perfil
+- Seguridad
 ### Lucía
 - Brackets
 - Administración de partidas
