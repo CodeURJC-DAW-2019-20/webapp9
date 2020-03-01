@@ -11,12 +11,21 @@ public class Game {
 
 	@Id
 	private int id_game;
-
+	
 	@OneToOne
 	private Tournament tournament;
 
 	public Game() {
 	}
+	
+	
+	
+	public Game(Tournament tournament) {
+		super();
+		this.tournament = tournament;
+	}
+
+
 
 	public int getId_game() {
 		return id_game;

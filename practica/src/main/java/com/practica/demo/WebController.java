@@ -133,10 +133,33 @@ public class WebController {
 
 		}
 
-		List<Tournament> listatorneo = repositoryTournament.findAll();
-		model.addAttribute("name", listatorneo);
-		model.addAttribute("description", listatorneo);
+		List<Tournament> tournamentsList = repositoryTournament.findAll();
+		model.addAttribute("tournaments", tournamentsList);
+		model.addAttribute("description", tournamentsList);
 		return "rocketLeague";
+	}
+
+	@RequestMapping("/tournamentCreation")
+	public String goTournamentCreation(Model model) {
+		return "createTournament";
+	}
+
+	@RequestMapping("/newTournament")
+	public String goNewTournament(Model model, @RequestParam String tournament_name, @RequestParam int numTeams,
+			@RequestParam String description, @RequestParam int latitude, @RequestParam int longitude) {
+		
+		Tournament tournament = new Tournament(numTeams, tournament_name, description, latitude, longitude);
+		
+		repositoryTournament.save(tournament);
+		
+		
+		Tournament gameTournament = repositoryTournament.findByname(tournament_name);
+		
+		Game game = new Game(gameTournament);
+		
+		gameRepository.save(game);
+		
+		return "/index";
 	}
 
 	@RequestMapping("/bracketCreation")
@@ -299,7 +322,7 @@ public class WebController {
 		Player playerJoin = playerRepository.findByuser(userJoin);
 
 		if (!playerJoin.getTeam().getName().equals("")) {
-			
+
 			Tournament auxTour = repositoryTournament.findByname(torunament);
 			Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
 

@@ -14,6 +14,21 @@ public class Tournament {
 	private String img;
 	private float latitude;
 	private float longitude;
+	
+	
+	
+	public Tournament() {
+		super();
+	}
+
+	public Tournament(int numTeams, String name, String description, float latitude, float longitude) {
+		super();
+		this.numTeams = numTeams;
+		this.name = name;
+		this.description = description;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 
 	public int getIdTournament() {
 		return idTournament;

@@ -43,18 +43,26 @@
 					<li class="nav-item active">{{#noloaded}}
 						<form action="login">
 							<input type="submit" class="nav-link" value="Sign In">
-						</form> {{/noloaded}} {{^noloaded}}
+						</form> {{/noloaded}} {{#adminNo}}{{^noloaded}}
 						<form action="profile" method="get">
 							<input type="submit" class="nav-link" value="{{user.username}}">
 							<input type="hidden" name="_csrf" value="{{token}}" /> <input
 								type="hidden" name="id" value="{{user.iduser}}" />
-						</form> {{/noloaded}}
+						</form> {{/noloaded}} {{/adminNo}}
 					</li>
 					<li class="nav-item active">
 						<form action="leaderBoard">
 							<input type="submit" class="nav-link" value="Leaderboard">
 						</form>
 					</li>
+					{{#admin}}
+					<li class="nav-item active">
+						<form action="tournamentCreation">
+							<input type="submit" class="nav-link" value="Create new tournament">
+							<input type="hidden" name="_csrf" value="{{token}}">
+						</form>
+					</li> 
+					{{/admin}}
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">{{#noloaded}}
@@ -127,20 +135,22 @@
 	<!-- Image Showcases -->
 	<section class="showcase">
 		<div class="container-fluid p-0">
-			{{#name}}
+			{{#tournaments}}
 			<div class="row no-gutters">
 				<div class="col-lg-6 text-white showcase-img"
-					style="background-image: url('/imgs/Tournament/diamond.jpg');"></div>
+					style="background-image: url('/imgs/Tournament/defaultTournament.png');"></div>
 				<div class="col-lg-6 my-auto showcase-text">
 					<h2>{{name}} Tournament</h2>
 					<p class="lead mb-0">{{description}}</p>
 					<div style="text-align: center">
-						<a href="/{{name}}"><button class="button"
-								type="button">Go to tournament</button></a>
+						<form action="/{{name}}">
+							<input type="submit" class="button" value="Go to tournament">
+							<input type="hidden" name="_csrf" value="{{token}}">
+						</form>
 					</div>
 				</div>
 			</div>
-			{{/name}}
+			{{/tournaments}}
 		</div>
 	</section>
 
