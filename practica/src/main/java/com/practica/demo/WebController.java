@@ -62,7 +62,7 @@ public class WebController {
 
 	@Autowired
 	public UserRepositoryAuthProvider userRepoAuthProvider;
-	
+
 	@Autowired
 	public GameRepository gameRepository;
 
@@ -240,11 +240,11 @@ public class WebController {
 			}
 
 		}
-		
-		//find tornament
+
+		// find tornament
 		Tournament auxTour = repositoryTournament.findByname(name);
 		Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
-		
+
 		model.addAttribute("name", name);
 		List<Teams_On_Game> listaTeamDate = repositoryTeamsOnGame.findGameIdGame(auxGame.get().getId_game());
 		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
@@ -258,15 +258,15 @@ public class WebController {
 				listateams = new ArrayList<Team>();
 			}
 		}
-		//si la lista es impar se añade el suelto.
-		if(listaTeamDate.size()% 2 != 0) {
-			
-			Teams_On_Game teamEmpty= new Teams_On_Game(0, listaTeamDate.get(0).getGameIdGame(), 0, false, "","");
+		// si la lista es impar se añade el suelto.
+		if (listaTeamDate.size() % 2 != 0) {
+
+			Teams_On_Game teamEmpty = new Teams_On_Game(0, listaTeamDate.get(0).getGameIdGame(), 0, false, "", "");
 			listaTeamDate.add(teamEmpty);
 			Team team = repositoryTeam.findByidTeam(0);
 			listateams.add(team);
-			listamatch.add(new Bracket(listaTeamDate.size()-1, listateams));
-			
+			listamatch.add(new Bracket(listaTeamDate.size() - 1, listateams));
+
 		}
 		model.addAttribute("brackets", listamatch);
 		for (int i = 0; i < listamatch.size(); i++) {
@@ -290,28 +290,27 @@ public class WebController {
 		return "diamond";
 
 	}
-	
+
 	@PostMapping("/jointournament")
-	public String join(Model model, @RequestParam String name){
-	    
-		
+	public String join(Model model, @RequestParam String name) {
+
 		User userJoin = userComponent.getLoggedUser();
 		Player playerJoin = playerRepository.findByuser(userJoin);
-		
-		if(!playerJoin.getTeam().equals(" ")) {
-			
-			//AQUI TIENES QUE SACAR EL ID DE GAME USANDO NAME, prueba con path variable o pasando un imput
+
+		if (!playerJoin.getTeam().equals("")) {
+			// AQUI TIENES QUE SACAR EL ID DE GAME USANDO NAME, prueba con path variable o
+			// pasando un imput
 			Tournament auxTour = repositoryTournament.findByname(name);
 			Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
-			
+
 			Date fecha = new Date();
-			
+
 			Team teamPlayer = repositoryTeam.findByname(playerJoin.getTeam().getName());
-			Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), gameIdGame, 0, 0, 1,fecha.toString());
-			
+			Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.get().getId_game(), 0, false, "1",
+					fecha.toString());
+			repositoryTeamsOnGame.save(teamOnGame);
 		}
-		
-		repositoryTeamsOnGame.save();
+
 		return "index";
 	}
 
