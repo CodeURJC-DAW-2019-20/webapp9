@@ -56,7 +56,7 @@ Cada jugador tendrá una puntuación numérica asociada a cada juego que juegue 
 
 ## Diagrama de navegación
 
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/master/github/navChart.png "NavChart")
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/navChart.png "NavChart")
 
 Permisos de acceso:
 - Negro: Anónimo.
