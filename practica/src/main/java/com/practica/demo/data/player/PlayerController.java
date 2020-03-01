@@ -71,7 +71,7 @@ public class PlayerController {
 
 		User useraux = userComponent.getLoggedUser();
 
-		playerRepository.findByuser(useraux);
+		Player player=playerRepository.findByuser(useraux);
 
 		if (user.getName() != null && !user.getName().equals("")) {
 			useraux.setName(user.getName());
@@ -83,10 +83,10 @@ public class PlayerController {
 			useraux.setPassword(user.getPassword());
 		}
 
-		// userRepository.updateUser(useraux.getUsername(), useraux.getPassword(),
-		// useraux.getName(), useraux.getIduser());
+//		   userRepository.updateUser(useraux.getUsername(), useraux.getPassword(),
+	//	   useraux.getName(), useraux.getIduser());
 
-		// playerRepository.updateUser(description,player.getIdPlayer());
+		   playerRepository.updateUser(description,player.getIdPlayer());
 
 		imgService.saveImage("user", userComponent.getLoggedUser().getIduser(), imagenFile);
 		return "index";
