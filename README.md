@@ -2,9 +2,9 @@
 Nuestra aplicación web será un sistema de torneos de videojuegos, donde los usuarios registrados podrán participar, ver partidas, unirse a un equipo, etc...
 
 ## Miembros
-- Daniel Liszewski
-- Jorge Carreras
-- Lucía Romero
+- Daniel Liszewski - d.liszewski.2017@alumnos.urjc.es
+- Jorge Carreras - j.carreras.2017@alumnos.urjc.es
+- Lucía Romero - l.romerov.2017@alumnos.urjc.es
 - Alejandro Gavilán
 
 ## Entidades
