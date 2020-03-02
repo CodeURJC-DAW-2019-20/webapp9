@@ -155,7 +155,7 @@ Una ve creada la conexión se deberá crear el Schema “web_fase_1” y hacer u
 La aplicación se encuentra desarrollada con Spring, por lo que se deberá arrancar mediante el Spring Boot. 
 También se puede arrancar mediante un IDE, vea sea Eclipse o Netbeans que permita la implementación de aplicaciones con Spring. 
 Una vez arrancada la aplicación. El servidor empezará a correr por el puerto 8443. Asegúrese de que no hay ninguna otra aplicación corriendo por ese puerto o este podría fallar. 
-La practica se encuentra en: [a relative link](other_file.md)
+La practica se encuentra en: [a relative link](practica)
 
 ### Acceso a la web. 
 Para acceder a la web introduzca la URL: https://https://localhost:8443/
