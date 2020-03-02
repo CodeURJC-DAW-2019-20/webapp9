@@ -68,7 +68,7 @@ Permisos de acceso:
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/DiagramaER.png "ER")
 
 ## Diagrama Clases
-![alt text] (https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/Diagrama.PNG)
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/Diagrama.png)
 
 ## Capturas de pantalla
 
