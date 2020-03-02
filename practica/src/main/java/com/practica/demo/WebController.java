@@ -277,10 +277,11 @@ public class WebController {
 
 		// find tornament
 		Tournament auxTour = repositoryTournament.findByname(name);
-		Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
+		Game auxGame = (Game) gameRepository.findByTournament(auxTour);
 
 		model.addAttribute("name", name);
-		List<Teams_On_Game> listaTeamDate = repositoryTeamsOnGame.findGameIdGame(auxGame.get().getId_game());
+		List<Teams_On_Game> listaTeamDate = new ArrayList<>();
+		listaTeamDate = repositoryTeamsOnGame.findGameIdGame(auxGame.getId_game());
 		ArrayList<Bracket> listamatch = new ArrayList<Bracket>();
 		List<Team> listateams = new ArrayList<Team>();
 		ArrayList<Play> listaplays = new ArrayList<Play>();
@@ -342,8 +343,24 @@ public class WebController {
 				java.util.Date fecha = new java.util.Date();
 
 				Team teamPlayer = repositoryTeam.findByname(playerJoin.getTeam().getName());
+				
+				/*
 				Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.get().getId_game(), 0, false, "1",
 					String.valueOf(fecha));
+					
+					*/
+				
+				Teams_On_Game teamOnGame = new Teams_On_Game();
+				
+				/*
+				teamOnGame.setGameIdGame(auxGame.get().getId_game());
+				teamOnGame.setTeamIdTeam(teamPlayer.getId());
+				teamOnGame.setDate(String.valueOf(fecha));
+				teamOnGame.setWinner(false);
+				teamOnGame.setResult(0);
+				teamOnGame.setRound("1");
+				*/
+				
 				repositoryTeamsOnGame.save(teamOnGame);
 			}
 		}
