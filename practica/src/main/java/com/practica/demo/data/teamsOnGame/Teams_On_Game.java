@@ -7,6 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.OneToOne;
+
+import com.practica.demo.data.Game;
+import com.practica.demo.data.teams.Team;
 
 @Entity
 @IdClass(TeamsOnGameIds.class)
@@ -14,13 +18,11 @@ public class Teams_On_Game implements Serializable {
 	
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int team_Id_Team;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int game_Id_Game;
-
+	
 	private int result;
 	private boolean winner;
 	private String round;
@@ -29,9 +31,8 @@ public class Teams_On_Game implements Serializable {
 	public Teams_On_Game() {
 
 	}
-	
-	
-	
+
+
 	public Teams_On_Game(int team_Id_Team, int game_Id_Game) {
 		this.team_Id_Team = team_Id_Team;
 		this.game_Id_Game = game_Id_Game;
@@ -39,14 +40,38 @@ public class Teams_On_Game implements Serializable {
 
 
 
-	public Teams_On_Game(int team_Id_Team, int gameIdGame, int result, boolean winner, String round, String date) {
+	public Teams_On_Game(int team_Id_Team, int game_Id_Game, int result, boolean winner, String round, String date) {
 		super();
 		this.team_Id_Team = team_Id_Team;
-		this.game_Id_Game = gameIdGame;
+		this.game_Id_Game = game_Id_Game;
 		this.result = result;
 		this.winner = winner;
 		this.round = round;
 		this.date = date;
+	}
+	
+	
+	
+	public int getTeam_Id_Team() {
+		return team_Id_Team;
+	}
+
+
+
+	public void setTeam_Id_Team(int team_Id_Team) {
+		this.team_Id_Team = team_Id_Team;
+	}
+
+
+
+	public int getGame_Id_Game() {
+		return game_Id_Game;
+	}
+
+
+
+	public void setGame_Id_Game(int game_Id_Game) {
+		this.game_Id_Game = game_Id_Game;
 	}
 
 	public int getTeamIdTeam() {

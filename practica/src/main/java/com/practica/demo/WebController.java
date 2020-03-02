@@ -31,6 +31,7 @@ import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
 import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teams.TeamRepository;
+import com.practica.demo.data.teamsOnGame.TeamsOnGameIds;
 import com.practica.demo.data.teamsOnGame.Teams_On_Game;
 import com.practica.demo.data.teamsOnGame.Teams_On_GameRepository;
 import com.practica.demo.data.tournament.Tournament;
@@ -336,7 +337,7 @@ public class WebController {
 			
 
 			Tournament auxTour = repositoryTournament.findByname(torunament);
-			Optional<Game> auxGame = gameRepository.findById(auxTour.getIdTournament());
+			Game auxGame = gameRepository.findByTournament(auxTour);
 			List<Game> numGames = gameRepository.findBytournamentIdTournament(auxTour.getIdTournament());
 			
 			if(auxTour.getNumTeams()>numGames.size()) {
@@ -344,15 +345,19 @@ public class WebController {
 
 				Team teamPlayer = repositoryTeam.findByname(playerJoin.getTeam().getName());
 				
-				/*
-				Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.get().getId_game(), 0, false, "1",
+				
+				Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.getId_game(), 0, false, "1",
 					String.valueOf(fecha));
 					
-					*/
+				TeamsOnGameIds teamOnGameId = new TeamsOnGameIds();
 				
-				Teams_On_Game teamOnGame = new Teams_On_Game();
+				teamOnGameId.setGame_Id_Game(auxGame.getId_game());
+				teamOnGameId.setTeam_Id_Team(teamPlayer.getId());
 				
 				/*
+				Teams_On_Game teamOnGame = new Teams_On_Game();
+				
+				
 				teamOnGame.setGameIdGame(auxGame.get().getId_game());
 				teamOnGame.setTeamIdTeam(teamPlayer.getId());
 				teamOnGame.setDate(String.valueOf(fecha));
