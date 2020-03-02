@@ -11,7 +11,7 @@ import javax.persistence.IdClass;
 @Entity
 @IdClass(Teams_On_Game.class)
 public class Teams_On_Game implements Serializable {
-	private static final long serialVersionUID = 1L;
+	
 
 	@Id
 	private int team_Id_Team;

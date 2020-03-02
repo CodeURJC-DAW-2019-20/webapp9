@@ -2,11 +2,14 @@ package com.practica.demo;
 
 import java.lang.Math;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teams.TeamRepository;
 
 public class EloCalculator {
 
+	@Autowired
 	private TeamRepository teamRepository;
 
 	public EloCalculator(TeamRepository teamRepository) {

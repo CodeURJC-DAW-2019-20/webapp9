@@ -20,7 +20,7 @@ public class TeamRestController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Team> findTeams() {
-		return repositoryTeam.findAll(Sort.by("elo").descending());
+		return repositoryTeam.findByTeamNotNull();
 	}
 
 }

@@ -1,11 +1,19 @@
 function showTeam(pos,team) {
-	$("#table").append(
-		'<tr>' +
-		'<th scope="row">' + pos + '</th>' +
-		'<td>' + team.name + '</td>' +
-		'<td>' + team.elo + '</td>' +
-		'</tr>'
-	);
+	if(team.id_team != 0){
+		console.log(team.id_team);
+$("#table").append(
+				
+				'<tr>' +
+				'<th scope="row">' + pos + '</th>' +
+				'<td>' + team.name + '</td>' +
+				'<td>' + team.elo + '</td>' +
+				'</tr>'
+			);
+		
+	}	
+	
+	
+	
 }
 
 function loadTeams(callback) {
@@ -25,7 +33,7 @@ $("#btn").on('click', function() {
 		loadTeams(function (teams) {
 	        for (var i = cont; i < teams.length; i++) {
 	        	cont = i + 1;
-	        	console.log(cont);
+	        	//console.log(cont);
 	            showTeam(cont,teams[i]);	
 	        }
 	    });
