@@ -64,7 +64,7 @@ Permisos de acceso:
 - Verde: Admin.
 
 ## Diagrama Clases
-![alt text] (https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/Diagrama.PNG)
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/Diagrama.PNG)
 
 ## Capturas de pantalla
 
