@@ -9,14 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 
 @Entity
-@IdClass(Teams_On_Game.class)
+@IdClass(TeamsOnGameIds.class)
 public class Teams_On_Game implements Serializable {
 	
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int team_Id_Team;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int game_Id_Game;
 
 	private int result;
