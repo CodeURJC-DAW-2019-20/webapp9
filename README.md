@@ -149,7 +149,7 @@ Página en la que aparecen los equipos registrados ordenados por su puntuación 
 
 Para la generación de la BBDD se deberá descargar el gestor de BBDD “MysqlWorkBench”. Una vez descargado e instalado debemos crear una conexión mysql: localhost y el puerto 3306.
 Una ve creada la conexión se deberá crear el Schema “web_fase_1” y hacer un data import de los siguientes datos adjuntados: 
-[Schemas](FinalDataSql
+[Schemas](FinalDataSQL)
        
 ### Lanzamiento de la aplicación de Spring.
 La aplicación se encuentra desarrollada con Spring, por lo que se deberá arrancar mediante el Spring Boot. 
