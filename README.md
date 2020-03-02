@@ -63,8 +63,12 @@ Permisos de acceso:
 - Rojo: Usuario registrado.
 - Verde: Admin.
 
+## Diagrama entidad - relación
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/DiagramaER.png "ER")
+
 ## Diagrama Clases
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/Diagrama.PNG)
+![alt text] (https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/rama-de-union/github/Diagrama.PNG)
 
 ## Capturas de pantalla
 
