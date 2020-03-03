@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.practica.demo.RolRepository;
 import com.practica.demo.WebController;
 import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
+import com.practica.demo.data.rol.RolRepository;
 
 @Controller
 public class UserConroller {

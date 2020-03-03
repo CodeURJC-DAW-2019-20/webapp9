@@ -9,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.IdClass;
 import javax.persistence.OneToOne;
 
-import com.practica.demo.data.Game;
+import com.practica.demo.data.game.Game;
 import com.practica.demo.data.teams.Team;
 
 @Entity

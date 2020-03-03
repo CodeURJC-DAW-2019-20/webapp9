@@ -1,4 +1,4 @@
-package com.practica.demo.data;
+package com.practica.demo.data.rol;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

@@ -1,8 +1,6 @@
-package com.practica.demo;
+package com.practica.demo.data.rol;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.practica.demo.data.Rol;
 
 public interface RolRepository extends JpaRepository<Rol, Integer> {
 

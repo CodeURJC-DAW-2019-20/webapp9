@@ -1,4 +1,4 @@
-package com.practica.demo.data;
+package com.practica.demo.data.play;
 
 public class Play {
 	private String round;

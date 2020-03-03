@@ -7,7 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.practica.demo.data.Rol;
+import com.practica.demo.data.rol.Rol;
 
 @Entity
 public class User {
@@ -39,7 +39,7 @@ public class User {
 	private String img;
 
 	@OneToOne
-	private com.practica.demo.data.Rol rol;
+	private com.practica.demo.data.rol.Rol rol;
 
 	// private UserData userData;
 

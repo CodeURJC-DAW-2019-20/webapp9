@@ -1,4 +1,4 @@
-package com.practica.demo.data;
+package com.practica.demo.data.bracket;
 
 import java.util.List;
 

@@ -1,6 +1,8 @@
-package com.practica.demo.data;
+package com.practica.demo.data.round;
 
 import java.util.List;
+
+import com.practica.demo.data.bracket.Bracket;
 
 public class Round {
 	private String nameRound;

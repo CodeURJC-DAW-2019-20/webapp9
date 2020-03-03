@@ -19,16 +19,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.api.services.people.v1.model.Date;
-import com.practica.demo.data.Bracket;
-import com.practica.demo.data.Game;
-import com.practica.demo.data.Play;
-import com.practica.demo.data.Rol;
+import com.practica.demo.data.bracket.Bracket;
+import com.practica.demo.data.game.Game;
+import com.practica.demo.data.game.GameRepository;
+import com.practica.demo.data.play.Play;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 import com.practica.demo.security.UserRepositoryAuthProvider;
 import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
+import com.practica.demo.data.rol.Rol;
 import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teams.TeamRepository;
 import com.practica.demo.data.teamsOnGame.TeamsOnGameIds;
@@ -159,16 +160,6 @@ public class WebController {
 		Game game = new Game(gameTournament);
 		
 		gameRepository.save(game);
-		
-		/*
-		Team team = repositoryTeam.findByidTeam(0);
-		
-		Game teamGame = gameRepository.findByTournament(gameTournament);
-		
-		Teams_On_Game gameOnTeam = new Teams_On_Game(0, 17);
-		
-		repositoryTeamsOnGame.save(gameOnTeam);
-		*/
 		
 		return "/index";
 	}
