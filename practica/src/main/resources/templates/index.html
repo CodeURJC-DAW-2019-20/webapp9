@@ -40,20 +40,20 @@
 						<form action="/login">
 							<input type="submit" class="nav-link" value="Sign In">
 						</form> {{/noloaded}} {{#adminNO}} {{^noloaded}}
-						<form action="profile" method="get">
+						<form action="/profile" method="get">
 							<input type="submit" class="nav-link" value="{{user.username}}">
 							<input type="hidden" name="_csrf" value="{{token}}" /> <input
 								type="hidden" name="id" value="{{user.iduser}}" />
 						</form> {{/noloaded}} {{/adminNO}}
 					</li>
 					<li class="nav-item active">
-						<form action="leaderBoard">
+						<form action="/leaderBoard">
 							<input type="submit" class="nav-link" value="Leaderboard">
 							<input type="hidden" name="_csrf" value="{{token}}">
 						</form>
 					</li> {{#admin}}
 					<li class="nav-item active">
-						<form action="teamCreation">
+						<form action="/teamCreation">
 							<input type="submit" class="nav-link" value="Create new team">
 							<input type="hidden" name="_csrf" value="{{token}}">
 						</form>

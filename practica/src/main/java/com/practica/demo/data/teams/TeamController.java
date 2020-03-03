@@ -1,9 +1,11 @@
 package com.practica.demo.data.teams;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +16,7 @@ import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 
+@Controller
 public class TeamController {
 	
 	@Autowired

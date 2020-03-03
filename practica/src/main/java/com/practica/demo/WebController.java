@@ -240,24 +240,35 @@ public class WebController {
 	
 	*/
 	
+	/*
+	
 	@RequestMapping("/info")
 	public String goInfo(Model model) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());
 		return "infoPage";
 	}
-
+	
+	*/
+	
+	/*
+	
 	@RequestMapping("/bracket")
 	public String goBrackets(Model model) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());
 		return "diamond";
 	}
+	
+	*/
 
 	/*
 	 * @RequestMapping("/errorPage") public String errorPage(Model model) { return
 	 * "error"; }
 	 */
+	
+	/*
+	
 	@GetMapping("/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
@@ -356,18 +367,6 @@ public class WebController {
 				teamOnGameId.setGame_Id_Game(auxGame.getId_game());
 				teamOnGameId.setTeam_Id_Team(teamPlayer.getId());
 				
-				/*
-				Teams_On_Game teamOnGame = new Teams_On_Game();
-				
-				
-				teamOnGame.setGameIdGame(auxGame.get().getId_game());
-				teamOnGame.setTeamIdTeam(teamPlayer.getId());
-				teamOnGame.setDate(String.valueOf(fecha));
-				teamOnGame.setWinner(false);
-				teamOnGame.setResult(0);
-				teamOnGame.setRound("1");
-				*/
-				
 				repositoryTeamsOnGame.save(teamOnGame);
 			}
 		}
@@ -442,5 +441,7 @@ public class WebController {
 
 		return "/index";
 	}
-
+	
+	*/
+	
 }

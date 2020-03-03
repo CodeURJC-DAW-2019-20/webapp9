@@ -14,35 +14,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		/*
-		 * @EnableWebMvc class WebConfig extends WebMvcConfigurerAdapter {
-		 * 
-		 * @Override public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		 * registry.addResourceHandler( "/core/**", "/imgs/**", "/css/**", "/js/**")
-		 * .addResourceLocations( "classpath:/static/imgs/", "classpath:/static/css/",
-		 * "classpath:/static/core/", "classpath:/static/js/"); } }
-		 */
-		/**
-		 * 
-		 * @EnableWebMvc class SimpleCORSFilter implements Filter {
-		 * 
-		 *               public void doFilter(ServletRequest req, ServletResponse res,
-		 *               FilterChain chain) throws IOException, ServletException {
-		 *               HttpServletResponse response = (HttpServletResponse) res;
-		 *               response.setHeader("Access-Control-Allow-Origin", "*");
-		 *               response.setHeader("Access-Control-Allow-Methods", "POST, GET,
-		 *               OPTIONS, DELETE, PUT");
-		 *               response.setHeader("Access-Control-Max-Age", "3600");
-		 *               response.setHeader("Access-Control-Allow-Headers",
-		 *               "x-requested-with, content-type"); chain.doFilter(req, res); }
-		 * 
-		 *               public void init(FilterConfig filterConfig) { }
-		 * 
-		 *               public void destroy() { }
-		 * 
-		 *               }
-		 * 
-		 **/
 
 		http.authorizeRequests().antMatchers("/core/**").permitAll();
 		http.authorizeRequests().antMatchers("/imgs/**").permitAll();
