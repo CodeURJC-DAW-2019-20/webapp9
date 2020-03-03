@@ -114,7 +114,8 @@ public class WebController {
 
 		return "index";
 	}
-
+	
+	/*
 	@RequestMapping("/tournaments")
 	public String goTournaments(Model model) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
@@ -164,11 +165,19 @@ public class WebController {
 		return "/index";
 	}
 
+	*/
+	
+	/*
+	
 	@RequestMapping("/bracketCreation")
 	public String goBracketCreation(Model model) {
 		return "bracketCreation";
 	}
-
+	
+	*/
+	
+	/*
+	
 	@RequestMapping("/leaderBoard")
 	public String goLeaderBoard(Model model) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
@@ -228,7 +237,9 @@ public class WebController {
 		model.addAttribute("user", userComponent.getLoggedUser());
 		return "team";
 	}
-
+	
+	*/
+	
 	@RequestMapping("/info")
 	public String goInfo(Model model) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
