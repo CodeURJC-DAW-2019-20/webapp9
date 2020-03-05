@@ -7,6 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,15 +28,28 @@ public class TeamRestController {
 		return repositoryTeam.findByTeamNotNull();
 	}
 	
-	@RequestMapping(value = "/teams")
+	@RequestMapping(value = "/api/teams", method = RequestMethod.GET)
 	public ResponseEntity<Object> getTeams(){
 		return new ResponseEntity<>(teamService.getTeams(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/teams", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/teams/create", method = RequestMethod.POST)
 	public ResponseEntity<Object> createTeam(@RequestBody Team team){
+		//if(teamService.createTeam(team)){
 		teamService.createTeam(team);
-		return new ResponseEntity<>("Team was succesfully created", HttpStatus.CREATED);
+			return new ResponseEntity<>("Team was succesfully created", HttpStatus.CREATED);
+		//}else{
+			//return new ResponseEntity<>("The team wasnt created", HttpStatus.CONFLICT);
+		//}
 	}
-	
+	/*
+	@RequestMapping(value = "/api/teams/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Object> updateTeam(@PathVariable int id ,@RequestBody Team team){
+		if(teamService.updateTeam(team)){
+			return new ResponseEntity<>("Team was succesfully updated", HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>("The team wasnt created", HttpStatus.NOT_FOUND);
+		}
+	}
+	*/
 }
