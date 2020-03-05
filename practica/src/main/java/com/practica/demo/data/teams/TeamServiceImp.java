@@ -29,13 +29,22 @@ public class TeamServiceImp implements TeamService{
 	}
 
 	@Override
-	public boolean updateTeam(Team team) {
+	public boolean updateTeam(int id, Team team) {
 		
-		Optional<Team> auxTeam = teamRepository.findById(team.getId());
+		Team auxTeam = teamRepository.findByidTeam(id);
 		
-		if(auxTeam.isPresent()) {
-			teamRepository.save(team);
+		if(auxTeam != null) {
+			
+			//auxTeam.setId(team.getId());
+			auxTeam.setElo(team.getElo());
+			auxTeam.setName(team.getName());
+			auxTeam.setWins(team.getWins());
+			auxTeam.setLosses(team.getLosses());
+			
+			teamRepository.save(auxTeam);
+			
 			return true;
+			
 		}else {
 			return false;
 		}

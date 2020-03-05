@@ -45,7 +45,7 @@ public class TeamRestController {
 	
 	@RequestMapping(value = "/api/teams/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateTeam(@PathVariable int id ,@RequestBody Team team){
-		if(teamService.updateTeam(team)){
+		if(teamService.updateTeam(id, team)){
 			return new ResponseEntity<>("Team was succesfully updated", HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>("The team wasnt created", HttpStatus.NOT_FOUND);
