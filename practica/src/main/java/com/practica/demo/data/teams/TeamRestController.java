@@ -33,16 +33,16 @@ public class TeamRestController {
 		return new ResponseEntity<>(teamService.getTeams(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/api/teams/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/teams", method = RequestMethod.POST)
 	public ResponseEntity<Object> createTeam(@RequestBody Team team){
-		//if(teamService.createTeam(team)){
-		teamService.createTeam(team);
+		if(teamService.createTeam(team)){
+		//teamService.createTeam(team);
 			return new ResponseEntity<>("Team was succesfully created", HttpStatus.CREATED);
-		//}else{
-			//return new ResponseEntity<>("The team wasnt created", HttpStatus.CONFLICT);
-		//}
+		}else{
+			return new ResponseEntity<>("Team wasnt created", HttpStatus.CONFLICT);
+		}
 	}
-	/*
+	
 	@RequestMapping(value = "/api/teams/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateTeam(@PathVariable int id ,@RequestBody Team team){
 		if(teamService.updateTeam(team)){
@@ -51,5 +51,5 @@ public class TeamRestController {
 			return new ResponseEntity<>("The team wasnt created", HttpStatus.NOT_FOUND);
 		}
 	}
-	*/
+	
 }

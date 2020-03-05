@@ -13,15 +13,21 @@ public class TeamServiceImp implements TeamService{
 	private TeamRepository teamRepository;
 	
 	@Override
-	public void createTeam(Team team) {
+	public boolean createTeam(Team team) {
+		try {
 			teamRepository.save(team);
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+		
 	}
 
 	@Override
 	public List<Team> getTeams() {
 		return teamRepository.findAll();
 	}
-/*
+
 	@Override
 	public boolean updateTeam(Team team) {
 		
@@ -35,5 +41,5 @@ public class TeamServiceImp implements TeamService{
 		}
 		
 	}
-*/
+
 }
