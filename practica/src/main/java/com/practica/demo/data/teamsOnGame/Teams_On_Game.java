@@ -101,7 +101,11 @@ public class Teams_On_Game implements Serializable {
 	public boolean isWinner() {
 		return winner;
 	}
-
+	
+	public boolean getWinner() {
+		return winner;
+	}
+	
 	public void setWinner(boolean winner) {
 		this.winner = winner;
 	}

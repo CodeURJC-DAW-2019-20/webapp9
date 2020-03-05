@@ -35,7 +35,6 @@ public class TeamServiceImp implements TeamService{
 		
 		if(auxTeam != null) {
 			
-			//auxTeam.setId(team.getId());
 			auxTeam.setElo(team.getElo());
 			auxTeam.setName(team.getName());
 			auxTeam.setWins(team.getWins());
