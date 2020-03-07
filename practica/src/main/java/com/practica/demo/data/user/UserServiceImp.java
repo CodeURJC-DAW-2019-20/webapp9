@@ -1,13 +1,22 @@
 package com.practica.demo.data.user;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.practica.demo.Imgs.ImageService;
 import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
+import com.practica.demo.data.tournament.Tournament;
 
 @Service
 public class UserServiceImp implements UserService{
@@ -17,6 +26,9 @@ public class UserServiceImp implements UserService{
 	
 	@Autowired
 	private PlayerRepository playerRepository;
+	
+	@Autowired
+	private ImageService imgService;
 	
 	@Override
 	public User getUser(int id) {
@@ -84,5 +96,49 @@ public class UserServiceImp implements UserService{
 			return false;
 		}
 	}
-
+	
+	@Override
+	public boolean uploadImage(MultipartFile imageFile, int id) {
+		try {
+			Optional<User> updated = userRepository.findById(id);
+			if (updated.isPresent()) {
+				Path imgPath = imgService.saveImagePath("tournament", id, imageFile);
+				User updatedUser = updated.get();
+				updatedUser.setImg(imgPath.toString());
+				userRepository.save(updatedUser);
+				return true;
+			} else {
+				return false;
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	@Override
+	public byte[] getImage(int id) {
+		Optional<User> aux = userRepository.findById(id);
+		if (aux.isPresent()) {
+			User user = aux.get();
+			if (user.getImg() != null) {
+				Path path = Paths.get(user.getImg());
+				// path.resolve(tournament.getImg());
+				//File file = path.toFile();
+				try {
+					return IOUtils.toByteArray( Files.newInputStream(path));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+					return null;
+				}
+				
+			} else {
+				return null;
+			}
+		} else {
+			return null;
+		}
+	}
+	
 }
