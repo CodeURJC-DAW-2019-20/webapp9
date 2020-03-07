@@ -16,7 +16,7 @@ import com.practica.demo.data.user.User;
 
 @Service
 public class PlayerServiceImp implements PlayerService{
-	
+	/*
 
 	private PlayerRepository playerRepository;
 	private RespositoryUser userRepository;
@@ -75,6 +75,6 @@ public class PlayerServiceImp implements PlayerService{
 
 		}
 	}
-	
+	*/
 	
 }

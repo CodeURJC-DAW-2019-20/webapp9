@@ -20,22 +20,10 @@ public class User {
 		return iduser;
 	}
 
-	@NotNull
-	@NotEmpty
 	private String name;
-
-	@NotNull
-	@NotEmpty
 	private String username;
-
-	@Email
-	@NotEmpty
 	private String email;
-
-	@NotNull
-	@NotEmpty
 	private String password;
-
 	private String img;
 
 	@OneToOne

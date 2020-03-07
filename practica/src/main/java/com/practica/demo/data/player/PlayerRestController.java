@@ -15,6 +15,8 @@ import com.practica.demo.data.user.User;
 
 @RestController
 public class PlayerRestController {
+	
+	/*
 	@Autowired
 	private PlayerService playerService;
 	@Autowired
@@ -39,4 +41,6 @@ public class PlayerRestController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 	}
+	
+	*/
 }

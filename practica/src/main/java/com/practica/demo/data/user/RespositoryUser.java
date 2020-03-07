@@ -6,7 +6,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface RespositoryUser extends CrudRepository<User, Integer> {
-
+	
+	User findByiduser(int id);
+	
 	User findByusername(String username);
 
 	User findByemail(String email);
