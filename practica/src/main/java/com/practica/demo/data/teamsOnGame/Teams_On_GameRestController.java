@@ -22,10 +22,12 @@ public class Teams_On_GameRestController {
 		return new ResponseEntity<>(teamsOnGameService.getTeamsOnGame(), HttpStatus.OK);
 	}
 	
+	
 	@RequestMapping(value = "/api/teamsOnGame/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Object> getTeamsOnGameByGameId(@PathVariable int id){
 		return new ResponseEntity<>(teamsOnGameService.getTeamsOnGameByGameId(id), HttpStatus.OK);
 	}
+	
 	
 	@RequestMapping(value = "/api/teamsOnGame", method = RequestMethod.POST)
 	public ResponseEntity<Object> createTeamsOnGame(@RequestBody Teams_On_Game teamOnGame){
