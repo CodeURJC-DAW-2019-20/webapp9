@@ -11,12 +11,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.practica.demo.data.player.Player;
 import com.practica.demo.data.player.PlayerRepository;
+import com.practica.demo.data.player.PlayerService;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 
 @Controller
 public class TeamController {
+	@Autowired
+	private TeamService teamService;
+	
+	@Autowired
+	private PlayerService playerService;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -67,21 +73,20 @@ public class TeamController {
 		if (user1 == null || user2 == null || user3 == null) {
 			return "teamError";
 		} else {
+			
 			Player p1 = playerRepository.findByuser(user1);
 			Player p2 = playerRepository.findByuser(user2);
 			Player p3 = playerRepository.findByuser(user3);
-
+			
 			Team team = new Team(team_name, 1000);
-
+			
 			repositoryTeam.save(team);
-
-			p1.setTeam(team);
-			p2.setTeam(team);
-			p3.setTeam(team);
-
-			playerRepository.save(p1);
-			playerRepository.save(p2);
-			playerRepository.save(p3);
+			
+			int teamaux = repositoryTeam.findByname(team_name).getId();
+			
+			playerService.updateTeam(p1.getIdPlayer(), teamaux);
+			playerService.updateTeam(p2.getIdPlayer(), teamaux);
+			playerService.updateTeam(p3.getIdPlayer(), teamaux);
 
 			return "index";
 		}

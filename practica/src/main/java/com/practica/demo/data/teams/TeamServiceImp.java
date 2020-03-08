@@ -21,7 +21,7 @@ public class TeamServiceImp implements TeamService{
 	@Override
 	public boolean createTeam(Team team) {
 		try {
-			Team newTeam = new Team(team.getName(), team.getElo());
+			Team newTeam = new Team(team.getName(), 1000);
 			teamRepository.save(newTeam);
 			return true;
 		}catch(Exception e) {

@@ -9,4 +9,5 @@ public interface TournamentService {
 	public abstract boolean createTournament(Tournament tournament);
 	public abstract boolean uploadImage(MultipartFile imageFile,int id);
 	public abstract byte[] getImage(int id);
+	public abstract boolean joinTournament(int id);
 }

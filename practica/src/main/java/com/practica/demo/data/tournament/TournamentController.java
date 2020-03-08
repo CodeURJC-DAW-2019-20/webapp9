@@ -173,48 +173,13 @@ public class TournamentController {
 
 	@GetMapping("/jointournament")
 	public String join(Model model, @RequestParam(required = false) String torunament) {
-
-		User userJoin = userComponent.getLoggedUser();
-		Player playerJoin = playerRepository.findByuser(userJoin);
-
-		if (!playerJoin.getTeam().getName().equals("")) {
-			
-
-			Tournament auxTour = repositoryTournament.findByname(torunament);
-			Game auxGame = gameRepository.findByTournament(auxTour);
-			List<Game> numGames = gameRepository.findBytournamentIdTournament(auxTour.getIdTournament());
-			
-			if(auxTour.getNumTeams()>numGames.size()) {
-				java.util.Date fecha = new java.util.Date();
-
-				Team teamPlayer = repositoryTeam.findByname(playerJoin.getTeam().getName());
-				
-				
-				Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.getId_game(), 0, false, "1",
-					String.valueOf(fecha));
-					
-				TeamsOnGameIds teamOnGameId = new TeamsOnGameIds();
-				
-				teamOnGameId.setGame_Id_Game(auxGame.getId_game());
-				teamOnGameId.setTeam_Id_Team(teamPlayer.getId());
-				
-				/*
-				Teams_On_Game teamOnGame = new Teams_On_Game();
-				
-				
-				teamOnGame.setGameIdGame(auxGame.get().getId_game());
-				teamOnGame.setTeamIdTeam(teamPlayer.getId());
-				teamOnGame.setDate(String.valueOf(fecha));
-				teamOnGame.setWinner(false);
-				teamOnGame.setResult(0);
-				teamOnGame.setRound("1");
-				*/
-				
-				repositoryTeamsOnGame.save(teamOnGame);
-			}
+		Tournament auxTour = repositoryTournament.findByname(torunament);
+		
+		if (tournamentService.joinTournament(auxTour.getIdTournament())) {
+			return "index";
+		}else {
+			return "error";
 		}
-
-		return "index";
 	}
 
 	

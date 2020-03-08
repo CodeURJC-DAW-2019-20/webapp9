@@ -52,27 +52,18 @@ public class TournamentRestController {
 	    }else {
 	    	return new ResponseEntity<>("Image not found", HttpStatus.NOT_FOUND);
 	    }
-		/*
-	    HttpHeaders headers = new HttpHeaders();
-	    InputStream in = servletContext.getResourceAsStream("/WEB-INF/images/image-example.jpg");
-	    byte[] media = IOUtils.toByteArray(in);
-	    headers.setCacheControl(CacheControl.noCache().getHeaderValue());
-	     
-	    ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(media, headers, HttpStatus.OK);
-	    return responseEntity;
-		
-		File img = (File) tournamentService.getImage(id);
-	    InputStream in = servletContext.getResourceAsStream("/WEB-INF/images/image-example.jpg");
-	    response.setContentType(MediaType.IMAGE_JPEG_VALUE);
-	    IOUtils.copy(in, response.getOutputStream());
-		
-		
-		
-		if(img!=null){
-			return new ResponseEntity<>(img,HttpStatus.OK);
-		}else{
-			return new ResponseEntity<>("Image couldn't be uploaded", HttpStatus.NOT_FOUND);
-		}*/
 	}
+	
+	@RequestMapping(value = "/api/tournaments/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Object>join(@PathVariable int id){
+		if(tournamentService.joinTournament(id)) {
+			return new ResponseEntity<>("Your team joined the tournament",HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>("Error",HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+
+	}
+	
+	
 	
 }

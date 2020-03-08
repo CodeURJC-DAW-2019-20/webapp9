@@ -145,12 +145,9 @@ public class UserServiceImp implements UserService{
 			User user = aux.get();
 			if (user.getImg() != null) {
 				Path path = Paths.get(user.getImg());
-				// path.resolve(tournament.getImg());
-				//File file = path.toFile();
 				try {
 					return IOUtils.toByteArray( Files.newInputStream(path));
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 					return null;
 				}
