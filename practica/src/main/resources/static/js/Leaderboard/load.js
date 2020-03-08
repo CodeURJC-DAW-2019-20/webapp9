@@ -11,14 +11,12 @@ $("#table").append(
 			);
 		
 	}	
-	
-	
-	
+
 }
 
 function loadTeams(callback) {
     $.ajax({
-        url: 'https://localhost:8443/leaderBoardLoaded?_csrf='+csrf
+        url: 'https://localhost:8443/api/leaderBoardLoaded?_csrf='+csrf
     }).done(function (teams) {
     	$('#loader').empty();
     	callback(teams);

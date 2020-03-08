@@ -1,5 +1,8 @@
 package com.practica.demo.data.teams;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.data.domain.Page;
@@ -35,10 +38,14 @@ public class TeamController {
 	public String goLeaderBoard(Model model) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());
-
-		PageRequest firstPageWithTwoElements = PageRequest.of(0, 2, Sort.by("elo").descending());
-		Page<Team> listTeams = (Page<Team>) repositoryTeam.findAll(firstPageWithTwoElements);
-
+		
+		List<Team> auxListTeams = repositoryTeam.findByTeamNotNull();
+		
+		List<Team> listTeams = new ArrayList<>();
+		
+		listTeams.add(auxListTeams.get(0));
+		listTeams.add(auxListTeams.get(1));
+		
 		model.addAttribute("teams", listTeams);
 
 		return "leaderBoard";

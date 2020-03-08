@@ -20,7 +20,7 @@ public class TeamRestController {
 	@Autowired
 	private TeamService teamService;
 
-	@RequestMapping(value = "/leaderBoardLoaded", method = RequestMethod.GET)
+	@RequestMapping(value = "/api/leaderBoardLoaded", method = RequestMethod.GET)
 	public List<Team> findTeams() {
 		return repositoryTeam.findByTeamNotNull();
 	}
