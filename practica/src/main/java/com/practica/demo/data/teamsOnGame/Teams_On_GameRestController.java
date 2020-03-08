@@ -38,9 +38,9 @@ public class Teams_On_GameRestController {
 		}
 	}
 	
-	@RequestMapping(value = "/api/teamsOnGame/{id1}+{id2}", method = RequestMethod.PUT)
-	public ResponseEntity<Object> updateTeam(@PathVariable int id1,@PathVariable int id2 ,@RequestBody Teams_On_Game[] teams){
-		if(teamsOnGameService.updateTeamOnGame(id1, id2, teams)){
+	@RequestMapping(value = "/api/teamsOnGame/{id1}+{id2}+{idGame}", method = RequestMethod.PUT)
+	public ResponseEntity<Object> updateTeam(@PathVariable int id1,@PathVariable int id2, @PathVariable int idGame ,@RequestBody Teams_On_Game[] teams){
+		if(teamsOnGameService.updateTeamOnGame(id1, id2, idGame, teams)){
 			return new ResponseEntity<>("Teams results were succesfully updated", HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>("The team results werent updated", HttpStatus.NOT_FOUND);

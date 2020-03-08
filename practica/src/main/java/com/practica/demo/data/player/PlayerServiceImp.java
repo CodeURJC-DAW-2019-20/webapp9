@@ -1,80 +1,48 @@
 package com.practica.demo.data.player;
 
 import java.util.Optional;
-import java.util.Set;
 
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.practica.demo.data.rol.RolRepository;
-import com.practica.demo.data.user.RespositoryUser;
-import com.practica.demo.data.user.User;
+import com.practica.demo.data.teams.Team;
+import com.practica.demo.data.teams.TeamRepository;
+
 
 @Service
 public class PlayerServiceImp implements PlayerService{
-	/*
-
+	
+	@Autowired
 	private PlayerRepository playerRepository;
-	private RespositoryUser userRepository;
-	private RolRepository rolRepository;
+	
+	@Autowired
+	private TeamRepository teamRepository;
 	
 	@Override
-	public boolean createPlayer(User user) {
-		return newUser(user);
-	}
-	
-	@Override
-	public Optional <Player> getPlayer(int idPlayer) {
-			return playerRepository.findById(idPlayer);
-	}
+	public boolean updateTeam(int idPlayer, int idTeam) {
 		
-	@Override
-	public boolean updatePlayer(Player player) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	
-	public boolean newUser(User user) {
-		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-		Validator validator = factory.getValidator();
-		Set<ConstraintViolation<User>> violations = validator.validate(user);
-
-		if (violations.isEmpty()) {
-
-			if (userRepository.findByemailOrusername(user.getEmail(), user.getUsername()) != null) {
-				return false;
+		Team auxTeam = teamRepository.findByidTeam(idTeam);
+		
+		if(auxTeam != null) {
+			
+			Optional<Player> auxPlayer = playerRepository.findById(idPlayer);
+			
+			if(auxPlayer.isPresent()) {
+				
+				auxPlayer.get().setTeam(auxTeam);
+				
+				playerRepository.save(auxPlayer.get());
+				
+				return true;
 			}else {
-				return generateUser( user);
+				return false;
 			}
+
 		}else {
 			return false;
 		}
-
 	}
 
-
-	private boolean generateUser(User user) {
-		user.setRol(rolRepository.findById(2).get());
-		try {
-
-			userRepository.save(user);
-			User useraux = userRepository.findByemail(user.getEmail());
-
-			Player player = new Player(0, useraux, " ");
-
-			playerRepository.save(player);
-
-			return true;
-		} catch (Exception e) {
-
-			return false;
-
-		}
-	}
-	*/
+	
 	
 }

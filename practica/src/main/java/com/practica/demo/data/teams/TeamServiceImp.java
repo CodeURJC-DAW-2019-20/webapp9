@@ -6,16 +6,23 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.practica.demo.data.player.Player;
+import com.practica.demo.data.player.PlayerRepository;
+
 @Service
 public class TeamServiceImp implements TeamService{
 	
 	@Autowired
 	private TeamRepository teamRepository;
 	
+	@Autowired
+	private PlayerRepository playerRepository;
+	
 	@Override
 	public boolean createTeam(Team team) {
 		try {
-			teamRepository.save(team);
+			Team newTeam = new Team(team.getName(), team.getElo());
+			teamRepository.save(newTeam);
 			return true;
 		}catch(Exception e) {
 			return false;
@@ -56,6 +63,30 @@ public class TeamServiceImp implements TeamService{
 			return false;
 		}
 		
+	}
+
+	@Override
+	public boolean addPlayer(int idTeam, int idPlayer) {
+		Team auxTeam = teamRepository.findByidTeam(idTeam);
+		
+		if(auxTeam != null) {
+			
+			Optional<Player> auxPlayer = playerRepository.findById(idPlayer);
+			
+			if(auxPlayer.isPresent()) {
+				
+				auxPlayer.get().setTeam(auxTeam);
+				
+				playerRepository.save(auxPlayer.get());
+				
+				return true;
+			}else {
+				return false;
+			}
+
+		}else {
+			return false;
+		}
 	}
 
 }

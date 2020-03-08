@@ -38,11 +38,15 @@ public class TournamentServiceImp implements TournamentService {
 	@Override
 	public boolean createTournament(Tournament tournament) {
 		try {
-			tournamentRepository.save(tournament);
+			Tournament newTournament = new Tournament(tournament.getNumTeams(), tournament.getName(), tournament.getDescription(), tournament.getLatitude(), tournament.getLongitude());
+			
+			tournamentRepository.save(newTournament);
 
 			Game newGame = new Game();
+			
+			Tournament auxTournament = tournamentRepository.findByname(newTournament.getName());
 
-			newGame.setTournament(tournament);
+			newGame.setTournament(auxTournament);
 
 			gameRepository.save(newGame);
 

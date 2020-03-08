@@ -16,31 +16,17 @@ import com.practica.demo.data.user.User;
 @RestController
 public class PlayerRestController {
 	
-	/*
+	
 	@Autowired
 	private PlayerService playerService;
-	@Autowired
-	private PlayerRepository playerRepository;
 	
-	@RequestMapping(value = "/api/player/{id}", method = RequestMethod.GET)
-	public ResponseEntity<Object> getPlayer(@PathVariable int id){
-		Optional <Player> aux = playerRepository.findById(id);
-		//aux = playerService.getPlayer(id);
-		
-		if (aux.isPresent()) {
-			return new ResponseEntity<>(aux.get(), HttpStatus.OK);
-		}else {
-			return new  ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
-	}
-	@RequestMapping(value = "/api/player", method = RequestMethod.PUT)
-	public ResponseEntity<Object> createPlayer(@RequestBody User user){
-		if (playerService.createPlayer(user)){
-			return new ResponseEntity<>(HttpStatus.CREATED);
-		}else {
-			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+	@RequestMapping(value = "/api/player/{idPlayer}/team", method = RequestMethod.PUT)
+	public ResponseEntity<Object> addPlayerTeam(@PathVariable int idPlayer, @RequestBody int idTeam){
+		if(playerService.updateTeam(idPlayer,idTeam)){
+			return new ResponseEntity<>("Team was succesfully updated", HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>("Player or team not found", HttpStatus.NOT_FOUND);
 		}
 	}
 	
-	*/
 }

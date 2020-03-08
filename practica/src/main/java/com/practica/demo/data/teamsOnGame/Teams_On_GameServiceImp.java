@@ -39,12 +39,12 @@ public class Teams_On_GameServiceImp implements Teams_On_GameService{
 	}
 
 	@Override
-	public boolean updateTeamOnGame(int idTeam1, int idTeam2, Teams_On_Game [] teams) {
+	public boolean updateTeamOnGame(int idTeam1, int idTeam2, int idGame, Teams_On_Game [] teams) {
 		
 		EloCalculator calculateElo = new EloCalculator(teamRepository);
 		
-		Teams_On_Game auxTeam1 = teamsOnGameRepository.findByteam_Id_Team(idTeam1);
-		Teams_On_Game auxTeam2 = teamsOnGameRepository.findByteam_Id_Team(idTeam2);
+		Teams_On_Game auxTeam1 = teamsOnGameRepository.findByteam_Id_TeamAndGameIdGame(idTeam1, idGame);
+		Teams_On_Game auxTeam2 = teamsOnGameRepository.findByteam_Id_TeamAndGameIdGame(idTeam2, idGame);
 		
 		if(auxTeam1 != null && auxTeam2 != null) {
 			
