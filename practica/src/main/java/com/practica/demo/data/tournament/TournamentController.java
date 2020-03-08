@@ -30,6 +30,8 @@ import com.practica.demo.data.user.UserComponent;
 @EnableAutoConfiguration
 @Controller
 public class TournamentController {
+	@Autowired
+	private TournamentService tournamentService;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -86,14 +88,7 @@ public class TournamentController {
 		
 		Tournament tournament = new Tournament(numTeams, tournament_name, description, latitude, longitude);
 		
-		repositoryTournament.save(tournament);
-		
-		
-		Tournament gameTournament = repositoryTournament.findByname(tournament_name);
-		
-		Game game = new Game(gameTournament);
-		
-		gameRepository.save(game);
+		tournamentService.createTournament(tournament);
 		
 		return "/index";
 	}

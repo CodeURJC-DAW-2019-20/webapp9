@@ -19,6 +19,8 @@ import com.practica.demo.data.user.UserComponent;
 
 @Controller
 public class Teams_On_GameController {
+	@Autowired
+	private Teams_On_GameService teamsOnGameService;
 	
 	@Autowired
 	private UserComponent userComponent;
@@ -66,12 +68,12 @@ public class Teams_On_GameController {
 
 		Team team1 = repositoryTeam.findByname(team1Name);
 		Team team2 = repositoryTeam.findByname(team2Name);
-
+	
 		Teams_On_Game teamOnGame1 = repositoryTeamsOnGame.findByteam_Id_Team(team1.getId());
 		Teams_On_Game teamOnGame2 = repositoryTeamsOnGame.findByteam_Id_Team(team2.getId());
-
 		teamOnGame1.setResult(puntuation1);
 		teamOnGame2.setResult(puntuation2);
+
 
 		int team1Id = team1.getId();
 		int team2Id = team2.getId();
@@ -96,7 +98,6 @@ public class Teams_On_GameController {
 
 		repositoryTeamsOnGame.save(teamOnGame1);
 		repositoryTeamsOnGame.save(teamOnGame2);
-
 		return "/index";
 	}
 }
