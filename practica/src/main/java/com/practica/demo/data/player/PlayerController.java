@@ -16,9 +16,14 @@ import com.practica.demo.Imgs.ImageService;
 import com.practica.demo.data.user.RespositoryUser;
 import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
+import com.practica.demo.data.user.UserPlayerWrapper;
+import com.practica.demo.data.user.UserService;
 
 @Controller
 public class PlayerController {
+	
+	@Autowired
+	private UserService userService;
 
 	@Autowired
 	private RespositoryUser userRepository;
@@ -72,25 +77,12 @@ public class PlayerController {
 		User useraux = userComponent.getLoggedUser();
 
 		Player player = playerRepository.findByuser(useraux);
-
-		if (user.getName() != null && !user.getName().equals("")) {
-			useraux.setName(user.getName());
-		}
-		if (user.getUsername() != null && !user.getUsername().equals("")) {
-			useraux.setUsername(user.getUsername());
-		}
-		if (user.getPassword() != null && !user.getPassword().equals("")) {
-			useraux.setPassword(user.getPassword());
-		}
-
-		userRepository.updateUser(useraux.getUsername(), useraux.getPassword(), useraux.getName(), useraux.getIduser());
-		if (description != null && !description.equals("")) {
-			playerRepository.updateUser(description, player.getIdPlayer());
-		}
-
-		if (!imagenFile.getName().equals("")) {
-			imgService.saveImage("user", userComponent.getLoggedUser().getIduser(), imagenFile);
-		}
+		
+		UserPlayerWrapper aux = new UserPlayerWrapper();
+		aux.setPlayer(player);
+		aux.setUser(useraux);
+		userService.updateUser(useraux.getIduser(), aux);
+		userService.uploadImage(imagenFile, useraux.getIduser());
 		return "index";
 	}
 

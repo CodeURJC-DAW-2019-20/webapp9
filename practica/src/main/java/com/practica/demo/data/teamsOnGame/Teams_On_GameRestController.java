@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.practica.demo.data.teams.Team;
-
 @RestController
 public class Teams_On_GameRestController {
 	
