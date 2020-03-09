@@ -1,0 +1,136 @@
+<html>
+<head>
+<link href="/core/bootstrap.min.css" rel="stylesheet">
+<link href="/css/Leaderboard/style.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+<script>
+
+var csrf="{{token}}"
+
+</script>
+
+<script src="/js/Leaderboard/load.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"></script>
+
+
+</head>
+
+<body class="hm-gradient">
+
+	<!-- NavBar -->
+	<header>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<a class="navbar-brand" href="#"> <img
+			src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+		</a> <a class="navbar-brand">eTournaments</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarCollapse" aria-controls="navbarCollapse"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarCollapse">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					<form action="index">
+						<input type="submit" class="nav-link" value="Home">
+					</form>
+				</li>
+
+				<li class="nav-item active">{{#noloaded}}
+					<form action="signIn">
+						<input type="submit" class="nav-link" value="Sign In">
+					</form> {{/noloaded}} {{^noloaded}}
+					<form action="profile" method="get">
+						<input type="submit" class="nav-link" value="{{user.username}}">
+						<input type="hidden" name="_csrf" value="{{token}}" /> <input
+							type="hidden" name="id" value="{{user.iduser}}" />
+					</form> {{/noloaded}}
+				</li>
+				<li class="nav-item active">
+					<form action="leaderBoard">
+						<input type="submit" class="nav-link" value="Leaderboard">
+					</form>
+				</li>
+			</ul>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">{{#noloaded}}
+					<form action="register">
+						<input type="submit" class="nav-link" value="Register"> <input
+							type="hidden" name="_csrf" value="{{token}}" />
+					</form> {{/noloaded}} {{^noloaded}}
+					<form action="/logout" method="post">
+						<input type="submit" class="nav-link" value="Log Out"> <input
+							type="hidden" name="_csrf" value="{{token}}" />
+					</form> {{/noloaded}}
+
+				</li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+
+	<main>
+		<div class="card mb-4">
+			<div class="card-body">
+				<!-- Grid row -->
+				<div class="row">
+					<!-- Grid column -->
+					<div class="col-md-12">
+						<h2 class="pt-5 pb-4 text-center font-bold font-up">Leaderboard</h2>
+
+					</div>
+					<!-- Grid column -->
+				</div>
+				<!-- Grid row -->
+				<!--Table-->
+				<table class="table table-striped">
+					<!--Table head-->
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Elo</th>
+						</tr>
+					</thead>
+					<!--Table head-->
+					<!--Table body-->
+					<tbody id="table">
+						{{#teams}}
+						<tr>
+							<th scope="row">{{-index}}</th>
+							<td>{{name}}</td>
+
+							<td>{{elo}}</td>
+						</tr>
+						{{/teams}}
+
+					</tbody>
+					<!--Table body-->
+				</table>
+				<!--Table-->
+				<!--Bottom Table UI-->
+
+				<div id='loader' class="d-flex justify-content-center">
+					
+				</div>
+
+				<div class="d-flex justify-content-center">
+					<!--Pagination -->
+
+					<input type="button" id="btn" class="button" value="Load More">
+					<input type="hidden" name="_csrf" value="{{token}}">
+
+
+					<!--/Pagination -->
+				</div>
+			</div>
+		</div>
+	</main>
+	<script src="/core/bootstrap.min.js"></script>
+
+</body>
+
+</html>

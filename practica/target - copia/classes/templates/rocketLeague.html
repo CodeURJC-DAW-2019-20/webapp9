@@ -1,0 +1,169 @@
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Rocket League</title>
+
+<!-- Bootstrap core CSS -->
+<link href="/core/bootstrap.min.css" rel="stylesheet">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css">
+
+<!-- Custom styles for this template -->
+<link href="/css/RocketLeague/landing-page.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+	<!-- NavBar -->
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+			</a> <a class="navbar-brand">eTournaments</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<form action="index">
+							<input type="submit" class="nav-link" value="Home">
+						</form>
+					</li>
+					<li class="nav-item active">{{#noloaded}}
+						<form action="login">
+							<input type="submit" class="nav-link" value="Sign In">
+						</form> {{/noloaded}} {{#adminNo}}{{^noloaded}}
+						<form action="profile" method="get">
+							<input type="submit" class="nav-link" value="{{user.username}}">
+							<input type="hidden" name="_csrf" value="{{token}}" /> <input
+								type="hidden" name="id" value="{{user.iduser}}" />
+						</form> {{/noloaded}} {{/adminNo}}
+					</li>
+					<li class="nav-item active">
+						<form action="leaderBoard">
+							<input type="submit" class="nav-link" value="Leaderboard">
+						</form>
+					</li>
+					{{#admin}}
+					<li class="nav-item active">
+						<form action="tournamentCreation">
+							<input type="submit" class="nav-link" value="Create new tournament">
+							<input type="hidden" name="_csrf" value="{{token}}">
+						</form>
+					</li> 
+					{{/admin}}
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">{{#noloaded}}
+						<form action="register">
+							<input type="submit" class="nav-link" value="Register"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="/logout" method="post">
+							<input type="submit" class="nav-link" value="Log Out"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}}
+
+					</li>
+				</ul>
+			</div>
+
+
+		</nav>
+	</header>
+
+	<!-- Masthead -->
+	<header class="masthead text-white text-center">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-9 mx-auto">
+					<h1 class="mb-5">TOURNAMENTS</h1>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Icons Grid -->
+	<section class="features-icons bg-light text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+						<i><a
+							href="https://store.steampowered.com/app/252950/Rocket_League/"><img
+								src="/imgs/Tournament/steam-Icon.png" alt="Responsive image"
+								height="200px" width="200px" /></a></i>
+						<h3>Download Rocket League on Steam</h3>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+						<i><a
+							href="https://www.twitch.tv/directory/game/Rocket%20League"><img
+								src="/imgs/Tournament/twitch-icon.png" height="200px"
+								width="200px"></a></i>
+						<h3>See on Twitch</h3>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="features-icons-item mx-auto mb-0 mb-lg-3">
+						<i>
+							<form action="info">
+								<input type="image" src="/imgs/Tournament/info-icon.png"
+									width="200px" height="200px" alt="submit">
+							</form>
+						</i>
+						<h3>Get more information about this game</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Image Showcases -->
+	<section class="showcase">
+		<div class="container-fluid p-0">
+			{{#tournaments}}
+			<div class="row no-gutters">
+				<div class="col-lg-6 text-white showcase-img"
+					style="background-image: url('/imgs/Tournament/defaultTournament.png');"></div>
+				<div class="col-lg-6 my-auto showcase-text">
+					<h2>{{name}} Tournament</h2>
+					<p class="lead mb-0">{{description}}</p>
+					<div style="text-align: center">
+						<form action="/{{name}}">
+							<input type="submit" class="button" value="Go to tournament">
+							<input type="hidden" name="_csrf" value="{{token}}">
+						</form>
+					</div>
+				</div>
+			</div>
+			{{/tournaments}}
+		</div>
+	</section>
+
+	<!-- Bootstrap core JavaScript -->
+
+
+	<script src="/core/jquery-3.4.1.slim.min.js"></script>
+	<script>
+		window.jQuery
+				|| document
+						.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')
+	</script>
+	<script src="/core/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
