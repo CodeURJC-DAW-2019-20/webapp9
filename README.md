@@ -170,7 +170,7 @@ Para acceder a la web introduzca la URL: https://https://localhost:8443/
 
 ### Especificación REST
 Se puede encontrar la documentación y especificación de los endpoints REST en el siguiente archivo
-[Documentación](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/API.MD)
+[Documentación](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/API.md)
 
 
 ### Diagrama API Rest
@@ -192,11 +192,11 @@ En esta fase he estado trabajando sobre REST, implementando la subida de imágen
 ### Archivos fase REST/Docker
 | Alejandro               | Daniel                  | Jorge                           | Lucía                   |
 |-------------------------|-------------------------|---------------------------------|-------------------------|
-| PlayerService           | UserServiceImp          | UserRepositoryAuthProvider.java | Base de datos           |
-| TournamentService       | Teams_On_GameService    | login.html                      | WebController           |
-| TournamentRestController| TeamServiceImp          | register.html                   | play.html               |
-| TournamentController    | UserRestController      | WebSecurityConfig.java          | rocketleague.html       |
-| ImageService            | TeamRestController      | profile.html                    | diamond.html            |
+| PlayerService           | UserServiceImp          |                                 |                         |
+| TournamentService       | Teams_On_GameService    |                                 |                         |
+| TournamentRestController| TeamServiceImp          |                                 |                         |
+| TournamentController    | UserRestController      |                                 |                         |
+| ImageService            | TeamRestController      |                                 |                         |
 
 ### Commits fase REST/Docker
 
