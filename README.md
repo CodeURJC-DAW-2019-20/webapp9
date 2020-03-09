@@ -246,9 +246,9 @@ En esta fase he estado realizando los contenedores de la aplicación y la base d
 ### Archivos fase REST/Docker
 | Alejandro               | Daniel                  | Jorge                           | Lucía                   |
 |-------------------------|-------------------------|---------------------------------|-------------------------|
-| PlayerService           | UserServiceImp          | Docker                          | Docker                  |
-| TournamentService       | Teams_On_GameService    |                                 |                         |
-| TournamentRestController| TeamServiceImp          |                                 |                         |
+| PlayerService           | UserServiceImp          | Dockerfile                      | Dockerfile              |
+| TournamentService       | Teams_On_GameService    | docker-compose.yml              | docker-compose.yml      |
+| TournamentRestController| TeamServiceImp          | practica.jar                    | practica.jar            |
 | TournamentController    | UserRestController      |                                 |                         |
 | ImageService            | TeamRestController      |                                 |                         |
 
