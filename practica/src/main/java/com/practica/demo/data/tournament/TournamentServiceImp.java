@@ -155,10 +155,12 @@ public class TournamentServiceImp implements TournamentService {
 	@Override
 	public List<Teams_On_Game> getGamesInTournament(int idTournament) {
 		if (tournamentRepository.findById(idTournament).isPresent()) {
+
+			Game auxGame = gameRepository.findByTournament(tournamentRepository.findById(idTournament).get());
 			List<Teams_On_Game> optional;
-			optional = teamsOnGameRepository.findGameIdGame(idTournament);
-			if (optional!=null) {
-				return teamsOnGameRepository.findGameIdGame(idTournament);
+			optional = teamsOnGameRepository.findGameIdGame(auxGame.getId_game());
+			if (optional!=null && !optional.isEmpty()) {
+				return (optional);
 			}else {
 				return null;
 			}
