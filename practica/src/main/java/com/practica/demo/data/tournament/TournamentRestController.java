@@ -67,7 +67,7 @@ public class TournamentRestController {
 
 	}
 	
-	@RequestMapping(value = "/api/tournaments/{id}/matches", method = RequestMethod.POST)
+	@RequestMapping(value = "/api/tournaments/{id}/matches", method = RequestMethod.GET)
 	public ResponseEntity<Object>getmatches(@PathVariable int idTournament){
 		List<Teams_On_Game> aux = tournamentService.getGamesInTournament(idTournament);
 		if (aux!=null) {
