@@ -235,7 +235,7 @@ networks:
 He participado principalmente en la implementación de la API Rest, centrandome en la seguridad y ficheros POSTMAN.
 
 - Jorge
-He 
+En esta fase he estado realizando los contenedores de la aplicación y la base de datos mediante Docker.
 
 - Alejandro
 En esta fase he estado trabajando sobre REST, implementando la subida de imágenes y limpiando código repetido para que se pueda reutilizar entre la web normal y la aplicación web.
