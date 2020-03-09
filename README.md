@@ -168,3 +168,57 @@ La practica se encuentra en: [Practica](practica)
 Para acceder a la web introduzca la URL: https://https://localhost:8443/
 
 
+### Especificación REST
+Se puede encontrar la documentación y especificación de los endpoints REST en el siguiente archivo
+[Documentación](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/API.MD)
+
+
+### Diagrama API Rest
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/github/RestDiagram.png "Diagrama Rest")
+
+### Participación 2ª ronda
+
+- Daniel
+He participado principalmente en la implementación de la API Rest, centrandome en la seguridad y ficheros POSTMAN.
+
+- Jorge
+He 
+
+- Alejandro
+En esta fase he estado trabajando sobre REST, implementando la subida de imágenes y limpiando código repetido para que se pueda reutilizar entre la web normal y la aplicación web.
+
+- Lucía
+
+### Archivos fase REST/Docker
+| Alejandro               | Daniel                  | Jorge                           | Lucía                   |
+|-------------------------|-------------------------|---------------------------------|-------------------------|
+| PlayerService           | UserServiceImp          | UserRepositoryAuthProvider.java | Base de datos           |
+| TournamentService       | Teams_On_GameService    | login.html                      | WebController           |
+| TournamentRestController| TeamServiceImp          | register.html                   | play.html               |
+| TournamentController    | UserRestController      | WebSecurityConfig.java          | rocketleague.html       |
+| ImageService            | TeamRestController      | profile.html                    | diamond.html            |
+
+### Commits fase REST/Docker
+
+- Alejandro
+[Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/74ca3d439ff350ae5e80dabd5c1968140b531855)
+[Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/088ea1f7547b01c10c52e9dca0d9e2c613444204)
+[Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/f9ac767cf7ff8d50c5252c5312799e9de9c67596)
+[Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/361d15274f3ae647751670b354a636f761b46320)
+[Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/1652a2395a0a89edc32d4d7ebd5b5e9d32373088)
+
+- Daniel
+[Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/5d20bed1c98973d380f4d65a063f06a4c149faed)
+[Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/198eeb624ad3335b226bc885871a84d6ded42972)
+[Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/1652a2395a0a89edc32d4d7ebd5b5e9d32373088)
+[Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/2570d66c52c2825d6d7b014f19a52d372fea21a3)
+[Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/3808860eb9aa70a6b10f547189abc6a22e79fa7f)
+
+- Lucía
+
+
+- Jorge
+
+
+
+
