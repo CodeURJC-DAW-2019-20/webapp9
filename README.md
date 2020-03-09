@@ -190,6 +190,7 @@ Se puede encontrar la documentación y especificación de los endpoints REST en 
 9. Linkeamos la base de datos con la imagen de nuestra aplicación y construimos su contenedor.
       - docker run -it --name 'nombre del contenedor' --link 'nombre del contenedor de la base de datos':mysql -d 'nombre de la imagen'
 10. Creamos el archivo docker-compose.yml
+
 version: "3"
 services:
   practica:
