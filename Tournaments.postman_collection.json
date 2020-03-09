@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d20e0e04-6f09-47b7-8337-a181d08d7f49",
+		"_postman_id": "5701dc1f-3b6d-49cc-bfa4-a5fe0ab81f01",
 		"name": "Tournaments",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -928,8 +928,8 @@
 					"formdata": [
 						{
 							"key": "image",
-							"value": null,
-							"type": "file"
+							"type": "file",
+							"src": []
 						}
 					]
 				},
@@ -984,8 +984,8 @@
 					"formdata": [
 						{
 							"key": "image",
-							"value": null,
-							"type": "file"
+							"type": "file",
+							"src": []
 						}
 					]
 				},
@@ -1037,8 +1037,8 @@
 					"formdata": [
 						{
 							"key": "image",
-							"value": null,
-							"type": "file"
+							"type": "file",
+							"src": []
 						}
 					]
 				},
@@ -1054,6 +1054,51 @@
 						"user",
 						"7",
 						"image"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new user",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "willy@gmail.com",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Noveau\",\r\n    \"username\": \"Noveau\",\r\n    \"email\": \"noveaun@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"rol\": {\r\n        \"idRol\": 2,\r\n        \"rolDes\": \"USER\"\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://localhost:8443/api/user",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "8443",
+					"path": [
+						"api",
+						"user"
 					]
 				}
 			},
