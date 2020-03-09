@@ -1,6 +1,9 @@
 package com.practica.demo.data.tournament;
 
 import java.io.File;
+import java.util.List;
+
+import com.practica.demo.data.teamsOnGame.*;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,15 +57,25 @@ public class TournamentRestController {
 	    }
 	}
 	
-	@RequestMapping(value = "/api/tournaments/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Object>join(@PathVariable int id){
-		if(tournamentService.joinTournament(id)) {
+	@RequestMapping(value = "/api/tournaments/{id}/teams", method = RequestMethod.POST)
+	public ResponseEntity<Object>join(@PathVariable int id, @RequestBody int idTeam){
+		if(tournamentService.joinTournament(id, idTeam)) {
 			return new ResponseEntity<>("Your team joined the tournament",HttpStatus.OK);
 		}else {
 			return new ResponseEntity<>("Error",HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
 	}
+	
+	@RequestMapping(value = "/api/tournaments/{id}/matches", method = RequestMethod.POST)
+	public ResponseEntity<Object>getmatches(@PathVariable int idTournament){
+		List<Teams_On_Game> aux = tournamentService.getGamesInTournament(idTournament);
+		if (aux!=null) {
+			return new ResponseEntity<>(tournamentService.getGamesInTournament(idTournament),HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+}
 	
 	
 	

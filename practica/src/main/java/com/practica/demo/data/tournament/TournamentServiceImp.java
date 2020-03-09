@@ -119,12 +119,8 @@ public class TournamentServiceImp implements TournamentService {
 	}
 	
 	@Override
-	public boolean joinTournament(int id) {
+	public boolean joinTournament(int id, int idTeam) {
 
-		User userJoin = userComponent.getLoggedUser();
-		Player playerJoin = playerRepository.findByuser(userJoin);
-
-		if (!playerJoin.getTeam().getName().equals("")) {
 			
 			Optional<Tournament> tour = tournamentRepository.findById(id);
 			
@@ -138,7 +134,7 @@ public class TournamentServiceImp implements TournamentService {
 				
 					java.util.Date fecha = new java.util.Date();
 
-					Team teamPlayer = teamRepository.findByname(playerJoin.getTeam().getName());		
+					Team teamPlayer = teamRepository.findByidTeam(idTeam);		
 				
 					Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.getId_game(), 0, false, "1", String.valueOf(fecha));
 					
@@ -152,9 +148,23 @@ public class TournamentServiceImp implements TournamentService {
 					return true;
 				}
 			}
-		}
 
 		return false;
+	}
+
+	@Override
+	public List<Teams_On_Game> getGamesInTournament(int idTournament) {
+		if (tournamentRepository.findById(idTournament).isPresent()) {
+			List<Teams_On_Game> optional;
+			optional = teamsOnGameRepository.findGameIdGame(idTournament);
+			if (optional!=null) {
+				return teamsOnGameRepository.findGameIdGame(idTournament);
+			}else {
+				return null;
+			}
+		}else {
+			return null;
+		}
 	}
 
 }
