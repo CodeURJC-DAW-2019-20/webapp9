@@ -102,54 +102,6 @@
 			"response": []
 		},
 		{
-			"name": "See games in tournament",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "willy@gmail.com",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "123",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\t\"user\": {\t\r\n\t },\r\n\t \"player\": {\r\n\t \t\"description\": \"My passion is eskeree\"\r\n\t }\r\n\r\n\t\r\n}"
-				},
-				"url": {
-					"raw": "https://localhost:8443/api/teamsOnGame",
-					"protocol": "https",
-					"host": [
-						"localhost"
-					],
-					"port": "8443",
-					"path": [
-						"api",
-						"teamsOnGame"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "See games by tournament",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -183,7 +135,7 @@
 					"raw": "{\r\n\t\"user\": {\t\r\n\t },\r\n\t \"player\": {\r\n\t \t\"description\": \"My passion is eskeree\"\r\n\t }\r\n\r\n\t\r\n}"
 				},
 				"url": {
-					"raw": "https://localhost:8443/api/teamsOnGame/5",
+					"raw": "https://localhost:8443/api/tournaments/7/matches",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -191,8 +143,9 @@
 					"port": "8443",
 					"path": [
 						"api",
-						"teamsOnGame",
-						"5"
+						"tournaments",
+						"7",
+						"matches"
 					]
 				}
 			},
@@ -226,10 +179,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n    {\r\n        \"team_Id_Team\": 14,\r\n        \"game_Id_Game\": 8,\r\n        \"result\": 0,\r\n        \"winner\": false,\r\n        \"round\": \"1\",\r\n        \"date\": \"Mon Mar 08 21:32:07 CET 2020\",\r\n        \"teamIdTeam\": 14,\r\n        \"gameIdGame\": 8\r\n    }\r\n"
+					"raw": "2"
 				},
 				"url": {
-					"raw": "https://localhost:8443/api/teamsOnGame",
+					"raw": "https://localhost:8443/api/tournaments/7/teams",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -237,7 +190,9 @@
 					"port": "8443",
 					"path": [
 						"api",
-						"teamsOnGame"
+						"tournaments",
+						"7",
+						"teams"
 					]
 				}
 			},
@@ -319,10 +274,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n    {\r\n        \"team_Id_Team\": 2,\r\n        \"game_Id_Game\": 8,\r\n        \"result\": 0,\r\n        \"winner\": false,\r\n        \"round\": \"1\",\r\n        \"date\": \"Mon Mar 08 21:32:07 CET 2020\",\r\n        \"teamIdTeam\": 2,\r\n        \"gameIdGame\": 8\r\n    }\r\n"
+					"raw": "3"
 				},
 				"url": {
-					"raw": "https://localhost:8443/api/teamsOnGame",
+					"raw": "https://localhost:8443/api/tournaments/7/teams",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -330,7 +285,9 @@
 					"port": "8443",
 					"path": [
 						"api",
-						"teamsOnGame"
+						"tournaments",
+						"7",
+						"teams"
 					]
 				}
 			},
