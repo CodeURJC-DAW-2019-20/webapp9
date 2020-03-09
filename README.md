@@ -245,7 +245,7 @@ En esta fase he estado trabajando sobre REST, implementando la subida de imágen
 ### Archivos fase REST/Docker
 | Alejandro               | Daniel                  | Jorge                           | Lucía                   |
 |-------------------------|-------------------------|---------------------------------|-------------------------|
-| PlayerService           | UserServiceImp          |                                 |                         |
+| PlayerService           | UserServiceImp          | Docker                          | Docker                  |
 | TournamentService       | Teams_On_GameService    |                                 |                         |
 | TournamentRestController| TeamServiceImp          |                                 |                         |
 | TournamentController    | UserRestController      |                                 |                         |
@@ -268,10 +268,11 @@ En esta fase he estado trabajando sobre REST, implementando la subida de imágen
 [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/3808860eb9aa70a6b10f547189abc6a22e79fa7f)
 
 - Lucía
+[Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/cf9efca912e44e8535e80c759dd275035943e3c1)
 
 
 - Jorge
-
+[Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/cf9efca912e44e8535e80c759dd275035943e3c1)
 
 
 
