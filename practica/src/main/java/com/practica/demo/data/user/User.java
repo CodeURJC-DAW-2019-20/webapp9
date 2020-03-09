@@ -34,6 +34,19 @@ public class User {
 	public User() {
 
 	}
+	
+	
+
+	public User(String name, String username, String email, String password, Rol rol) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.rol = rol;
+	}
+
+
 
 	// GETTERS AND SETTERS
 
