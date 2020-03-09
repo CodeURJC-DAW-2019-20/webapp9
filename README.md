@@ -167,11 +167,32 @@ La practica se encuentra en: [Practica](practica)
 ### Acceso a la web. 
 Para acceder a la web introduzca la URL: https://https://localhost:8443/
 
-
 ### Especificación REST
 Se puede encontrar la documentación y especificación de los endpoints REST en el siguiente archivo
 [Documentación](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/API.md)
 
+### Pasos para generar Docker.
+1. Descargar Docker Desktop y crear un usuario.
+2. Abrir consola de comandos.
+3. Generar .jar usando las directrices de maven.
+4. Generar dockerfile en la carpeta en la que se encuentre el .jar.
+5. Escribir en el Dockerfile las siguientes líneas:
+       FROM openjdk:8-jdk-alpine
+       ARG JAR_FILE=target/* .jar
+       COPY ./practica.jar practica.jar
+       ENTRYPOINT ["java","-jar","/practica.jar"]
+6. Construir la imagen de nuestra aplicación con el siguiente comando:
+       docker image build -t 'user'/practica -f Dockerfile  . 
+7. Construir contenedor de la base de datos. 
+       docker container run --name 'nombre del contenedor' -e MYSQL_ROOT_PASSWORD='contraseña' -e MYSQL_DATABASE='nombre de la base de datos' -d mysql:8
+8. Una vez construido, comprobamos que la base de datos está conectada.
+       docker ps
+9. Linkeamos la base de datos con la imagen de nuestra aplicación y construimos su contenedor.
+       docker run -it --name 'nombre del contenedor' --link 'nombre del contenedor de la base de datos':mysql -d 'nombre de la imagen'
+10. Creamos el archivo docker-compose.yml
+
+11. Ejecutamos el siguiente comando para agrupar los dos contenedores.
+       docker-compose up
 
 ### Diagrama API Rest
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/github/RestDiagram.png "Diagrama Rest")
