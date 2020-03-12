@@ -20,7 +20,6 @@ En la cabecera se deberá especificar un "content-type" "application/json".
     "name": "Willy",
     "username": "Willy",
     "email": "willy@gmail.com",
-    "password": "123",
     "img": null,
     "rol": {
         "idRol": 2,
@@ -58,7 +57,6 @@ En la cabecera se deberá especificar un "content-type" "application/json".
     "name": "Admin",
     "username": "Admin",
     "email": "admin@gmail.com",
-    "password": "123",
     "img": null,
     "rol": {
         "idRol": 1,
@@ -195,7 +193,10 @@ En la cabecera se deberá especificar un "content-type" "application/json".
 * #### Operaciones soportadas
     POST
 * #### Body petición
-    Solo el id del equipo que quieras que se una al torneo, es decir, el id de tu equipo.
+	```
+    	{
+	"name": "The flyers"
+	}
 * #### Body respuesta
     200 OK (Your team joined the tournament)
 * #### Código de error
@@ -330,7 +331,10 @@ Esta petición es utilizada para la funcionalidad "load more" de la página web.
 * #### Operaciones soportadas
     PUT
 * #### Body petición
-    Únicamente el id del equipo donde deseemos añadir al juagador. Por ejemplo: 20
+	```
+    {
+	"name": "DEMO Team"
+	}
 * #### Body respuesta
     200 OK (Team was succesfully updated)
 * #### Código de error
