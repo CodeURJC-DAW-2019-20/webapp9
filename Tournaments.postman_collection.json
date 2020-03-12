@@ -36,7 +36,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"user\": {\t\r\n\t },\r\n\t \"player\": {\r\n\t \t\"description\": \"My passion is eskeree\"\r\n\t }\r\n\r\n\t\r\n}"
+					"raw": "{\r\n\t\"user\": {\t\r\n\t },\r\n\t \"player\": {\r\n\t \t\"description\": \"My passion is eskeree\"\r\n\t }\r\n\r\n\t\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/logIn",
@@ -84,7 +87,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"user\": {\t\r\n\t },\r\n\t \"player\": {\r\n\t \t\"description\": \"My passion is eskeree\"\r\n\t }\r\n\r\n\t\r\n}"
+					"raw": "{\r\n\t\"user\": {\t\r\n\t },\r\n\t \"player\": {\r\n\t \t\"description\": \"My passion is eskeree\"\r\n\t }\r\n\r\n\t\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/tournaments",
@@ -132,7 +138,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\t\"user\": {\t\r\n\t },\r\n\t \"player\": {\r\n\t \t\"description\": \"My passion is eskeree\"\r\n\t }\r\n\r\n\t\r\n}"
+					"raw": "{\r\n\t\"user\": {\t\r\n\t },\r\n\t \"player\": {\r\n\t \t\"description\": \"My passion is eskeree\"\r\n\t }\r\n\r\n\t\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/tournaments/7/matches",
@@ -179,7 +188,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "2"
+					"raw": "{\n\t\"name\": \"The flyers\"\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/tournaments/7/teams",
@@ -229,7 +241,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n    {\r\n        \"team_Id_Team\": 14,\r\n        \"game_Id_Game\": 8,\r\n        \"result\": 0,\r\n        \"winner\": false,\r\n        \"round\": \"1\",\r\n        \"date\": \"Mon Mar 08 21:32:07 CET 2020\",\r\n        \"teamIdTeam\": 14,\r\n        \"gameIdGame\": 8\r\n    }\r\n"
+					"raw": "\r\n    {\r\n        \"team_Id_Team\": 14,\r\n        \"game_Id_Game\": 8,\r\n        \"result\": 0,\r\n        \"winner\": false,\r\n        \"round\": \"1\",\r\n        \"date\": \"Mon Mar 08 21:32:07 CET 2020\",\r\n        \"teamIdTeam\": 14,\r\n        \"gameIdGame\": 8\r\n    }\r\n",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/logIn",
@@ -274,7 +289,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "3"
+					"raw": "3",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/tournaments/7/teams",
@@ -324,7 +342,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n    {\r\n        \"team_Id_Team\": 2,\r\n        \"game_Id_Game\": 8,\r\n        \"result\": 0,\r\n        \"winner\": false,\r\n        \"round\": \"1\",\r\n        \"date\": \"Mon Mar 08 21:32:07 CET 2020\",\r\n        \"teamIdTeam\": 2,\r\n        \"gameIdGame\": 8\r\n    }\r\n"
+					"raw": "\r\n    {\r\n        \"team_Id_Team\": 2,\r\n        \"game_Id_Game\": 8,\r\n        \"result\": 0,\r\n        \"winner\": false,\r\n        \"round\": \"1\",\r\n        \"date\": \"Mon Mar 08 21:32:07 CET 2020\",\r\n        \"teamIdTeam\": 2,\r\n        \"gameIdGame\": 8\r\n    }\r\n",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/logIn",
@@ -372,7 +393,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n    {\r\n        \"team_Id_Team\": 2,\r\n        \"game_Id_Game\": 8,\r\n        \"result\": 0,\r\n        \"winner\": false,\r\n        \"round\": \"1\",\r\n        \"date\": \"Mon Mar 08 21:32:07 CET 2020\",\r\n        \"teamIdTeam\": 2,\r\n        \"gameIdGame\": 8\r\n    }\r\n"
+					"raw": "\r\n    {\r\n        \"team_Id_Team\": 2,\r\n        \"game_Id_Game\": 8,\r\n        \"result\": 0,\r\n        \"winner\": false,\r\n        \"round\": \"1\",\r\n        \"date\": \"Mon Mar 08 21:32:07 CET 2020\",\r\n        \"teamIdTeam\": 2,\r\n        \"gameIdGame\": 8\r\n    }\r\n",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/teams",
@@ -417,7 +441,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"The JS Scripters\"\n}"
+					"raw": "{\n\t\"name\": \"The JS Scripters\"\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/teams/2",
@@ -463,7 +490,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"name\": \"DEMO Team\",\n\t\"elo\": 1000\n}"
+					"raw": "{\n\t\"name\": \"DEMO Team\",\n\t\"elo\": 1000\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/teams",
@@ -508,7 +538,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "20"
+					"raw": "{\n\t\"name\": \"DEMO Team\"\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/player/16/team",
@@ -555,7 +588,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "20"
+					"raw": "{\n\t\"name\": \"DEMO Team\"\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/player/18/team",
@@ -602,7 +638,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "20"
+					"raw": "{\n\t\"name\": \"DEMO Team\"\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/player/20/team",
@@ -649,7 +688,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "[\r\n\t{\r\n        \"result\": 2,\r\n        \"winner\": false\r\n    },\r\n    {\r\n        \"result\": 5,\r\n        \"winner\": true\r\n    }\r\n]"
+					"raw": "[\r\n\t{\r\n        \"result\": 2,\r\n        \"winner\": false\r\n    },\r\n    {\r\n        \"result\": 5,\r\n        \"winner\": true\r\n    }\r\n]",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/teamsOnGame/1+2+1",
@@ -695,7 +737,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"numTeams\": 16,\r\n        \"name\": \"DEMO\",\r\n        \"description\": \"Demostration tournament\",\r\n        \"img\": null,\r\n        \"latitude\": 5,\r\n        \"longitude\": 5\r\n    }"
+					"raw": "{\r\n        \"numTeams\": 16,\r\n        \"name\": \"DEMO\",\r\n        \"description\": \"Demostration tournament\",\r\n        \"img\": null,\r\n        \"latitude\": 5,\r\n        \"longitude\": 5\r\n    }",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/tournaments",
@@ -743,7 +788,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"numTeams\": 16,\r\n        \"name\": \"DEMO\",\r\n        \"description\": \"Demostration tournament\",\r\n        \"img\": null,\r\n        \"latitude\": 5,\r\n        \"longitude\": 5\r\n    }"
+					"raw": "{\r\n        \"numTeams\": 16,\r\n        \"name\": \"DEMO\",\r\n        \"description\": \"Demostration tournament\",\r\n        \"img\": null,\r\n        \"latitude\": 5,\r\n        \"longitude\": 5\r\n    }",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/logOut",
@@ -791,7 +839,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"numTeams\": 16,\r\n        \"name\": \"DEMO\",\r\n        \"description\": \"Demostration tournament\",\r\n        \"img\": null,\r\n        \"latitude\": 5,\r\n        \"longitude\": 5\r\n    }"
+					"raw": "{\r\n        \"numTeams\": 16,\r\n        \"name\": \"DEMO\",\r\n        \"description\": \"Demostration tournament\",\r\n        \"img\": null,\r\n        \"latitude\": 5,\r\n        \"longitude\": 5\r\n    }",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/logIn",
@@ -836,7 +887,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"user\": {\n\t },\n\t \"player\": {\n\t\t\"description\": \"I like football and flying\"\n\t }\n\n\t\n}"
+					"raw": "{\n\t\"user\": {\n\t },\n\t \"player\": {\n\t\t\"description\": \"I like football and flying\"\n\t }\n\n\t\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/user/4",
@@ -888,7 +942,10 @@
 							"type": "file",
 							"src": []
 						}
-					]
+					],
+					"options": {
+						"formdata": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/user/4/image",
@@ -944,7 +1001,10 @@
 							"type": "file",
 							"src": []
 						}
-					]
+					],
+					"options": {
+						"formdata": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/user/4/image",
@@ -997,7 +1057,10 @@
 							"type": "file",
 							"src": []
 						}
-					]
+					],
+					"options": {
+						"formdata": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/user/7/image",
@@ -1044,7 +1107,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Noveau\",\r\n    \"username\": \"Noveau\",\r\n    \"email\": \"noveaun@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"rol\": {\r\n        \"idRol\": 2,\r\n        \"rolDes\": \"USER\"\r\n    }\r\n}"
+					"raw": "{\r\n    \"name\": \"Noveau\",\r\n    \"username\": \"Noveau\",\r\n    \"email\": \"noveaun@gmail.com\",\r\n    \"password\": \"123\",\r\n    \"rol\": {\r\n        \"idRol\": 2,\r\n        \"rolDes\": \"USER\"\r\n    }\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
 					"raw": "https://localhost:8443/api/user",
