@@ -3,6 +3,7 @@ package com.practica.demo.data.tournament;
 import java.io.File;
 import java.util.List;
 
+import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teamsOnGame.*;
 
 import org.apache.commons.io.IOUtils;
@@ -31,8 +32,11 @@ public class TournamentRestController {
 	
 	@RequestMapping(value = "/api/tournaments", method = RequestMethod.POST)
 	public ResponseEntity<Object>crerateTournament(@RequestBody Tournament tournament){
-		if(tournamentService.createTournament(tournament)){
-			return new ResponseEntity<>("Tournament was succesfully created", HttpStatus.CREATED);
+		
+		Integer result = tournamentService.createTournament(tournament);
+		
+		if(result != null){
+			return new ResponseEntity<>("Tournament was succesfully created. ID: " + result, HttpStatus.CREATED);
 		}else{
 			return new ResponseEntity<>("Tournament wasnt created", HttpStatus.CONFLICT);
 		}
@@ -58,8 +62,8 @@ public class TournamentRestController {
 	}
 	
 	@RequestMapping(value = "/api/tournaments/{id}/teams", method = RequestMethod.POST)
-	public ResponseEntity<Object>join(@PathVariable int id, @RequestBody int idTeam){
-		if(tournamentService.joinTournament(id, idTeam)) {
+	public ResponseEntity<Object>join(@PathVariable int id, @RequestBody Team team){
+		if(tournamentService.joinTournament(id, team)) {
 			return new ResponseEntity<>("Your team joined the tournament",HttpStatus.OK);
 		}else {
 			return new ResponseEntity<>("Error",HttpStatus.INTERNAL_SERVER_ERROR);

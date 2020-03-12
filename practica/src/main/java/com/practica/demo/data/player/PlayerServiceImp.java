@@ -19,9 +19,9 @@ public class PlayerServiceImp implements PlayerService{
 	private TeamRepository teamRepository;
 	
 	@Override
-	public boolean updateTeam(int idPlayer, int idTeam) {
+	public boolean updateTeam(int idPlayer, Team team) {
 		
-		Team auxTeam = teamRepository.findByidTeam(idTeam);
+		Team auxTeam = teamRepository.findByname(team.getName());
 		
 		if(auxTeam != null) {
 			

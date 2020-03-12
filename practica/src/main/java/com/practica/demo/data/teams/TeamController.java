@@ -82,7 +82,7 @@ public class TeamController {
 			
 			repositoryTeam.save(team);
 			
-			int teamaux = repositoryTeam.findByname(team_name).getId();
+			Team teamaux = repositoryTeam.findByname(team_name);
 			
 			playerService.updateTeam(p1.getIdPlayer(), teamaux);
 			playerService.updateTeam(p2.getIdPlayer(), teamaux);

@@ -7,6 +7,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.practica.demo.data.rol.Rol;
 
 @Entity
@@ -23,6 +24,7 @@ public class User {
 	private String name;
 	private String username;
 	private String email;
+	@JsonIgnore
 	private String password;
 	private String img;
 

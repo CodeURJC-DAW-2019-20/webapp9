@@ -174,8 +174,8 @@ public class TournamentController {
 	@GetMapping("/jointournament")
 	public String join(Model model, @RequestParam(required = false) String torunament) {
 		Tournament auxTour = repositoryTournament.findByname(torunament);
-		int idTournament = playerRepository.findByuser(userComponent.getLoggedUser()).getTeam().getId();
-		if (tournamentService.joinTournament(auxTour.getIdTournament(),idTournament)) {
+		Team team = playerRepository.findByuser(userComponent.getLoggedUser()).getTeam();
+		if (tournamentService.joinTournament(auxTour.getIdTournament(),team)) {
 			return "index";
 		}else {
 			return "error";

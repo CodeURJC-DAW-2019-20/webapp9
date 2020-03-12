@@ -19,13 +19,16 @@ public class TeamServiceImp implements TeamService{
 	private PlayerRepository playerRepository;
 	
 	@Override
-	public boolean createTeam(Team team) {
+	public Integer createTeam(Team team) {
 		try {
 			Team newTeam = new Team(team.getName(), 1000);
 			teamRepository.save(newTeam);
-			return true;
+			
+			Team auxTeam = teamRepository.findByname(team.getName());
+			
+			return auxTeam.getId();
 		}catch(Exception e) {
-			return false;
+			return null;
 		}
 		
 	}

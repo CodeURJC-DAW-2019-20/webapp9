@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.practica.demo.data.teams.Team;
+
 @RestController
 public class PlayerRestController {
 	
@@ -17,8 +19,8 @@ public class PlayerRestController {
 	private PlayerService playerService;
 	
 	@RequestMapping(value = "/api/player/{idPlayer}/team", method = RequestMethod.PUT)
-	public ResponseEntity<Object> addPlayerTeam(@PathVariable int idPlayer, @RequestBody int idTeam){
-		if(playerService.updateTeam(idPlayer,idTeam)){
+	public ResponseEntity<Object> addPlayerTeam(@PathVariable int idPlayer, @RequestBody Team team){
+		if(playerService.updateTeam(idPlayer,team)){
 			return new ResponseEntity<>("Team was succesfully updated", HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>("Player or team not found", HttpStatus.NOT_FOUND);
