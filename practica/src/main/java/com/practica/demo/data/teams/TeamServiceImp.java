@@ -4,6 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.practica.demo.data.player.Player;
@@ -90,6 +94,13 @@ public class TeamServiceImp implements TeamService{
 		}else {
 			return false;
 		}
+	}
+	
+	public List<Team> getTeamsByElo(int page){
+		Pageable newPage =  PageRequest.of(page,3,Sort.by("elo").descending());
+		Page<Team> aux = teamRepository.findAll(newPage);
+		List<Team> result = aux.getContent();
+		return result;
 	}
 
 }
