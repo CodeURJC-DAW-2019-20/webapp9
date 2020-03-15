@@ -31,10 +31,10 @@ public class UserRestController {
 	@RequestMapping(value = "/api/user", method = RequestMethod.POST)
 	public ResponseEntity<Object> createUser(@RequestBody User user){
 		
-		Integer result = userService.createUser(user);
+		User result = userService.createUser(user);
 		
 		if(result != null) {
-			return new ResponseEntity<>("User successfully created. ID:" + result, HttpStatus.CREATED);
+			return new ResponseEntity<>(result, HttpStatus.CREATED);
 		}else {
 			return new ResponseEntity<>("Failed to create user", HttpStatus.CONFLICT);
 		}

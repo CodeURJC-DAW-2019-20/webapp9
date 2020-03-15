@@ -49,9 +49,9 @@ public class UserServiceImp implements UserService{
 	}
 
 	@Override
-	public Integer createUser(User user) {
+	public User createUser(User user) {
 		try {
-			User newUser = new User(user.getName(), user.getUsername(), user.getEmail(), user.getName(), user.getRol());
+			User newUser = new User(user.getName(), user.getUsername(), user.getEmail(), user.getPassword(), user.getRol());
 			
 			userRepository.save(newUser);
 			
@@ -66,8 +66,8 @@ public class UserServiceImp implements UserService{
 				
 				playerRepository.save(newPlayer);
 			}
-			
-			return auxUser.getIduser();
+			return auxUser;
+			//return auxUser.getIduser();
 		}catch(Exception e) {
 			return null;
 		}
