@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_DATABASE=web_fase_1
+      - MYSQL_ROOT_PASSWORD=root    
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=root
+    ports:
+      - 3306:3306
+
+  practica:
+    image: web9/practica
+    ports:
+      - 8443:8443
+    depends_on:
+      - db
+    environment:
+      - WAIT_HOSTS=web_fase_1:3306
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db:3306/web_fase_1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      
