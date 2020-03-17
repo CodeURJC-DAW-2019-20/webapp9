@@ -235,7 +235,7 @@ networks:
 He participado principalmente en la implementación de la API Rest, centrandome en la seguridad y ficheros POSTMAN.
 
 - Jorge
-He 
+En esta fase he estado realizando la creacion de contenedores con Docker y su conexion con la BBDD
 
 - Alejandro
 En esta fase he estado trabajando sobre REST, implementando la subida de imágenes y limpiando código repetido para que se pueda reutilizar entre la web normal y la aplicación web.
@@ -246,9 +246,9 @@ En esta fase he estado realizando los contenedores de la aplicación y la base d
 ### Archivos fase REST/Docker
 | Alejandro               | Daniel                  | Jorge                           | Lucía                   |
 |-------------------------|-------------------------|---------------------------------|-------------------------|
-| PlayerService           | UserServiceImp          | Docker                          | Docker                  |
-| TournamentService       | Teams_On_GameService    |                                 |                         |
-| TournamentRestController| TeamServiceImp          |                                 |                         |
+| PlayerService           | UserServiceImp          | Dockerfile                      | Dockerfile              |
+| TournamentService       | Teams_On_GameService    | docker-compose.yml              | docker-compose.yml      |
+| TournamentRestController| TeamServiceImp          | practica.jar                    | practica.jar            |
 | TournamentController    | UserRestController      |                                 |                         |
 | ImageService            | TeamRestController      |                                 |                         |
 

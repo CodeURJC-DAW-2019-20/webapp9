@@ -49,25 +49,27 @@ public class UserServiceImp implements UserService{
 	}
 
 	@Override
-	public boolean createUser(User user) {
+	public User createUser(User user) {
 		try {
-			User newUser = new User(user.getName(), user.getUsername(), user.getEmail(), user.getName(), user.getRol());
+			User newUser = new User(user.getName(), user.getUsername(), user.getEmail(), user.getPassword(), user.getRol());
 			
 			userRepository.save(newUser);
+			
+			User auxUser = userRepository.findByemail(user.getEmail());
 			
 			if(user.getRol().getRolDes().equals("USER")) {
 				Player newPlayer = new Player();
 				
-				User auxUser = userRepository.findByemail(user.getEmail());
+				
 				
 				newPlayer.setUser(auxUser);
 				
 				playerRepository.save(newPlayer);
 			}
-			
-			return true;
+			return auxUser;
+			//return auxUser.getIduser();
 		}catch(Exception e) {
-			return false;
+			return null;
 		}
 	}
 

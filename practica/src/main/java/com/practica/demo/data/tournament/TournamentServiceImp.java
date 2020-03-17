@@ -58,7 +58,7 @@ public class TournamentServiceImp implements TournamentService {
 	TeamRepository teamRepository;
 	
 	@Override
-	public boolean createTournament(Tournament tournament) {
+	public Integer createTournament(Tournament tournament) {
 		try {
 			Tournament newTournament = new Tournament(tournament.getNumTeams(), tournament.getName(), tournament.getDescription(), tournament.getLatitude(), tournament.getLongitude());
 			
@@ -72,9 +72,9 @@ public class TournamentServiceImp implements TournamentService {
 
 			gameRepository.save(newGame);
 
-			return true;
+			return auxTournament.getIdTournament();
 		} catch (Exception e) {
-			return false;
+			return null;
 		}
 	}
 
@@ -119,7 +119,7 @@ public class TournamentServiceImp implements TournamentService {
 	}
 	
 	@Override
-	public boolean joinTournament(int id, int idTeam) {
+	public boolean joinTournament(int id, Team team) {
 
 			
 			Optional<Tournament> tour = tournamentRepository.findById(id);
@@ -134,7 +134,7 @@ public class TournamentServiceImp implements TournamentService {
 				
 					java.util.Date fecha = new java.util.Date();
 
-					Team teamPlayer = teamRepository.findByidTeam(idTeam);		
+					Team teamPlayer = teamRepository.findByname(team.getName());		
 				
 					Teams_On_Game teamOnGame = new Teams_On_Game(teamPlayer.getId(), auxGame.getId_game(), 0, false, "1", String.valueOf(fecha));
 					

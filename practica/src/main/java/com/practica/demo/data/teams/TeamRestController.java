@@ -25,17 +25,28 @@ public class TeamRestController {
 		return repositoryTeam.findByTeamNotNull();
 	}
 	
-	@RequestMapping(value = "/api/teams", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/api/teams", method = RequestMethod.GET)
 	public ResponseEntity<Object> getTeams(){
 		return new ResponseEntity<>(teamService.getTeams(), HttpStatus.OK);
-	}
+	}*/
 	
 	@RequestMapping(value = "/api/teams", method = RequestMethod.POST)
 	public ResponseEntity<Object> createTeam(@RequestBody Team team){
-		if(teamService.createTeam(team)){
-			return new ResponseEntity<>("Team was succesfully created", HttpStatus.CREATED);
+		
+		Integer result = teamService.createTeam(team);
+		
+		if(result != null){
+			return new ResponseEntity<>("Team was succesfully created. ID: " + result, HttpStatus.CREATED);
 		}else{
 			return new ResponseEntity<>("Team wasnt created", HttpStatus.CONFLICT);
+		}
+	}
+	@RequestMapping(value = "/api/teams/page={pageNum}", method = RequestMethod.GET)
+	public ResponseEntity<Object> getTeamsByElo(@PathVariable int pageNum){
+		if(!teamService.getTeamsByElo(pageNum).isEmpty()) {
+			return new ResponseEntity<>(teamService.getTeamsByElo(pageNum), HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	
