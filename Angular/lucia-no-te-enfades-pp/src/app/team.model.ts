@@ -4,5 +4,4 @@ export interface Team{
     elo: number;
     wins: number;
     losses: number;
-
 }

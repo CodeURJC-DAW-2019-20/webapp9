@@ -1,0 +1,159 @@
+<html>
+
+<head>
+<!--
+<link href="/core/bootstrap.min.css" rel="stylesheet">
+<link href="/css/TeamCreation/teamCreation_files/style.css"
+	rel="stylesheet">
+<link href="/css/TeamCreation/teamCreation_files/teamCreation.css"
+    rel="stylesheet">
+-->
+</head>
+
+<body>
+	<!-- NavBar 
+	<header>
+		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+			<a class="navbar-brand" href="#"> <img
+				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+			</a> <a class="navbar-brand">eTournaments</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<form action="index">
+							<input type="submit" class="nav-link" value="Home">
+						</form>
+					</li>
+					<li class="nav-item active">{{#noloaded}}
+						<form action="signIn">
+							<input type="submit" class="nav-link" value="Sign In">
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="profile">
+							<input type="submit" class="nav-link" value="Profile">
+						</form> {{/noloaded}}
+					</li>
+					<li class="nav-item active">
+						<form action="leaderBoard">
+							<input type="submit" class="nav-link" value="Leaderboard">
+						</form>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">{{#noloaded}}
+						<form action="register">
+							<input type="submit" class="nav-link" value="Register"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}} {{^noloaded}}
+						<form action="/logout" method="post">
+							<input type="submit" class="nav-link" value="Log Out"> <input
+								type="hidden" name="_csrf" value="{{token}}" />
+						</form> {{/noloaded}}
+
+					</li>
+				</ul>
+			</div>
+
+
+		</nav>
+    </header>
+    
+    -->
+
+	<div class="container">
+
+			<fieldset>
+				
+				<br>
+				<br>
+				<br>
+				<br>
+				
+				<!-- Form Name -->
+
+						<h2>
+							<b>Create team</b>
+						</h2>
+
+						<br>
+				
+				
+				
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Team name</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="team.name"
+								placeholder="Your team name here" class="form-control"
+								>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">First player</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="user1.userName"
+								placeholder="Username of first player"
+								class="form-control">
+						</div>
+					</div>
+				</div>
+				
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Second player</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="user2.userName"
+								placeholder="Username of secon player"
+								class="form-control">
+						</div>
+					</div>
+				</div>
+
+				<!-- Text input-->
+
+				<div class="form-group">
+					<label class="col-md-4 control-label">Third player</label>
+					<div class="col-md-4 inputGroupContainer">
+						<div class="input-group">
+							<span class="input-group-addon"><i
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="user3.userName"
+								placeholder="Username of third player"
+								class="form-control">
+						</div>
+					</div>
+				</div>
+
+				<br>
+				<!-- Button -->
+				<div class="col-md-4 inputGroupContainer">
+					<button (click)="save()">Save</button>
+				</div>
+
+			</fieldset>
+
+    </div>
+    
+    <!--
+	<script src="/core/jquery-3.4.1.slim.min.js"></script>
+    <script src="/core/bootstrap.bundle.min.js"></script>
+    -->
+
+</body>
+
+</html>
