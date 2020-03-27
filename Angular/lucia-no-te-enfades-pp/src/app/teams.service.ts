@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { Team } from './team.model';
 
-const BASE_URL = 'http://127.0.0.1:8443/teams/';
+const BASE_URL = 'https://127.0.0.1:8443/teams/';
 
 @Injectable({ providedIn: 'root' })
 export class TeamsService {
