@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.practica.demo.data.teams.Team;
+import com.practica.demo.data.user.User;
 
 @RestController
 public class PlayerRestController {
@@ -24,6 +25,18 @@ public class PlayerRestController {
 			return new ResponseEntity<>("Team was succesfully updated", HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>("Player or team not found", HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@RequestMapping(value = "/api/player/{idUser}", method = RequestMethod.GET)
+	public ResponseEntity<Object> getPlayer(@PathVariable int idUser){
+		
+		Player playerResult = playerService.getPlayerByUser(idUser);
+		
+		if(playerResult != null) {
+			return new ResponseEntity<>(playerResult, HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>("Player not found", HttpStatus.NOT_FOUND);
 		}
 	}
 	

@@ -20,9 +20,17 @@ export class TeamFormComponent {
 
     save() {
         this.teamsService.addTeam(this.team).subscribe(
-            team => { },
+            team => { 
+                let data: any = team;
+                let idTeam = data.idTeam;
+                this.savePlayerTeam(idTeam);
+            },
             error => console.error('Error creating new Team: ' + error)
         );
+    }
+
+    savePlayerTeam(idTeam: number){
+        
     }
 
 }

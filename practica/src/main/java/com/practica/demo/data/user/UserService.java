@@ -4,6 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface UserService {
 	public abstract User getUser(int id);
+	public abstract User getUserByUserName(String userName);
 	public abstract User createUser(User user);
 	public abstract boolean updateUser(int id, UserPlayerWrapper userPlayer);
 	public abstract boolean uploadImage(MultipartFile imageFile,int id);
