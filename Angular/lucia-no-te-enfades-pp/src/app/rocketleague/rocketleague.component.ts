@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { Component } from '@angular/core';
+
+import { RocketleagueService } from './rocketleague.service';
 
 import { Tournament } from '../tournament/tournament.model';
 
@@ -9,13 +10,16 @@ import { Tournament } from '../tournament/tournament.model';
 })
 
 export class RocketleagueComponent{
-    this.http.get(url).suscribe(
-        response => {
-            let tournaments: any = response;
-        },
-        error => console.error(error)
-    );
+    tournament: Tournament;
 
-    @Input()
-    name: string;
+    constructor(private rocketleagueService: RocketleagueService){}
+
+    tournamentsOnHtml(){
+        this.rocketleagueService.getTournaments().subscribe(
+           tournament => {
+               let tournaments: any = tournament;
+           },
+           error => console.error('Error finding tournaments ' + error)
+        );
+    }
 }
