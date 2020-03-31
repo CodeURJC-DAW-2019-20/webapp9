@@ -33,10 +33,10 @@ public class TeamRestController {
 	@RequestMapping(value = "/api/teams", method = RequestMethod.POST)
 	public ResponseEntity<Object> createTeam(@RequestBody Team team){
 		
-		Integer result = teamService.createTeam(team);
+		Team teamResult = teamService.createTeam(team);
 		
-		if(result != null){
-			return new ResponseEntity<>("Team was succesfully created. ID: " + result, HttpStatus.CREATED);
+		if(teamResult != null){
+			return new ResponseEntity<>(repositoryTeam.findByname(teamResult.getName()), HttpStatus.CREATED);
 		}else{
 			return new ResponseEntity<>("Team wasnt created", HttpStatus.CONFLICT);
 		}

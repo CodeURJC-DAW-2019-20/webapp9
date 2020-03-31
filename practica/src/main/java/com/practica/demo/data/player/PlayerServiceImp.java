@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teams.TeamRepository;
+import com.practica.demo.data.user.RespositoryUser;
+import com.practica.demo.data.user.User;
 
 
 @Service
@@ -17,6 +19,9 @@ public class PlayerServiceImp implements PlayerService{
 	
 	@Autowired
 	private TeamRepository teamRepository;
+	
+	@Autowired
+	private RespositoryUser userRepository;
 	
 	@Override
 	public boolean updateTeam(int idPlayer, Team team) {
@@ -43,6 +48,16 @@ public class PlayerServiceImp implements PlayerService{
 		}
 	}
 
-	
-	
+	@Override
+	public Player getPlayerByUser(int idUser) {
+		
+		User user = userRepository.findByiduser(idUser);
+		
+		try {
+			return playerRepository.findByuser(user);
+		}catch (Exception e) {
+			return null;
+		}
+	}
+
 }

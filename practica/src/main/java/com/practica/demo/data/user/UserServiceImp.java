@@ -47,6 +47,15 @@ public class UserServiceImp implements UserService{
 		}
 		
 	}
+	
+	@Override
+	public User getUserByUserName(String userName) {
+		try {
+			return userRepository.findByusername(userName);
+		}catch (Exception e) {
+			return null;
+		}
+	}
 
 	@Override
 	public User createUser(User user) {

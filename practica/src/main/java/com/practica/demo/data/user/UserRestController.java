@@ -28,6 +28,16 @@ public class UserRestController {
 		
 	}
 	
+	@RequestMapping(value = "/api/user/name={userName}", method = RequestMethod.GET)
+	public ResponseEntity<Object> getUserName(@PathVariable String userName){
+		User user = userService.getUserByUserName(userName);
+		if(user != null) {
+			return new ResponseEntity<>(user, HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>("The user doesnt exist", HttpStatus.BAD_REQUEST);
+		}
+	}
+	
 	@RequestMapping(value = "/api/user", method = RequestMethod.POST)
 	public ResponseEntity<Object> createUser(@RequestBody User user){
 		

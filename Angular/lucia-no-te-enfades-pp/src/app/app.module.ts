@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './_servicies/user.service';
 
+import { RocketleagueComponent } from './rocketleague/rocketleague.component';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule } from "@angular/router";
 
@@ -13,9 +15,8 @@ import { RouterModule } from "@angular/router";
   declarations: [
     AppComponent,
     LoginComponent,
-    
-    
   ],
+
   imports: [
     BrowserModule,
     NgbModule,

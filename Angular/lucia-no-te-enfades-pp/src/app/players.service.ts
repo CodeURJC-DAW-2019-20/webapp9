@@ -3,35 +3,26 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+import { Player } from './player.model';
 import { Team } from './team.model';
 
-const BASE_URL = 'https://127.0.0.1:8443/api/teams/';
+const BASE_URL = 'https://127.0.0.1:8443/api/player/';
 
 @Injectable({ providedIn: 'root' })
-export class TeamsService {
-    
-    page: number;
+export class PlayersService {
 
     constructor(private httpClient: HttpClient){}
 
-    //TODO get LeaderBoard
-
-    getTeams(): Observable<Team[]> {
-        return this.httpClient.get(BASE_URL + "page=" + this.page).pipe(
+    getPlayerByUserId(userId: number): Observable<Player> {
+        return this.httpClient.get(BASE_URL + userId).pipe(
             catchError(error => this.handleError(error))
-        ) as Observable<Team[]>;
+        )as Observable<Player>;
     }
 
-    addTeam(team: Team) {
-        return this.httpClient.post(BASE_URL, team).pipe(
+    updatePlayerTeam(idPlayer: number, team: Team) {
+        return this.httpClient.put(BASE_URL + idPlayer + "/team", team).pipe(
             catchError(error => this.handleError(error))
-        );
-    }
-
-    updateTeam(team: Team) {
-        return this.httpClient.put(BASE_URL + team.idTeam, team).pipe(
-            catchError(error => this.handleError(error))
-        );
+        )
     }
 
     private handleError(error: any) {

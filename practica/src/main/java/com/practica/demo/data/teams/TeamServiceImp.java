@@ -23,14 +23,14 @@ public class TeamServiceImp implements TeamService{
 	private PlayerRepository playerRepository;
 	
 	@Override
-	public Integer createTeam(Team team) {
+	public Team createTeam(Team team) {
 		try {
 			Team newTeam = new Team(team.getName(), 1000);
 			teamRepository.save(newTeam);
 			
 			Team auxTeam = teamRepository.findByname(team.getName());
 			
-			return auxTeam.getId();
+			return auxTeam;
 		}catch(Exception e) {
 			return null;
 		}
