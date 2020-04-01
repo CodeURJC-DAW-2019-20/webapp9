@@ -8,23 +8,24 @@ import { UserService } from './_servicies/user.service';
 
 import { RocketleagueComponent } from './rocketleague/rocketleague.component';
 
+import { AppRoutingModule, routing } from './app-routing.module';
+
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { RouterModule } from "@angular/router";
+
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent
+    
   ],
 
   imports: [
     BrowserModule,
-    NgbModule,
-    RouterModule.forRoot([
-      {path: 'login', component:LoginComponent},
-      {path:'index', component:AppComponent}
-     // {path:"",redirectTo:"index",pathMatch:'full'}
-    ])  
+    AppRoutingModule,
+    routing
   ],
   providers: [
     UserService
