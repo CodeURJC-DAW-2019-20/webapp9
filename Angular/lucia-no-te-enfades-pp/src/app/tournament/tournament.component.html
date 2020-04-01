@@ -154,29 +154,29 @@
 					<!--Table head-->
 					<!--Table body-->
 					<tbody id="table">
-						{{#plays}}
+						<ng-template ngFor let-elem [ngForOf]="plays">
 						<tr>
 							<th scope="row">{{-index}}</th>
-							<td>{{round}}</td>
-							<td>{{name1}}</td>
-							<td>{{elo1}}</td>
-							<td>{{name2}}</td>
-							<td>{{elo2}}</td>
-							<td>{{date}}</td>
-							<td>{{nameWinner}}</td>
+							<td>{{elem.round}}</td>
+							<td>{{elem.name1}}</td>
+							<td>{{elem.elo1}}</td>
+							<td>{{elem.name2}}</td>
+							<td>{{elem.elo2}}</td>
+							<td>{{elem.date}}</td>
+							<td>{{elem.nameWinner}}</td>
 							<td>
 							<form action='/gameData'>
-							<input type="hidden" name="name1" value="{{name1}}">
-							<input type="hidden" name="elo1" value="{{elo1}}">
-							<input type="hidden" name="name2" value="{{name2}}">
-							<input type="hidden" name="elo2" value="{{elo2}}">
+							<input type="hidden" name="name1" value="{{elem.name1}}">
+							<input type="hidden" name="elo1" value="{{elem.elo1}}">
+							<input type="hidden" name="name2" value="{{elem.name2}}">
+							<input type="hidden" name="elo2" value="{{elem.elo2}}">
 							
 							<input type="submit" value="UpdateMatch">
 							<input type="hidden" name="_csrf" value="{{token}}">
 							</form>
 							</td>
 						</tr>
-						{{/plays}}
+						</ng-template>
 
 					</tbody>
 					<!--Table body-->
@@ -190,7 +190,7 @@
 
 				<div class="d-flex justify-content-center">
 					<!--Pagination -->
-					<input type="hidden" name="_csrf" value="{{token}}">
+						<input type="hidden" name="_csrf" value="{{token}}">
 
 
 					<!--/Pagination -->
