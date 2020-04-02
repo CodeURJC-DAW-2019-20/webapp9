@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Play } from './play.model';
+import { Tournament } from './tournament.model';
 
 const BASE_URL = 'https://127.0.0.1:8443/api/tournament/';
 
@@ -12,7 +13,7 @@ export class TournamentService{
     constructor(private httpClient: HttpClient){}
 
     getPlays(): Observable<Play[]> {
-        return this.httpClient.get(BASE_URL + './tournament.component.html').pipe(
+        return this.httpClient.get(BASE_URL + name).pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Play[]>;
     }

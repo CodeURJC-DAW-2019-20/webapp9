@@ -12,14 +12,19 @@ import { AppRoutingModule, routing } from './app-routing.module';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+
 import { HomeComponent } from './home/home.component';
+import { CreatetournamentComponent } from './createTournament/createtournament.component';
+import { TournamentComponent } from './tournament/tournament.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
-    
+    HomeComponent,
+    RocketleagueComponent,
+    CreatetournamentComponent,
+    TournamentComponent   
   ],
 
   imports: [
