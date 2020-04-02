@@ -6,18 +6,21 @@ import { catchError } from 'rxjs/operators';
 import { Team } from './team.model';
 
 const BASE_URL = 'https://127.0.0.1:8443/api/teams/';
+const LEADERBOARD_URL = 'https://127.0.0.1:8443/api/leaderBoardLoaded/';
 
 @Injectable({ providedIn: 'root' })
 export class TeamsService {
-    
-    page: number;
 
     constructor(private httpClient: HttpClient){}
 
-    //TODO get LeaderBoard
+    getLeaderBoard(): Observable<Team[]>{
+        return this.httpClient.get(LEADERBOARD_URL).pipe(
+            catchError(error => this.handleError(error))
+        ) as Observable<Team[]>;
+    }
 
-    getTeams(): Observable<Team[]> {
-        return this.httpClient.get(BASE_URL + "page=" + this.page).pipe(
+    getTeams(page: number): Observable<Team[]> {
+        return this.httpClient.get(BASE_URL + "page=" + page).pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Team[]>;
     }
