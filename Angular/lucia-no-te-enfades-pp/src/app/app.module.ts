@@ -13,7 +13,7 @@ import { RocketleagueComponent } from './rocketleague/rocketleague.component';
 import { TeamComponent } from './team.component';
 import { LeaderboardComponent } from './leaderboard.component';
 
-import { AppRoutingModule, routing } from './app-routing.module';
+import { routing } from './app-routing.module';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,6 +21,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { CreatetournamentComponent } from './createTournament/createtournament.component';
 import { TournamentComponent } from './tournament/tournament.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { TournamentComponent } from './tournament/tournament.component';
 
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     routing
   ],

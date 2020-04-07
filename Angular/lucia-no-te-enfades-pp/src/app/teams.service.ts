@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 import { Team } from './team.model';
 
@@ -14,7 +15,7 @@ export class TeamsService {
     constructor(private httpClient: HttpClient){}
 
     getLeaderBoard(): Observable<Team[]>{
-        return this.httpClient.get(LEADERBOARD_URL).pipe(
+        return this.httpClient.get<Team[]>(LEADERBOARD_URL).pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Team[]>;
     }
@@ -25,8 +26,8 @@ export class TeamsService {
         ) as Observable<Team[]>;
     }
 
-    addTeam(team: Team) {
-        return this.httpClient.post(BASE_URL, team).pipe(
+    addTeam(team: Team): Observable<Team>{
+        return this.httpClient.post<Team>(BASE_URL, team).pipe(
             catchError(error => this.handleError(error))
         );
     }
@@ -39,7 +40,7 @@ export class TeamsService {
 
     private handleError(error: any) {
 		console.error(error);
-		return Observable.throw("Server error (" + error.status + "): " + error.text())
+		return throwError("Server error (" + error.status + "): " + error.text);
 	}
 
 }

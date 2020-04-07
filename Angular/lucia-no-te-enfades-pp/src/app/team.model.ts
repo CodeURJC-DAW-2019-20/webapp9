@@ -1,4 +1,4 @@
-export interface Team{
+export class Team{
     idTeam?: number;
     name: string;
     elo: number;
