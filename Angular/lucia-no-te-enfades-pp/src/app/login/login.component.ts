@@ -24,11 +24,11 @@ export class LoginComponent implements OnInit {
      
     constructor(public userService: UserService, public router: Router, public route:ActivatedRoute) {
         
-      }
+     }
 
       login(username: string, password: string, event: Event) {
 
-        if(this.credentials.controls['email'].value == ('')){
+        if(this.credentials.controls['username'].value == ('')){
             return
         }
         if (this.credentials.controls['password'].value == ('')) {
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
    
     ngOnInit() {
         this.error = false; 
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/TenniShip';
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/index';//tocar esto
    
     }
     navigate() {
