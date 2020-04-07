@@ -1,12 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 
 import { LoginComponent } from './login/login.component';
 import { UserService } from './_servicies/user.service';
 
 import { RocketleagueComponent } from './rocketleague/rocketleague.component';
+
+import { TeamComponent } from './team.component';
+import { LeaderboardComponent } from './leaderboard.component';
 
 import { AppRoutingModule, routing } from './app-routing.module';
 
@@ -24,12 +29,15 @@ import { TournamentComponent } from './tournament/tournament.component';
     HomeComponent,
     RocketleagueComponent,
     CreatetournamentComponent,
-    TournamentComponent   
+    TournamentComponent,
+    TeamComponent,
+    LeaderboardComponent
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     routing
   ],
   providers: [

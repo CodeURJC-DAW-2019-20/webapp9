@@ -10,9 +10,9 @@ import { User } from './user.model';
 
 @Component({
     selector: 'team',
-    templateUrl: './team.component.html'
+    templateUrl: './pagina.component.html'
 })
-export class TeamFormComponent {
+export class TeamComponent {
     team: Team;
     player: Player;
     user1: User;

@@ -8,7 +8,7 @@ import { Team } from './team.model';
     selector: 'leaderboard',
     templateUrl: './leaderboard.component.html'
 })
-export class leaderboardcomponent {
+export class LeaderboardComponent {
 
     teamsList = new Array<Team>();
     iniCont = 2;
