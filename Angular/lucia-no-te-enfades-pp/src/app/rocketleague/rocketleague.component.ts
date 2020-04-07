@@ -10,17 +10,30 @@ import { Tournament } from '../tournament/tournament.model';
 })
 
 export class RocketleagueComponent{
-    tournament: Tournament;
+    tournaments = new Array<Tournament>();
 
-    constructor(private rocketleagueService: RocketleagueService){}
-
+    constructor(private rocketleagueService: RocketleagueService){
+       
+    }
+    ngOnInit(){
+        this.tournamentsOnHtml(); 
+    }
+    
     tournamentsOnHtml(){
         this.rocketleagueService.getTournaments().subscribe(
-           tournament => {
-               let tournaments: any = tournament;
+            respuesta => { 
+                let data: any = respuesta;
+                for(var i = 0; i < data.length; i++){
+                    this.tournaments.push(data[i]);
+                }
+            },
+        )
+       /* this.rocketleagueService.getTournaments().subscribe(
+           tournaments => {
+               let tournament: any = tournaments;
            },
            error => console.error('Error finding tournaments ' + error)
-        );
+        );*/
     }
     
 }
