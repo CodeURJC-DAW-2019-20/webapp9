@@ -14,7 +14,7 @@ const routes = [
   {path: 'tournaments', component: RocketleagueComponent },
   {path: 'login', component: LoginComponent },
   {path: 'createtournament', component: CreatetournamentComponent},
-  {path: 'tournament', component: TournamentComponent},
+  {path: 'tournament/:idTournament', component: TournamentComponent},
   {path: 'createTeam', component: TeamComponent},
   {path: 'leaderboard', component: LeaderboardComponent}
 ];

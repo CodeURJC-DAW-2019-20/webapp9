@@ -6,14 +6,14 @@ import { catchError } from 'rxjs/operators';
 import { Play } from './play.model';
 import { Tournament } from './tournament.model';
 
-const BASE_URL = 'https://127.0.0.1:8443/api/tournament/';
+const BASE_URL = '/api/tournament/';
 
 @Injectable({ providedIn: 'root' })
 export class TournamentService{
     constructor(private httpClient: HttpClient){}
 
-    getPlays(): Observable<Play[]> {
-        return this.httpClient.get(BASE_URL + name).pipe(
+    getPlays(id: number): Observable<Play[]> {
+        return this.httpClient.get(BASE_URL + id + '/matches').pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Play[]>;
     }

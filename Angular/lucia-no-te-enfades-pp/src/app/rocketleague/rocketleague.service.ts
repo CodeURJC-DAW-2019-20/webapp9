@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { Tournament } from '../tournament/tournament.model';
 
-const BASE_URL = 'https://localhost:8443/api/tournaments';
+const BASE_URL = '/api/tournaments';
 
 @Injectable({ providedIn: 'root' })
 export class RocketleagueService{

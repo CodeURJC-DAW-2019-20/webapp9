@@ -14,13 +14,13 @@ export class RocketleagueComponent{
 
     constructor(private rocketleagueService: RocketleagueService){}
 
-    /*tournamentsOnHtml(){
+    tournamentsOnHtml(){
         this.rocketleagueService.getTournaments().subscribe(
            tournament => {
                let tournaments: any = tournament;
            },
            error => console.error('Error finding tournaments ' + error)
         );
-    }*/
+    }
     
 }
