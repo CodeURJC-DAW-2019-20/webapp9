@@ -39,7 +39,7 @@
 <body>
 
 	<!-- NavBar -->
-	<header>
+	<!--<header>
 
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 			<a class="navbar-brand" href="#"> <img
@@ -90,33 +90,26 @@
 
 
 		</nav>
-	</header>
+	</header>-->
 
 
 	<header class="hero">
 		<div class="hero-wrap">
 			<p class="intro" id="intro">Rocket League</p>
-			<h1 id="headline">{{name}}</h1>
+			<!--<h1 id="headline">{{name}}</h1>-->
 			<p class="year">2020</p>
 			<div style="text-align: center;">
 			<form action="/jointournament" method="get">
-							<input type="submit" class="button" value="Join Tournament"> <input
-								type="hidden" name="_csrf" value="{{token}}" />
-								<input
-								type="hidden" name="torunament" value="{{name}}" />
+							<!--<input type="submit" class="button" value="Join Tournament"> <input
+								type="hidden" name="_csrf" value="{{token}}" />-->
+								<!--<input
+								type="hidden" name="torunament" value="{{name}}" />-->
 						</form> 
-				
-				
-						
-								
-								
-				</a>
+
 			</div>
 		</div>
 	</header>
 
-
-	<body>
 
 	<div class="d-flex justify-content-center">
 		<div id="map_container"></div>
@@ -154,9 +147,9 @@
 					<!--Table head-->
 					<!--Table body-->
 					<tbody id="table">
-						<ng-template ngFor let-elem [ngForOf]="plays">
+						<ng-template ngFor let-elem [ngForOf]="play">
 						<tr>
-							<th scope="row">{{-index}}</th>
+							<!--<th scope="row">{{-index}}</th>-->
 							<td>{{elem.round}}</td>
 							<td>{{elem.name1}}</td>
 							<td>{{elem.elo1}}</td>
@@ -172,7 +165,7 @@
 							<input type="hidden" name="elo2" value="{{elem.elo2}}">
 							
 							<input type="submit" value="UpdateMatch">
-							<input type="hidden" name="_csrf" value="{{token}}">
+							<!--<input type="hidden" name="_csrf" value="{{token}}">-->
 							</form>
 							</td>
 						</tr>
@@ -190,7 +183,7 @@
 
 				<div class="d-flex justify-content-center">
 					<!--Pagination -->
-						<input type="hidden" name="_csrf" value="{{token}}">
+						<!--<input type="hidden" name="_csrf" value="{{token}}">-->
 
 
 					<!--/Pagination -->

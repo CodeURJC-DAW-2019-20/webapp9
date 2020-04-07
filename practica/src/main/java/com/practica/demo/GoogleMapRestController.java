@@ -20,7 +20,8 @@ public class GoogleMapRestController {
 
 	@Autowired
 	private TournamentRepository repositoryTournament;
-
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(method = RequestMethod.GET)
 	public Tournament findLocation(@RequestParam String name) {
 		return repositoryTournament.findByname(name);

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,11 +26,13 @@ public class TournamentRestController {
 	@Autowired
 	private TournamentService tournamentService;
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/tournaments", method = RequestMethod.GET)
 	public ResponseEntity<Object>getTournaments(){
 		return new ResponseEntity<>(tournamentService.getTournaments(), HttpStatus.OK);
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/tournaments", method = RequestMethod.POST)
 	public ResponseEntity<Object>crerateTournament(@RequestBody Tournament tournament){
 		
@@ -42,6 +45,7 @@ public class TournamentRestController {
 		}
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/tournaments/{id}/image", method = RequestMethod.POST)
 	public ResponseEntity<Object>uploadImage(@RequestBody MultipartFile image,@PathVariable int id){
 		if(tournamentService.uploadImage(image,id)){
@@ -51,6 +55,7 @@ public class TournamentRestController {
 		}
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/tournaments/{id}/image", method = RequestMethod.GET)
 	public ResponseEntity<Object>getImage(@PathVariable int id){
 	    byte[] image = tournamentService.getImage(id);
@@ -61,6 +66,7 @@ public class TournamentRestController {
 	    }
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/tournaments/{id}/teams", method = RequestMethod.POST)
 	public ResponseEntity<Object>join(@PathVariable int id, @RequestBody Team team){
 		if(tournamentService.joinTournament(id, team)) {
@@ -71,6 +77,7 @@ public class TournamentRestController {
 
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/tournaments/{idTournament}/matches", method = RequestMethod.GET)
 	public ResponseEntity<Object>getmatches(@PathVariable int idTournament){
 		List<Teams_On_Game> aux = tournamentService.getGamesInTournament(idTournament);

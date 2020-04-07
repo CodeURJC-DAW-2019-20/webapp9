@@ -2,28 +2,32 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 import { Team } from './team.model';
 
 const BASE_URL = 'https://127.0.0.1:8443/api/teams/';
+const LEADERBOARD_URL = 'https://127.0.0.1:8443/api/leaderBoardLoaded/';
 
 @Injectable({ providedIn: 'root' })
 export class TeamsService {
-    
-    page: number;
 
     constructor(private httpClient: HttpClient){}
 
-    //TODO get LeaderBoard
-
-    getTeams(): Observable<Team[]> {
-        return this.httpClient.get(BASE_URL + "page=" + this.page).pipe(
+    getLeaderBoard(): Observable<Team[]>{
+        return this.httpClient.get<Team[]>(LEADERBOARD_URL).pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Team[]>;
     }
 
-    addTeam(team: Team) {
-        return this.httpClient.post(BASE_URL, team).pipe(
+    getTeams(page: number): Observable<Team[]> {
+        return this.httpClient.get(BASE_URL + "page=" + page).pipe(
+            catchError(error => this.handleError(error))
+        ) as Observable<Team[]>;
+    }
+
+    addTeam(team: Team): Observable<Team>{
+        return this.httpClient.post<Team>(BASE_URL, team).pipe(
             catchError(error => this.handleError(error))
         );
     }
@@ -36,7 +40,7 @@ export class TeamsService {
 
     private handleError(error: any) {
 		console.error(error);
-		return Observable.throw("Server error (" + error.status + "): " + error.text())
+		return throwError("Server error (" + error.status + "): " + error.text);
 	}
 
 }

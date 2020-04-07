@@ -5,14 +5,14 @@ import { catchError } from 'rxjs/operators';
 
 import { Tournament } from '../tournament/tournament.model';
 
-const BASE_URL = 'https://127.0.0.1:8443/api/';
+const BASE_URL = 'https://localhost:8443/api/tournaments';
 
 @Injectable({ providedIn: 'root' })
 export class RocketleagueService{
     constructor(private httpClient: HttpClient){}
 
     getTournaments(): Observable<Tournament[]> {
-        return this.httpClient.get(BASE_URL + './rocketleague.component.html').pipe(
+        return this.httpClient.get(BASE_URL).pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Tournament[]>;
     }
