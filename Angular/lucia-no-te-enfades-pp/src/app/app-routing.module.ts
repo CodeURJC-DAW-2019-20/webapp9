@@ -8,6 +8,7 @@ import { CreatetournamentComponent } from './createTournament/createtournament.c
 import { TournamentComponent } from './tournament/tournament.component';
 import { TeamComponent } from './team.component';
 import { LeaderboardComponent } from './leaderboard.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes = [
   {path: 'index', component: HomeComponent },
@@ -16,7 +17,8 @@ const routes = [
   {path: 'createtournament', component: CreatetournamentComponent},
   {path: 'tournament', component: TournamentComponent},
   {path: 'createTeam', component: TeamComponent},
-  {path: 'leaderboard', component: LeaderboardComponent}
+  {path: 'leaderboard', component: LeaderboardComponent},
+  {path: 'profile/:id', component: ProfileComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);
