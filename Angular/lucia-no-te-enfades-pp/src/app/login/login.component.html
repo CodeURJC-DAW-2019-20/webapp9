@@ -79,25 +79,19 @@
         </nav>
 	</header>
 
-	<form class="form-signin" action="/login" method="post">
-		<img class="mb-4" src="/imgs/NavBar/web-icon-black.png" alt=""
-			width="72" height="72">
-		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-		<label for="inputEmail" class="sr-only">Email address</label> <input
-			type="email" id="inputEmail" class="form-control"
-			placeholder="Email address" name="email"> <label
-			for="inputPassword" class="sr-only">Password</label> <input
-			type="password" id="inputPassword" class="form-control"
-			placeholder="Password" name="password">
-
-			<div class="alert alert-danger" role="alert">
-  				Email or password was incorrect
-			</div>		
-	
-		
-		<button class="btn btn-lg btn-primary btn-block" type="submit"
-			value="Send">Sign in</button>		
-	</form>
+	<form action="/TenniShip/SignIn">
+        <div class="form-group">
+            <input class="form-control" #username formControlName="username" id="username" name="username" placeholder="Username" type="text">
+            
+        </div>
+        <div class="form-group">
+            <input class="form-control" #password formControlName="password" id="password" name="password" placeholder="Password" type="password" />
+            
+        </div>
+        <div class="text-center pt-3">
+            <button class="btn" (click)="login(username.value, password.value, $event)" type="submit">Log in</button>
+        </div>
+    </form>
 
 	<script src="/core/jquery-3.4.1.slim.min.js"></script>
 	<script src="/core/bootstrap.bundle.min.js"></script>
