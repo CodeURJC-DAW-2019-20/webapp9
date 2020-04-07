@@ -10,7 +10,7 @@ import { throwError } from 'rxjs';
 
 import { Team } from './team.model';
 import { Player } from './player.model';
-import { User } from './user.model';
+import { User } from './profile/user.model';
 
 const BASE_URL = 'https://127.0.0.1:8443/api/teams/';
 

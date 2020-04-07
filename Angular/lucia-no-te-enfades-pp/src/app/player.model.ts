@@ -1,5 +1,5 @@
 import { Team } from './team.model';
-import { User } from './user.model';
+import { User } from './profile/user.model';
 
 export interface Player{
     idPlayer: number;
