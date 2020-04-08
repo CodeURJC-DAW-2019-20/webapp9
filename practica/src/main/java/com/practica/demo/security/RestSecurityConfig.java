@@ -20,7 +20,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.antMatcher("/api/**");
-		/*
+		
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/logIn").authenticated();
 		
 		// URLs that need authentication to access to it
@@ -41,7 +41,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/tournaments/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/tournaments").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/tournaments/**").hasRole("USER");
-		*/
+		
 		
 		// Other URLs can be accessed without authentication
 		http.authorizeRequests().anyRequest().permitAll();
@@ -50,7 +50,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 
 		// Use Http Basic Authentication
-		//http.httpBasic();
+		http.httpBasic();
 
 		// Do not redirect when logout
 		http.logout().logoutSuccessHandler((rq, rs, a) -> {	});
