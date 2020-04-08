@@ -1,8 +1,90 @@
-<html>
-	<body>
-		
-		<p>hola, usuario numero {{id}}, con descripcion {{player.description}}</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<title>Profile</title>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Scripts -->
+<script src="/js/Profile/jquery-2.1.4.min.js"></script>
+<script src="/js/Profile/bootstrap.min.js"></script>
+<script src="/js/Profile/mdb.js"></script>
+<script src="/js/Profile/pie.js"></script>
 
 
-	</body>
+</head>
+
+<body>
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader"></div>
+	</div>
+
+	<!-- Header section start -->
+
+	<header class="header-section">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-8 text-md-right header-buttons">
+					<!--  		
+					<a href="/teamCreation" class="site-btn">Create Team</a> 
+					-->
+
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<!-- Header section end -->
+
+	<!-- Hero section start -->
+	<section class="hero-section spad">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xl-10 offset-xl-1">
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="hero-text">
+								<h2>{{username}}</h2>
+								<p>{{player.description}}</p>
+							</div>
+							<div class="hero-info">
+								<h2>Team: {{team}}</h2>
+								<ul>
+									{{#myprofile}}
+										<a type="button" href="/editProfile" class="button">Edit profile</a>
+									{{/myprofile}}
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="col-lg-6">
+							<figure class="hero-image">
+								<img src="/images/user/image-{{idimagen}}.jpg" alt="5">
+							</figure>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container my-4">
+							<hr class="my-4">
+							<div>
+								<canvas id="pieChart"></canvas>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!--====== Javascripts & Jquery ======-->
+
+	<script src="/js/Profile/owl.carousel.min.js"></script>
+	<script src="/js/Profile/magnific-popup.min.js"></script>
+	<script src="/js/Profile/circle-progress.min.js"></script>
+	<script src="/js/Profile/main.js"></script>
+
+</body>
 </html>
