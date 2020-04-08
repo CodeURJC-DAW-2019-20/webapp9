@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Player } from './player.model';
-import { Team } from './team.model';
+import { Team } from '../team/team.model';
 
 const BASE_URL = 'https://127.0.0.1:8443/api/player/';
 

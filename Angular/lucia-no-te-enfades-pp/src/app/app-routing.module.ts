@@ -6,8 +6,8 @@ import { LoginComponent } from "./login/login.component";
 import { RocketleagueComponent } from "./rocketleague/rocketleague.component";
 import { CreatetournamentComponent } from './createTournament/createtournament.component';
 import { TournamentComponent } from './tournament/tournament.component';
-import { TeamComponent } from './team.component';
-import { LeaderboardComponent } from './leaderboard.component';
+import { TeamComponent } from './team/team.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes = [

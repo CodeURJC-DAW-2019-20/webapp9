@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 
 import { TeamsService } from './teams.service';
-import { UsersService } from './users.service';
-import { PlayersService } from './players.service';
+import { UsersService } from '../user/users.service';
+import { PlayersService } from '../player/players.service';
 
 import { HttpClient } from '@angular/common/http';
 
 import { Team } from './team.model';
-import { Player } from './player.model';
-import { User } from './profile/user.model';
+import { Player } from '../player/player.model';
+import { User } from '../profile/user.model';
 
 const BASE_URL = 'https://127.0.0.1:8443/api/teams/';
 

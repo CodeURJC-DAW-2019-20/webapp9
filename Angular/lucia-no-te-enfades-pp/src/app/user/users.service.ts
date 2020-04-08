@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { User } from './profile/user.model';
+import { User } from '../profile/user.model';
 
 const BASE_URL = 'https://127.0.0.1:8443/api/user/';
 

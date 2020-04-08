@@ -15,16 +15,20 @@ export class TournamentComponent{
     play: Play;
     tournament: Tournament;
     idTournament:number;
+    plays = new Array<Play>();
 
     constructor(private tournamentService: TournamentService, private router:Router, activatedRoute: ActivatedRoute){
-        let idTournament=activatedRoute.snapshot.params['idTournament'];
+        this.idTournament=activatedRoute.snapshot.params['idTournament'];
     }
 
-
-    playsOnHtml(){
-        this.tournamentService.getPlays(this.tournament.idTournament).subscribe(
+    ngOnInit(){
+        this.tournamentService.getPlays(this.idTournament).subscribe(
            play => {
-               let plays: any = play;
+               let data: any = play;
+               for(var i = 0; i < data.length; i++){
+                    data[i].pos = i + 1;
+                    this.plays.push(data[i]);
+               }
            },
            error => console.error('Error finding plays' + error)
         );
