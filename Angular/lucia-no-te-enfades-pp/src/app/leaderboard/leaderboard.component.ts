@@ -11,10 +11,15 @@ import { Team } from '../team/team.model';
 export class LeaderboardComponent {
 
     teamsList = new Array<Team>();
-    iniCont = 2;
+    teamsListShow = new Array<Team>();
+    iniCont = 3;
+    cont = 3;
+    nextTop = 10;
+    allNotShown = true;
 
     constructor(private teamsService: TeamsService){
         this.getIniLeaderboard();
+        this.getAllLeaderboard();
     }
 
     getIniLeaderboard(){
@@ -23,7 +28,7 @@ export class LeaderboardComponent {
                 let data: any = team;
                 for(var i = 0; i < this.iniCont; i++){
                     data[i].pos = i + 1;
-                    this.teamsList.push(data[i]);
+                    this.teamsListShow.push(data[i]);
                 }
 
             },
@@ -42,6 +47,18 @@ export class LeaderboardComponent {
             },
             error => console.error('Error finding leaderboard: ' + error)
         );
+    }
+
+    showMore(){
+        for(var i = this.cont; i < this.nextTop; i++){
+            if(i < this.teamsList.length){
+                this.teamsListShow.push(this.teamsList[i]);
+            }else{
+                this.allNotShown = false;
+            }
+        }
+        this.cont = this.nextTop;
+        this.nextTop = this.nextTop + 10;
     }
 
 }
