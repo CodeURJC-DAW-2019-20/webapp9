@@ -6,28 +6,16 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="generator" content="Jekyll v3.8.6">
 <title>eTorneos - Home</title>
-
-<!-- Bootstrap core CSS -->
-<link href="/core/bootstrap.min.css" rel="stylesheet">
-<meta name="theme-color" content="#563d7c">
-
-
-<!-- Custom styles for this template -->
-<link href="/css/Index/carousel.css" rel="stylesheet">
-
 </head>
-<body>
-	<!-- NavBar -->
-	<header>
 
-	</header>
+<body>
 
 	<main role="main">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
 			data-interval="5000">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
-					<img src="/imgs/Main/main1.jpg" class="d-block w-100" alt="...">
+					<img [src]="imgCarr1Url" class="d-block w-100" alt="...">
 					<div class="container">
 						<div class="carousel-caption text-right">
 							<h1>Exciting tournaments</h1>
@@ -37,7 +25,7 @@
 					</div>
 				</div>
 				<div class="carousel-item">
-					<img src="/imgs/Main/main2.jpg" class="d-block w-100" alt="...">
+					<img [src]="imgCarr2Url" class="d-block w-100" alt="...">
 					<div class="container">
 						<div class="carousel-caption text-right">
 							<h1>Win prizes</h1>
@@ -48,7 +36,7 @@
 
 
 				<div class="carousel-item">
-					<img src="/imgs/Main/main3.png" class="d-block w-100" alt="...">
+					<img [src]="imgCarr3Url" class="d-block w-100" alt="...">
 					<div class="container">
 						<div class="carousel-caption text-right">
 							<h1>Show your skills</h1>
@@ -66,39 +54,33 @@
 			<!-- Three columns of text below the carousel -->
 			<div class="row">
 				<div class="col-lg-4">
-					<img src="/imgs/Main/rl-icon.jpg" class="" width="140" height="140"
+					<img [src]="imgRlIcon" class="" width="140" height="140"
 						preserveAspectRatio="xMidYMid slice" focusable="false" role="img">
 					<title>Rocket League</title>
 					<h2>Rocket League</h2>
 					<p>Play with your team in incredible tournaments.</p>
-					<form action="tournaments">
-						<input type="submit" class="button" value="View tournaments">
-					</form>
+					<input type="submit" [routerLink]="['/tournaments']" class="button" value="View tournaments">
 				</div>
 				<!-- /.col-lg-4 -->
 				<div class="col-lg-4">
-					<img src="/imgs/Main/leaderboardLogo.png" class="" width="140"
+					<img [src]="imgLeaderboard" class="" width="140"
 						height="140" preserveAspectRatio="xMidYMid slice"
 						focusable="false" role="img">
 					<title>Leaderboard</title>
 					<h2>Leaderboard</h2>
 					<p>See the very best teams that have taken part in tournaments.</p>
-					<form action="leaderBoard">
-						<input type="submit" class="button" value="View leaderboard">
-					</form>
+					<input type="submit" [routerLink]="['/leaderboard']" class="button" value="View leaderboard">
 				</div>
 				<!-- /.col-lg-4 -->
 				
 				<div class="col-lg-4">
-					<img src="/imgs/Main/userLogo.png" class="" width="140"
+					<img [src]="imgUserLogo" class="" width="140"
 						height="140" preserveAspectRatio="xMidYMid slice"
 						focusable="false" role="img">
 					<title>Register</title>
 					<h2>Register</h2>
 					<p>Still not have an account? Make an account to start playing.</p>
-					<form action="register">
-						<input type="submit" class="button" value="Register">
-					</form>
+					<input type="submit" [routerLink]="['/']" class="button" value="Register">
 				</div>
 				
 				<!-- /.col-lg-4 -->
