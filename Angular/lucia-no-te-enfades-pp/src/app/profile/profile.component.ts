@@ -3,7 +3,7 @@ import { Player } from '../player/player.model';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PlayersService } from '../players.service';
+import { PlayersService } from '../player/players.service';
 
 
 @Component({
