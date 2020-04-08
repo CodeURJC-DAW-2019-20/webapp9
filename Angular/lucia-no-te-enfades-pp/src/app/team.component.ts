@@ -6,8 +6,6 @@ import { PlayersService } from './players.service';
 
 import { HttpClient } from '@angular/common/http';
 
-import { throwError } from 'rxjs';
-
 import { Team } from './team.model';
 import { Player } from './player.model';
 import { User } from './profile/user.model';
@@ -16,7 +14,7 @@ const BASE_URL = 'https://127.0.0.1:8443/api/teams/';
 
 @Component({
     selector: 'team',
-    templateUrl: './pagina.component.html'
+    templateUrl: './team.component.html'
 })
 export class TeamComponent {
     team = new Team;
@@ -28,19 +26,10 @@ export class TeamComponent {
     constructor(private http: HttpClient ,private teamsService: TeamsService, private usersService: UsersService, private playersService: PlayersService){}
 
     save() {
-        /*
-        this.http.post(BASE_URL, this.team).subscribe(
-            response => console.log(response)
-        );
-            */
-        
         this.teamsService.addTeam(this.team).subscribe(
             team => { 
-
-                //No esta cogiendo el data.idTeam !!!
-
                 let data: any = team;
-                let idTeam = data.idTeam;
+                let idTeam = data.id;
                 this.readUser(idTeam);
             },
             error => console.error('Error creating new Team: ' + error)
@@ -52,7 +41,7 @@ export class TeamComponent {
         this.usersService.getUserByUserName(this.user1.userName).subscribe(
             user => {
                 let data: any = user;
-                let idUser = data.idUser;
+                let idUser = data.iduser;
                 this.changePlayerTeam(idUser);
             },
             error => console.error('Error finding user ' + error)
@@ -61,7 +50,7 @@ export class TeamComponent {
         this.usersService.getUserByUserName(this.user2.userName).subscribe(
             user => {
                 let data: any = user;
-                let idUser = data.idUser;
+                let idUser = data.iduser;
                 this.changePlayerTeam(idUser);
             },
             error => console.error('Error finding user ' + error)
@@ -70,7 +59,7 @@ export class TeamComponent {
         this.usersService.getUserByUserName(this.user3.userName).subscribe(
             user => {
                 let data: any = user;
-                let idUser = data.idUser;
+                let idUser = data.iduser;
                 this.changePlayerTeam(idUser);
             },
             error => console.error('Error finding user ' + error)
@@ -82,7 +71,7 @@ export class TeamComponent {
             player => {
                 let data: any = player;
                 let idPlayer = data.idPlayer;
-                this.changeTeam(idPlayer, data);
+                this.changeTeam(idPlayer, this.team);
             },
             error => console.error('Error finding player ' + error)
         );

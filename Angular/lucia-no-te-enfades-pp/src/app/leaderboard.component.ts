@@ -13,13 +13,16 @@ export class LeaderboardComponent {
     teamsList = new Array<Team>();
     iniCont = 2;
 
-    constructor(private teamsService: TeamsService){}
+    constructor(private teamsService: TeamsService){
+        this.getIniLeaderboard();
+    }
 
     getIniLeaderboard(){
         this.teamsService.getLeaderBoard().subscribe(
             team => { 
                 let data: any = team;
                 for(var i = 0; i < this.iniCont; i++){
+                    data[i].pos = i + 1;
                     this.teamsList.push(data[i]);
                 }
 
@@ -33,6 +36,7 @@ export class LeaderboardComponent {
             team => { 
                 let data: any = team;
                 for(var i = this.iniCont; i < data.length; i++){
+                    data[i].pos = i + 1;
                     this.teamsList.push(data[i]);
                 }
             },

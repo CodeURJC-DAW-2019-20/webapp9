@@ -4,4 +4,5 @@ export class Team{
     elo: number;
     wins: number;
     losses: number;
+    pos: number;
 }
