@@ -8,7 +8,9 @@ import {UserService} from '../_servicies/user.service'
 
 @Component({ 
     selector: 'login',
-    templateUrl: 'login.component.html' })
+    templateUrl: 'login.component.html',
+    styleUrls: ['./signin.component.css']
+   })
 export class LoginComponent implements OnInit {
    
     credentials = new FormGroup({

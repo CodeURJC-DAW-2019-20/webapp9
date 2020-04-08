@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lucia-no-te-enfades-pp';
+
+  imgWebIconUrl = "assets/web-icon-white.png";
+
 }

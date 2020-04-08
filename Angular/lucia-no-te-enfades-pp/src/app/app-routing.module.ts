@@ -11,7 +11,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ProfileComponent } from './profile/profile.component';
 
 const routes = [
-  {path: 'index', component: HomeComponent },
+  {path: '', component: HomeComponent },
   {path: 'tournaments', component: RocketleagueComponent },
   {path: 'login', component: LoginComponent },
   {path: 'createtournament', component: CreatetournamentComponent},
