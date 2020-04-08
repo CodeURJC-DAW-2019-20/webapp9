@@ -14,7 +14,8 @@ const BASE_URL = 'https://127.0.0.1:8443/api/teams/';
 
 @Component({
     selector: 'team',
-    templateUrl: './team.component.html'
+    templateUrl: './team.component.html',
+    styleUrls: ['./style.component.css', './teamCreation.component.css']
 })
 export class TeamComponent {
     team = new Team;

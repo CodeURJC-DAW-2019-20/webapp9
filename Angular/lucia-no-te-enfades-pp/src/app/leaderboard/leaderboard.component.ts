@@ -6,7 +6,8 @@ import { Team } from '../team/team.model';
 
 @Component({
     selector: 'leaderboard',
-    templateUrl: './leaderboard.component.html'
+    templateUrl: './leaderboard.component.html',
+    styleUrls: ['./style.component.css']
 })
 export class LeaderboardComponent {
 
