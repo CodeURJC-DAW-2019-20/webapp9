@@ -147,8 +147,7 @@
 					<!--Table head-->
 					<!--Table body-->
 					<tbody id="table">
-						<ng-template ngFor let-elem [ngForOf]="play">
-						<tr>
+						<tr *ngFor="let elem of play">
 							<!--<th scope="row">{{-index}}</th>-->
 							<td>{{elem.round}}</td>
 							<td>{{elem.name1}}</td>
@@ -169,8 +168,6 @@
 							</form>
 							</td>
 						</tr>
-						</ng-template>
-
 					</tbody>
 					<!--Table body-->
 				</table>
