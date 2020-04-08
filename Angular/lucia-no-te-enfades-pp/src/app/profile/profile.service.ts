@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Player } from '../player.model';
-import { Team } from '../team.model';
+import { Player } from '../player/player.model';
+import { Team } from '../team/team.model';
 
 const BASE_URL = '/api/player/';
 
