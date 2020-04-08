@@ -102,7 +102,7 @@ var csrf="{{token}}"
 					<!--Table body-->
 					<tbody id="table">
 
-						<tr *ngFor="let elem of teamsList">
+						<tr *ngFor="let elem of teamsListShow">
 
                             <th scope="row">{{elem.pos}}</th>
                             
@@ -125,7 +125,7 @@ var csrf="{{token}}"
 				<div class="d-flex justify-content-center">
 					<!--Pagination -->
                     
-					<button class="button" (click)="getAllLeaderboard()" >Load more</button>
+					<button *ngIf="allNotShown" class="button" (click)="showMore()" >Load more</button>
 
 					<!--/Pagination -->
 				</div>
