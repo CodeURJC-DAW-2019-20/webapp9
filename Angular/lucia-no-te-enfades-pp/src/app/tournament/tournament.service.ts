@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { Play } from './play.model';
 import { Tournament } from './tournament.model';
 
-const BASE_URL = '/api/tournament/';
+const BASE_URL = '/api/tournaments/';
 
 @Injectable({ providedIn: 'root' })
 export class TournamentService{

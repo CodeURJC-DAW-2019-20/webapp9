@@ -3,14 +3,13 @@ import { Player } from '../player/player.model';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PlayersService } from '../players.service';
 
-
-
-const BASE_URL = 'localhost:8443/api/player/';
 
 @Component({
     selector: 'profile-selector',
-    templateUrl: './profile.component.html'
+    templateUrl: './profile.component.html',
+    styleUrls: ['./profile.component.css']
 })
 
 export class ProfileComponent{

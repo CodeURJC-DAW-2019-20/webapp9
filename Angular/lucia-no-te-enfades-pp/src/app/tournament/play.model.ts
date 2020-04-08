@@ -5,5 +5,6 @@ export interface Play{
     name2: string;
     elo2: number;
     date: string;
-    nameWinner: string;
+    winner: string;
+    pos: number;
 }

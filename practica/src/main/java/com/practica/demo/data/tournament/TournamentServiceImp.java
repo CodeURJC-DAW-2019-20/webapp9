@@ -1,32 +1,28 @@
 package com.practica.demo.data.tournament;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Optional;
-import java.io.File;
-import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.practica.demo.Imgs.ImageService;
 import com.practica.demo.data.game.Game;
 import com.practica.demo.data.game.GameRepository;
-import com.practica.demo.data.player.Player;
+import com.practica.demo.data.play.Play;
 import com.practica.demo.data.player.PlayerRepository;
 import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teams.TeamRepository;
 import com.practica.demo.data.teamsOnGame.TeamsOnGameIds;
 import com.practica.demo.data.teamsOnGame.Teams_On_Game;
 import com.practica.demo.data.teamsOnGame.Teams_On_GameRepository;
-import com.practica.demo.data.user.User;
 import com.practica.demo.data.user.UserComponent;
 
 @Service
@@ -153,9 +149,41 @@ public class TournamentServiceImp implements TournamentService {
 	}
 
 	@Override
-	public List<Teams_On_Game> getGamesInTournament(int idTournament) {
+	public List<Play> getGamesInTournament(int idTournament) {
+		List<Play> playList= new ArrayList<Play>();
 		if (tournamentRepository.findById(idTournament).isPresent()) {
-
+			List<Game> gameList = gameRepository.findBytournamentIdTournament(idTournament);
+			for (Game aux : gameList) {
+				List<Teams_On_Game> listTeamsOnGame = teamsOnGameRepository.findGameIdGame(aux.getId_game());
+				Play auxPlay = new Play();
+				Teams_On_Game teamsOnGame = listTeamsOnGame.get(0);
+				auxPlay.setRound(teamsOnGame.getRound());
+				auxPlay.setDate(teamsOnGame.getDate());
+				Team auxTeam = teamRepository.findByidTeam(teamsOnGame.getTeamIdTeam());
+				auxPlay.setElo1(auxTeam.getElo());
+				auxPlay.setName1(auxTeam.getName());
+				if (listTeamsOnGame.size()==2) {
+					teamsOnGame = listTeamsOnGame.get(1);
+					auxTeam = teamRepository.findByidTeam(teamsOnGame.getTeamIdTeam());
+					auxPlay.setElo2(auxTeam.getElo());
+					auxPlay.setName2(auxTeam.getName());
+					if(teamsOnGame.isWinner()) {
+						auxPlay.setNameWinner(auxTeam.getName());
+					}else {
+						auxPlay.setNameWinner(auxPlay.getName1());
+					}
+				}else {
+					auxPlay.setElo2(0);
+					auxPlay.setName2("");
+				}
+				playList.add(auxPlay);
+			}
+		}else {
+			playList=null;
+		}
+		return playList;
+	}
+			/*
 			Game auxGame = gameRepository.findByTournament(tournamentRepository.findById(idTournament).get());
 			List<Teams_On_Game> optional;
 			optional = teamsOnGameRepository.findGameIdGame(auxGame.getId_game());
@@ -166,7 +194,8 @@ public class TournamentServiceImp implements TournamentService {
 			}
 		}else {
 			return null;
-		}
-	}
+		}*/
+			
+	
 
 }
