@@ -5,9 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
 
-
-const BASE_URL = 'localhost:8443/api/player/';
-
 @Component({
     selector: 'profile-selector',
     templateUrl: './profile.component.html'

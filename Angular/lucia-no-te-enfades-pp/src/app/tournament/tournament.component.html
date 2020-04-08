@@ -147,15 +147,15 @@
 					<!--Table head-->
 					<!--Table body-->
 					<tbody id="table">
-						<tr *ngFor="let elem of play">
-							<!--<th scope="row">{{-index}}</th>-->
+						<tr *ngFor="let elem of plays">
+							<th scope="row">{{elem.pos}}</th>
 							<td>{{elem.round}}</td>
 							<td>{{elem.name1}}</td>
 							<td>{{elem.elo1}}</td>
 							<td>{{elem.name2}}</td>
 							<td>{{elem.elo2}}</td>
 							<td>{{elem.date}}</td>
-							<td>{{elem.nameWinner}}</td>
+							<td>{{elem.winner}}</td>
 							<td>
 							<form action='/gameData'>
 							<input type="hidden" name="name1" value="{{elem.name1}}">

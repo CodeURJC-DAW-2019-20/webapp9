@@ -28,12 +28,6 @@ export class RocketleagueComponent{
                 }
             },
         )
-       /* this.rocketleagueService.getTournaments().subscribe(
-           tournaments => {
-               let tournament: any = tournaments;
-           },
-           error => console.error('Error finding tournaments ' + error)
-        );*/
     }
     
 }
