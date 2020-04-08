@@ -9,6 +9,45 @@
 
 </head>
 <body>
+
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">
+            <img src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
+        </a>
+        <a class="navbar-brand" >eTournaments</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <form action="index">
+                    <input type="submit" class="nav-link" value="Home">
+                  </form>
+                </li>
+                <li class="nav-item active">
+                    <form action="login">
+                    <input type="submit" class="nav-link" value="Sign In">
+                  </form>
+                </li>
+                <li class="nav-item active">
+                    <form action="leaderBoard">
+                    <input type="submit" class="nav-link" value="Leaderboard">
+                  </form>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <form action="register">
+                    <input type="submit" class="nav-link" value="Register">
+                  </form>
+                </li>
+            </ul>
+        </div>        
+    </nav>
+</header>
+
   <app-root></app-root>
 </body>
 </html>
