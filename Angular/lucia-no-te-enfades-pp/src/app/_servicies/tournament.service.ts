@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -23,6 +23,18 @@ export class TournamentService{
         return this.httpClient.get(BASE_URL + id).pipe(
             catchError(error => this.handleError(error))
         )as Observable <Tournament>
+    }
+    
+    addTournament(tournament: Tournament): Observable<Tournament>{
+        
+        const body = JSON.stringify(tournament);
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+        });
+        
+        return this.httpClient.post<Tournament>(BASE_URL, body, { headers }).pipe(
+            catchError(error => this.handleError(error))
+        );
     }
 
     

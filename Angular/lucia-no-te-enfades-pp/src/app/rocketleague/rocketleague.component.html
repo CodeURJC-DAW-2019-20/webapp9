@@ -72,12 +72,11 @@
 					<h2>{{elem.name}}</h2>
 					<p class="lead mb-0">{{elem.description}}</p>
                     <div style="text-align: center">
-                        <!--Aun no está cambiado no se si va aqui el action o en el component.ts-->
-						<!--<form action="/{{name}}">
-							<input type="submit" class="button" value="Go to tournament">
-							<input type="hidden" name="_csrf" value="{{token}}">
-						</form>-->
-					</div>
+						<form [routerLink]="['/tournament/',elem.idTournament]">
+							<input  type="submit" class="button" value="Go to tournament">
+							<!--<input type="hidden" name="_csrf" value="{{token}}">-->
+						</form>
+                    </div>
 				</div>
 			</div>
             
