@@ -1,4 +1,4 @@
-import { ProfileService } from '../login/profile.service';
+import { ProfileService } from '../_servicies/profile.service';
 import { Player } from '../models/player.model';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { RocketleagueService } from '../login/rocketleague.service';
+import { RocketleagueService } from '../_servicies/rocketleague.service';
 
 import { Tournament } from '../models/tournament.model';
 

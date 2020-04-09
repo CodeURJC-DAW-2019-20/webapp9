@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 import { Play } from '../models/play.model';
 
-import { TournamentService } from '../login/tournament.service';
+import { TournamentService } from '../_servicies/tournament.service';
 import { Tournament } from '../models/tournament.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
