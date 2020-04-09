@@ -3,7 +3,7 @@ export class Tournament{
     numTeams: number;
     name: string;
     description: string;
-    img: string;
+    img?: string;
     latitude: number;
     longitude: number;
 }

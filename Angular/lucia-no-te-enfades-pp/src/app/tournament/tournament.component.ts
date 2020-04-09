@@ -50,5 +50,4 @@ export class TournamentComponent{
             error => console.error('Error finding tournament' + error)
         );
     }
-
 }
