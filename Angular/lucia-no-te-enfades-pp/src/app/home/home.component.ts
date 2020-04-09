@@ -9,7 +9,7 @@ export class HomeComponent implements OnInit {
 
   imgCarr1Url = "assets/main1.jpg";
   imgCarr2Url = "assets/main2.jpg";
-  imgCarr3Url = "assets/main3.jpg";
+  imgCarr3Url = "assets/main3.png";
   imgRlIcon = "assets/rl-icon.jpg";
   imgLeaderboard = "assets/leaderboardLogo.png";
   imgUserLogo = "assets/userLogo.png";
