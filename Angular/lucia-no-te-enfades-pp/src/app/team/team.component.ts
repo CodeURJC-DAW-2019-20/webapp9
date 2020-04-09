@@ -1,20 +1,21 @@
 import { Component } from '@angular/core';
 
-import { TeamsService } from './teams.service';
-import { UsersService } from '../user/users.service';
-import { PlayersService } from '../player/players.service';
+import { TeamsService } from '../_servicies/teams.service';
+import { UsersService } from '../_servicies/users.service';
+import { PlayersService } from '../_servicies/players.service';
 
 import { HttpClient } from '@angular/common/http';
 
-import { Team } from './team.model';
-import { Player } from '../player/player.model';
-import { User } from '../profile/user.model';
+import { Team } from '../models/team.model';
+import { Player } from '../models/player.model';
+import { User } from '../models/user.model';
 
 const BASE_URL = 'https://127.0.0.1:8443/api/teams/';
 
 @Component({
     selector: 'team',
-    templateUrl: './team.component.html'
+    templateUrl: './team.component.html',
+    styleUrls: ['./style.component.css', './teamCreation.component.css']
 })
 export class TeamComponent {
     team = new Team;
@@ -38,7 +39,7 @@ export class TeamComponent {
     }
 
     readUser(idTeam: number){
-        this.usersService.getUserByUserName(this.user1.userName).subscribe(
+        this.usersService.getUserByUserName(this.user1.username).subscribe(
             user => {
                 let data: any = user;
                 let idUser = data.iduser;
@@ -47,7 +48,7 @@ export class TeamComponent {
             error => console.error('Error finding user ' + error)
         );
 
-        this.usersService.getUserByUserName(this.user2.userName).subscribe(
+        this.usersService.getUserByUserName(this.user2.username).subscribe(
             user => {
                 let data: any = user;
                 let idUser = data.iduser;
@@ -56,7 +57,7 @@ export class TeamComponent {
             error => console.error('Error finding user ' + error)
         );
 
-        this.usersService.getUserByUserName(this.user3.userName).subscribe(
+        this.usersService.getUserByUserName(this.user3.username).subscribe(
             user => {
                 let data: any = user;
                 let idUser = data.iduser;

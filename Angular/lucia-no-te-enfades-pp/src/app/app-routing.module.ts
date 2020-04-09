@@ -9,16 +9,18 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { TeamComponent } from './team/team.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { InfoComponent } from './info/info.component';
 
 const routes = [
-  {path: 'index', component: HomeComponent },
+  {path: '', component: HomeComponent },
   {path: 'tournaments', component: RocketleagueComponent },
   {path: 'login', component: LoginComponent },
   {path: 'createtournament', component: CreatetournamentComponent},
   {path: 'tournament/:idTournament', component: TournamentComponent},
   {path: 'createTeam', component: TeamComponent},
   {path: 'leaderboard', component: LeaderboardComponent},
-  {path: 'profile/:id', component: ProfileComponent}
+  {path: 'profile/:id', component: ProfileComponent},
+  {path: 'info', component: InfoComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);

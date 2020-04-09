@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
 	rel="stylesheet">
@@ -16,10 +17,6 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Istok+Web|Roboto+Condensed:700'
 	rel='stylesheet' type='text/css'>
-<link href="/css/Tournament/diamonds-tournament-style.css"
-	rel='stylesheet' type="text/css">
-
-<link href="/core/bootstrap.min.css" rel=stylesheet>
 
 <script>
 	var name = '{{name}}';
@@ -38,65 +35,10 @@
 
 <body>
 
-	<!-- NavBar -->
-	<!--<header>
-
-		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-			<a class="navbar-brand" href="#"> <img
-				src="/imgs/Navbar/web-icon-white.png" width="30" height="30" alt="">
-			</a> <a class="navbar-brand">eTournaments</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarCollapse" aria-controls="navbarCollapse"
-				aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<form action="index">
-							<input type="submit" class="nav-link" value="Home">
-						</form>
-					</li>
-					<li class="nav-item active">{{#noloaded}}
-						<form action="login">
-							<input type="submit" class="nav-link" value="Sign In">
-						</form> {{/noloaded}} {{^noloaded}}
-						<form action="profile" method="get">
-							<input type="submit" class="nav-link" value="{{user.username}}">
-							<input type="hidden" name="_csrf" value="{{token}}" /> <input
-								type="hidden" name="id" value="{{user.iduser}}" />
-						</form> {{/noloaded}}
-					</li>
-					<li class="nav-item active">
-						<form action="leaderBoard">
-							<input type="submit" class="nav-link" value="Leaderboard">
-						</form>
-					</li>
-				</ul>
-				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active">{{#noloaded}}
-						<form action="register">
-							<input type="submit" class="nav-link" value="Register"> <input
-								type="hidden" name="_csrf" value="{{token}}" />
-						</form> {{/noloaded}} {{^noloaded}}
-						<form action="/logout" method="post">
-							<input type="submit" class="nav-link" value="Log Out"> <input
-								type="hidden" name="_csrf" value="{{token}}" />
-						</form> {{/noloaded}}
-
-					</li>
-				</ul>
-			</div>
-
-
-		</nav>
-	</header>-->
-
-
 	<header class="hero">
 		<div class="hero-wrap">
 			<p class="intro" id="intro">Rocket League</p>
-			<!--<h1 id="headline">{{name}}</h1>-->
+			<h1 id="headline">{{tournament.name}}</h1>
 			<p class="year">2020</p>
 			<div style="text-align: center;">
 			<form action="/jointournament" method="get">
@@ -188,10 +130,6 @@
 			</div>
 		</div>
 	</main>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="/core/bootstrap.bundle.min.js"></script>
-
 
 </body>
 

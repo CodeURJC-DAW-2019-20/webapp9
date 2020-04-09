@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { CreatetournamentService } from './createtournament.service';
 import { TournamentService } from '../tournament/tournament.service';
 
-import { Tournament } from '../tournament/tournament.model';
+import { Tournament } from '../models/tournament.model';
 
 @Component({
     selector: 'createtournament',

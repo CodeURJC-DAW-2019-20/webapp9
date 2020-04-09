@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { first } from 'rxjs/operators';
-import {UserService} from '../_servicies/user.service'
+import {UsersService} from '../_servicies/users.service'
 
 //import { AlertService, AuthenticationService } from '@/_services';
 
 @Component({ 
     selector: 'login',
-    templateUrl: 'login.component.html' })
+    templateUrl: 'login.component.html',
+    styleUrls: ['./signin.component.css']
+   })
 export class LoginComponent implements OnInit {
    
     credentials = new FormGroup({
@@ -22,7 +24,7 @@ export class LoginComponent implements OnInit {
     error: boolean;
     returnUrl:string;
      
-    constructor(public userService: UserService, public router: Router, public route:ActivatedRoute) {
+    constructor(public userService: UsersService, public router: Router, public route:ActivatedRoute) {
         
      }
 
@@ -34,7 +36,7 @@ export class LoginComponent implements OnInit {
         if (this.credentials.controls['password'].value == ('')) {
             return
         }
-        this.userService.login(username, password).subscribe(
+        this.userService.login(username, password,false).subscribe(
             res => {
               console.log(res);
               this.navigate();
