@@ -1,26 +1,34 @@
+
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User } from "./user.model";
+import { map } from "rxjs/operators";
+import { BehaviorSubject, Observable } from "rxjs";
 
-import { User } from '../profile/user.model';
 
-const BASE_URL = 'https://127.0.0.1:8443/api/user/';
+@Injectable({
+  providedIn: 'root'
+})
 
-@Injectable({ providedIn: 'root' })
-export class UsersService {
+@Injectable()
+export class UserService {
+    redirectToHome: string = "/index";
+    currentUser: Observable<User>;
+    currentUserSubject: BehaviorSubject<User>;
+    logged: boolean = false;
 
-    constructor(private httpClient: HttpClient){}
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+  login(un: string, pass: string, oldUser: boolean) {
+    var httpOptions = {
+      headers: new HttpHeaders({
+        'X-Requested-With' : 'XMLHttpRequest',
+        'Authorization': 'Basic ' + btoa(un + ':' + pass)
+      })
+    };
 
-    getUserByUserName(userName: String): Observable<User>{
-        return this.httpClient.get(BASE_URL + "name=" + userName).pipe(
-            catchError(error => this.handleError(error))
-        )as Observable<User>;
-    }
 
-    private handleError(error: any) {
-		console.error(error);
-		return Observable.throw("Server error (" + error.status + "): " + error.text())
-	}
-
+}
 }
