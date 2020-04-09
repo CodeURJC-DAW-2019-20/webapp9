@@ -6,11 +6,19 @@ import { Tournament } from '../tournament/tournament.model';
 
 @Component({
     selector: 'rocketleague',
-    templateUrl:'./rocketleague.component.html'
+    templateUrl:'./rocketleague.component.html',
+    styleUrls: ['./landing-page.component.min.css']
 })
 
 export class RocketleagueComponent{
     tournaments = new Array<Tournament>();
+
+    imgSteamIconUrl = "assets/steam-Icon.png";
+    imgTwitchIconUrl = "assets/twitch-icon.png";
+    imgInfoIconUrl = "assets/info-icon.png";
+    imgDefaultTournamentUrl = "assets/defaultTournament.png";
+    imgBackgroundUrl = "assets/bg-rocketLeague.jpg";
+
 
     constructor(private rocketleagueService: RocketleagueService){
        
