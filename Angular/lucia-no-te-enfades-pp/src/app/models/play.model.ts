@@ -1,4 +1,4 @@
-export interface Play{
+export class Play{
     round: string;
     name1: string;
     elo1: number;

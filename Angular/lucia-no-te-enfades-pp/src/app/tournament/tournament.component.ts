@@ -8,12 +8,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'tournament',
-    templateUrl:'./tournament.component.html'
+    templateUrl:'./tournament.component.html',
+    styleUrls: ['./diamonds-tournament-style.component.css']
 })
 
 export class TournamentComponent{
-    play: Play;
-    tournament: Tournament;
+    play = new Play;
+    tournament = new Tournament;
     idTournament:number;
     plays = new Array<Play>();
 
@@ -32,5 +33,22 @@ export class TournamentComponent{
            },
            error => console.error('Error finding plays' + error)
         );
+
+        this.getTournament(this.idTournament);
+
     }
+
+    getTournament(id: number){
+        this.tournamentService.getTournamentById(this.idTournament).subscribe(
+            tournament => {
+                let data: any = tournament;
+                this.tournament.name = data.name;
+                this.tournament.numTeams = data.numTeams;
+                this.tournament.latitude = data.latitude;
+                this.tournament.longitude = data.longitude;
+            },
+            error => console.error('Error finding tournament' + error)
+        );
+    }
+
 }

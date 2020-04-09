@@ -1,4 +1,4 @@
-export interface Tournament{
+export class Tournament{
     idTournament: number;
     numTeams: number;
     name: string;

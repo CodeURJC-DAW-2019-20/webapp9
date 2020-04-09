@@ -18,6 +18,12 @@ export class TournamentService{
         ) as Observable<Play[]>;
     }
 
+    getTournamentById(id: number):Observable<Tournament> {
+        return this.httpClient.get(BASE_URL + id).pipe(
+            catchError(error => this.handleError(error))
+        )as Observable <Tournament>
+    }
+
     private handleError(error: any) {
 		console.error(error);
 		return Observable.throw("Server error (" + error.status + "): " + error.text())

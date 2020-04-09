@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <link
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
 	rel="stylesheet">
@@ -16,10 +17,6 @@
 <link
 	href='https://fonts.googleapis.com/css?family=Istok+Web|Roboto+Condensed:700'
 	rel='stylesheet' type='text/css'>
-<link href="/css/Tournament/diamonds-tournament-style.css"
-	rel='stylesheet' type="text/css">
-
-<link href="/core/bootstrap.min.css" rel=stylesheet>
 
 <script>
 	var name = '{{name}}';
@@ -41,7 +38,7 @@
 	<header class="hero">
 		<div class="hero-wrap">
 			<p class="intro" id="intro">Rocket League</p>
-			<!--<h1 id="headline">{{name}}</h1>-->
+			<h1 id="headline">{{tournament.name}}</h1>
 			<p class="year">2020</p>
 			<div style="text-align: center;">
 			<form action="/jointournament" method="get">
@@ -133,10 +130,6 @@
 			</div>
 		</div>
 	</main>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="/core/bootstrap.bundle.min.js"></script>
-
 
 </body>
 
