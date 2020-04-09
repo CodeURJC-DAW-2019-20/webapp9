@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { TeamsService } from '../team/teams.service';
+import { TeamsService } from '../_servicies/teams.service';
 
-import { Team } from '../team/team.model';
+import { Team } from '../models/team.model';
 
 @Component({
     selector: 'leaderboard',

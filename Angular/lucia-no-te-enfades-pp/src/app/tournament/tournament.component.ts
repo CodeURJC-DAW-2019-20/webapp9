@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-import { Play } from './play.model';
+import { Play } from '../models/play.model';
 
-import { TournamentService } from './tournament.service';
-import { Tournament } from './tournament.model';
+import { TournamentService } from '../_servicies/tournament.service';
+import { Tournament } from '../models/tournament.model';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

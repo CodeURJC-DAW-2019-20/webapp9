@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Player } from './player.model';
-import { Team } from '../team/team.model';
+import { Player } from '../models/player.model';
+import { Team } from '../models/team.model';
 
-const BASE_URL = 'https://127.0.0.1:8443/api/player/';
+const BASE_URL = '/api/player/';
 
 @Injectable({ providedIn: 'root' })
-export class PlayersService {
+export class ProfileService {
 
     constructor(private httpClient: HttpClient){}
 
@@ -19,11 +19,11 @@ export class PlayersService {
         )as Observable<Player>;
     }
 
-    updatePlayerTeam(idPlayer: number, team: Team) {
+   /* updatePlayerTeam(idPlayer: number, team: Team) {
         return this.httpClient.put(BASE_URL + idPlayer + "/team", team).pipe(
             catchError(error => this.handleError(error))
         )
-    }
+    }*/
 
     private handleError(error: any) {
 		console.error(error);
