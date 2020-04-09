@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { TeamsService } from './teams.service';
-import { UsersService } from '../user/users.service';
+import { UsersService } from '../_servicies/users.service';
 import { PlayersService } from '../player/players.service';
 
 import { HttpClient } from '@angular/common/http';
