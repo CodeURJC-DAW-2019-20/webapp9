@@ -7,6 +7,7 @@ import { Play } from '../models/play.model';
 import { Tournament } from '../models/tournament.model';
 
 const BASE_URL = '/api/tournaments/';
+const MAP_URL = '/api/loadCoordenates';
 
 @Injectable({ providedIn: 'root' })
 export class TournamentService{
@@ -23,6 +24,8 @@ export class TournamentService{
             catchError(error => this.handleError(error))
         )as Observable <Tournament>
     }
+
+    
 
     private handleError(error: any) {
 		console.error(error);
