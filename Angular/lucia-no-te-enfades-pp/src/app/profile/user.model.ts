@@ -1,8 +1,0 @@
-export class User{
-    idUser: number;
-    name: string;
-    userName: string;
-    email: string;
-    password: string;
-    img: string;
-}

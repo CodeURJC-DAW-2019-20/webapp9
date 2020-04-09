@@ -3,18 +3,19 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Tournament } from '../tournament/tournament.model';
+import { Play } from '../models/play.model';
+import { Tournament } from '../models/tournament.model';
 
-const BASE_URL = '/api/tournaments';
+const BASE_URL = '/api/tournaments/';
 
 @Injectable({ providedIn: 'root' })
-export class RocketleagueService{
+export class TournamentService{
     constructor(private httpClient: HttpClient){}
 
-    getTournaments(): Observable<Tournament[]> {
-        return this.httpClient.get(BASE_URL).pipe(
+    getPlays(id: number): Observable<Play[]> {
+        return this.httpClient.get(BASE_URL + id + '/matches').pipe(
             catchError(error => this.handleError(error))
-        ) as Observable<Tournament[]>;
+        ) as Observable<Play[]>;
     }
 
     private handleError(error: any) {

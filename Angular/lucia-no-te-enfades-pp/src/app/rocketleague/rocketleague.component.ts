@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { RocketleagueService } from './rocketleague.service';
+import { RocketleagueService } from '../login/rocketleague.service';
 
-import { Tournament } from '../tournament/tournament.model';
+import { Tournament } from '../models/tournament.model';
 
 @Component({
     selector: 'rocketleague',
