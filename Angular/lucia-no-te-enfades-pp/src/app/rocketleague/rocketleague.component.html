@@ -8,6 +8,16 @@
 
 <title>Rocket League</title>
 
+<!-- Bootstrap core CSS -->
+<!--<link href="/core/bootstrap.min.css" rel="stylesheet">
+
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+	rel="stylesheet" type="text/css">
+
+Custom styles for this template 
+<link href="/css/RocketLeague/landing-page.min.css" rel="stylesheet">
+-->
 </head>
 
 <body>
@@ -32,7 +42,7 @@
 					<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
 						<i><a
 							href="https://store.steampowered.com/app/252950/Rocket_League/"><img
-								[src]="imgSteamIconUrl" alt="Steam"
+								src="/imgs/Tournament/steam-Icon.png" alt="Responsive image"
 								height="200px" width="200px" /></a></i>
 						<h3>Download Rocket League on Steam</h3>
 					</div>
@@ -41,7 +51,7 @@
 					<div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
 						<i><a
 							href="https://www.twitch.tv/directory/game/Rocket%20League"><img
-								[src]="imgTwitchIconUrl" alt="Twitch" height="200px"
+								src="/imgs/Tournament/twitch-icon.png" height="200px"
 								width="200px"></a></i>
 						<h3>See on Twitch</h3>
 					</div>
@@ -49,9 +59,9 @@
 				<div class="col-lg-4">
 					<div class="features-icons-item mx-auto mb-0 mb-lg-3">
 						<i>
-							<form>
-								<input type="image" [routerLink]="['/info']" [src]="imgInfoIconUrl"
-									width="200px" height="200px" alt="Info">
+							<form action="info">
+								<input type="image" src="/imgs/Tournament/info-icon.png"
+									width="200px" height="200px" alt="submit">
 							</form>
 						</i>
 						<h3>Get more information about this game</h3>
@@ -64,12 +74,12 @@
 	<!-- Image Showcases -->
 	<section class="showcase">
 		<div class="container-fluid p-0">
+           
 			<div class="row no-gutters" *ngFor="let elem of tournaments">
-				<div class="col-lg-6 text-white showcase-img" >
-					<img [src]="imgDefaultTournamentUrl" height="500px"/>
-				</div>
+				<div class="col-lg-6 text-white showcase-img"
+					style="background-image: url('/imgs/Tournament/defaultTournament.png');"></div>
 				<div class="col-lg-6 my-auto showcase-text">
-					<h2>{{elem.name}}</h2>
+					<h2>{{elem.name}} Tournament</h2>
 					<p class="lead mb-0">{{elem.description}}</p>
                     <div style="text-align: center">
                         <!--Aun no está cambiado no se si va aqui el action o en el component.ts-->
