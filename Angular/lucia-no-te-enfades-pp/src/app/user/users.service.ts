@@ -21,14 +21,21 @@ export class UserService {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
-  login(un: string, pass: string, oldUser: boolean) {
+  login(user: string, pass: string, oldUser: boolean) {
     var httpOptions = {
       headers: new HttpHeaders({
         'X-Requested-With' : 'XMLHttpRequest',
-        'Authorization': 'Basic ' + btoa(un + ':' + pass)
+        'Authorization': 'Basic ' + btoa(user + ':' + pass)
       })
     };
-
-
+return this.http.get<any>('/api/signin', httpOptions).
+pipe(
+  map(user => {
+    user.authData = window.btoa(user + ':' + pass);
+    localStorage.setItem('currentUser', JSON.stringify(user));
+    this.currentUserSubject.next(user);
+    this.logged = true; 
+  })
+)
 }
 }
