@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { CreatetournamentService } from './createtournament.service';
+import { TournamentService } from '../tournament/tournament.service';
 
 import { Tournament } from '../tournament/tournament.model';
 
@@ -12,7 +13,7 @@ import { Tournament } from '../tournament/tournament.model';
 export class CreatetournamentComponent{
     tournament: Tournament;
 
-    constructor(private createtournamentService: CreatetournamentService){}
+    constructor(private createtournamentService: CreatetournamentService, private tournamentService: TournamentService){}
 
     createTournamentForm(){
         this.createtournamentService.addTournament(this.tournament).subscribe(
@@ -21,5 +22,14 @@ export class CreatetournamentComponent{
            },
            error => console.error('Error creating tournament ' + error)
         );
+    
+    }
+
+    save(){
+        this.createtournamentService.addTournament(this.tournament).subscribe(
+            team => { 
+                let data: any = team;
+            },
+            error => console.error('Error creating new Team: ' + error)
     }
 }

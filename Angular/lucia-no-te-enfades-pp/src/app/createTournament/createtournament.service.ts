@@ -14,8 +14,8 @@ export class CreatetournamentService {
 
     constructor(private httpClient: HttpClient){}
 
-    addTournament(tournament: Tournament) {
-        return this.httpClient.post(BASE_URL, tournament).pipe(
+    addTournament(tournament: Tournament): Observable<Tournament>{
+        return this.httpClient.post<Tournament>(BASE_URL, tournament).pipe(
             catchError(error => this.handleError(error))
         );
     }
