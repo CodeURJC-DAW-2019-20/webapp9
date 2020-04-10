@@ -39,7 +39,7 @@ export class TeamComponent {
     }
 
     readUser(idTeam: number){
-        this.usersService.getUserByUserName(this.user1.userName).subscribe(
+        this.usersService.getUserByUserName(this.user1.username).subscribe(
             user => {
                 let data: any = user;
                 let idUser = data.iduser;
@@ -48,7 +48,7 @@ export class TeamComponent {
             error => console.error('Error finding user ' + error)
         );
 
-        this.usersService.getUserByUserName(this.user2.userName).subscribe(
+        this.usersService.getUserByUserName(this.user2.username).subscribe(
             user => {
                 let data: any = user;
                 let idUser = data.iduser;
@@ -57,7 +57,7 @@ export class TeamComponent {
             error => console.error('Error finding user ' + error)
         );
 
-        this.usersService.getUserByUserName(this.user3.userName).subscribe(
+        this.usersService.getUserByUserName(this.user3.username).subscribe(
             user => {
                 let data: any = user;
                 let idUser = data.iduser;
