@@ -28,7 +28,8 @@ function loadMap(coordenates) {
   }
 
 $(document).ready(function(){
-	loadCoordenates(function(coordenates){
+
+	loadCoordenates(function(coordenates,name){
 		loadMap(coordenates);
 	});
 });

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { CreatetournamentService } from './createtournament.service';
+import { TournamentService } from '../_servicies/tournament.service';
 
-import { Tournament } from '../tournament/tournament.model';
+import { Tournament } from '../models/tournament.model';
 
 @Component({
     selector: 'createtournament',
@@ -12,14 +12,12 @@ import { Tournament } from '../tournament/tournament.model';
 export class CreatetournamentComponent{
     tournament: Tournament;
 
-    constructor(private createtournamentService: CreatetournamentService){}
-
-    createTournamentForm(){
-        this.createtournamentService.addTournament(this.tournament).subscribe(
-           tournament => {
-               let data: any = tournament;
-           },
-           error => console.error('Error creating tournament ' + error)
+    constructor(private tournamentService: TournamentService){}
+   
+    save(){
+        this.tournamentService.addTournament(this.tournament).subscribe(
+            _ => {},
+            error => console.error('Error creating new tournament: ' + error)
         );
     }
 }

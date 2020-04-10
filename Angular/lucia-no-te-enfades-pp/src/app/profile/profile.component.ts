@@ -1,10 +1,9 @@
-import { ProfileService } from './profile.service';
-import { Player } from '../player/player.model';
+import { ProfileService } from '../_servicies/profile.service';
+import { Player } from '../models/player.model';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PlayersService } from '../player/players.service';
-import { User } from '../login/user.model';
+import { PlayersService } from '../_servicies/players.service';
 
 const BASE_URL = '/api/player/';
 
@@ -35,7 +34,7 @@ export class ProfileComponent{
     }
     buildHtml(idUser:number){
         this.profileService.getPlayerByUserId(this.id).subscribe
-        
+
     }
 
 

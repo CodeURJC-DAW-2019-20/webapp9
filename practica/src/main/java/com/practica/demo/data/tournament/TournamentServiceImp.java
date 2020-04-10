@@ -34,10 +34,6 @@ public class TournamentServiceImp implements TournamentService {
 	@Autowired
 	private GameRepository gameRepository;
 
-	@Override
-	public List<Tournament> getTournaments() {
-		return tournamentRepository.findAll();
-	}
 	@Autowired
 	private UserComponent userComponent;
 
@@ -52,6 +48,16 @@ public class TournamentServiceImp implements TournamentService {
 	
 	@Autowired
 	TeamRepository teamRepository;
+	
+	@Override
+	public List<Tournament> getTournaments() {
+		return tournamentRepository.findAll();
+	}
+	
+	@Override
+	public Tournament getTournamentById(int id) {
+		return tournamentRepository.findByIdTournament(id);
+	}
 	
 	@Override
 	public Integer createTournament(Tournament tournament) {
@@ -195,7 +201,5 @@ public class TournamentServiceImp implements TournamentService {
 		}else {
 			return null;
 		}*/
-			
-	
 
 }

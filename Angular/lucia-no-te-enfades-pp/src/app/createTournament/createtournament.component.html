@@ -12,7 +12,7 @@
 	
 	<div class="container">
 
-		<form class="well form-horizontal" action="newTournament" method="post">
+		<form class="well form-horizontal" #tournamentForm="ngForm">
 			<fieldset>
 				
 				<br>
@@ -37,9 +37,9 @@
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-user"></i></span> <input name="tournament_name"
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.name"
 								placeholder="Your tournament name here" class="form-control"
-								type="text">
+								type="text" #tournamentFormElement #tournamentFormControl="ngModel" name="name" required>
 						</div>
 					</div>
 				</div>
@@ -51,7 +51,7 @@
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-user"></i></span> <input name="numTeams"
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.numTeams"
 								placeholder="Number of teams here"
 								class="form-control" type="number">
 						</div>
@@ -65,7 +65,7 @@
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-user"></i></span> <input name="description"
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.description"
 								placeholder="Description here"
 								class="form-control" type="text">
 						</div>
@@ -79,7 +79,7 @@
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-user"></i></span> <input name="latitude"
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.latitude"
 								placeholder="Latitude here"
 								class="form-control" type="number">
 						</div>
@@ -93,7 +93,7 @@
 					<div class="col-md-4 inputGroupContainer">
 						<div class="input-group">
 							<span class="input-group-addon"><i
-								class="glyphicon glyphicon-user"></i></span> <input name="longitude"
+								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.longitude"
 								placeholder="Longitude here"
 								class="form-control" type="number">
 						</div>
@@ -112,7 +112,7 @@
 								<span class="input-group-text">Upload</span>
 							</div>
 							<div class="custom-file">
-								<input type="file" class="custom-file-input"
+								<input [(ngModel)]="tournament.img" type="file" class="custom-file-input"
 									id="inputGroupFile01"> <label class="custom-file-label"
 									for="inputGroupFile01">Choose file</label>
 							</div>
@@ -122,7 +122,7 @@
 				<br>
 				<!-- Button -->
 				<div class="col-md-4 inputGroupContainer">
-					<input class="btn btn-primary" type="submit" value="Submit">
+					<button (click)="save()">Submit</button>
 					<!--<input type="hidden" name="_csrf" value="{{token}}">-->
 				</div>
 

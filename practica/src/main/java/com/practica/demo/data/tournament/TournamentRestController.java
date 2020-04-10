@@ -34,6 +34,12 @@ public class TournamentRestController {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = "/api/tournaments/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Object>getTournamentById(@PathVariable int id){
+		return new ResponseEntity<>(tournamentService.getTournamentById(id), HttpStatus.OK);
+	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(value = "/api/tournaments", method = RequestMethod.POST)
 	public ResponseEntity<Object>crerateTournament(@RequestBody Tournament tournament){
 		

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
-import { Team } from './team.model';
+import { Team } from '../models/team.model';
 
 const BASE_URL = '/api/teams/';
 const LEADERBOARD_URL = '/api/leaderBoardLoaded/';
