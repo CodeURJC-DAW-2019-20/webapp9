@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 import { User } from '../models/user.model';
 
@@ -41,6 +42,6 @@ getUserByUserName(userName: String): Observable<User>{
 }
 private handleError(error: any) {
   console.error(error);
-  return Observable.throw("Server error (" + error.status + "): " + error.text())
+  return throwError("Server error (" + error.status + "): " + error.text);
 }
 }

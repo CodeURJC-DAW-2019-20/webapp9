@@ -23,6 +23,9 @@ export class TeamComponent {
     user1 = new User;
     user2 = new User;
     user3 = new User;
+    contUser = 0;
+    saved = false;
+    notSaved = true;
 
     constructor(private http: HttpClient ,private teamsService: TeamsService, private usersService: UsersService, private playersService: PlayersService){}
 
@@ -32,11 +35,9 @@ export class TeamComponent {
                 let data: any = team;
                 let idTeam = data.id;
                 this.readUser(idTeam);
-                //
             },
             error => console.error('Error creating new Team: ' + error)
         );
-        window.history.back();
     }
 
     readUser(idTeam: number){
@@ -81,7 +82,13 @@ export class TeamComponent {
 
     changeTeam(idPlayer: number, team: Team){
         this.playersService.updatePlayerTeam(idPlayer, team).subscribe(
-            player =>{},
+            player =>{
+                this.contUser++;
+                if(this.contUser === 3){
+                    this.saved = true;
+                    this.notSaved = false;
+                }
+            },
             error => console.error('Error updating team ' + error)
         );
     }
