@@ -97,7 +97,10 @@ public class TeamServiceImp implements TeamService{
 	}
 	
 	public List<Team> getTeamsByElo(int page){
-		Pageable newPage =  PageRequest.of(page,3,Sort.by("elo").descending());
+		Sort sort = Sort.by(
+			    Sort.Order.desc("elo"),
+			    Sort.Order.desc("name"));
+		Pageable newPage =  PageRequest.of(page,5,sort/*Sort.by("elo").descending()*/);
 		Page<Team> aux = teamRepository.findAll(newPage);
 		List<Team> result = aux.getContent();
 		return result;

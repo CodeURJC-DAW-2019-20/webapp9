@@ -4,62 +4,54 @@ import { TeamsService } from '../_servicies/teams.service';
 
 import { Team } from '../models/team.model';
 
+declare var loaderLeaderboard: any;
+
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+}
+
 @Component({
     selector: 'leaderboard',
     templateUrl: './leaderboard.component.html',
     styleUrls: ['./style.component.css']
 })
+
+
+
 export class LeaderboardComponent {
 
     teamsList = new Array<Team>();
-    teamsListShow = new Array<Team>();
-    iniCont = 3;
-    cont = 3;
-    nextTop = 10;
-    allNotShown = true;
+    pageCounter=0;
+    pos = 1;
+
+    allShown = false;
 
     constructor(private teamsService: TeamsService){
-        this.getIniLeaderboard();
-        this.getAllLeaderboard();
-    }
+        this.showMore();
 
-    getIniLeaderboard(){
-        this.teamsService.getLeaderBoard().subscribe(
-            team => { 
-                let data: any = team;
-                for(var i = 0; i < this.iniCont; i++){
-                    data[i].pos = i + 1;
-                    this.teamsListShow.push(data[i]);
-                }
-
-            },
-            error => console.error('Error finding initial leaderboard: ' + error)
-        );
-    }
-
-    getAllLeaderboard(){
-        this.teamsService.getLeaderBoard().subscribe(
-            team => { 
-                let data: any = team;
-                for(var i = this.iniCont; i < data.length; i++){
-                    data[i].pos = i + 1;
-                    this.teamsList.push(data[i]);
-                }
-            },
-            error => console.error('Error finding leaderboard: ' + error)
-        );
     }
 
     showMore(){
-        for(var i = this.cont; i < this.nextTop; i++){
-            if(i < this.teamsList.length){
-                this.teamsListShow.push(this.teamsList[i]);
-            }else{
-                this.allNotShown = false;
-            }
-        }
-        this.cont = this.nextTop;
-        this.nextTop = this.nextTop + 10;
+        loaderLeaderboard.loadSpinner();
+        this.teamsService.getTeams(this.pageCounter).subscribe(
+            response => {
+                
+                this.teamsList = response;
+                this.teamsList.forEach(element => {
+                    if(element.elo!=0){
+                        loaderLeaderboard.fn(this.pos++,element);
+                    }
+                });
+                
+                this.pageCounter++;
+            },
+            error => {
+                this.allShown=true;
+                console.error('Error getting teams: ' + error) 
+                }
+        )
+        loaderLeaderboard.unloadSpinner();       
     }
+    
 
 }

@@ -21,7 +21,7 @@ export class TeamsService {
     }
 
     getTeams(page: number): Observable<Team[]> {
-        return this.httpClient.get(BASE_URL + "page=" + page).pipe(
+        return this.httpClient.get<Team[]>(BASE_URL + "page=" + page).pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Team[]>;
     }
