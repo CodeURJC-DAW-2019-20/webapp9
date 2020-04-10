@@ -39,6 +39,7 @@ export class TournamentService{
     }
 
     joinTournament(tournament: Tournament, team: Team){
+        
         const body = JSON.stringify(team);
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
