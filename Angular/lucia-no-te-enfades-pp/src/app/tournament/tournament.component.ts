@@ -49,7 +49,7 @@ export class TournamentComponent{
         this.script2();
     }
 
-    getTournament(id: number){
+    getTournament(){
         this.tournamentService.getTournamentById(this.idTournament).subscribe(
             tournament => {
                 let data: any = tournament;
@@ -60,6 +60,10 @@ export class TournamentComponent{
             },
             error => console.error('Error finding tournament' + error)
         );
+    }
+
+    addTeamToTournament(){
+        
     }
 
     script1() {
