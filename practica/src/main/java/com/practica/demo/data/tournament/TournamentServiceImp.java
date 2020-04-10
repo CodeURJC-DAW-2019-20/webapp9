@@ -60,7 +60,7 @@ public class TournamentServiceImp implements TournamentService {
 	}
 	
 	@Override
-	public Integer createTournament(Tournament tournament) {
+	public Tournament createTournament(Tournament tournament) {
 		try {
 			Tournament newTournament = new Tournament(tournament.getNumTeams(), tournament.getName(), tournament.getDescription(), tournament.getLatitude(), tournament.getLongitude());
 			
@@ -74,7 +74,7 @@ public class TournamentServiceImp implements TournamentService {
 
 			gameRepository.save(newGame);
 
-			return auxTournament.getIdTournament();
+			return auxTournament;
 		} catch (Exception e) {
 			return null;
 		}

@@ -43,10 +43,10 @@ public class TournamentRestController {
 	@RequestMapping(value = "/api/tournaments", method = RequestMethod.POST)
 	public ResponseEntity<Object>crerateTournament(@RequestBody Tournament tournament){
 		
-		Integer result = tournamentService.createTournament(tournament);
+		Tournament result = tournamentService.createTournament(tournament);
 		
 		if(result != null){
-			return new ResponseEntity<>("Tournament was succesfully created. ID: " + result, HttpStatus.CREATED);
+			return new ResponseEntity<>(result, HttpStatus.CREATED);
 		}else{
 			return new ResponseEntity<>("Tournament wasnt created", HttpStatus.CONFLICT);
 		}

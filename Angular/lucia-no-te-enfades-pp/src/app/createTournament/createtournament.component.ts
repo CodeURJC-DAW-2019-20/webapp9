@@ -10,14 +10,17 @@ import { Tournament } from '../models/tournament.model';
 })
 
 export class CreatetournamentComponent{
-    tournament: Tournament;
+    tournament = new Tournament;
 
     constructor(private tournamentService: TournamentService){}
    
     save(){
         this.tournamentService.addTournament(this.tournament).subscribe(
-            _ => {},
+            _ => {
+                window.history.back();
+            },
             error => console.error('Error creating new tournament: ' + error)
         );
+        
     }
 }
