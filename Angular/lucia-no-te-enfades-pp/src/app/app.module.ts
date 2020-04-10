@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { CreatetournamentComponent } from './createTournament/createtournament.component';
 import { TournamentComponent } from './tournament/tournament.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     CreatetournamentComponent,
     TournamentComponent,
     TeamComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    UpdateMatchComponent
   ],
 
   imports: [
