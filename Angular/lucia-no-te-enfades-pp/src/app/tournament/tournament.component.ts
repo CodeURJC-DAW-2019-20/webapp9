@@ -49,7 +49,7 @@ export class TournamentComponent{
         this.script2();
     }
 
-    getTournament(){
+    getTournament(id: number){
         this.tournamentService.getTournamentById(this.idTournament).subscribe(
             tournament => {
                 let data: any = tournament;
@@ -63,7 +63,7 @@ export class TournamentComponent{
     }
 
     addTeamToTournament(){
-        
+
     }
 
     script1() {
