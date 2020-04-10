@@ -1,38 +1,25 @@
-function loadCoordenates(callback) {
-    $.ajax({
-        url: 'https://localhost:8443/api/loadCoordenates?name='+name
-    }).done(function (coordenates) {
-    	console.log("olo " + coordenates.latitude);
-    	callback(coordenates);
-    });
-}
+var loadMap = (function() {
 
-function loadMap(coordenates) {
-    var latlng = new google.maps.LatLng(coordenates.latitude, coordenates.longitude);
+    return {
+        func1: function (latitude, longitude){
+            var latlng = new google.maps.LatLng(latitude, longitude);
     
-    var myOptions = {
-    	      zoom: 4,
-    	      center: latlng,
-    	      mapTypeId: google.maps.MapTypeId.ROADMAP
+            var myOptions = {
+    	        zoom: 4,
+    	        center: latlng,
+    	        mapTypeId: google.maps.MapTypeId.ROADMAP
     	    };
     
-    var map = new google.maps.Map(document.getElementById("map_container"),myOptions);
+            var map = new google.maps.Map(document.getElementById("map_container"),myOptions);
     
-    var marker = new google.maps.Marker({
-        position: latlng, 
-        map: map, 
-        title:"Tournament Title"
-      });
-    
-    
-  }
-
-$(document).ready(function(){
-
-	loadCoordenates(function(coordenates,name){
-		loadMap(coordenates);
-	});
-});
+            var marker = new google.maps.Marker({
+                position: latlng, 
+                map: map, 
+                title:"Tournament Title"
+            });
+        }   
+    }
+})(loadMap||{})
 
 
 
