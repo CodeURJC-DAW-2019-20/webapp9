@@ -30,7 +30,7 @@ export class ProfileComponent{
             },
             error => console.error('Error')
         );
-        this.username= this.player.user.name;
+        this.username= this.player.user.username;
     }
     buildHtml(idUser:number){
         this.profileService.getPlayerByUserId(this.id).subscribe
