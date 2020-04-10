@@ -32,10 +32,11 @@ export class TeamComponent {
                 let data: any = team;
                 let idTeam = data.id;
                 this.readUser(idTeam);
+                //
             },
             error => console.error('Error creating new Team: ' + error)
         );
-        
+        window.history.back();
     }
 
     readUser(idTeam: number){

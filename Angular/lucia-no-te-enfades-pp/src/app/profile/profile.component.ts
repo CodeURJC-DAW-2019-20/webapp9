@@ -4,8 +4,10 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PlayersService } from '../_servicies/players.service';
+import { Team } from '../models/team.model';
 
 const BASE_URL = '/api/player/';
+declare var loadPie: any;
 
 @Component({
     selector: 'profile-selector',
@@ -18,19 +20,26 @@ export class ProfileComponent{
     player:Player;
     imgUrl:string;
     username:string;
+    wins:number;
+    losses:number;
+    team:Team;
     constructor(private profileService:ProfileService,private router: Router,
         activatedRoute: ActivatedRoute) {
         this.id = activatedRoute.snapshot.params['id'];
         this.imgUrl =  '/api/user/' + this.id + '/image';
+        
     }
     ngOnInit(){
+        //loadPie.fn(this.player.team.losses,this.player.team.wins);
         this.profileService.getPlayerByUserId(this.id).subscribe(
             response => {
                 this.player = response;
+                this.username= this.player.user.username;
+                this.team= this.player.team;
+                loadPie.fn(this.team.losses,this.team.wins);
             },
             error => console.error('Error')
         );
-        this.username= this.player.user.username;
     }
     buildHtml(idUser:number){
         this.profileService.getPlayerByUserId(this.id).subscribe
