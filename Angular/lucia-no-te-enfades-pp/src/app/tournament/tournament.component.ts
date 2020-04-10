@@ -65,4 +65,32 @@ export class TournamentComponent{
         );
     }
 
+    addTeamToTournament(){
+
+    }
+
+    script1() {
+        this.loadAPI = new Promise((resolve) => {
+            console.log('resolving promise...');
+            this.loadScript(GOOGLE_API);
+        });
+    }
+
+    script2() {
+        this.loadAPI2 = new Promise((resolve) => {
+            console.log('resolving promise...');
+            this.loadScript(GOOGLE_SCRIPT);
+        });
+    }
+
+    loadScript(url: string) {
+        console.log('preparing to load...')
+        let node = document.createElement('script');
+        node.src = url;
+        node.type = 'text/javascript';
+        node.async = true;
+        node.charset = 'utf-8';
+        document.getElementsByTagName('head')[0].appendChild(node);
+    }
+
 }

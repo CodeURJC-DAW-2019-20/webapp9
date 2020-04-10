@@ -4,9 +4,10 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Play } from '../models/play.model';
+import { Team } from '../models/team.model';
 import { Tournament } from '../models/tournament.model';
 
-const BASE_URL = '/api/tournaments/';
+const BASE_URL = '/api/tournaments';
 const MAP_URL = '/api/loadCoordenates';
 
 @Injectable({ providedIn: 'root' })
@@ -14,13 +15,13 @@ export class TournamentService{
     constructor(private httpClient: HttpClient){}
 
     getPlays(id: number): Observable<Play[]> {
-        return this.httpClient.get(BASE_URL + id + '/matches').pipe(
+        return this.httpClient.get(BASE_URL + '/' + id + '/matches').pipe(
             catchError(error => this.handleError(error))
         ) as Observable<Play[]>;
     }
 
     getTournamentById(id: number):Observable<Tournament> {
-        return this.httpClient.get(BASE_URL + id).pipe(
+        return this.httpClient.get(BASE_URL + '/' + + id).pipe(
             catchError(error => this.handleError(error))
         )as Observable <Tournament>
     }
@@ -37,7 +38,15 @@ export class TournamentService{
         );
     }
 
-    
+    joinTournament(tournament: Tournament, team: Team){
+        const body = JSON.stringify(team);
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json',
+        });
+        return this.httpClient.post<Team>(BASE_URL+ '/' + tournament.idTournament+ '/teams', body, { headers }).pipe(
+            catchError(error => this.handleError(error))
+        );
+    }
 
     private handleError(error: any) {
 		console.error(error);

@@ -38,8 +38,7 @@
 						<div class="input-group">
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.name"
-								placeholder="Your tournament name here" class="form-control"
-								type="text" #tournamentFormElement #tournamentFormControl="ngModel" name="name" required>
+								placeholder="Your tournament name here" class="form-control" name="name">
 						</div>
 					</div>
 				</div>
@@ -53,7 +52,7 @@
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.numTeams"
 								placeholder="Number of teams here"
-								class="form-control" type="number">
+								class="form-control" name="numTeams">
 						</div>
 					</div>
 				</div>
@@ -67,7 +66,7 @@
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.description"
 								placeholder="Description here"
-								class="form-control" type="text">
+								class="form-control" type="text" name="description">
 						</div>
 					</div>
 				</div>
@@ -81,7 +80,7 @@
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.latitude"
 								placeholder="Latitude here"
-								class="form-control" type="number">
+								class="form-control" type="number" name="latitude">
 						</div>
 					</div>
 				</div>
@@ -95,7 +94,7 @@
 							<span class="input-group-addon"><i
 								class="glyphicon glyphicon-user"></i></span> <input [(ngModel)]="tournament.longitude"
 								placeholder="Longitude here"
-								class="form-control" type="number">
+								class="form-control" type="number" name="longitude">
 						</div>
 					</div>
 				</div>
@@ -104,7 +103,7 @@
 
 
 				<!-- Select Basic -->
-				<div class="form-group">
+				<!--<div class="form-group">
 					<label class="col-md-4 control-label">Select the tournament image</label>
 					<div class="col-md-4">
 						<div class="input-group mb-3">
@@ -114,11 +113,11 @@
 							<div class="custom-file">
 								<input [(ngModel)]="tournament.img" type="file" class="custom-file-input"
 									id="inputGroupFile01"> <label class="custom-file-label"
-									for="inputGroupFile01">Choose file</label>
+									for="inputGroupFile01" name="img">Choose file</label>
 							</div>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				<br>
 				<!-- Button -->
 				<div class="col-md-4 inputGroupContainer">

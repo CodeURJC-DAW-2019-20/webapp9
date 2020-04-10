@@ -17,6 +17,7 @@ export class ProfileComponent{
     id:number;
     player:Player;
     imgUrl:string;
+    username:string;
     constructor(private profileService:ProfileService,private router: Router,
         activatedRoute: ActivatedRoute) {
         this.id = activatedRoute.snapshot.params['id'];
@@ -29,10 +30,11 @@ export class ProfileComponent{
             },
             error => console.error('Error')
         );
+        this.username= this.player.user.username;
     }
     buildHtml(idUser:number){
         this.profileService.getPlayerByUserId(this.id).subscribe
-        
+
     }
 
 
