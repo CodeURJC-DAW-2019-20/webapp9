@@ -30,10 +30,10 @@ export class LoginComponent implements OnInit {
 
       login(username: string, password: string, event: Event) {
 
-        if(this.credentials.controls['username'].value == ('')){
+        if(this.credentials.controls.username.value == ('')){
             return
         }
-        if (this.credentials.controls['password'].value == ('')) {
+        if (this.credentials.controls.password.value == ('')) {
             return
         }
         this.userService.login(username, password,false).subscribe(
@@ -52,7 +52,7 @@ export class LoginComponent implements OnInit {
    
     ngOnInit() {
         this.error = false; 
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/index';//tocar esto
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';//tocar esto
    
     }
     navigate() {

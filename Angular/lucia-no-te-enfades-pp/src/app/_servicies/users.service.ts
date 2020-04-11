@@ -24,7 +24,7 @@ export class UsersService {
         'Authorization': 'Basic ' + btoa(user + ':' + pass)
       })
     };
-return this.http.get<any>('/api/signin', httpOptions).
+return this.http.get<any>('/api/logIn', httpOptions).
 pipe(
   map(user => {
     user.authData = window.btoa(user + ':' + pass);
