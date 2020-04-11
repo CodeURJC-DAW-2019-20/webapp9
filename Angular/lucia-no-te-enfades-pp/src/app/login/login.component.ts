@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
     emptyUsername: string;
     error: boolean;
     returnUrl:string;
+
+    imgWebIconUrl ="assets/web-icon-black.png";
      
     constructor(public userService: UsersService, public router: Router, public route:ActivatedRoute) {
         

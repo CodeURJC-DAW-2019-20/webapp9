@@ -42,3 +42,11 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.center {
+  margin-top: 200px;
+  margin-left: 350px;
+  margin-right: 0 auto;
+  
+  width: 60%;
+}
