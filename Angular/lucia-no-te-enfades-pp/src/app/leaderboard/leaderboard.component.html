@@ -49,17 +49,6 @@ var csrf="{{token}}"
 					<!--Table head-->
 					<!--Table body-->
 					<tbody id="table">
-
-						<tr *ngFor="let elem of teamsListShow">
-
-                            <th scope="row">{{elem.pos}}</th>
-                            
-							<td>{{elem.name}}</td>
-
-                            <td>{{elem.elo}}</td>
-                            
-						</tr>
-
 					</tbody>
 					<!--Table body-->
 				</table>
@@ -73,8 +62,8 @@ var csrf="{{token}}"
 				<div class="d-flex justify-content-center">
 					<!--Pagination -->
                     
-					<button *ngIf="allNotShown" class="button" (click)="showMore()" >Load more</button>
-
+					<button *ngIf="allShown==false" class="button" (click)="showMore()" >Load more</button>
+					
 					<!--/Pagination -->
 				</div>
 			</div>

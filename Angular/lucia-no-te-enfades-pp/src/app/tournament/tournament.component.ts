@@ -3,8 +3,10 @@ import { Component } from '@angular/core';
 import { Play } from '../models/play.model';
 
 import { TournamentService } from '../_servicies/tournament.service';
+import { PlayersService } from '../_servicies/players.service';
 import { Tournament } from '../models/tournament.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Team } from '../models/team.model';
 
 const GOOGLE_API = "https://maps.googleapis.com/maps/api/js?sensor=false";
 const GOOGLE_SCRIPT = "../assets/js/googleMap.js";
@@ -25,13 +27,14 @@ export class TournamentComponent{
     idTournament:number;
     nameTournament: string;
     plays = new Array<Play>();
+    team = new Team;
 
     loadAPI0: Promise<any>;
     loadAPI: Promise<any>;
     loadAPI2: Promise<any>;
 
 
-    constructor(private tournamentService: TournamentService, private router:Router, activatedRoute: ActivatedRoute){
+    constructor(private tournamentService: TournamentService, private playersService: PlayersService, private router:Router, activatedRoute: ActivatedRoute){
         this.idTournament=activatedRoute.snapshot.params['idTournament'];
     }
 
@@ -66,7 +69,14 @@ export class TournamentComponent{
     }
 
     addTeamToTournament(){
-
+        /*this.playersService.getPlayerByUserId();   coger equipo de cuenta activa*/
+        /*this.team= data.Team;*/
+        this.tournamentService.joinTournament(this.tournament, this.team).subscribe(
+            _ => {
+            },
+            error => console.error('Error joining tournament: ' + error)
+        );
+        
     }
 
    

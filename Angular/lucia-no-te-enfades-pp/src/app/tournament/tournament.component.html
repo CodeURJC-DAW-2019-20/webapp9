@@ -30,12 +30,11 @@
 			<h1 id="headline">{{tournament.name}}</h1>
 			<p class="year">2020</p>
 			<div style="text-align: center;">
-			<form action="/jointournament" method="get">
-							<!--<input type="submit" class="button" value="Join Tournament"> <input
-								type="hidden" name="_csrf" value="{{token}}" />-->
-								<!--<input
-								type="hidden" name="torunament" value="{{name}}" />-->
-						</form> 
+			<form>
+				<input type="submit" class="button" value="Join Tournament" (click)="addTeamToTournament()"> 
+				<!--<input type="hidden" name="_csrf" value="{{token}}" />
+				<input type="hidden" name="torunament" value="{{name}}" />-->
+			</form> 
 
 			</div>
 		</div>
@@ -93,8 +92,10 @@
 							<input type="hidden" name="elo1" value="{{elem.elo1}}">
 							<input type="hidden" name="name2" value="{{elem.name2}}">
 							<input type="hidden" name="elo2" value="{{elem.elo2}}">
-							
-							<input type="submit" value="UpdateMatch">
+
+							<form [routerLink]="['/updateMatch/',idTournament,elem.pos]">
+								<input type="submit" value="UpdateMatch">
+							</form>
 							<!--<input type="hidden" name="_csrf" value="{{token}}">-->
 							</form>
 							</td>

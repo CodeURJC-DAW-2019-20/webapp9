@@ -75,16 +75,17 @@
 				<br>
 				<!-- Button -->
 				<div class="col-md-4 inputGroupContainer">
-					<button class="btn btn-primary" (click)="save()">Submit</button>
+					<button *ngIf="notSaved" class="btn btn-primary" (click)="save()">Submit</button>
+				</div>
+				
+				<h3 *ngIf="saved">Team created</h3> 
+
+				<div class="col-md-4 inputGroupContainer">
+					<button *ngIf="saved" class="btn btn-primary" [routerLink]="['/']">Go to home</button>
 				</div>
 
 			</fieldset>
 
     </div>
-    
-    <!--
-	<script src="/core/jquery-3.4.1.slim.min.js"></script>
-    <script src="/core/bootstrap.bundle.min.js"></script>
-    -->
 
 </body>

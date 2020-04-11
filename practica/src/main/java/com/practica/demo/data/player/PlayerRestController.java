@@ -24,7 +24,7 @@ public class PlayerRestController {
 	@RequestMapping(value = "/api/player/{idPlayer}/team", method = RequestMethod.PUT)
 	public ResponseEntity<Object> addPlayerTeam(@PathVariable int idPlayer, @RequestBody Team team){
 		if(playerService.updateTeam(idPlayer,team)){
-			return new ResponseEntity<>("Team was succesfully updated", HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>("Player or team not found", HttpStatus.NOT_FOUND);
 		}

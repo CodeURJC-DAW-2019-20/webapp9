@@ -35,7 +35,9 @@
               "node_modules/jquery/dist/jquery.slim.min.js",
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "src/assets/js/googleMap.js"
+              "src/assets/js/googleMap.js",
+              "src/assets/js/pie.js",
+              "src/assets/js/load.js"
             ]
           },
           "configurations": {
