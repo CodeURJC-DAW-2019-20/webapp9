@@ -16,8 +16,8 @@
                     <a [routerLink]="['/login']" class="nav-link">Sign In</a>
                 </li>
                 <div [hidden]="!logged()">
-                    <a [routerLink]="['/profile/',userLoggued?.id]" class="nav-link">{{userLoggued.username}}</a>
-                </div>x
+                    <a [routerLink]="['/profile/',userLoggedId]" class="nav-link">{{userLoggedName}}</a>
+                </div>
                 <li class="nav-item active">
                     <a [routerLink]="['/leaderboard']" class="nav-link">Leaderboard</a>
                 </li>

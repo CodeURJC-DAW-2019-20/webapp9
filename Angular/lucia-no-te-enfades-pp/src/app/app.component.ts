@@ -11,24 +11,37 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'lucia-no-te-enfades-pp';
-  userLoggued: User;
-  
+  userLoggued = new User;
+  userLoggedName: String;
+  userLoggedId: number;
+  imgWebIconUrl = "assets/web-icon-white.png";
   
   constructor(private userService: UsersService){
 
   }
-  imgWebIconUrl = "assets/web-icon-white.png";
+  
 
 
   logged() { return this.userService.logged; }
 
   ngOnInit(): void {
-    this.userService.currentUser.subscribe(x => this.userLoggued = x);
-    this.userService.getUserByUserName(this.userLoggued.username).subscribe(
-            user => {
-              let data: any = user;
-              this.userLoggued = user;
-          },
-          );
-      }  
+    this.userService.currentUser.subscribe(
+      response => {
+        this.userLoggedName = response.username;
+        this.getUserId(this.userLoggedName);
+      }
+    );
+
   }
+
+  getUserId(name: String) {
+    this.userService.getUserByUserName(name).subscribe(
+      user => {
+        let data: any = user;
+        this.userLoggedId = data.iduser;
+      },
+      error => console.error('Error finding user: ' + error)
+    );
+  }
+
+}
