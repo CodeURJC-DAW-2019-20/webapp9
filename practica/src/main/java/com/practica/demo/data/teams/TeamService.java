@@ -8,4 +8,5 @@ public interface TeamService {
 	public abstract boolean updateTeam(int id, Team team);
 	public abstract boolean addPlayer(int idTeam, int idPlayer);
 	public abstract List<Team> getTeamsByElo(int page);
+	public abstract Team getTeambyname(String name);
 }

@@ -26,6 +26,12 @@ export class TeamsService {
         ) as Observable<Team[]>;
     }
 
+    getTeambyName (name: string): Observable<Team>{
+        return this.httpClient.get<Team[]>(BASE_URL + name).pipe(
+            catchError(error => this.handleError(error))
+        ) as Observable<Team>;
+    }
+
     addTeam(team: Team): Observable<Team>{
         return this.httpClient.post<Team>(BASE_URL, team).pipe(
             catchError(error => this.handleError(error))

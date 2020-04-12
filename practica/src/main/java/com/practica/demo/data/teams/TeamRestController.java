@@ -64,6 +64,15 @@ public class TeamRestController {
 			return new ResponseEntity<>("The team wasnt updated", HttpStatus.NOT_FOUND);
 		}
 	}
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = "/api/teams/{name}", method = RequestMethod.GET)
+	public ResponseEntity<Object> getTeamwithName(@PathVariable String name){
+		if(teamService.getTeambyname(name)!=null){
+			return new ResponseEntity<>(teamService.getTeambyname(name), HttpStatus.OK);
+		}else{
+			return new ResponseEntity<>("The team wasnt found", HttpStatus.NOT_FOUND);
+		}
+	}
 	
 
 	

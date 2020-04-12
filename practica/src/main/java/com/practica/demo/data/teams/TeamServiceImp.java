@@ -106,4 +106,11 @@ public class TeamServiceImp implements TeamService{
 		return result;
 	}
 
+	@Override
+	public Team getTeambyname(String name) {
+		return teamRepository.findByname(name);
+	}
+	
+	
+
 }

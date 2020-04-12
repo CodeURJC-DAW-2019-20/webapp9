@@ -202,4 +202,10 @@ public class TournamentServiceImp implements TournamentService {
 			return null;
 		}*/
 
+	@Override
+	public List<Game> getGamesbyTournament(int idTournament) {
+		List<Game> gameList = gameRepository.findBytournamentIdTournament(idTournament);// TODO Auto-generated method stub
+		return gameList;
+	}
+
 }

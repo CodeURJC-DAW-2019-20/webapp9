@@ -3,6 +3,7 @@ package com.practica.demo.data.tournament;
 import java.io.File;
 import java.util.List;
 
+import com.practica.demo.data.game.Game;
 import com.practica.demo.data.play.Play;
 import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teamsOnGame.*;
@@ -90,6 +91,16 @@ public class TournamentRestController {
 		List<Play> aux = tournamentService.getGamesInTournament(idTournament);
 		if (aux!=null) {
 			return new ResponseEntity<>(tournamentService.getGamesInTournament(idTournament),HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+	}
+}
+	@CrossOrigin(origins = "http://localhost:4200")
+	@RequestMapping(value = "/api/tournaments/{idTournament}/games", method = RequestMethod.GET)
+	public ResponseEntity<Object>getgames(@PathVariable int idTournament){
+		List<Game> aux = tournamentService.getGamesbyTournament(idTournament);
+		if (aux!=null) {
+			return new ResponseEntity<>(tournamentService.getGamesbyTournament(idTournament),HttpStatus.OK);
 		}else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 	}

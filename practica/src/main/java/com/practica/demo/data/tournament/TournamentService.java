@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.practica.demo.data.game.Game;
 import com.practica.demo.data.play.Play;
 import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.teamsOnGame.Teams_On_Game;
@@ -16,4 +17,5 @@ public interface TournamentService {
 	public abstract byte[] getImage(int id);
 	public abstract boolean joinTournament(int idTournament, Team team);
 	public abstract List<Play> getGamesInTournament(int idTournament);
+	public abstract List<Game> getGamesbyTournament(int idTournament);
 }
