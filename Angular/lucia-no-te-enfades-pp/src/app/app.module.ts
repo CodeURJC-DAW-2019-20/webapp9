@@ -12,8 +12,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
 import { CreatetournamentComponent } from './createTournament/createtournament.component';
 import { TournamentComponent } from './tournament/tournament.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
+import { AuthInterceptor } from './_servicies/auth.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,12 @@ import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
     routing
   ],
   providers: [
-    UsersService
+    UsersService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

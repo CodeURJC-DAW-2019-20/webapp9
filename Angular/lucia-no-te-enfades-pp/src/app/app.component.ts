@@ -3,6 +3,9 @@ import { User} from './models/user.model';
 import { Observable } from 'rxjs';
 import { Component } from '@angular/core';
 
+import { HttpHeaders } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-root',
@@ -27,8 +30,9 @@ export class AppComponent {
   ngOnInit(): void {
     this.userService.currentUser.subscribe(
       response => {
-        this.userLoggedName = response.username;
-        this.getUserId(this.userLoggedName);
+        let data: any = response;
+        this.userLoggedName = data.username;
+        this.userLoggedId = data.iduser;
       }
     );
 

@@ -14,6 +14,7 @@ import com.practica.demo.data.teams.Team;
 import com.practica.demo.data.user.User;
 
 @RestController
+@CrossOrigin(origins = "*")
 public class PlayerRestController {
 	
 	

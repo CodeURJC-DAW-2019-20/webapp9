@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { Player } from '../models/player.model';
 import { Team } from '../models/team.model';
 
-const BASE_URL = 'https://127.0.0.1:8443/api/player/';
+const BASE_URL = '/api/player/';
 
 @Injectable({ providedIn: 'root' })
 export class PlayersService {

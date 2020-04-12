@@ -6,10 +6,13 @@ import { throwError } from 'rxjs';
 
 import { User } from '../models/user.model';
 
-const BASE_URL = 'https://127.0.0.1:8443/api/user/';
+const BASE_URL = '/api/user/';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
+
+  actualUser: string;
+  actualPass: string;
 
   redirectToHome: string = "/index";
   currentUser: Observable<User>;
@@ -22,18 +25,22 @@ export class UsersService {
   }
 
   login(user: string, pass: string, oldUser: boolean) {
+    /*
     var httpOptions = {
       headers: new HttpHeaders({
         'X-Requested-With' : 'XMLHttpRequest',
         'Authorization': 'Basic ' + btoa(user + ':' + pass)
       })
     };
-    return this.http.get<any>('/api/logIn', httpOptions).pipe(
+    */
+    return this.http.get<any>('/api/logIn').pipe(
       map(user => {
         user.authData = window.btoa(user + ':' + pass);
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
-        this.logged = true; 
+        this.logged = true;
+        this.actualUser = user;
+        this.actualPass = pass;
       })
     )
   }
