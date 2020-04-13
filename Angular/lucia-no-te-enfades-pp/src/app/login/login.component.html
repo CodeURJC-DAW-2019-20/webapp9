@@ -15,23 +15,11 @@
 
 </head>
 <body class="text-center">
-	<form class="form-signin" action="/login" [formGroup]="credentials">
-		<img class="mb-4" src="/imgs/NavBar/web-icon-black.png" alt=""
-			width="72" height="72">
-		<h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-		<label for="inputEmail" class="sr-only">Email address</label> 
-		<input class="form-control" #username formControlName="username" id="username" name="username" placeholder="Email" type="text"> 
-		 <label for="inputPassword" class="sr-only">Password</label> 
-		 <input class="form-control" #password formControlName="password" id="password" name="password" placeholder="Password" type="password" />		
-			<div class="text-center pt-3">
-				<button class="btn" (click)="login(username.value, password.value, $event)" type="submit">Log in</button>
-			</div>
-		
-	</form>
+
 	
 	<div class="center">
 
-		<form class="form-signin">
+		<form class="form-signin" action="/login" [formGroup]="credentials">
 
 			<img class="mb-4" [src]="imgWebIconUrl" alt="" width="72" height="72">
 				

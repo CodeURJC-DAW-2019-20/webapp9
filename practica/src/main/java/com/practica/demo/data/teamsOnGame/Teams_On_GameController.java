@@ -1,4 +1,4 @@
-package com.practica.demo.data.teamsOnGame;
+	package com.practica.demo.data.teamsOnGame;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

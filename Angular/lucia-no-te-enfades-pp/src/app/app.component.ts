@@ -48,4 +48,22 @@ export class AppComponent {
     );
   }
 
+  
+	logout(): Promise<any> {
+		return new Promise((resolve, reject) => {
+			this.userService.logout().subscribe(
+				res => {
+					// remove user from local storage to log user out
+					localStorage.removeItem('currentUser');
+					this.userService.currentUserSubject.next(null);
+					this.userService.logged = false;
+					
+				},
+				error => {
+					console.log("marcos");
+				}
+			)
+		})
+	}
+
 }
