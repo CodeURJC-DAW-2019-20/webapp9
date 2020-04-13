@@ -12,19 +12,22 @@
                 <li class="nav-item active">
                     <a [routerLink]="['/']" class="nav-link">Home</a>
                 </li>
-                <li class="nav-item active" [hidden]="logged()">
-                    <a [routerLink]="['/login']" class="nav-link">Sign In</a>
+                <li class="nav-item active" *ngIf="notLogged">
+                    <a [routerLink]="['/login']" class="nav-link">Sign in</a>
                 </li>
-                <div [hidden]="!logged()">
+                <li class="nav-item active" *ngIf="logged">
                     <a [routerLink]="['/profile/',userLoggedId]" class="nav-link">{{userLoggedName}}</a>
-                </div>
+                </li>
                 <li class="nav-item active">
                     <a [routerLink]="['/leaderboard']" class="nav-link">Leaderboard</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li class="nav-item active" *ngIf="notLogged">
                     <a [routerLink]="['/']" class="nav-link">Register</a>
+                </li>
+                <li class="nav-item active" *ngIf="logged">
+                    <button (click)="logOut()" class="buttonNoBack">Log out</button>
                 </li>
             </ul>
         </div>        

@@ -33,12 +33,14 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/teamsOnGame/**").hasRole("USER");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/teamsOnGame/**").hasRole("ADMIN");
 		
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/**").hasRole("ADMIN");
+		//http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/user/**").access("hasRole('USER') or hasRole('ADMIN')");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/user/**").hasRole("USER");
 		
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/player/**").hasRole("ADMIN");
 		
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/tournaments/**").hasRole("USER");
+		//http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/tournaments/**").hasRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/tournaments/**").access("hasRole('USER') or hasRole('ADMIN')");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/tournaments").hasRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/tournaments/**").hasRole("USER");
 		

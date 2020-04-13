@@ -139,3 +139,17 @@ body {
     margin-top: 30px;
     margin-bottom: auto;
 }
+
+.buttonNoBack {
+  color: white;
+  background-color: rgba(30, 143, 255, 0);
+  text-align: center;
+  text-align-last: center;
+  font-size: 15px;
+  font-family: "Lucida Sans Unicode";
+  font-weight: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}

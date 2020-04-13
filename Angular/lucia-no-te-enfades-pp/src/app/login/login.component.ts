@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit {
     error: boolean;
     returnUrl:string;
 
+    loggedIn: boolean;
+    notLoggedIn: boolean;
+
     imgWebIconUrl ="assets/web-icon-black.png";
      
     constructor(public userService: UsersService, public router: Router, public route:ActivatedRoute) {
@@ -40,7 +43,8 @@ export class LoginComponent implements OnInit {
         }
         this.userService.login(username, password,false).subscribe(
             res => {
-              console.log(res);
+              this.loggedIn = true;
+              this.notLoggedIn = false;
               this.navigate();
             },
             error => {
@@ -53,12 +57,14 @@ export class LoginComponent implements OnInit {
         }
    
     ngOnInit() {
-        this.error = false; 
+        this.error = false;
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';//tocar esto
    
     }
     navigate() {
         this.router.navigate([this.returnUrl]);
+        //window.history.back();
+        window.location.reload();
       }
 
     // convenience getter for easy access to form fields
