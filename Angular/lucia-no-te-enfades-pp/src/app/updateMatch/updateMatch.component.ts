@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Play } from '../models/play.model';
-import { MatchService } from '../_servicies/match.service';
+import { MatchService, resultBody } from '../_servicies/match.service';
 import { TournamentService } from '../_servicies/tournament.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -14,11 +14,14 @@ export class UpdateMatchComponent{
     idTournament:number;
     idPlay:number;
     play = new Play;
+    resultArray:Array<resultBody>;
+
     constructor(private matchservice: MatchService, private tournamentservice:TournamentService, private router: Router,
         activatedRoute: ActivatedRoute){
         this.idTournament = activatedRoute.snapshot.params['idTournament'];
         this.idPlay = activatedRoute.snapshot.params['pos'];
     };
+
     ngOnInit(){
         this.tournamentservice.getPlays(this.idTournament).subscribe(
             response => {
@@ -29,11 +32,6 @@ export class UpdateMatchComponent{
          );
     }
     updateGame(){
-        /*this.matchservice.updateMatch(this.idTournament,this.idPlay,).subscribe(
-            _ => {
-                window.history.back();
-            },
-            error => console.error('Error updating match: ' + error)
-        );*/
+        this.matchservice.updateMatch(this.idTournament,this.idPlay,this.resultArray);
     }
 }

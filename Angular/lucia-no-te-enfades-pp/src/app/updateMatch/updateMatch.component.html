@@ -53,8 +53,8 @@
             <form>
 				<input type="hidden" name="team1Name" value="{{play.name1}}">
 				<input type="hidden" name="team2Name" value="{{play.name2}}">
-				<input type="number" name="puntuation1" placeholder="Team 1 result">
-				<input type="number" name="puntuation2" placeholder="Team 2 result">
+				<input [(ngModel)]="resultArray[0].result" type="number" name="puntuation1" placeholder="Team 1 result">
+				<input [(ngModel)]="resultArray[1].result" type="number" name="puntuation2" placeholder="Team 2 result">
                 <input [(ngModel)]="play.winner" type="text" name="winner" 
                  placeholder="Name of the winner team">
 				<input type="submit" value="Submit" (click)="updateGame()">

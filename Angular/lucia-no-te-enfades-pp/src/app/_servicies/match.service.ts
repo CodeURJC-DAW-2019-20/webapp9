@@ -15,12 +15,14 @@ const GAME_URL = '/api/tournaments/';
 
 @Injectable({ providedIn: 'root' })
 
+
+
 export class MatchService{
     games = new Array<Game>();
     play = new Play;
     id:Array<number>;
     team:Team;
-    resultArray:Array<any>;
+    resultArray:Array<resultBody>;
 
     constructor(private tournamentservice:TournamentService, private teamsservice:TeamsService, private httpClient: HttpClient){}
 
@@ -30,7 +32,7 @@ export class MatchService{
         )as Observable <Game[]>
     }
 
-    /*updateMatch(idTournament,idPlay:number){
+    updateMatch(idTournament,idPlay:number,resultArray:Array<resultBody>){
         this.getGames(idTournament).subscribe(
             response => {
                 let data: any = response;
@@ -38,10 +40,15 @@ export class MatchService{
             },
             error => console.error('Error finding plays' + error)
          );
-         this.putGame(this.games[idPlay], idTournament, idPlay);
+         this.putGame(this.games[idPlay], idTournament, idPlay, resultArray).subscribe(
+            _ => {
+                window.history.back();
+            },
+            error => console.error('Error updating match: ' + error)
+         );
     }
 
-    private putGame(game: Game, idTournament: number, idPlay: number){
+    private putGame(game: Game, idTournament: number, idPlay: number, resultArray:Array<resultBody>){
         this.tournamentservice.getPlays(idTournament).subscribe(
             response => {
                 let data: any = response;
@@ -60,6 +67,15 @@ export class MatchService{
             this.id[i]=this.team.idTeam;
         }
 
+        if (this.play.winner==this.play.name1){
+            resultArray[0].winner=true;
+            resultArray[1].winner=false;
+        }
+        else{
+            resultArray[0].winner=false;
+            resultArray[1].winner=true; 
+        }
+
         const body = JSON.stringify(resultArray)
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
@@ -68,11 +84,16 @@ export class MatchService{
         return this.httpClient.put(BASE_URL + this.id[0] + this.id[1] + game.idGame, body, { headers }).pipe(
             catchError(error => this.handleError(error))
         )
-    }*/
+    }
 
     private handleError(error: any) {
 		console.error(error);
 		return Observable.throw("Server error (" + error.status + "): " + error.text())
 	}
 
+}
+
+export class resultBody{
+    result:number;
+    winner:boolean;
 }
