@@ -1,9 +1,11 @@
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor{
+    constructor(private router:Router){}
     intercept(req: HttpRequest<any>, next:HttpHandler): Observable<HttpEvent<any>>{
         const idToken = localStorage.getItem("id_token");
 
@@ -17,7 +19,9 @@ export class AuthInterceptor implements HttpInterceptor{
             return next.handle(cloned);
 
         }else{
-            return next.handle(req);
+            if(status='401'){
+                this.router.navigate(["/login"]);
+            }
         }
 
     }

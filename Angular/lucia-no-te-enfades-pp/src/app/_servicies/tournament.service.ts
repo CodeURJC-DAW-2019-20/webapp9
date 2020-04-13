@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Router, NavigationExtras } from '@angular/router';
 
 import { Play } from '../models/play.model';
 import { Team } from '../models/team.model';
@@ -12,7 +13,7 @@ const MAP_URL = '/api/loadCoordenates';
 
 @Injectable({ providedIn: 'root' })
 export class TournamentService{
-    constructor(private httpClient: HttpClient){}
+    constructor(private httpClient: HttpClient, public router:Router){}
 
     getPlays(id: number): Observable<Play[]> {
         return this.httpClient.get(BASE_URL + '/' + id + '/matches').pipe(
@@ -50,6 +51,9 @@ export class TournamentService{
     }
 
     private handleError(error: any) {
+        if(status='401'){
+            this.router.navigate(["/login"]);
+        }
 		console.error(error);
 		return Observable.throw("Server error (" + error.status + "): " + error.text())
 	}
