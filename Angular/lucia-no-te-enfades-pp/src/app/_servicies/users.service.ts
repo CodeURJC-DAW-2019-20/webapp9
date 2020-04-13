@@ -105,4 +105,8 @@ export class UsersService {
     return throwError("Server error (" + error.status + "): " + error.text);
   }
 
+  logout() {
+    return this.http.get('/api/logout');
+  }
+
 }
