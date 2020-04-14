@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UsersService } from './_servicies/users.service';
@@ -15,6 +16,7 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
 import { AuthInterceptor } from './_servicies/auth.interceptor';
+import { RegisterComponent } from './register/register.component';
 
 
 @NgModule({
@@ -27,15 +29,16 @@ import { AuthInterceptor } from './_servicies/auth.interceptor';
     TournamentComponent,
     TeamComponent,
     LeaderboardComponent,
-    UpdateMatchComponent
+    UpdateMatchComponent,
+    RegisterComponent
   ],
 
   imports: [
     BrowserModule,
-    HttpClientModule,
     FormsModule,
-    NgbModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    NgbModule,
     routing
   ],
   providers: [
@@ -45,6 +48,11 @@ import { AuthInterceptor } from './_servicies/auth.interceptor';
       useClass: AuthInterceptor,
       multi: true
     }
+  ],
+  exports: [
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   bootstrap: [AppComponent]
 })

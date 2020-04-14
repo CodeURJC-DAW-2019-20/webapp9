@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { Router } from '@angular/router';
+
 import { Play } from '../models/play.model';
 import { Team } from '../models/team.model';
 import { Game } from '../models/game.model';
@@ -24,7 +26,7 @@ export class MatchService{
     team:Team;
     resultArray:Array<resultBody>;
 
-    constructor(private tournamentservice:TournamentService, private teamsservice:TeamsService, private httpClient: HttpClient){}
+    constructor(private tournamentservice:TournamentService, private teamsservice:TeamsService, private httpClient: HttpClient, public router:Router){}
 
     getGames(idTournament: number):Observable<Game[]> {
         return this.httpClient.get(GAME_URL + idTournament + '/games').pipe(
@@ -87,7 +89,10 @@ export class MatchService{
     }
 
     private handleError(error: any) {
-		console.error(error);
+        console.error(error);
+        if(error.status === 403 || error.status === 401 || error.status === 0){
+            this.router.navigate(["/login"]);
+        }
 		return Observable.throw("Server error (" + error.status + "): " + error.text())
 	}
 

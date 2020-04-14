@@ -51,7 +51,7 @@ export class TournamentService{
     }
 
     private handleError(error: any) {
-        if(status='401'){
+        if(error.status === 403 || error.status === 401 || error.status === 0){
             this.router.navigate(["/login"]);
         }
 		console.error(error);

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
+import { Router } from '@angular/router';
+
 import { Team } from '../models/team.model';
 
 const BASE_URL = '/api/teams/';
@@ -12,7 +14,7 @@ const LEADERBOARD_URL = '/api/leaderBoardLoaded/';
 @Injectable({ providedIn: 'root' })
 export class TeamsService {
 
-    constructor(private httpClient: HttpClient){}
+    constructor(private httpClient: HttpClient, private router:Router){}
 
     getLeaderBoard(): Observable<Team[]>{
         return this.httpClient.get<Team[]>(LEADERBOARD_URL).pipe(
@@ -45,7 +47,10 @@ export class TeamsService {
     }
 
     private handleError(error: any) {
-		console.error(error);
+        console.error(error);
+        if(error.status === 403 || error.status === 401 || error.status === 0){
+            this.router.navigate(["/login"]);
+        }
 		return throwError("Server error (" + error.status + "): " + error.text);
 	}
 

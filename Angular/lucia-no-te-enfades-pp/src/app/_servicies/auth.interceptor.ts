@@ -19,9 +19,20 @@ export class AuthInterceptor implements HttpInterceptor{
             return next.handle(cloned);
 
         }else{
-            if(status='401'){
-                this.router.navigate(["/login"]);
+
+            const cloned2 = req.clone({
+                headers: req.headers.set("Authorization",
+                "Basic "+ idToken)
+            });
+
+            if(req.method === "POST"){
+                return next.handle(req);
+            }else{
+                return next.handle(cloned2);
             }
+
+            
+            
         }
 
     }

@@ -18,91 +18,75 @@
 			<div class="col-md-8">
 				<div class="card">
 					<div class="card-body">
-						<form class="form-horizontal" method="post" action="/register">
+						<form>
+
+							<h2 *ngIf="notEqualPass">Passwords are not equal</h2>
+
 							<div class="form-group">
-								<label for="name" class="cols-sm-2 control-label">Your Name</label>
+								<label for="name" class="cols-sm-2 control-label">Your name</label>
 								<div class="cols-sm-10">
 									<div class="input-group">
 										<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-										<input type="text" [(ngModel)]="user.firtsName" class="alert alert-danger" placeholder="Name"/>
+										<input type="text" #name class="form-control" placeholder="Insert your name" />
 									</div>
 								</div>
 							</div>
+
 							<div class="form-group">
-								<label for="email" class="cols-sm-2 control-label">Your
-									Email</label>
+								<label for="email" class="cols-sm-2 control-label">Your e-mail</label>
 								<div class="cols-sm-10">
 									<div class="input-group">
-										<span class="input-group-addon"><i
-											class="fa fa-envelope fa" aria-hidden="true"></i></span>
-										 <input type="text" class="alert alert-danger" role="alert"
-											name="email" id="email" placeholder="{{email}}" />
-
+										<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+										<input type="text" #email class="form-control" placeholder="Insert your Email" />
 									</div>
 								</div>
 							</div>
+
 							<div class="form-group">
 								<label for="username" class="cols-sm-2 control-label">Username</label>
 								<div class="cols-sm-10">
 									<div class="input-group">
-										<span class="input-group-addon"><i
-											class="fa fa-users fa" aria-hidden="true"></i></span>
-										 <input type="text"
-											class="alert alert-danger" role="alert" name="username" id="username"
-											placeholder="{{username}}" /> 
-
+										<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+										<input type="text" #username class="form-control" placeholder="Enter your Username" /> 
 									</div>
 								</div>
 							</div>
+
 							<div class="form-group">
 								<label for="password" class="cols-sm-2 control-label">Password</label>
 								<div class="cols-sm-10">
 									<div class="input-group">
-										<span class="input-group-addon"><i
-											class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-										 <input type="password"
-											class="alert alert-danger" role="alert" name="password" id="password"
-											placeholder="{{password}}" /> 
-
+										<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+										<input type="password" #userpassword class="form-control" placeholder="Enter your Password"/>
 									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label for="confirm" class="cols-sm-2 control-label">Confirm
-									Password</label>
-								<div class="cols-sm-10">
-									<div class="input-group">
-										<span class="input-group-addon"><i
-											class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-										 <input type="password" class="form-control"
-											name="confirm" id="confirm"
-											placeholder="Confirm your Password" /> 
-
-									</div>
-								</div>
-							</div>
-							<div class="form-group ">
-								<button type="submit" value="Enviar"
-									class="btn btn-primary btn-lg btn-block login-button">Register</button>
-								<input type="hidden" name="_csrf" value="{{token}}" />
-							</div>
-							<div class="login-register">
-								<p>
-									Already registered? <a href="signIn">Login</a>
-									here
-								</p>
 							</div>
 							
-							<!-- Google login -->
-                            <div class="g-signin2" data-onsuccess="onSignIn"></div>
-                            <a href="#" onclick="signOut();">Sign out (google)</a>
-                            
-						</form>
-					</div>
+							<div class="form-group">
+								<label for="confirm" class="cols-sm-2 control-label">Confirm password</label>
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+										<input type="password" #password class="form-control" placeholder="Confirm your Password" />
+									</div>
+								</div>
+							</div>
+							
+							<div class="form-group ">
+								<button (click)="send(name.value, email.value, username.value, userpassword.value, password.value)" class="btn btn-primary btn-lg btn-block login-button">Register</button>
+							</div>
 
+							<div class="login-register">
+								<p>Already registered? <a>Login here </a></p>
+							</div>
+
+						</form>
+
+					</div>
 				</div>
 			</div>
 		</div>
+		
 	</div>
 
 </body>

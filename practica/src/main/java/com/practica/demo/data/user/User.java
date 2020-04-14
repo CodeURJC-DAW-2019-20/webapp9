@@ -30,7 +30,7 @@ public class User {
 	private String img;
 
 	@OneToOne
-	private com.practica.demo.data.rol.Rol rol;
+	private Rol rol;
 
 	// private UserData userData;
 
@@ -48,8 +48,14 @@ public class User {
 		this.password = password;
 		this.rol = rol;
 	}
-
-
+	
+	public User(String name, String username, String email, String password) {
+		super();
+		this.name = name;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+	}
 
 	// GETTERS AND SETTERS
 

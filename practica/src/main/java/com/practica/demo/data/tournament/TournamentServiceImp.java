@@ -162,27 +162,31 @@ public class TournamentServiceImp implements TournamentService {
 			for (Game aux : gameList) {
 				List<Teams_On_Game> listTeamsOnGame = teamsOnGameRepository.findGameIdGame(aux.getId_game());
 				Play auxPlay = new Play();
-				Teams_On_Game teamsOnGame = listTeamsOnGame.get(0);
-				auxPlay.setRound(teamsOnGame.getRound());
-				auxPlay.setDate(teamsOnGame.getDate());
-				Team auxTeam = teamRepository.findByidTeam(teamsOnGame.getTeamIdTeam());
-				auxPlay.setElo1(auxTeam.getElo());
-				auxPlay.setName1(auxTeam.getName());
-				if (listTeamsOnGame.size()==2) {
-					teamsOnGame = listTeamsOnGame.get(1);
-					auxTeam = teamRepository.findByidTeam(teamsOnGame.getTeamIdTeam());
-					auxPlay.setElo2(auxTeam.getElo());
-					auxPlay.setName2(auxTeam.getName());
-					if(teamsOnGame.isWinner()) {
-						auxPlay.setNameWinner(auxTeam.getName());
+				if(listTeamsOnGame.size() != 0) {
+					Teams_On_Game teamsOnGame = listTeamsOnGame.get(0);
+					auxPlay.setRound(teamsOnGame.getRound());
+					auxPlay.setDate(teamsOnGame.getDate());
+					Team auxTeam = teamRepository.findByidTeam(teamsOnGame.getTeamIdTeam());
+					auxPlay.setElo1(auxTeam.getElo());
+					auxPlay.setName1(auxTeam.getName());
+					if (listTeamsOnGame.size()==2) {
+						teamsOnGame = listTeamsOnGame.get(1);
+						auxTeam = teamRepository.findByidTeam(teamsOnGame.getTeamIdTeam());
+						auxPlay.setElo2(auxTeam.getElo());
+						auxPlay.setName2(auxTeam.getName());
+						if(teamsOnGame.isWinner()) {
+							auxPlay.setNameWinner(auxTeam.getName());
+						}else {
+							auxPlay.setNameWinner(auxPlay.getName1());
+						}
 					}else {
-						auxPlay.setNameWinner(auxPlay.getName1());
+						auxPlay.setElo2(0);
+						auxPlay.setName2("");
 					}
-				}else {
-					auxPlay.setElo2(0);
-					auxPlay.setName2("");
+					playList.add(auxPlay);
 				}
-				playList.add(auxPlay);
+				
+				
 			}
 		}else {
 			playList=null;

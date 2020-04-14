@@ -68,9 +68,7 @@ public class UserServiceImp implements UserService{
 			
 			if(user.getRol().getRolDes().equals("USER")) {
 				Player newPlayer = new Player();
-				
-				
-				
+
 				newPlayer.setUser(auxUser);
 				
 				playerRepository.save(newPlayer);

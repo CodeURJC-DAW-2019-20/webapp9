@@ -11,6 +11,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { InfoComponent } from './info/info.component';
 import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes = [
   {path: '', component: HomeComponent },
@@ -23,6 +24,7 @@ const routes = [
   {path: 'profile/:id', component: ProfileComponent},
   {path: 'info', component: InfoComponent},
   {path: 'updateMatch/:idTournament/:pos', component: UpdateMatchComponent},
+  {path: 'register', component: RegisterComponent}
 ];
 
 export const routing = RouterModule.forRoot(routes);

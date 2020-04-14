@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+import { Router } from '@angular/router';
+
 import { Player } from '../models/player.model';
 import { Team } from '../models/team.model';
 
@@ -11,7 +13,7 @@ const BASE_URL = '/api/player/';
 @Injectable({ providedIn: 'root' })
 export class ProfileService {
 
-    constructor(private httpClient: HttpClient){}
+    constructor(private httpClient: HttpClient, public router:Router){}
 
     getPlayerByUserId(userId: number): Observable<Player> {
         return this.httpClient.get(BASE_URL + userId).pipe(
@@ -26,7 +28,10 @@ export class ProfileService {
     }*/
 
     private handleError(error: any) {
-		console.error(error);
+        console.error(error);
+        if(error.status === 403 || error.status === 401 || error.status === 0){
+            this.router.navigate(["/login"]);
+        }
 		return Observable.throw("Server error (" + error.status + "): " + error.text())
 	}
 
