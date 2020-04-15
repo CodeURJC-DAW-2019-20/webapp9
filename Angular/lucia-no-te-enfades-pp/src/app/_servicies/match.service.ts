@@ -42,7 +42,7 @@ export class MatchService{
             },
             error => console.error('Error finding plays' + error)
          );
-         this.putGame(this.games[idPlay], idTournament, idPlay, resultArray).subscribe(
+         this.putGame(this.games[idPlay-1], idTournament, idPlay, resultArray).subscribe(
             _ => {
                 window.history.back();
             },
@@ -54,11 +54,11 @@ export class MatchService{
         this.tournamentservice.getPlays(idTournament).subscribe(
             response => {
                 let data: any = response;
-                this.play = data[idPlay];
+                this.play = data[idPlay-1];
             },
             error => console.error('Error finding plays' + error)
          );
-        for (let i = 0; i < 2; i++){
+
             this.teamsservice.getTeambyName(this.play.name1).subscribe(
                 response => {
                     let data: any = response;
@@ -66,8 +66,16 @@ export class MatchService{
                 },
                 error => console.error('Error finding team'+ error)
             );
-            this.id[i]=this.team.idTeam;
-        }
+            this.id[0]=this.team.idTeam;
+
+            this.teamsservice.getTeambyName(this.play.name2).subscribe(
+                response => {
+                    let data: any = response;
+                    this.team = data;
+                },
+                error => console.error('Error finding team'+ error)
+            );
+            this.id[1]=this.team.idTeam;
 
         if (this.play.winner==this.play.name1){
             resultArray[0].winner=true;
