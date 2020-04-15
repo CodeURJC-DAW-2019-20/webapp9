@@ -26,7 +26,7 @@ export class UpdateMatchComponent{
         this.tournamentservice.getPlays(this.idTournament).subscribe(
             response => {
                 let data: any = response;
-                this.play = data[this.idPlay];
+                this.play = data[this.idPlay-1];
             },
             error => console.error('Error finding plays' + error)
          );
