@@ -21,10 +21,16 @@
                 <li class="nav-item active">
                     <a [routerLink]="['/leaderboard']" class="nav-link">Leaderboard</a>
                 </li>
+                <li *ngIf="adminLogged" class="nav-item active">
+                    <a [routerLink]="['/createTeam']" class="nav-link">Create team</a>
+                </li>
+                <li *ngIf="adminLogged" class="nav-item active">
+                    <a [routerLink]="['/createtournament']" class="nav-link">Create tournament</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active" *ngIf="notLogged">
-                    <a [routerLink]="['/']" class="nav-link">Register</a>
+                    <a [routerLink]="['/register']" class="nav-link">Register</a>
                 </li>
                 <li class="nav-item active" *ngIf="logged">
                     <button (click)="logOut()" class="buttonNoBack">Log out</button>

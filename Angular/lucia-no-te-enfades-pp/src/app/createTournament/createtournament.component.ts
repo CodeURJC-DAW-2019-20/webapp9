@@ -6,7 +6,8 @@ import { Tournament } from '../models/tournament.model';
 
 @Component({
     selector: 'createtournament',
-    templateUrl:'./createtournament.component.html'
+    templateUrl:'./createtournament.component.html',
+    styleUrls: ['./teamCreation.component.css', './style.component.css']
 })
 
 export class CreatetournamentComponent{
