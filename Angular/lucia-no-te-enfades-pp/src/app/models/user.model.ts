@@ -1,7 +1,7 @@
 import { Rol } from './rol.model';
 
 export class User {
-    id: number;
+    iduser: number;
     name: string;
     username: string;
     email: string;
