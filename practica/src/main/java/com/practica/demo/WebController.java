@@ -27,22 +27,26 @@ public class WebController {
 
 	@RequestMapping("/")
 	public String index(Model model) {
+		if(userComponent != null) {
+			//Este if es nuevo porque cuadno llamas a esta funcion desde user controller aqui el user
+			//componnet estaba a null y petaba
+			model.addAttribute("noloaded", !(userComponent.isLoggedUser()));
+			model.addAttribute("user", userComponent.getLoggedUser());
 
-		model.addAttribute("noloaded", !(userComponent.isLoggedUser()));
-		model.addAttribute("user", userComponent.getLoggedUser());
+			if (userComponent.isLoggedUser()) {
+				User user = userComponent.getLoggedUser();
 
-		if (userComponent.isLoggedUser()) {
-			User user = userComponent.getLoggedUser();
+				Rol rol = user.getRol();
 
-			Rol rol = user.getRol();
+				if (rol.getIdRol() == 1) {
+					model.addAttribute("admin", true);
+				} else {
+					model.addAttribute("admin", false);
+				}
 
-			if (rol.getIdRol() == 1) {
-				model.addAttribute("admin", true);
-			} else {
-				model.addAttribute("admin", false);
 			}
-
 		}
+		
 
 		return "index";
 	}
