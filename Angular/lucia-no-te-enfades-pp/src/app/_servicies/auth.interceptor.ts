@@ -1,7 +1,8 @@
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpClient, HttpEvent } from '@angular/common/http';
+import { HttpInterceptor, HttpRequest, HttpHandler, HttpClient, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor{
@@ -19,10 +20,23 @@ export class AuthInterceptor implements HttpInterceptor{
             return next.handle(cloned);
 
         }else{
-            if(status='401'){
-                this.router.navigate(["/login"]);
-            }
+            return next.handle(req).pipe(
+                catchError((error: HttpErrorResponse) => {
+                    let data = {};
+                    data = {
+                        reason: error && error.error.reason ? error.error.reason : '',
+                        status: error.status
+                    };
+                    if(status==="401"){
+                        this.router.navigate(["/login"]);
+                    }              
+                    return throwError(error);
+                })
+              )
         }
+       
 
     }
+ 
 }
+   
