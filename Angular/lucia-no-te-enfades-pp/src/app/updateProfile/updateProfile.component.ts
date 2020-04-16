@@ -18,6 +18,7 @@ import { UserPlayerWrapper } from '../models/upwrapper.model';
 })
 
 export class UpdateProfileComponent{
+    selectedFile:File;
     user :User;
     player:Player;
     username:String;
@@ -49,6 +50,16 @@ export class UpdateProfileComponent{
 
         
     }
+    upload(){
+        this.profileService.uploadProfilePicture(this.selectedFile,this.user.iduser).subscribe(
+            error =>{
+                console.error('Error finding player' + error); 
+            }
+        )
+    }
+    onFileChanged(event) {
+        this.selectedFile = event.target.files[0]
+      }
     updateProfile(name,username,description,pass:string){
         this.wrapper.user = this.user;
         this.wrapper.description = this.player.description;

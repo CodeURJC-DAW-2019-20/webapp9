@@ -59,8 +59,12 @@
 						</div>
 						<div class="form-group">
 							<p>Foto:</p>
-							<input type='file' name='imagenFile' accept=".jpg, .jpeg"/>						
+							<input style="display : none" type='file' name='image' accept=".jpg, .jpeg" (change)="onFileChanged($event)" #fileInput>	
+							<button (click)="fileInput.click()">Select File</button>
+							<button (click)="upload()">Upload!</button>	
+											
 						</div>
+
 						<div class="form-group ">
 							<button (click)="updateProfile(name.value,username.value,desc.value,pass.value)"
 								class="btn btn-primary btn-lg btn-block login-button">Confirm

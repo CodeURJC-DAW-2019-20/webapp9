@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -37,6 +37,12 @@ export class ProfileService {
 		return throwError("Server error (" + error.status + "): " + error.text())
     }
     
+    uploadProfilePicture(file:File,idUser:number):Observable<any>{
+        return this.httpClient.post("/api/user/"+ idUser+ "/image",file).pipe(
+            catchError(error => this.handleError(error))
+        )as Observable<any>;
+    }
+
     updateProfile(wrapper:UserPlayerWrapper): Observable<UserPlayerWrapper>{
         console.log(JSON.stringify(wrapper));
         return this.httpClient.put<UserPlayerWrapper>("/api/user/"+ wrapper.user.iduser, wrapper).pipe(
