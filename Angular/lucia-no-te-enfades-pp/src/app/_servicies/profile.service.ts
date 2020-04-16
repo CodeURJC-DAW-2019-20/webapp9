@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 
 import { Player } from '../models/player.model';
 import { Team } from '../models/team.model';
+import { UserPlayerWrapper } from '../models/upwrapper.model';
 
 const BASE_URL = '/api/player/';
 
@@ -33,6 +34,12 @@ export class ProfileService {
             this.router.navigate(["/login"]);
         }
 		return Observable.throw("Server error (" + error.status + "): " + error.text())
-	}
+    }
+    
+    updateProfile(wrapper:UserPlayerWrapper){
+        this.httpClient.put("api/user/"+ wrapper.user.iduser, wrapper).pipe(
+
+        )
+    }
 
 }

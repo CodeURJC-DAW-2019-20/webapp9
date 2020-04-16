@@ -8,7 +8,8 @@ import { ProfileService } from '../_servicies/profile.service';
 import { UsersService } from '../_servicies/users.service';
 import { User } from '../models/user.model';
 import { PlayersService } from '../_servicies/players.service';
-import { Player} from '../models/player.model'
+import { Player }  from '../models/player.model'
+import { UserPlayerWrapper } from '../models/upwrapper.model';
  
 @Component({
     selector: 'updateProfile',
@@ -19,7 +20,7 @@ export class UpdateProfileComponent{
     user :User;
     player:Player;
     username:String;
-    updatedUser : User;
+    wrapper : UserPlayerWrapper;
     constructor( private playerService:PlayersService, private profileService: ProfileService, private usersService:UsersService){
             
     };
@@ -45,6 +46,10 @@ export class UpdateProfileComponent{
         )
 
         
+    }
+    updateProfile(name,username,description,pass:String){
+        console.log(name);
+        //this.profileService.updateProfile
     }
 
 }
