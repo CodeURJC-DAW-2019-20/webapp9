@@ -20,11 +20,11 @@ const GAME_URL = '/api/tournaments/';
 
 
 export class MatchService{
-    games = new Array<Game>();
     play = new Play;
     id:Array<number>;
     team:Team;
     resultArray:Array<resultBody>;
+   
 
     constructor(private tournamentservice:TournamentService, private teamsservice:TeamsService, private httpClient: HttpClient, public router:Router){}
 
@@ -34,67 +34,25 @@ export class MatchService{
         )as Observable <Game[]>
     }
 
-    updateMatch(idTournament,idPlay:number,resultArray:Array<resultBody>){
-        this.getGames(idTournament).subscribe(
-            response => {
-                let data: any = response;
-                this.games=response;
-            },
-            error => console.error('Error finding plays' + error)
-         );
-         this.putGame(this.games[idPlay-1], idTournament, idPlay, resultArray).subscribe(
+    updateMatch(games:Array<Game>,idPlay:number,id:Array<number>,resultArray:Array<resultBody>){
+             
+         this.putGame(games[idPlay-1],id[0],id[1],resultArray).subscribe(
             _ => {
                 window.history.back();
             },
             error => console.error('Error updating match: ' + error)
          );
     }
-
-    private putGame(game: Game, idTournament: number, idPlay: number, resultArray:Array<resultBody>){
-        this.tournamentservice.getPlays(idTournament).subscribe(
-            response => {
-                let data: any = response;
-                this.play = data[idPlay-1];
-            },
-            error => console.error('Error finding plays' + error)
-         );
-
-            this.teamsservice.getTeambyName(this.play.name1).subscribe(
-                response => {
-                    let data: any = response;
-                    this.team = data;
-                },
-                error => console.error('Error finding team'+ error)
-            );
-            this.id[0]=this.team.idTeam;
-
-            this.teamsservice.getTeambyName(this.play.name2).subscribe(
-                response => {
-                    let data: any = response;
-                    this.team = data;
-                },
-                error => console.error('Error finding team'+ error)
-            );
-            this.id[1]=this.team.idTeam;
-
-        if (this.play.winner==this.play.name1){
-            resultArray[0].winner=true;
-            resultArray[1].winner=false;
-        }
-        else{
-            resultArray[0].winner=false;
-            resultArray[1].winner=true; 
-        }
-
-        const body = JSON.stringify(resultArray)
-        const headers = new HttpHeaders({
-            'Content-Type': 'application/json',
-        });
-
-        return this.httpClient.put(BASE_URL + this.id[0] + this.id[1] + game.idGame, body, { headers }).pipe(
-            catchError(error => this.handleError(error))
-        )
-    }
+    private putGame(game: Game, id1: number, id2: number, resultArray:Array<resultBody>){
+        const body = JSON.stringify(resultArray);
+        const headers = new HttpHeaders({'Content-Type': 'application/json',}); 
+            return this.httpClient.put(BASE_URL + id1 + id2 + game.id_game, body, { headers }).pipe(
+                catchError(error => this.handleError(error))
+            )
+     }
+             
+    
+    
 
     private handleError(error: any) {
         console.error(error);
