@@ -17,6 +17,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
 import { AuthInterceptor } from './_servicies/auth.interceptor';
 import { RegisterComponent } from './register/register.component';
+import { UpdateProfileComponent } from './updateProfile/updateProfile.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { RegisterComponent } from './register/register.component';
     TeamComponent,
     LeaderboardComponent,
     UpdateMatchComponent,
-    RegisterComponent
+    RegisterComponent,
+    UpdateProfileComponent
   ],
 
   imports: [

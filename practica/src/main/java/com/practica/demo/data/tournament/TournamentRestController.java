@@ -78,7 +78,7 @@ public class TournamentRestController {
 	@RequestMapping(value = "/api/tournaments/{id}/teams", method = RequestMethod.POST)
 	public ResponseEntity<Object>join(@PathVariable int id, @RequestBody Team team){
 		if(tournamentService.joinTournament(id, team)) {
-			return new ResponseEntity<>("Your team joined the tournament",HttpStatus.OK);
+			return new ResponseEntity<>(HttpStatus.OK);
 		}else {
 			return new ResponseEntity<>("Error",HttpStatus.INTERNAL_SERVER_ERROR);
 		}

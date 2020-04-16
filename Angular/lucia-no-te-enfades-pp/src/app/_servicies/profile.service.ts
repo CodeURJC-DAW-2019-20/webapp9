@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
 
 import { Router } from '@angular/router';
 
@@ -33,12 +34,12 @@ export class ProfileService {
         if(error.status === 403 || error.status === 401 || error.status === 0){
             this.router.navigate(["/login"]);
         }
-		return Observable.throw("Server error (" + error.status + "): " + error.text())
+		return throwError("Server error (" + error.status + "): " + error.text())
     }
     
     updateProfile(wrapper:UserPlayerWrapper): Observable<UserPlayerWrapper>{
         console.log(JSON.stringify(wrapper));
-        return this.httpClient.put("/api/user/"+ wrapper.user.iduser, wrapper).pipe(
+        return this.httpClient.put<UserPlayerWrapper>("/api/user/"+ wrapper.user.iduser, wrapper).pipe(
             catchError(error => this.handleError(error))
         )as Observable<UserPlayerWrapper>;
     }
