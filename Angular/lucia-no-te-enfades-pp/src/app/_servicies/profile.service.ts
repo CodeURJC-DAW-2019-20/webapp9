@@ -37,7 +37,7 @@ export class ProfileService {
 		return throwError("Server error (" + error.status + "): " + error.text())
     }
     
-    uploadProfilePicture(file:File,idUser:number):Observable<any>{
+    uploadProfilePicture(file:FormData,idUser:number):Observable<any>{
         return this.httpClient.post("/api/user/"+ idUser+ "/image",file).pipe(
             catchError(error => this.handleError(error))
         )as Observable<any>;

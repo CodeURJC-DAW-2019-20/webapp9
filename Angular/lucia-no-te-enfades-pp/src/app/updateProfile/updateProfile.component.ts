@@ -51,7 +51,9 @@ export class UpdateProfileComponent{
         
     }
     upload(){
-        this.profileService.uploadProfilePicture(this.selectedFile,this.user.iduser).subscribe(
+        const uploadData = new FormData();
+        uploadData.append('image', this.selectedFile, this.selectedFile.name);
+        this.profileService.uploadProfilePicture(uploadData,this.user.iduser).subscribe(
             error =>{
                 console.error('Error finding player' + error); 
             }
