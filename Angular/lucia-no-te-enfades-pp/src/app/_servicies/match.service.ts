@@ -46,7 +46,7 @@ export class MatchService{
     private putGame(game: Game, id1: number, id2: number, resultArray:Array<resultBody>){
         const body = JSON.stringify(resultArray);
         const headers = new HttpHeaders({'Content-Type': 'application/json',}); 
-            return this.httpClient.put(BASE_URL + id1 + id2 + game.id_game, body, { headers }).pipe(
+            return this.httpClient.put(BASE_URL + id1 +"+" + id2 +"+"+ game.id_game, body, { headers }).pipe(
                 catchError(error => this.handleError(error))
             )
      }
