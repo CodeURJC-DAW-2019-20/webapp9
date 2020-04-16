@@ -49,6 +49,10 @@ var csrf="{{token}}"
 					<!--Table head-->
 					<!--Table body-->
 					<tbody id="table">
+						<tr *ngFor="let elem of teamsList">
+							<th scope="row">{{elem.pos}}</th>
+							<td>{{elem.name}}</td>
+							<td>{{elem.elo}}</td>
 					</tbody>
 					<!--Table body-->
 				</table>
