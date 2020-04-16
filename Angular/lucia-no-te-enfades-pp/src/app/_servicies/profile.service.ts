@@ -36,10 +36,11 @@ export class ProfileService {
 		return Observable.throw("Server error (" + error.status + "): " + error.text())
     }
     
-    updateProfile(wrapper:UserPlayerWrapper){
-        this.httpClient.put("api/user/"+ wrapper.user.iduser, wrapper).pipe(
-
-        )
+    updateProfile(wrapper:UserPlayerWrapper): Observable<UserPlayerWrapper>{
+        console.log(JSON.stringify(wrapper));
+        return this.httpClient.put("/api/user/"+ wrapper.user.iduser, wrapper).pipe(
+            catchError(error => this.handleError(error))
+        )as Observable<UserPlayerWrapper>;
     }
 
 }

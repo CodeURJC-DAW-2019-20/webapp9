@@ -3,5 +3,5 @@ import { User } from './user.model';
 
 export class UserPlayerWrapper {
 	user:User;
-	player:Player;
+	description:string;
 }

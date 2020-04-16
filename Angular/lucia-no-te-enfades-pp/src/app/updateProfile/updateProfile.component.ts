@@ -14,13 +14,14 @@ import { UserPlayerWrapper } from '../models/upwrapper.model';
 @Component({
     selector: 'updateProfile',
     templateUrl:'./updateProfile.component.html',
+    styleUrls: ['../register/register.component.css']
 })
 
 export class UpdateProfileComponent{
     user :User;
     player:Player;
     username:String;
-    wrapper : UserPlayerWrapper;
+    wrapper = new UserPlayerWrapper;
     constructor( private playerService:PlayersService, private profileService: ProfileService, private usersService:UsersService){
             
     };
@@ -30,6 +31,7 @@ export class UpdateProfileComponent{
         console.log(this.username);
         this.usersService.getUserByUserName(this.username).subscribe(
             usr =>{
+                this.user = usr;
                 console.log(this.user.iduser);
                 this.playerService.getPlayerByUserId(this.user.iduser).subscribe(
                     plyr =>{
@@ -47,9 +49,31 @@ export class UpdateProfileComponent{
 
         
     }
-    updateProfile(name,username,description,pass:String){
+    updateProfile(name,username,description,pass:string){
+        this.wrapper.user = this.user;
+        this.wrapper.description = this.player.description;
+        if (name != ""){
+            this.wrapper.user.name = name;
+        }
+        if (username !=""){
+            this.wrapper.user.username = username;
+        }
+        if (description !=""){
+            this.wrapper.description = description;
+        }
+        if (pass !=""){
+            this.wrapper.user.password= pass;
+        }
         console.log(name);
-        //this.profileService.updateProfile
+        this.profileService.updateProfile(this.wrapper).subscribe(
+            response =>{
+                console.log("done");
+            },
+            error => {
+                console.error("Error updating user")
+            }
+
+        )
     }
 
 }
