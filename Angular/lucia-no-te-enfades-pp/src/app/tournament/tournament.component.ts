@@ -47,6 +47,7 @@ export class TournamentComponent{
                for(var i = 0; i < data.length; i++){
                     data[i].pos = i + 1;
                     this.plays.push(data[i]);
+                    console.log("pera");
                }
            },
            error => console.error('Error finding plays' + error)
@@ -80,6 +81,7 @@ export class TournamentComponent{
                     plyr =>{
                         this.team = plyr.team;
                         this.joinTournament();
+                        
                     },
                     error => {
                         console.error('Error finding player' + error)
@@ -96,6 +98,7 @@ export class TournamentComponent{
     joinTournament(){
         this.tournamentService.joinTournament(this.idTournament, this.team).subscribe(
             _ => {
+                window.location.reload();
             },
             error => console.error('Error joining tournament: ' + error)
         );

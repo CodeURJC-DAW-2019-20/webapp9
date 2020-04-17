@@ -22,6 +22,7 @@ export class UpdateMatchComponent{
     games:Array<Game>;
     id:Array<number>;
     team:Team;
+    winnerName:string;
 
     constructor(private matchservice: MatchService, private tournamentservice:TournamentService, private router: Router,
         activatedRoute: ActivatedRoute, private teamsservice:TeamsService){
@@ -61,7 +62,7 @@ export class UpdateMatchComponent{
                                         this.team = data;
                                         this.id[1]=this.team.id;
 
-                                        if (this.play.nameWinner===this.play.name1){
+                                        if (this.winnerName===this.play.name1){
                                             this.resultArray[0].winner=true;
                                             this.resultArray[1].winner=false;
                                         }
@@ -69,7 +70,8 @@ export class UpdateMatchComponent{
                                             this.resultArray[0].winner=false;
                                             this.resultArray[1].winner=true; 
                                         }                                   
-                                        this.matchservice.updateMatch(this.games,this.idPlay, this.id ,this.resultArray);                                       
+                                        this.matchservice.updateMatch(this.games,this.idPlay, this.id ,this.resultArray);   
+                                        window.history.back();                                    
                                     },
                                     error => console.error('Error finding team'+ error)
                                 );

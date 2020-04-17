@@ -20,6 +20,8 @@ import { RegisterComponent } from './register/register.component';
 import { UpdateProfileComponent } from './updateProfile/updateProfile.component';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
+import { UserAuthGuardService, AdminAuthGuardService} from './_servicies/adminauthguard.service';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { ProfileComponent } from './profile/profile.component';
     RegisterComponent,
     UpdateProfileComponent,
     ProfileComponent
+    
   ],
 
   imports: [
@@ -46,12 +49,15 @@ import { ProfileComponent } from './profile/profile.component';
     routing
   ],
   providers: [
+    UserAuthGuardService,
+    AdminAuthGuardService,
     UsersService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    
   ],
   exports: [
     FormsModule,
