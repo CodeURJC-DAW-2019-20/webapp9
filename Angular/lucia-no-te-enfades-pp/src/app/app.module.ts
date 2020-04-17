@@ -18,7 +18,8 @@ import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
 import { AuthInterceptor } from './_servicies/auth.interceptor';
 import { RegisterComponent } from './register/register.component';
 import { UpdateProfileComponent } from './updateProfile/updateProfile.component';
-
+import { RouterModule } from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { UpdateProfileComponent } from './updateProfile/updateProfile.component'
     LeaderboardComponent,
     UpdateMatchComponent,
     RegisterComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    ProfileComponent
   ],
 
   imports: [
@@ -54,7 +56,8 @@ import { UpdateProfileComponent } from './updateProfile/updateProfile.component'
   exports: [
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    RouterModule
   ],
   bootstrap: [AppComponent]
 })

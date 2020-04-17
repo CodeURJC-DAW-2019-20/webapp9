@@ -77,10 +77,13 @@ export class UpdateProfileComponent{
         if (pass !=""){
             this.wrapper.user.password= pass;
         }
+        if (this.selectedFile != null){
+            this.upload();
+        }
         console.log(name);
         this.profileService.updateProfile(this.wrapper).subscribe(
             response =>{
-                console.log("done");
+                window.history.back();
             },
             error => {
                 console.error("Error updating user")

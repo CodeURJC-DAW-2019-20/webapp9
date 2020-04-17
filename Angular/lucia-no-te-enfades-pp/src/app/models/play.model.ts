@@ -5,6 +5,6 @@ export class Play{
     name2: string;
     elo2: number;
     date: string;
-    winner: string;
+    nameWinner: string;
     pos: number;
 }

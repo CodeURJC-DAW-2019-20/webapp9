@@ -61,7 +61,7 @@ export class UpdateMatchComponent{
                                         this.team = data;
                                         this.id[1]=this.team.id;
 
-                                        if (this.play.winner===this.play.name1){
+                                        if (this.play.nameWinner===this.play.name1){
                                             this.resultArray[0].winner=true;
                                             this.resultArray[1].winner=false;
                                         }
