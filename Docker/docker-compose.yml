@@ -13,7 +13,7 @@ services:
       - 3306:3306
 
   practica:
-    image: web9/practica
+    image: web9/practica:latest
     ports:
       - 8443:8443
     depends_on:
