@@ -279,6 +279,6 @@ En esta fase he estado realizando los contenedores de la aplicación y la base d
 
 ### Diagrama componentes y templates Angular
 
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/github/AngularDiagram.png "Diagrama Angular")
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/primeros-pasos-angular/github/AngularDiagram.png "Diagrama Angular")
 
 
