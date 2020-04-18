@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>eTorneos - Edit profile</title>
+
+<!-- Bootstrap core CSS -->
+<meta name="theme-color" content="#563d7c">
+
+</head>
+<body>
+<!-- NavBar -->
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-8">
+			<div class="card">
+				<div class="card-body">
+					<form class="form-horizontal" enctype="multipart/form-data">
+						<div class="form-group">
+							<label for="name" class="cols-sm-2 control-label">New
+								name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span> 
+									<input type="text" class="form-control" name="name" id="name" #name placeholder="{{user.name}}" />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Description
+								</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="description" #desc placeholder="{{player.description}}" /> 
+
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">New
+								username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="username" id="username" placeholder="{{user.username}}" #username />
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">New
+								password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span> 
+									<input type="password" class="form-control" name="password" id="password" #pass/>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<p>Foto:</p>
+							<input style="display : none" type='file' name='image' accept=".jpg, .jpeg" (change)="onFileChanged($event)" #fileInput>	
+							<button (click)="fileInput.click()">Select File</button>
+							<!--<button (click)="upload()">Upload!</button>	-->
+											
+						</div>
+
+						<div class="form-group ">
+							<button (click)="updateProfile(name.value,username.value,desc.value,pass.value)"
+								class="btn btn-primary btn-lg btn-block login-button">Confirm
+								changes</button>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

@@ -106,14 +106,14 @@ public class UserServiceImp implements UserService{
 					auxUser.setImg(userPlayer.getUser().getImg());
 				}
 				
-				if(userPlayer.getPlayer().getDescription() != null) {
-					auxPlayer.setDescription(userPlayer.getPlayer().getDescription());
+				if(userPlayer.getDescription() != null) {
+					auxPlayer.setDescription(userPlayer.getDescription());
 				}
-				if(userPlayer.getPlayer().getTeam() != null) {
+				/*if(userPlayer.getPlayer().getTeam() != null) {
 					String teamName = userPlayer.getPlayer().getTeam().getName();
 					Team newTeam = teamRepository.findByname(teamName);
 					auxPlayer.setTeam(newTeam);
-				}
+				}*/
 				
 				userRepository.save(auxUser);
 				playerRepository.save(auxPlayer);
