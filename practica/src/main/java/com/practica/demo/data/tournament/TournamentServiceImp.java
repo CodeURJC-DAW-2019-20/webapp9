@@ -221,6 +221,7 @@ public class TournamentServiceImp implements TournamentService {
 						auxPlay.setElo2(0);
 						auxPlay.setName2("");
 					}
+					playList.add(auxPlay);
 				}else {
 					auxPlay.setElo2(0);
 					auxPlay.setName2("");
