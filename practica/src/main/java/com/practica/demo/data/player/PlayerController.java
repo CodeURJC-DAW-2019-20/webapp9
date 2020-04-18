@@ -79,8 +79,9 @@ public class PlayerController {
 		Player player = playerRepository.findByuser(useraux);
 		
 		UserPlayerWrapper aux = new UserPlayerWrapper();
-		aux.setPlayer(player);
+		
 		aux.setUser(useraux);
+		aux.setDescription(player.getDescription());
 		userService.updateUser(useraux.getIduser(), aux);
 		userService.uploadImage(imagenFile, useraux.getIduser());
 		return "index";

@@ -59,7 +59,7 @@ public class UserRestController {
 	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Object> updateTeam(@PathVariable int id ,@RequestBody UserPlayerWrapper userPlayer){
 		if(userService.updateUser(id, userPlayer)){
-			return new ResponseEntity<>("User was succesfully updated", HttpStatus.OK);
+			return new ResponseEntity<>(userPlayer, HttpStatus.OK);
 		}else{
 			return new ResponseEntity<>("The user wasnt updated", HttpStatus.NOT_FOUND);
 		}

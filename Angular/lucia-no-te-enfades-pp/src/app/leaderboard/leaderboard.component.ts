@@ -35,13 +35,18 @@ export class LeaderboardComponent {
         loaderLeaderboard.loadSpinner();
         this.teamsService.getTeams(this.pageCounter).subscribe(
             response => {
-                
-                this.teamsList = response;
+                response.forEach( element =>{
+                    if(element.elo!=0){
+                        element.pos=this.pos++;
+                        this.teamsList.push(element);
+                    }
+                })
+                /*this.teamsList = response;
                 this.teamsList.forEach(element => {
                     if(element.elo!=0){
                         loaderLeaderboard.fn(this.pos++,element);
                     }
-                });
+                });*/
                 
                 this.pageCounter++;
             },

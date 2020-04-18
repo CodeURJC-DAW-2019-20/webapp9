@@ -14,7 +14,7 @@ export class UsersService {
   actualUser: string;
   actualUserName: string;
   actualPass: string;
-
+  loggedUser: User;
   redirectToHome: string = "/index";
   currentUser: Observable<User>;
   currentUserSubject: BehaviorSubject<User>;
@@ -45,7 +45,7 @@ export class UsersService {
         localStorage.setItem('currentUser', JSON.stringify(user));
         //localStorage.setItem('currentUser', user.authData);
         //this.currentUserSubject.next(user);
-        
+        this.loggedUser = user;
         this.logged = true;
         this.actualUser = user;
         this.actualUserName = user.username;
@@ -53,7 +53,7 @@ export class UsersService {
         
         localStorage.setItem('loggedString' , "true");
         localStorage.setItem('actualUserName', this.actualUserName);
-
+        localStorage.setItem('role',this.loggedUser.rol.rolDes);
       })
     )
   }
@@ -74,6 +74,7 @@ export class UsersService {
 
     localStorage.setItem('loggedString' , "false");
     localStorage.setItem('actualUserName', this.actualUserName);
+    localStorage.setItem('role',"");
   }
 
   getLogged(){
