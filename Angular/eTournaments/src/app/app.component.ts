@@ -13,7 +13,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./home/carousel.component.css']
 })
 export class AppComponent {
-  title = 'lucia-no-te-enfades-pp';
+  title = 'eTournaments';
   userLoggued = new User;
   userLoggedName: String;
   userLoggedId: number;
