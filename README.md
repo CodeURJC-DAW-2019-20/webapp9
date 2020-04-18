@@ -277,5 +277,8 @@ En esta fase he estado realizando los contenedores de la aplicación y la base d
 [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/cf9efca912e44e8535e80c759dd275035943e3c1)
 [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/6ace090fb4c3ba0c2a91e346f91891cea4cb4767)
 
+### Diagrama componentes y templates Angular
+
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/github/AngularDiagram.png "Diagrama Angular")
 
 
