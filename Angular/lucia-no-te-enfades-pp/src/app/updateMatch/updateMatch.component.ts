@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Play } from '../models/play.model';
-import { MatchService } from '../_servicies/match.service';
+import { MatchService, resultBody } from '../_servicies/match.service';
 import { TournamentService } from '../_servicies/tournament.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TeamsService } from '../_servicies/teams.service';
@@ -30,13 +30,14 @@ export class UpdateMatchComponent{
         this.idPlay = activatedRoute.snapshot.params['pos'];
         this.id=new Array();
     };
+
     ngOnInit(){
         this.resultArray[0]=new resultBody;
         this.resultArray[1]=new resultBody;
         this.tournamentservice.getPlays(this.idTournament).subscribe(
             response => {
                 let data: any = response;
-                this.play = data[this.idPlay];
+                this.play = data[this.idPlay-1];
             },
             error => console.error('Error finding plays' + error)
          );

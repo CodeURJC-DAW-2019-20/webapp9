@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { UsersService } from './_servicies/users.service';
@@ -41,10 +42,10 @@ import { UserAuthGuardService, AdminAuthGuardService} from './_servicies/adminau
 
   imports: [
     BrowserModule,
-    HttpClientModule,
     FormsModule,
-    NgbModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    NgbModule,
     routing
   ],
   providers: [

@@ -21,6 +21,7 @@ export class AppComponent {
   
   logged: boolean;
   notLogged: boolean;
+  adminLogged: boolean;
 
   constructor(private userService: UsersService){
     
@@ -45,6 +46,8 @@ export class AppComponent {
       }else{
         this.notLogged = true;
       }
+      
+      this.adminLogged = false;
 
       if(this.userLoggedName != "undefined" && this.userLoggedName != "null" && this.userLoggedName != null){
         this.setUserId(this.userLoggedName);
@@ -74,6 +77,12 @@ export class AppComponent {
       user => {
         let data: any = user;
         this.userLoggedId = data.iduser;
+        this.userLoggued = data;
+        if(this.userLoggued.rol.rolDes === "ADMIN"){
+          this.adminLogged = true;
+        }else{
+          this.adminLogged = false;
+        }
       },
       error => console.error('Error finding user: ' + error)
     );

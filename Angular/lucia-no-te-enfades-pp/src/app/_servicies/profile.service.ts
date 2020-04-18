@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
+import { Router } from '@angular/router';
+
 import { Player } from '../models/player.model';
 import { Team } from '../models/team.model';
 import { UserPlayerWrapper } from '../models/upwrapper.model';
@@ -13,7 +15,7 @@ const BASE_URL = '/api/player/';
 @Injectable({ providedIn: 'root' })
 export class ProfileService {
 
-    constructor(private httpClient: HttpClient){}
+    constructor(private httpClient: HttpClient, public router:Router){}
 
     getPlayerByUserId(userId: number): Observable<Player> {
         return this.httpClient.get(BASE_URL + userId).pipe(

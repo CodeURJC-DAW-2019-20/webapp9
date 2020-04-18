@@ -4,6 +4,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
+import { Router } from '@angular/router';
+
 import { User } from '../models/user.model';
 
 const BASE_URL = '/api/user/';
@@ -20,7 +22,7 @@ export class UsersService {
   currentUserSubject: BehaviorSubject<User>;
   logged: boolean = false;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router:Router) {
     //this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     //this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -101,8 +103,17 @@ export class UsersService {
     )as Observable<User>;
   }
 
+  createUser(user: User): Observable<User>{
+    return this.http.post(BASE_URL, user).pipe(
+      catchError(error => this.handleError(error))
+    )as Observable<User>;
+  }
+
   private handleError(error: any) {
     console.error(error);
+    if(error.status === 403 || error.status === 401 || error.status === 0){
+      this.router.navigate(["/login"]);
+    }
     return throwError("Server error (" + error.status + "): " + error.text);
   }
 

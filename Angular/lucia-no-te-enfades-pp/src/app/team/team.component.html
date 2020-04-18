@@ -75,13 +75,13 @@
 				<br>
 				<!-- Button -->
 				<div class="col-md-4 inputGroupContainer">
-					<button *ngIf="notSaved" class="btn btn-primary" (click)="save()">Submit</button>
+					<button *ngIf="notSaved" class="button" (click)="save()">Submit</button>
 				</div>
 				
 				<h3 *ngIf="saved">Team created</h3> 
 
 				<div class="col-md-4 inputGroupContainer">
-					<button *ngIf="saved" class="btn btn-primary" [routerLink]="['/']">Go to home</button>
+					<button *ngIf="saved" class="button" [routerLink]="['/']">Go to home</button>
 				</div>
 
 			</fieldset>
