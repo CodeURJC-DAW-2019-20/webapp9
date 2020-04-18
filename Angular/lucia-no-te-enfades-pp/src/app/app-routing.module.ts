@@ -11,23 +11,18 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { InfoComponent } from './info/info.component';
 import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
-import { RegisterComponent } from './register/register.component';
-import { UpdateProfileComponent } from './updateProfile/updateProfile.component';
-import { UserAuthGuardService, AdminAuthGuardService } from './_servicies/adminauthguard.service';
 
 const routes = [
   {path: '', component: HomeComponent },
-  {path: 'tournaments', component: RocketleagueComponent ,canActivate: [UserAuthGuardService]},
+  {path: 'tournaments', component: RocketleagueComponent },
   {path: 'login', component: LoginComponent },
-  {path: 'createtournament', component: CreatetournamentComponent,canActivate: [AdminAuthGuardService]},
-  {path: 'tournament/:idTournament', component: TournamentComponent,canActivate: [UserAuthGuardService]},
-  {path: 'createTeam', component: TeamComponent, canActivate: [AdminAuthGuardService] },
-  {path: 'leaderboard', component: LeaderboardComponent,canActivate: [UserAuthGuardService]},
+  {path: 'createtournament', component: CreatetournamentComponent},
+  {path: 'tournament/:idTournament', component: TournamentComponent},
+  {path: 'createTeam', component: TeamComponent},
+  {path: 'leaderboard', component: LeaderboardComponent},
   {path: 'profile/:id', component: ProfileComponent},
-  {path: 'info', component: InfoComponent,canActivate: [UserAuthGuardService]},
-  {path: 'updateMatch/:idTournament/:pos', component: UpdateMatchComponent, canActivate: [AdminAuthGuardService]},
-  {path: 'register', component: RegisterComponent},
-  {path: 'updateProfile', component: UpdateProfileComponent,canActivate: [UserAuthGuardService]}
+  {path: 'info', component: InfoComponent},
+  {path: 'updateMatch/:idTournament/:pos', component: UpdateMatchComponent},
 ];
 
 export const routing = RouterModule.forRoot(routes);

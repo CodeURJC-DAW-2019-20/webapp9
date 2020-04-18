@@ -47,26 +47,26 @@
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="hero-text">
-								<h2>{{username}}</h2>
-								<p>{{description}}</p>
+								<h2>{{player.user.username}}</h2>
+								<p>{{player.description}}</p>
 							</div>
 							<div class="hero-info">
-								<h2>Team: {{teamName}}</h2>
+								<h2>Team: {{player.team.name}}</h2>
 								<ul>
-
-								<input type="submit" [routerLink]="['/updateProfile']" class="button" value="Edit profile">
-
+									<!--{{#myprofile}}-->
+										<a type="button" href="/editProfile" class="button">Edit profile</a>
+									<!--{{/myprofile}}-->
 								</ul>
 							</div>
 						</div>
 
-						
+						<!--
 						<div class="col-lg-6">
 							<figure class="hero-image">
 								<img  alt="5" src="{{imgUrl}}">
 							</figure>
 						</div>
-					
+					-->
 					</div>
 					<div class="row">
 						<div class="container my-4">

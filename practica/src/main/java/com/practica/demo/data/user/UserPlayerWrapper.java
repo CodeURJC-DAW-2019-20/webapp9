@@ -4,20 +4,19 @@ import com.practica.demo.data.player.Player;
 
 public class UserPlayerWrapper {
 	private User user;
-
-	private String description;
+	private Player player;
+	
 	public User getUser() {
 		return user;
 	}
 	public void setUser(User user) {
 		this.user = user;
 	}
-
-	public String getDescription() {
-		return description;
+	public Player getPlayer() {
+		return player;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setPlayer(Player player) {
+		this.player = player;
 	}
 	
 	

@@ -15,11 +15,6 @@ import { TournamentComponent } from './tournament/tournament.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UpdateMatchComponent } from './updateMatch/updateMatch.component';
 import { AuthInterceptor } from './_servicies/auth.interceptor';
-import { RegisterComponent } from './register/register.component';
-import { UpdateProfileComponent } from './updateProfile/updateProfile.component';
-import { RouterModule } from '@angular/router';
-import { ProfileComponent } from './profile/profile.component';
-import { UserAuthGuardService, AdminAuthGuardService} from './_servicies/adminauthguard.service';
 
 
 @NgModule({
@@ -32,11 +27,7 @@ import { UserAuthGuardService, AdminAuthGuardService} from './_servicies/adminau
     TournamentComponent,
     TeamComponent,
     LeaderboardComponent,
-    UpdateMatchComponent,
-    RegisterComponent,
-    UpdateProfileComponent,
-    ProfileComponent
-    
+    UpdateMatchComponent
   ],
 
   imports: [
@@ -48,21 +39,12 @@ import { UserAuthGuardService, AdminAuthGuardService} from './_servicies/adminau
     routing
   ],
   providers: [
-    UserAuthGuardService,
-    AdminAuthGuardService,
     UsersService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    },
-    
-  ],
-  exports: [
-    FormsModule,
-    ReactiveFormsModule,
-    NgbModule,
-    RouterModule
+    }
   ],
   bootstrap: [AppComponent]
 })

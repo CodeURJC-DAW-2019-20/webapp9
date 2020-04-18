@@ -1,7 +1,7 @@
 import { Team } from './team.model';
 import { User } from './user.model';
 
-export class Player{
+export interface Player{
     idPlayer: number;
     user: User;
     description: string;

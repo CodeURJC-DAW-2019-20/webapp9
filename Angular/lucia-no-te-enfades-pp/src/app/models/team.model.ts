@@ -1,6 +1,5 @@
 export class Team{
-    idTeam: number;
-    id?:number;
+    idTeam?: number;
     name: string;
     elo: number;
     wins: number;

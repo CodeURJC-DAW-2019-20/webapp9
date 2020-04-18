@@ -39,13 +39,13 @@ export class TournamentService{
         );
     }
 
-    joinTournament(idTournament: number, team: Team){
+    joinTournament(tournament: Tournament, team: Team){
         
         const body = JSON.stringify(team);
         const headers = new HttpHeaders({
             'Content-Type': 'application/json',
         });
-        return this.httpClient.post<Team>(BASE_URL+ '/' + idTournament+ '/teams', body, { headers }).pipe(
+        return this.httpClient.post<Team>(BASE_URL+ '/' + tournament.idTournament+ '/teams', body, { headers }).pipe(
             catchError(error => this.handleError(error))
         );
     }

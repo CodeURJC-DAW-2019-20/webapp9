@@ -7,7 +7,6 @@ import { PlayersService } from '../_servicies/players.service';
 import { Tournament } from '../models/tournament.model';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Team } from '../models/team.model';
-import { UsersService } from '../_servicies/users.service';
 
 const GOOGLE_API = "https://maps.googleapis.com/maps/api/js?sensor=false";
 const GOOGLE_SCRIPT = "../assets/js/googleMap.js";
@@ -29,14 +28,13 @@ export class TournamentComponent{
     nameTournament: string;
     plays = new Array<Play>();
     team = new Team;
-    username: string;
 
     loadAPI0: Promise<any>;
     loadAPI: Promise<any>;
     loadAPI2: Promise<any>;
 
 
-    constructor(private usersService: UsersService, private tournamentService: TournamentService, private playersService: PlayersService, private router:Router, activatedRoute: ActivatedRoute){
+    constructor(private tournamentService: TournamentService, private playersService: PlayersService, private router:Router, activatedRoute: ActivatedRoute){
         this.idTournament=activatedRoute.snapshot.params['idTournament'];
     }
 
@@ -47,7 +45,6 @@ export class TournamentComponent{
                for(var i = 0; i < data.length; i++){
                     data[i].pos = i + 1;
                     this.plays.push(data[i]);
-                    console.log("pera");
                }
            },
            error => console.error('Error finding plays' + error)
@@ -72,36 +69,15 @@ export class TournamentComponent{
     }
 
     addTeamToTournament(){
-
-        this.username = this.usersService.getActualUserName();
-
-        this.usersService.getUserByUserName(this.username).subscribe(
-            usr =>{
-                this.playersService.getPlayerByUserId(usr.iduser).subscribe(
-                    plyr =>{
-                        this.team = plyr.team;
-                        this.joinTournament();
-                        
-                    },
-                    error => {
-                        console.error('Error finding player' + error)
-                    }
-                )
-            },
-            error => {
-                console.error('Error finding user' + error)
-            }
-        )
-
-    }
-
-    joinTournament(){
-        this.tournamentService.joinTournament(this.idTournament, this.team).subscribe(
+        /*this.playersService.getPlayerByUserId();   coger equipo de cuenta activa*/
+        /*this.team= data.Team;*/
+        this.tournamentService.joinTournament(this.tournament, this.team).subscribe(
             _ => {
-                window.location.reload();
             },
             error => console.error('Error joining tournament: ' + error)
         );
+        
     }
 
+   
 }

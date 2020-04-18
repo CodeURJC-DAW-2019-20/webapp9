@@ -52,13 +52,6 @@ export class AppComponent {
       
   }
 
-  isUserLogged():boolean{
-    return this.logged;
-  }
-  isAdminLogged():boolean{
-    return this.adminLogged;
-  }
-
   logOut(){
     this.userService.logOut().subscribe(
       response => {
