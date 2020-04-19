@@ -330,6 +330,12 @@ Además de realizar el Docker.
 [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/13be5898f8085ac81f55e057163d268c53d5f505)
 [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/f7c097e8ae770afe4ea94585380c8e70386cef19)
 
+-Alejandro
+[Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/8246c639adef41e0b895f28ac0ad392579939858)
+[Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/3eda83b55c26a966a5c2c08dabe20a7f94959839)
+[Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/53969b481cf53ab87c98bf594a3c91a68812fd99)
+[Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/5f13c6bed3b6d9893593a88a62185b8b43413454)
+[Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/b60e660a1fb49d4f03dfc4bb0ff737cde6c99cd6)
 
 ### Archivos fase Angular
 
