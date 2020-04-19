@@ -66,6 +66,29 @@ En la cabecera se deberá especificar un "content-type" "application/json".
 * #### Código de error:
     400 BAD_REQUEST
 
+## Devolver un usuario por user name (Administrador) (Usuario)
+* #### URL
+    https://localhost:8443/api/user/name={userName}
+* #### Operaciones soportadas
+    GET
+* #### Body petición
+    Vacío
+* #### Body respuesta
+    ```
+    {
+    "iduser": 1,
+    "name": "Admin",
+    "username": "Admin",
+    "email": "admin@gmail.com",
+    "img": null,
+    "rol": {
+        "idRol": 1,
+        "rolDes": "ADMIN"
+    }
+}
+* #### Código de error:
+    400 BAD_REQUEST
+
 ## Crear nuevo usuario (Administrador) (Usuario)
 * #### URL
     https://localhost:8443/api/user
@@ -167,6 +190,26 @@ En la cabecera se deberá especificar un "content-type" "application/json".
     },
                 ...
 
+## Devolver un torneo (Administrador) (Usuario)
+* #### URL
+     https://localhost:8443/api/tournaments/{id}
+* #### Operaciones soportadas
+    GET
+* #### Body petición
+    Vacío
+* #### Body respuesta
+    ```
+    {
+        "idTournament": 1,
+        "numTeams": 8,
+        "name": "Best Tournament",
+        "description": "Here play the best",
+        "img": null,
+        "latitude": 13.0,
+        "longitude": 2.0
+    }
+    ...
+
 ## Crear nuevo torneo (Administrador)
 * #### URL
      https://localhost:8443/api/tournaments    
@@ -222,6 +265,32 @@ En la cabecera se deberá especificar un "content-type" "application/json".
         "teamIdTeam": 14,
         "gameIdGame": 9
     }  
+            ...
+* #### Código de error
+    404 NOT_FOUND
+
+## Devolver los juegos de un torneo (Administrador) (Usuario)
+* #### URL
+    https://localhost:8443/api/tournaments/{idTournament}/games
+* #### Operaciones soportadas
+    GET
+* #### Body petición
+    Vacío
+* #### Body respuesta
+    ```
+    [
+    {
+        "id_game": 1,
+        "tournament": {
+            "idTournament": 1,
+            "numTeams": 8,
+            "name": "Best Tournament",
+            "description": "Here play the best",
+            "img": null,
+            "latitude": 13.0,
+            "longitude": 2.0
+        }
+    },  
             ...
 * #### Código de error
     404 NOT_FOUND
@@ -285,15 +354,17 @@ Esta petición es utilizada para la funcionalidad "load more" de la página web.
 * #### Body respuesta
     Listado de los equipos que deben de aparecer de manera dinámica en la página web
     
-## Devolver listado de equipos (Administrador) (Usuario)
+## Devolver listado de equipos paginado (Administrador) (Usuario)
 * #### URL
-    https://localhost:8443/api/teams
+    https://localhost:8443/api/teams/page={pageNum}
 * #### Operaciones soportadas
     GET
 * #### Body petición
     Vacío
 * #### Body respuesta
-    Listado de todos los equipos
+    Listado de equipos de 5 elementos por página
+* #### Código de error
+    404 NOT_FOUND
     
 ## Crear nuevo equipo (Administrador)
 * #### URL
@@ -324,6 +395,25 @@ Esta petición es utilizada para la funcionalidad "load more" de la página web.
     200 OK (Team was succesfully updated)
 * #### Código de error
     404 NOT_FOUND (The team wasnt updated)
+    
+## Devolver un equipo por nombre (Administrador) (Usuario)
+* #### URL
+    https://localhost:8443/api/teams/{name}
+* #### Operaciones soportadas
+    GET
+* #### Body petición
+    Vacío
+* #### Body respuesta
+    ```
+    {
+    "name": "The flyers",
+    "elo": 391,
+    "wins": 22,
+    "losses": 7,
+    "id": 1
+    }
+* #### Código de error
+    404 NOT_FOUND (The team wasent found)
 
 ## Añadir un jugador a un equipo (Administrador)
 * #### URL
@@ -340,7 +430,39 @@ Esta petición es utilizada para la funcionalidad "load more" de la página web.
 * #### Código de error
     404 NOT_FOUND (Player or team not found)
 
-
+## Devolver un jugador por id de usuario (Administrador) (Usuario)
+* #### URL
+    https://localhost:8443/api/player/{idUser}
+* #### Operaciones soportadas
+    GET
+* #### Body petición
+    Vacío
+* #### Body respuesta
+    ```
+    {
+    "idPlayer": 1,
+    "user": {
+        "iduser": 2,
+        "name": "WillyRex",
+        "username": "Willy",
+        "email": "willy@gmail.com",
+        "img": null,
+        "rol": {
+            "idRol": 2,
+            "rolDes": "USER"
+        }
+    },
+    "description": "Im a casual player",
+    "team": {
+        "name": "los ps",
+        "elo": 986,
+        "wins": 1,
+        "losses": 1,
+        "id": 14
+    }
+    }
+* #### Código de error
+    404 NOT_FOUND (Player not found)
 
 
 
