@@ -283,15 +283,15 @@ En esta fase he estado realizando los contenedores de la aplicación y la base d
 
 Para el desarrollo de la aplicación web en Angular, se deberá instalar un editor o entorno de desarrollo. En nuestro caso hemos descargado Visual Studio Code (https://code.visualstudio.com/). También, habrá que instalar node.js (https://nodejs.org/es/).
 Una vez descargadas ambas herramientas, abriremos el proyecto en Visual Studio, y en la consola situada en la parte inferior de este entorno escribiremos la siguientes líneas de comandos:
-      * cd nombre-carpeta-app
-      * npm install -g angular/cli
+      *cd nombre-carpeta-app
+      *npm install -g angular/cli
        
 Es posible que se necesite instalar las dependencias de bootstrap y jquery, para ello ejecutaremos los siguientes comandos:
-      * npm install bootstrap
-      * npm install jquery
+      *npm install bootstrap
+      *npm install jquery
        
 Para ejecutar la aplicación, se usará el siguiente comando (abrimos también una ventana en el navegador con la dirección localhost:4200, donde se encontrará la aplicación):
-      * npm start
+      *npm start
        
 Los cambios realizados mientras la aplicación se esté ejecutando se actualizarán automáticamente, por lo que no será necesario utilizar el comando cada vez que se haga una modificación.
 
