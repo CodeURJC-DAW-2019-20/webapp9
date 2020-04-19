@@ -337,13 +337,20 @@ Además de realizar el Docker.
 [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/5f13c6bed3b6d9893593a88a62185b8b43413454)
 [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/b60e660a1fb49d4f03dfc4bb0ff737cde6c99cd6)
 
+- Lucía
+[Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/2399b4ef7a70aa0e0f57d29c4b538366e4bbc234)
+[Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/65437cf2157df1c1531e53e5e6ca34c4e593e338)
+[Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/6e9510dc9ca0918238b556512054f4bf38802bfe)
+[Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/49cd858d7d47751b6bb4dd45606611b269368647)
+[Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/b1129902d934506423789dd67c6cd1f0c086cdec)
+
 ### Archivos fase Angular
 
 | Alejandro               | Daniel                  | Jorge                           | Lucía                   |
 |-------------------------|-------------------------|---------------------------------|-------------------------|
-| update.service          | team.component          |angular.json                     |                         |
-| profile.component       | app.component           |app-routing.module.ts            |                         |
-| leaderboard.component   | auth.interceptor        |Docker                           |                         |
-| adminauthguard.service  | teams.service           |package.json                     |                         |
-| profile.service         | users.service           |proxy.conf.json                  |                         |
+| update.service          | team.component          |angular.json                     | updateMatch.component   |
+| profile.component       | app.component           |app-routing.module.ts            | match.service           |
+| leaderboard.component   | auth.interceptor        |Docker                           | tournament.component    |
+| adminauthguard.service  | teams.service           |package.json                     | tournament.service      |
+| profile.service         | users.service           |proxy.conf.json                  | rocketleague.service    |
 
