@@ -21,6 +21,7 @@ import { UpdateProfileComponent } from './updateProfile/updateProfile.component'
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { UserAuthGuardService, AdminAuthGuardService} from './_servicies/adminauthguard.service';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { UserAuthGuardService, AdminAuthGuardService} from './_servicies/adminau
       useClass: AuthInterceptor,
       multi: true
     },
+ 
     
   ],
   exports: [
