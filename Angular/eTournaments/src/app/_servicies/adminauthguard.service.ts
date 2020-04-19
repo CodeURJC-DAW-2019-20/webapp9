@@ -30,7 +30,7 @@ export class UserAuthGuardService implements CanActivate{
         if (localStorage.getItem('role') === "ADMIN" || localStorage.getItem('role') === "USER"){
             return true;
         }else{
-            this.router.navigate(['/login']);
+            this.router.navigate(['/loginA']);
             return false;
         }
         

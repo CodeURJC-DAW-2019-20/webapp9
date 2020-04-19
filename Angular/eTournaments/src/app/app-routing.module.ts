@@ -18,7 +18,7 @@ import { UserAuthGuardService, AdminAuthGuardService } from './_servicies/admina
 const routes = [
   {path: '', component: HomeComponent },
   {path: 'tournaments', component: RocketleagueComponent ,canActivate: [UserAuthGuardService]},
-  {path: 'login', component: LoginComponent },
+  {path: 'loginA', component: LoginComponent },
   {path: 'createtournament', component: CreatetournamentComponent,canActivate: [AdminAuthGuardService]},
   {path: 'tournament/:idTournament', component: TournamentComponent,canActivate: [UserAuthGuardService]},
   {path: 'createTeam', component: TeamComponent, canActivate: [AdminAuthGuardService] },

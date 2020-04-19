@@ -13,7 +13,7 @@
                     <a [routerLink]="['/']" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item active" *ngIf="notLogged">
-                    <a [routerLink]="['/login']" class="nav-link">Sign in</a>
+                    <a [routerLink]="['/loginA']" class="nav-link">Sign in</a>
                 </li>
                 <li class="nav-item active" *ngIf="logged">
                     <a [routerLink]="['/profile/',userLoggedId]" class="nav-link">{{userLoggedName}}</a>
