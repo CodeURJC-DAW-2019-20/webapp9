@@ -7,6 +7,10 @@ Nuestra aplicación web será un sistema de torneos de Rocket League (videojuego
 - Lucía Romero - l.romerov.2017@alumnos.urjc.es
 - Alejandro Gavilán - a.gavilanv.2017@alumnos.urjc.es
 
+### Vídeo de funcoinamiento de la web
+El vídeo se puede encontrar en el siguiente enlace:
+[Vídeo](https://youtu.be/tvUrQJ3_AoA)
+
 ## Entidades
 - Torneos
 - Partidas
