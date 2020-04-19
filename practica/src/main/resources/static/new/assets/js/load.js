@@ -1,0 +1,70 @@
+var loaderLeaderboard = function(){
+	return{
+		fn : function(pos,team){
+			$().append("<img src='../../assets/spinner.gif>");
+			$("#table").append(
+				'<tr>' +
+				'<th scope="row">' + pos + '</th>' +
+				'<td>' + team.name + '</td>' +
+				'<td>' + team.elo + '</td>' +
+				'</tr>'
+			)
+			
+		},
+		loadSpinner : function(){
+			$('#loader').html("<img src='/assets/spinner.gif'/>");
+		},
+		unloadSpinner : function(){
+			$('#loader').html("");
+		}
+	}
+}(loaderLeaderboard||{})
+
+function sleep(ms) {
+	return new Promise(resolve => setTimeout(resolve, ms));
+  }
+/*
+
+function showTeam(pos,team) {
+	if(team.id_team != 0){
+		console.log(team.id_team);
+$("#table").append(
+				
+				'<tr>' +
+				'<th scope="row">' + pos + '</th>' +
+				'<td>' + team.name + '</td>' +
+				'<td>' + team.elo + '</td>' +
+				'</tr>'
+			);
+		
+	}	
+
+}
+
+function loadTeams(callback) {
+    $.ajax({
+        url: 'https://localhost:8443/api/leaderBoardLoaded?_csrf='+csrf
+    }).done(function (teams) {
+    	$('#loader').empty();
+    	callback(teams);
+    });
+}
+
+
+$(document).ready(function(){
+	var cont = 2;
+$("#btn").on('click', function() {
+	$('#loader').html("<img src='/imgs/spinner.gif'/>");
+		loadTeams(function (teams) {
+	        for (var i = cont; i < teams.length; i++) {
+	        	cont = i + 1;
+	        	//console.log(cont);
+	            showTeam(cont,teams[i]);	
+	        }
+	    });
+	});
+	
+});
+	
+*/
+	
