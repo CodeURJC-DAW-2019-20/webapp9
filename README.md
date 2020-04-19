@@ -309,6 +309,11 @@ En esta fase me he encargado del funcionamiento de crear un nuevo equipo, del as
 para que sea el mismo que en las fases anteriores, de la carga y ejecucíon de la API de Google Maps y
 he colaborado en la solución de numerosos errores.
 
+-Jorge
+En esta fase me he encargado de inciar los primeros pasos en Angular. Crear el pathing de las rutas. La autentificacion del
+user Login. Las configuraciones de proxy, build y angular.json.
+Además de realizar el Docker. 
+
 ### Commits fase Angular
 
 - Daniel
@@ -318,13 +323,21 @@ he colaborado en la solución de numerosos errores.
 [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/eb67247a4889735e69cce2a83f06c5ab8af47fff)
 [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/ceb97126ba01b1dd60c96f0e31280b416d0175ee)
 
+- Jorge
+[Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/4e151e2ae23af14683f3f948526ace068f4c8e33)
+[Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/4703007de82a06e7c5900f84702000f797a8f800)
+[Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/2c709a052f5eca85c7d760194b80dde6b03c47b4)
+[Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/13be5898f8085ac81f55e057163d268c53d5f505)
+[Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/f7c097e8ae770afe4ea94585380c8e70386cef19)
+
+
 ### Archivos fase Angular
 
 | Alejandro               | Daniel                  | Jorge                           | Lucía                   |
 |-------------------------|-------------------------|---------------------------------|-------------------------|
-|                         | team.component          |                                 |                         |
-|                         | app.component           |                                 |                         |
-|                         | auth.interceptor        |                                 |                         |
-|                         | teams.service           |                                 |                         |
-|                         | users.service           |                                 |                         |
+|                         | team.component          |angular.json                     |                         |
+|                         | app.component           |app-routing.module.ts            |                         |
+|                         | auth.interceptor        |Docker                           |                         |
+|                         | teams.service           |package.json                     |                         |
+|                         | users.service           |proxy.conf.json                  |                         |
 
