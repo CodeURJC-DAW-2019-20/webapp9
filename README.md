@@ -330,7 +330,7 @@ Además de realizar el Docker.
 [Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/13be5898f8085ac81f55e057163d268c53d5f505)
 [Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/f7c097e8ae770afe4ea94585380c8e70386cef19)
 
--Alejandro
+- Alejandro
 [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/8246c639adef41e0b895f28ac0ad392579939858)
 [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/3eda83b55c26a966a5c2c08dabe20a7f94959839)
 [Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/53969b481cf53ab87c98bf594a3c91a68812fd99)
@@ -341,9 +341,9 @@ Además de realizar el Docker.
 
 | Alejandro               | Daniel                  | Jorge                           | Lucía                   |
 |-------------------------|-------------------------|---------------------------------|-------------------------|
-|                         | team.component          |angular.json                     |                         |
-|                         | app.component           |app-routing.module.ts            |                         |
-|                         | auth.interceptor        |Docker                           |                         |
-|                         | teams.service           |package.json                     |                         |
-|                         | users.service           |proxy.conf.json                  |                         |
+| update.service          | team.component          |angular.json                     |                         |
+| profile.component       | app.component           |app-routing.module.ts            |                         |
+| leaderboard.component   | auth.interceptor        |Docker                           |                         |
+| adminauthguard.service  | teams.service           |package.json                     |                         |
+| profile.service         | users.service           |proxy.conf.json                  |                         |
 
