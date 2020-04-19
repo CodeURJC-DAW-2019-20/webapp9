@@ -169,7 +169,7 @@ Para acceder a la web introduzca la URL: https://https://localhost:8443/
 
 ### Especificación REST
 Se puede encontrar la documentación y especificación de los endpoints REST en el siguiente archivo
-[Documentación](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/API.md)
+[Documentación](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/Primeros-pasos-angular/API.md)
 
 ### Pasos para generar Docker.
 1. Descargar Docker Desktop y crear un usuario.
