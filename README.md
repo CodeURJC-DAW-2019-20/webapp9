@@ -230,19 +230,6 @@ networks:
 11. Ejecutamos el siguiente comando para agrupar los dos contenedores.
       - docker-compose up
 
-### Pasos para desarrollo en Angular
-
-Para el desarrollo de la aplicación web en Angular, se deberá instalar un editor o entorno de desarrollo. En nuestro caso hemos descargado Visual Studio Code (https://code.visualstudio.com/). También, habrá que instalar node.js (https://nodejs.org/es/).
-Una vez descargadas ambas herramientas, abriremos el proyecto en Visual Studio, y en la consola situada en la parte inferior de este entorno escribiremos la siguientes líneas de comandos:
-       cd nombre-carpeta-app
-       npm install -g angular/cli
-Para ejecutar la aplicación, se usará el siguiente comando (abrimos también una ventana en el navegador con la dirección localhost:4200, donde se encontrará la aplicación):
-       npm start
-Los cambios realizados mientras la aplicación se esté ejecutando se actualizarán automáticamente, por lo que no será necesario utilizar el comando cada vez que se haga una modificación.
-
-### Diagrama API Rest
-![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/github/RestDiagram.png "Diagrama Rest")
-
 ### Participación 2ª ronda
 
 - Daniel
@@ -291,8 +278,53 @@ En esta fase he estado realizando los contenedores de la aplicación y la base d
 [Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/cf9efca912e44e8535e80c759dd275035943e3c1)
 [Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/6ace090fb4c3ba0c2a91e346f91891cea4cb4767)
 
+
+### Pasos para desarrollo en Angular
+
+Para el desarrollo de la aplicación web en Angular, se deberá instalar un editor o entorno de desarrollo. En nuestro caso hemos descargado Visual Studio Code (https://code.visualstudio.com/). También, habrá que instalar node.js (https://nodejs.org/es/).
+Una vez descargadas ambas herramientas, abriremos el proyecto en Visual Studio, y en la consola situada en la parte inferior de este entorno escribiremos la siguientes líneas de comandos:
+       cd nombre-carpeta-app
+       npm install -g angular/cli
+       
+Es posible que se necesite instalar las dependencias de bootstrap y jquery, para ello ejecutaremos los siguientes comandos:
+       npm install bootstrap
+       npm install jquery
+       
+Para ejecutar la aplicación, se usará el siguiente comando (abrimos también una ventana en el navegador con la dirección localhost:4200, donde se encontrará la aplicación):
+       npm start
+       
+Los cambios realizados mientras la aplicación se esté ejecutando se actualizarán automáticamente, por lo que no será necesario utilizar el comando cada vez que se haga una modificación.
+
+### Diagrama API Rest
+![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/github/RestDiagram.png "Diagrama Rest")
+
 ### Diagrama componentes y templates Angular
 
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/Primeros-pasos-angular/github/AngularDiagram.png "Diagrama Angular")
 
+### Participación 3ª ronda
+
+- Daniel
+En esta fase me he encargado del funcionamiento de crear un nuevo equipo, del aspecto de la aplicación
+para que sea el mismo que en las fases anteriores, de la carga y ejecucíon de la API de Google Maps y
+he colaborado en la solución de numerosos errores.
+
+### Commits fase Angular
+
+- Daniel
+[Commit1](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/5dbd50ae30a00297078a4c62e4cce8c8add0c3b1)
+[Commit2](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/877f66b7506d36927b6665587324420120382df9)
+[Commit3](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/bf1d0f7bae594d48f0b48eb7a22cdfc98d8297fe)
+[Commit4](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/eb67247a4889735e69cce2a83f06c5ab8af47fff)
+[Commit5](https://github.com/CodeURJC-DAW-2019-20/webapp9/commit/ceb97126ba01b1dd60c96f0e31280b416d0175ee)
+
+### Archivos fase Angular
+
+| Alejandro               | Daniel                  | Jorge                           | Lucía                   |
+|-------------------------|-------------------------|---------------------------------|-------------------------|
+|                         | team.component          |                                 |                         |
+|                         | app.component           |                                 |                         |
+|                         | auth.interceptor        |                                 |                         |
+|                         | teams.service           |                                 |                         |
+|                         | users.service           |                                 |                         |
 
