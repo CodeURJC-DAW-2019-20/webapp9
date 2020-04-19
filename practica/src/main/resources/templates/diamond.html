@@ -53,12 +53,12 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<form action="index">
+						<form action="/index">
 							<input type="submit" class="nav-link" value="Home">
 						</form>
 					</li>
 					<li class="nav-item active">{{#noloaded}}
-						<form action="login">
+						<form action="/login">
 							<input type="submit" class="nav-link" value="Sign In">
 						</form> {{/noloaded}} {{^noloaded}}
 						<form action="profile" method="get">
@@ -68,14 +68,14 @@
 						</form> {{/noloaded}}
 					</li>
 					<li class="nav-item active">
-						<form action="leaderBoard">
+						<form action="/leaderBoard">
 							<input type="submit" class="nav-link" value="Leaderboard">
 						</form>
 					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item active">{{#noloaded}}
-						<form action="register">
+						<form action="/register">
 							<input type="submit" class="nav-link" value="Register"> <input
 								type="hidden" name="_csrf" value="{{token}}" />
 						</form> {{/noloaded}} {{^noloaded}}

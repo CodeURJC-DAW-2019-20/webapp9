@@ -100,7 +100,7 @@ public class TournamentController {
 		return "infoPage";
 	}
 	
-	@GetMapping("/{name}")
+	@GetMapping("/tournament/{name}")
 	public String tournaments(Model model, @PathVariable String name) {
 		model.addAttribute("noloaded", !userComponent.isLoggedUser());
 		model.addAttribute("user", userComponent.getLoggedUser());

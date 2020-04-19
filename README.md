@@ -7,6 +7,10 @@ Nuestra aplicación web será un sistema de torneos de Rocket League (videojuego
 - Lucía Romero - l.romerov.2017@alumnos.urjc.es
 - Alejandro Gavilán - a.gavilanv.2017@alumnos.urjc.es
 
+### Vídeo de funcoinamiento de la web
+El vídeo se puede encontrar en el siguiente enlace:
+[Vídeo](https://youtu.be/tvUrQJ3_AoA)
+
 ## Entidades
 - Torneos
 - Partidas
@@ -225,6 +229,16 @@ networks:
 
 11. Ejecutamos el siguiente comando para agrupar los dos contenedores.
       - docker-compose up
+
+### Pasos para desarrollo en Angular
+
+Para el desarrollo de la aplicación web en Angular, se deberá instalar un editor o entorno de desarrollo. En nuestro caso hemos descargado Visual Studio Code (https://code.visualstudio.com/). También, habrá que instalar node.js (https://nodejs.org/es/).
+Una vez descargadas ambas herramientas, abriremos el proyecto en Visual Studio, y en la consola situada en la parte inferior de este entorno escribiremos la siguientes líneas de comandos:
+       cd nombre-carpeta-app
+       npm install -g angular/cli
+Para ejecutar la aplicación, se usará el siguiente comando (abrimos también una ventana en el navegador con la dirección localhost:4200, donde se encontrará la aplicación):
+       npm start
+Los cambios realizados mientras la aplicación se esté ejecutando se actualizarán automáticamente, por lo que no será necesario utilizar el comando cada vez que se haga una modificación.
 
 ### Diagrama API Rest
 ![alt text](https://github.com/CodeURJC-DAW-2019-20/webapp9/blob/securityRest/github/RestDiagram.png "Diagrama Rest")
