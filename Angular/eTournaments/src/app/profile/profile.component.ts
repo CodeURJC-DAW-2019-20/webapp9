@@ -44,6 +44,7 @@ export class ProfileComponent{
                 this.player = response;
                 this.username= this.player.user.username;
                 if (this.player.team!=null){
+                    this.team = this.player.team;
                     this.teamName= this.player.team.name;
                 }
                 if (this.player.description!=null){
